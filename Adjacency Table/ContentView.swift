@@ -43,7 +43,7 @@ struct ContentView: View {
     }
     
     var MST: Graph {
-        prim(G: G, vertices: vertices)
+        kruskal(G: G, vertices: vertices)
     }
     
     var body: some View {

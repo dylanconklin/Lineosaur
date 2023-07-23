@@ -1,13 +1,13 @@
 //
-//  Prim.swift
+//  Kruskal.swift
 //  Adjacency Table
 //
-//  Created by Dylan Conklin on 7/19/23.
+//  Created by Dylan Conklin on 7/23/23.
 //
 
 import Foundation
 
-func prim(G: Graph, vertices: Set<Vertex>) -> Graph {
+func kruskal(G: Graph, vertices: Set<Vertex>) -> Graph {
     var G: Graph = G
     var vertices_left: Set<Vertex> = Set<Vertex>(vertices) // vertices that don't have an edge
     var MST: Graph = [:]
