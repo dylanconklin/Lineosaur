@@ -42,9 +42,6 @@
 		ABDAC5052A687AD8003001F8 = {
 			isa = PBXGroup;
 			children = (
-				AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */,
-				AB1EC05A2A6D0A510010CEEE /* InputView.swift */,
-				ABDAC53B2A6B2CDF003001F8 /* Graph.swift */,
 				ABDAC5102A687AD8003001F8 /* Adjacency Table */,
 				ABDAC50F2A687AD8003001F8 /* Products */,
 			);
@@ -63,6 +60,9 @@
 			children = (
 				ABDAC5112A687AD8003001F8 /* Adjacency_TableApp.swift */,
 				ABDAC5132A687AD8003001F8 /* ContentView.swift */,
+				ABDAC53B2A6B2CDF003001F8 /* Graph.swift */,
+				AB1EC05A2A6D0A510010CEEE /* InputView.swift */,
+				AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */,
 				ABDAC5152A687AD9003001F8 /* Assets.xcassets */,
 				ABDAC5172A687AD9003001F8 /* Adjacency_Table.entitlements */,
 				ABDAC5182A687AD9003001F8 /* Preview Content */,

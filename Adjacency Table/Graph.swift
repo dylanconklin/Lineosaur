@@ -8,13 +8,13 @@
 import Foundation
 
 typealias Vertex = String
-typealias Graph = [Set<Vertex> : Double]
+typealias Graph = [Set<Vertex>: Double]
 
 extension Set {
-    func containsAny (in set: Set) -> Bool {
+    func containsAny(in set: Set) -> Bool {
         var result: Bool = false
         for element in set {
-            if self.contains(element) {
+            if contains(element) {
                 result = true
             }
         }
