@@ -7,9 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var showDetails: Bool = false
+struct Cell: View {
+    var str: String
 
+    var body: some View {
+        Text(str)
+            .frame(width: 150, height: 75)
+            .border(.black)
+    }
+}
+
+struct ContentView: View {
     @State private var input: String = """
     1 2 1.5
     1 3 2.5
@@ -54,35 +62,24 @@ struct ContentView: View {
                 ScrollView(.horizontal, showsIndicators: true) {
                     Grid {
                         GridRow {
-                            Button("") {
-                                showDetails = true
-                            }
-                            .frame(width: 150, height: 75)
-                            .border(.black)
+                            Cell(str: "")
                             ForEach(vertices.sorted(), id: \.self) { x in
-                                Button("\(x)") {
-                                    showDetails = true
-                                }
-                                .frame(width: 150, height: 75)
-                                .border(.black)
-                                .fontWeight(Font.Weight.bold)
+                                Cell(str: x)
+                                    .fontWeight(Font.Weight.bold)
                             }
                         }
                         ForEach(vertices.sorted(), id: \.self) { y in
                             GridRow {
-                                Button("\(y)") {
-                                    showDetails = true
-                                }
-                                .frame(width: 150, height: 75)
-                                .border(.black)
-                                .fontWeight(Font.Weight.bold)
+                                Cell(str: y)
+                                    .fontWeight(Font.Weight.bold)
                                 ForEach(vertices.sorted(), id: \.self) { x in
-                                    let distance: Double = MST[Set(arrayLiteral: y, x)] ?? 0.0
-                                    Button("\(distance)") {
-                                        showDetails = true
+                                    var distance: String {
+                                        var distance: String = ""
+                                        distance = String(MST[Set(arrayLiteral: y, x)] ?? 0.0)
+                                        distance = y != x && distance == "0.0" ? "-" : distance
+                                        return distance
                                     }
-                                    .frame(width: 150, height: 75)
-                                    .border(.black)
+                                    Cell(str: distance)
                                 }
                             }
                         }
