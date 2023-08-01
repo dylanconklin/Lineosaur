@@ -7,9 +7,9 @@
 
 import Foundation
 
-func kruskal(G: Graph, vertices: Set<Vertex>) -> Graph {
+func kruskal(G: Graph) -> Graph {
     var G: Graph = G
-    var vertices_left: Set<Vertex> = Set<Vertex>(vertices) // vertices that don't have an edge
+    var vertices_left: Set<Vertex> = G.vertices // vertices that don't have an edge
     var MST: Graph = [:]
 
     for edge in G.sorted(by: { $0.value < $1.value }) {

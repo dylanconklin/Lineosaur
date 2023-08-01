@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-struct Cell: View {
-    var str: String
-
-    var body: some View {
-        Text(str)
-            .frame(width: 150, height: 75)
-            .border(.black)
-    }
-}
-
 struct ContentView: View {
     @State private var input: String = """
     1 2 1.5
@@ -42,37 +32,27 @@ struct ContentView: View {
         return G
     }
 
-    var vertices: Set<Vertex> {
-        var vertices: Set<Vertex> = []
-        G.forEach { edge in
-            vertices.formUnion(edge.key)
-        }
-        return vertices
-    }
-
     var MST: Graph {
-        kruskal(G: G, vertices: vertices)
+        kruskal(G: G)
     }
 
     var body: some View {
         VStack {
-            // TextEditor(text: $input)
-            Text(input)
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
                     Grid {
                         GridRow {
                             Cell(str: "")
-                            ForEach(vertices.sorted(), id: \.self) { x in
+                            ForEach(MST.vertices.sorted(), id: \.self) { x in
                                 Cell(str: x)
                                     .fontWeight(Font.Weight.bold)
                             }
                         }
-                        ForEach(vertices.sorted(), id: \.self) { y in
+                        ForEach(MST.vertices.sorted(), id: \.self) { y in
                             GridRow {
                                 Cell(str: y)
                                     .fontWeight(Font.Weight.bold)
-                                ForEach(vertices.sorted(), id: \.self) { x in
+                                ForEach(MST.vertices.sorted(), id: \.self) { x in
                                     var distance: String {
                                         var distance: String = ""
                                         distance = String(MST[Set(arrayLiteral: y, x)] ?? 0.0)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0E3C2A2A78DC030019E48E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0E3C292A78DC030019E48E /* Cell.swift */; };
 		AB1EC05B2A6D0A510010CEEE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1EC05A2A6D0A510010CEEE /* InputView.swift */; };
 		AB1EC05D2A6D16F40010CEEE /* Kruskal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */; };
 		ABDAC5122A687AD8003001F8 /* Adjacency_TableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDAC5112A687AD8003001F8 /* Adjacency_TableApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB0E3C292A78DC030019E48E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB1EC05A2A6D0A510010CEEE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kruskal.swift; sourceTree = "<group>"; };
 		ABDAC50E2A687AD8003001F8 /* Adjacency Table.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +41,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0E3C2B2A78DC230019E48E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB0E3C292A78DC030019E48E /* Cell.swift */,
+				ABDAC5132A687AD8003001F8 /* ContentView.swift */,
+				AB1EC05A2A6D0A510010CEEE /* InputView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AB0E3C2C2A78DC470019E48E /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				ABDAC53B2A6B2CDF003001F8 /* Graph.swift */,
+				AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 		ABDAC5052A687AD8003001F8 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +79,9 @@
 		ABDAC5102A687AD8003001F8 /* Adjacency Table */ = {
 			isa = PBXGroup;
 			children = (
+				AB0E3C2C2A78DC470019E48E /* Logic */,
+				AB0E3C2B2A78DC230019E48E /* Views */,
 				ABDAC5112A687AD8003001F8 /* Adjacency_TableApp.swift */,
-				ABDAC5132A687AD8003001F8 /* ContentView.swift */,
-				ABDAC53B2A6B2CDF003001F8 /* Graph.swift */,
-				AB1EC05A2A6D0A510010CEEE /* InputView.swift */,
-				AB1EC05C2A6D16F40010CEEE /* Kruskal.swift */,
 				ABDAC5152A687AD9003001F8 /* Assets.xcassets */,
 				ABDAC5172A687AD9003001F8 /* Adjacency_Table.entitlements */,
 				ABDAC5182A687AD9003001F8 /* Preview Content */,
@@ -150,6 +169,7 @@
 			files = (
 				ABDAC53C2A6B2CDF003001F8 /* Graph.swift in Sources */,
 				AB1EC05B2A6D0A510010CEEE /* InputView.swift in Sources */,
+				AB0E3C2A2A78DC030019E48E /* Cell.swift in Sources */,
 				AB1EC05D2A6D16F40010CEEE /* Kruskal.swift in Sources */,
 				ABDAC5142A687AD8003001F8 /* ContentView.swift in Sources */,
 				ABDAC5122A687AD8003001F8 /* Adjacency_TableApp.swift in Sources */,
