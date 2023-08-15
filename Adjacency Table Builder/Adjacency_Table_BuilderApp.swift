@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Adjacency_TableApp: App {
+struct Adjacency_Table_BuilderApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
