@@ -22,11 +22,11 @@ struct ContentView: View {
                 }
                 Section ("Viewers") {
                     NavigationLink("View Given Table") {
-                        TableView(MST: g.G)
+                        TableView(G: g.G)
                             .navigationTitle("Given Tree")
                     }
                     NavigationLink("View Minimum Spanning Tree") {
-                        TableView(MST: g.MST)
+                        TableView(G: g.MST)
                             .navigationTitle("Min. Spanning Tree")
                     }
                 }

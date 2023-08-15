@@ -25,19 +25,20 @@ struct Edge : Hashable {
 }
 
 @Observable public class G {
-    var G: Graph = [Set(["1", "2"]): 1.5,
-                    Set(["4", "3"]): 4.5,
-                    Set(["3", "2"]): 2.3,
-                    Set(["3", "1"]): 2.5,
-                    Set(["2", "5"]): 3.5,
-                    Set(["5", "1"]): 1.3,
-                    Set(["2", "4"]): 2.4,
-                    Set(["4", "5"]): 2.3,
-                    Set(["4", "1"]): 1.4,
-                    Set(["3", "5"]): 2.5]
+    var G: Graph = [Set(["Baltimore", "Barre"]): 496,
+                    Set(["Baltimore", "Portland"]): 2810,
+                    Set(["Baltimore", "Richmond"]): 149,
+                    Set(["Baltimore", "SLC"]): 2082,
+                    Set(["Barre", "Portland"]): 3052,
+                    Set(["Barre", "Richmond"]): 646,
+                    Set(["Barre", "SLC"]): 2328,
+                    Set(["Portland", "Richmond"]): 2867,
+                    Set(["Portland", "SLC"]): 768,
+                    Set(["Richmond", "SLC"]): 2141,
+                    ]
     
     var MST: Graph {
-        kruskal(G: G)
+        mst(G: G)
     }
 }
 

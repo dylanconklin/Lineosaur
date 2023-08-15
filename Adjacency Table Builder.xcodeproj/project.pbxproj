@@ -14,9 +14,9 @@
 		AB510F612A8A923F00B76121 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F602A8A923F00B76121 /* Cell.swift */; };
 		AB510F632A8A927200B76121 /* EdgeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F622A8A927200B76121 /* EdgeBuilder.swift */; };
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
-		AB510F672A8A929800B76121 /* Kruskal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F662A8A929800B76121 /* Kruskal.swift */; };
 		AB510F692A8A92AD00B76121 /* TableBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F682A8A92AD00B76121 /* TableBuilder.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
+		AB8B740B2A8C0B9F00CC4CE9 /* MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8B740A2A8C0B9F00CC4CE9 /* MST.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +48,9 @@
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB510F622A8A927200B76121 /* EdgeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBuilder.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		AB510F662A8A929800B76121 /* Kruskal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kruskal.swift; sourceTree = "<group>"; };
 		AB510F682A8A92AD00B76121 /* TableBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBuilder.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		AB8B740A2A8C0B9F00CC4CE9 /* MST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MST.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 			children = (
 				AB510F682A8A92AD00B76121 /* TableBuilder.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
-				AB510F662A8A929800B76121 /* Kruskal.swift */,
+				AB8B740A2A8C0B9F00CC4CE9 /* MST.swift */,
 				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
@@ -271,10 +271,10 @@
 				AB510F632A8A927200B76121 /* EdgeBuilder.swift in Sources */,
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
-				AB510F672A8A929800B76121 /* Kruskal.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				AB510F692A8A92AD00B76121 /* TableBuilder.swift in Sources */,
+				AB8B740B2A8C0B9F00CC4CE9 /* MST.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
