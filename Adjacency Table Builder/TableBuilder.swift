@@ -42,6 +42,9 @@ struct EdgeCreator: View {
                     }
                     Button {
                         graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
+                        to = ""
+                        from = ""
+                        weight = 0
                         showing = false
                     } label: {
                         HStack {

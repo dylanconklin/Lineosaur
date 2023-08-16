@@ -51,6 +51,7 @@
 		AB510F682A8A92AD00B76121 /* TableBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBuilder.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AB8B740A2A8C0B9F00CC4CE9 /* MST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MST.swift; sourceTree = "<group>"; };
+		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 		AB510F272A8A91C800B76121 = {
 			isa = PBXGroup;
 			children = (
+				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
 				AB510F322A8A91C800B76121 /* Adjacency Table Builder */,
 				AB510F462A8A91CA00B76121 /* Adjacency Table BuilderTests */,
 				AB510F502A8A91CA00B76121 /* Adjacency Table BuilderUITests */,

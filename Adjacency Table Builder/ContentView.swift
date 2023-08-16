@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Adjacency Table")
+            .navigationTitle("Adjacency Table Builder")
         }
         .padding()
     }
