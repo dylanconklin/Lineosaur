@@ -13,7 +13,7 @@ func mst(G: Graph) -> Graph {
     var MST: Graph = [:]
 
     while let edge = G.filter({ $0.key.containsAny(in: vertices_left) && $0.key.containsAny(in: MST.vertices) }).sorted(by: { $0.value < $1.value }).first ?? (MST.isEmpty ? G.sorted(by: { $0.value < $1.value }).first : nil) {
-        MST[edge.key] = edge.value
+        MST.insert(edge: Edge(vertices: edge.key, weight: edge.value))
         for vertex in edge.key {
             vertices_left.remove(vertex)
         }

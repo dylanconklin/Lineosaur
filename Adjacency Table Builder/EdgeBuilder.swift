@@ -16,26 +16,20 @@ struct EdgeBuilder: View {
         HStack {
             VStack {
                 HStack {
-                    Text("from   : ")
-                    TextField("from", text: $from)
+                    Text("from   : \(from)")
                     Spacer()
                 }
                 HStack {
-                    Text("to     : ")
-                    TextField("to", text: $to)
+                    Text("to     : \(to)")
                     Spacer()
                 }
                 HStack {
-                    Text("weight : ")
-                    TextField("weight",
-                              text: Binding(
-                                  get: { String(weight) },
-                                  set: { weight = Double($0) ?? 0.0 }))
+                    Text("weight : \(weight == weight.rounded() ? String(Int(weight)) : String(weight))")
                     Spacer()
                 }
             }
-            .fontDesign(Font.Design.monospaced)
         }
+        .fontDesign(Font.Design.monospaced)
         .padding()
     }
 }
@@ -43,7 +37,11 @@ struct EdgeBuilder: View {
 struct EdgeBuilder_Previews: PreviewProvider {
     @State static var x = "Destination"
     @State static var y = 5.0
+    @State static var z = 5.5
     static var previews: some View {
-        EdgeBuilder(from: $x, to: $x, weight: $y)
+        VStack {
+            EdgeBuilder(from: $x, to: $x, weight: $y)
+            EdgeBuilder(from: $x, to: $x, weight: $z)
+        }
     }
 }

@@ -24,7 +24,7 @@ struct Edge : Hashable {
     }
 }
 
-@Observable public class G {
+@Observable public class GraphData {
     var G: Graph = [Set(["Baltimore", "Barre"]): 496,
                     Set(["Baltimore", "Portland"]): 2810,
                     Set(["Baltimore", "Richmond"]): 149,
@@ -43,12 +43,8 @@ struct Edge : Hashable {
 }
 
 extension Graph {
-    mutating func setSelf (to vals: [Edge]) -> [Set<String> : Double] {
-        var result: [Set<String> : Double] = [:]
-        for val in vals {
-            result[val.vertices] = val.weight
-        }
-        return result
+    mutating func insert(edge: Edge) {
+        self[edge.vertices] = edge.weight
     }
     
     var vertices: Set<Vertex> {
@@ -83,7 +79,9 @@ extension Graph {
             })
         }
         set {
-            self = setSelf(to: newValue)
+            for edge in newValue {
+                self.insert(edge: Edge(vertices: edge.vertices, weight: edge.weight))
+            }
         }
     }
 }

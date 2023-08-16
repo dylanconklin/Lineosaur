@@ -9,24 +9,24 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    var g = G()
+    var graph = GraphData()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section ("Builder") {
                     NavigationLink("Build Table") {
-                        TableBuilder(g: g)
+                        TableBuilder(graph: graph)
                             .navigationTitle("Table Builder")
                     }
                 }
                 Section ("Viewers") {
                     NavigationLink("View Given Table") {
-                        TableView(G: g.G)
+                        TableView(G: graph.G)
                             .navigationTitle("Given Tree")
                     }
                     NavigationLink("View Minimum Spanning Tree") {
-                        TableView(G: g.MST)
+                        TableView(G: graph.MST)
                             .navigationTitle("Min. Spanning Tree")
                     }
                 }
