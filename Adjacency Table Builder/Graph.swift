@@ -8,18 +8,18 @@
 import Foundation
 
 typealias Vertex = String
-typealias Graph = [Set<Vertex> : Double]
+typealias Graph = [Set<Vertex>: Double]
 
-struct Edge : Hashable {
+struct Edge: Hashable {
     var vertices: Set<Vertex>
     var weight: Double
-    
+
     var verticesArray: [Vertex] {
         get {
             Array(vertices).sorted()
         }
         set {
-            self.vertices = Set<Vertex>(newValue)
+            vertices = Set<Vertex>(newValue)
         }
     }
 }
@@ -35,8 +35,8 @@ struct Edge : Hashable {
                     Set(["Portland", "Richmond"]): 2867,
                     Set(["Portland", "SLC"]): 768,
                     Set(["Richmond", "SLC"]): 2141,
-                    ]
-    
+    ]
+
     var MST: Graph {
         mst(G: G)
     }
@@ -46,22 +46,22 @@ extension Graph {
     mutating func insert(edge: Edge) {
         self[edge.vertices] = edge.weight
     }
-    
+
     var vertices: Set<Vertex> {
         var vertices: Set<Vertex> = []
-        self.forEach { edge in
+        forEach { edge in
             vertices.formUnion(edge.key)
         }
         return vertices
     }
-    
+
     var verticesArray: [Vertex] {
-        Array(self.vertices).sorted()
+        Array(vertices).sorted()
     }
-    
+
     var edges: Set<Edge> {
         var edges: Set<Edge> = []
-        self.vertices.forEach { v1 in
+        vertices.forEach { v1 in
             self.vertices.forEach { v2 in
                 if self[Set([v1, v2])] != nil {
                     edges.insert(Edge(vertices: Set([v1, v2]), weight: self[Set([v1, v2])] ?? 0.0))
@@ -70,17 +70,18 @@ extension Graph {
         }
         return edges
     }
-    
+
     var edgesArray: [Edge] {
         get {
-            Array(self.edges).sorted(by: {
+            Array(edges).sorted(by: {
                 let index: Int = $0.verticesArray[0] != $1.verticesArray[0] ? 0 : 1
                 return $0.verticesArray[index] < $1.verticesArray[index]
             })
         }
         set {
+            removeAll()
             for edge in newValue {
-                self.insert(edge: Edge(vertices: edge.vertices, weight: edge.weight))
+                insert(edge: Edge(vertices: edge.vertices, weight: edge.weight))
             }
         }
     }
