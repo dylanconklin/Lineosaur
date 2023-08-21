@@ -1,8 +1,14 @@
 # Adjacency Table Builder
 
-By Dylan Conklin
+----
 
-Watch preview YouTube: https://youtu.be/dJc68L8nda8
+<p align="center">
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+|
+<strong><a href="https://youtu.be/dJc68L8nda8">YouTube Preview</a></strong>
+</p>
+
+----
 
 Adjacency Table Builder is an app to build weighted graphs and view the associated adjacency tables and generated Minimum Spanning Tree (MST).
 
