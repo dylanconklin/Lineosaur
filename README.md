@@ -1,13 +1,11 @@
 # Adjacency Table Builder
 
-----
-
-<p align="center">
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-|
+
+----
+<p align="center">
 <strong><a href="https://youtu.be/dJc68L8nda8">YouTube Preview</a></strong>
 </p>
-
 ----
 
 Adjacency Table Builder is an app to build weighted graphs and view the associated adjacency tables and generated Minimum Spanning Tree (MST).
