@@ -1,4 +1,6 @@
-# Adjacency Table Builder
+<h1 align="center">
+  Adjacency Table Builder
+</h1>
 
 <p align="center">
 <a href="https://opensource.org/licenses/MIT">
