@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EdgeCreator: View {
     @Binding var showing: Bool
-    @Bindable var graph: GraphData
+    @ObservedObject var graph: GraphData
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
@@ -18,7 +18,7 @@ struct EdgeCreator: View {
     var body: some View {
         if showing {
             ZStack {
-                Color(Color.gray)
+                Color(.gray)
                 VStack {
                     Form {
                         HStack {
@@ -56,13 +56,13 @@ struct EdgeCreator: View {
                     Spacer()
                 }
             }
-            .fontDesign(Font.Design.monospaced)
+            .monospaced()
         }
     }
 }
 
 struct TableBuilder: View {
-    @Bindable var graph: GraphData
+    @ObservedObject var graph: GraphData
     @State var showEdgeCreator: Bool = false
 
     var body: some View {

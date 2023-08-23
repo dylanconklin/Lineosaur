@@ -24,8 +24,8 @@ struct Edge: Hashable {
     }
 }
 
-@Observable public class GraphData {
-    var G: Graph = [Set(["Baltimore", "Barre"]): 496,
+public class GraphData : ObservableObject {
+    @Published var G: Graph = [Set(["Baltimore", "Barre"]): 496,
                     Set(["Baltimore", "Portland"]): 2810,
                     Set(["Baltimore", "Richmond"]): 149,
                     Set(["Baltimore", "SLC"]): 2082,

@@ -29,7 +29,7 @@ struct EdgeBuilder: View {
                 }
             }
         }
-        .fontDesign(Font.Design.monospaced)
+        .monospaced()
         .padding()
     }
 }

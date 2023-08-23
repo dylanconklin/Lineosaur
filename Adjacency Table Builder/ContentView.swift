@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    var graph = GraphData()
+    @StateObject var graph = GraphData()
 
     var body: some View {
         NavigationStack {
