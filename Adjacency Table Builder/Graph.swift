@@ -24,17 +24,17 @@ struct Edge: Hashable {
     }
 }
 
-public class GraphData : ObservableObject {
+public class GraphData: ObservableObject {
     @Published var G: Graph = [Set(["Baltimore", "Barre"]): 496,
-                    Set(["Baltimore", "Portland"]): 2810,
-                    Set(["Baltimore", "Richmond"]): 149,
-                    Set(["Baltimore", "SLC"]): 2082,
-                    Set(["Barre", "Portland"]): 3052,
-                    Set(["Barre", "Richmond"]): 646,
-                    Set(["Barre", "SLC"]): 2328,
-                    Set(["Portland", "Richmond"]): 2867,
-                    Set(["Portland", "SLC"]): 768,
-                    Set(["Richmond", "SLC"]): 2141,
+                               Set(["Baltimore", "Portland"]): 2810,
+                               Set(["Baltimore", "Richmond"]): 149,
+                               Set(["Baltimore", "SLC"]): 2082,
+                               Set(["Barre", "Portland"]): 3052,
+                               Set(["Barre", "Richmond"]): 646,
+                               Set(["Barre", "SLC"]): 2328,
+                               Set(["Portland", "Richmond"]): 2867,
+                               Set(["Portland", "SLC"]): 768,
+                               Set(["Richmond", "SLC"]): 2141,
     ]
 
     var MST: Graph {
@@ -85,7 +85,7 @@ extension Graph {
             }
         }
     }
-    
+
     func mst() -> Graph {
         var G: Graph = self
         var vertices_left: Set<Vertex> = G.vertices // vertices that don't have an edge
@@ -101,7 +101,6 @@ extension Graph {
 
         return MST
     }
-
 }
 
 extension Set {

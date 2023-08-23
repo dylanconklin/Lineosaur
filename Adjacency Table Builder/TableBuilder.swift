@@ -35,8 +35,8 @@ struct EdgeCreator: View {
                             Text("Weight :")
                             TextField("weight",
                                       text: Binding(
-                                        get: { String(weight) },
-                                        set: { weight = Double($0) ?? 0.0 }))
+                                          get: { String(weight) },
+                                          set: { weight = Double($0) ?? 0.0 }))
                             Spacer()
                         }
                     }

@@ -14,13 +14,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section ("Builder") {
+                Section("Builder") {
                     NavigationLink("Build Table") {
                         TableBuilder(graph: graph)
                             .navigationTitle("Table Builder")
                     }
                 }
-                Section ("Viewers") {
+                Section("Viewers") {
                     NavigationLink("View Given Table") {
                         TableView(G: graph.G)
                             .navigationTitle("Given Tree")

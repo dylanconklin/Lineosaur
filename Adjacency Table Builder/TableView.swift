@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TableView: View {
     var G: Graph
-    
+
     var body: some View {
         VStack {
             if G.isEmpty {
