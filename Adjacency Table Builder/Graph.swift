@@ -38,7 +38,7 @@ public class GraphData : ObservableObject {
     ]
 
     var MST: Graph {
-        mst(G: G)
+        G.mst()
     }
 }
 
@@ -85,6 +85,23 @@ extension Graph {
             }
         }
     }
+    
+    func mst() -> Graph {
+        var G: Graph = self
+        var vertices_left: Set<Vertex> = G.vertices // vertices that don't have an edge
+        var MST: Graph = [:]
+
+        while let edge = G.filter({ $0.key.containsAny(in: vertices_left) && $0.key.containsAny(in: MST.vertices) }).sorted(by: { $0.value < $1.value }).first ?? (MST.isEmpty ? G.sorted(by: { $0.value < $1.value }).first : nil) {
+            MST.insert(edge: Edge(vertices: edge.key, weight: edge.value))
+            for vertex in edge.key {
+                vertices_left.remove(vertex)
+            }
+            G.removeValue(forKey: edge.key)
+        }
+
+        return MST
+    }
+
 }
 
 extension Set {
