@@ -8,6 +8,7 @@
 import SwiftData
 import SwiftUI
 
+/// Entry point into application
 struct ContentView: View {
     @StateObject var graph = GraphData()
 

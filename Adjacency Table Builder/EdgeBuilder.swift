@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Displays information about a single edge
 struct EdgeBuilder: View {
     @Binding var from: String
     @Binding var to: String

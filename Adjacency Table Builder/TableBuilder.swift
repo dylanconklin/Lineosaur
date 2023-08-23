@@ -8,6 +8,7 @@
 import SwiftData
 import SwiftUI
 
+/// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
     @Binding var showing: Bool
     @ObservedObject var graph: GraphData
@@ -35,13 +36,18 @@ struct EdgeCreator: View {
                             Text("Weight :")
                             TextField("weight",
                                       text: Binding(
-                                          get: { String(weight) },
-                                          set: { weight = Double($0) ?? 0.0 }))
+                                        get: { String(weight) },
+                                        set: { weight = Double($0) ?? 0.0 }))
                             Spacer()
                         }
                     }
+                    .monospaced()
                     Button {
-                        graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
+                        if !to.isEmpty && !from.isEmpty {
+                            graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
+                        }
+                        
+                        // Reset form input fields
                         to = ""
                         from = ""
                         weight = 0
@@ -56,11 +62,11 @@ struct EdgeCreator: View {
                     Spacer()
                 }
             }
-            .monospaced()
         }
     }
 }
 
+/// List showing edges in the graph
 struct TableBuilder: View {
     @ObservedObject var graph: GraphData
     @State var showEdgeCreator: Bool = false

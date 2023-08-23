@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Displays information from graph
 struct Cell: View {
     var str: String = "-"
 

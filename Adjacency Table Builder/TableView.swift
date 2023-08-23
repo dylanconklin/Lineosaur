@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     var G: Graph
 
