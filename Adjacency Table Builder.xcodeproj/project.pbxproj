@@ -26,13 +26,6 @@
 			remoteGlobalIDString = AB510F2F2A8A91C800B76121;
 			remoteInfo = "Adjacency Table Builder";
 		};
-		AB510F4E2A8A91CA00B76121 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB510F282A8A91C800B76121 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AB510F2F2A8A91C800B76121;
-			remoteInfo = "Adjacency Table Builder";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +36,6 @@
 		AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Adjacency_Table_Builder.entitlements; sourceTree = "<group>"; };
 		AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adjacency Table BuilderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB510F4D2A8A91CA00B76121 /* Adjacency Table BuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adjacency Table BuilderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB510F622A8A927200B76121 /* EdgeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBuilder.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
@@ -67,13 +59,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB510F4A2A8A91CA00B76121 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +68,6 @@
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
 				AB510F322A8A91C800B76121 /* Adjacency Table Builder */,
 				AB510F462A8A91CA00B76121 /* Adjacency Table BuilderTests */,
-				AB510F502A8A91CA00B76121 /* Adjacency Table BuilderUITests */,
 				AB510F312A8A91C800B76121 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +77,6 @@
 			children = (
 				AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */,
 				AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */,
-				AB510F4D2A8A91CA00B76121 /* Adjacency Table BuilderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,13 +111,6 @@
 			children = (
 			);
 			path = "Adjacency Table BuilderTests";
-			sourceTree = "<group>";
-		};
-		AB510F502A8A91CA00B76121 /* Adjacency Table BuilderUITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Adjacency Table BuilderUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,24 +151,6 @@
 			productReference = AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AB510F4C2A8A91CA00B76121 /* Adjacency Table BuilderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AB510F5D2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table BuilderUITests" */;
-			buildPhases = (
-				AB510F492A8A91CA00B76121 /* Sources */,
-				AB510F4A2A8A91CA00B76121 /* Frameworks */,
-				AB510F4B2A8A91CA00B76121 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AB510F4F2A8A91CA00B76121 /* PBXTargetDependency */,
-			);
-			name = "Adjacency Table BuilderUITests";
-			productName = "Adjacency Table BuilderUITests";
-			productReference = AB510F4D2A8A91CA00B76121 /* Adjacency Table BuilderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,10 +165,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					AB510F422A8A91CA00B76121 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = AB510F2F2A8A91C800B76121;
-					};
-					AB510F4C2A8A91CA00B76121 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = AB510F2F2A8A91C800B76121;
 					};
@@ -231,7 +185,6 @@
 			targets = (
 				AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */,
 				AB510F422A8A91CA00B76121 /* Adjacency Table BuilderTests */,
-				AB510F4C2A8A91CA00B76121 /* Adjacency Table BuilderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -247,13 +200,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AB510F412A8A91CA00B76121 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB510F4B2A8A91CA00B76121 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,13 +230,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB510F492A8A91CA00B76121 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -298,11 +237,6 @@
 			isa = PBXTargetDependency;
 			target = AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */;
 			targetProxy = AB510F442A8A91CA00B76121 /* PBXContainerItemProxy */;
-		};
-		AB510F4F2A8A91CA00B76121 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */;
-			targetProxy = AB510F4E2A8A91CA00B76121 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -506,8 +440,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 58X5N6584R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -529,8 +463,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 58X5N6584R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,50 +474,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adjacency Table Builder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Adjacency Table Builder";
-			};
-			name = Release;
-		};
-		AB510F5E2A8A91CA00B76121 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58X5N6584R;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Adjacency Table Builder";
-			};
-			name = Debug;
-		};
-		AB510F5F2A8A91CA00B76121 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 58X5N6584R;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Adjacency Table Builder";
 			};
 			name = Release;
 		};
@@ -613,15 +503,6 @@
 			buildConfigurations = (
 				AB510F5B2A8A91CA00B76121 /* Debug */,
 				AB510F5C2A8A91CA00B76121 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AB510F5D2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table BuilderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AB510F5E2A8A91CA00B76121 /* Debug */,
-				AB510F5F2A8A91CA00B76121 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
