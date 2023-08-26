@@ -66,7 +66,17 @@ extension Graph {
 
     /// Returns the vertices of the graph, as an array
     var verticesArray: [Vertex] {
-        Array(vertices).sorted()
+        get {
+            Array(vertices).sorted()
+        }
+        set {
+            let vertexToRemove: Vertex = self.vertices.filter({ !newValue.contains($0) }).first!
+            for edge in self.edgesArray {
+                if edge.vertices.contains(vertexToRemove) {
+                    self.removeValue(forKey: edge.vertices)
+                }
+            }
+        }
     }
     
     /// Returns edges of the graph, in the form of Edge objects

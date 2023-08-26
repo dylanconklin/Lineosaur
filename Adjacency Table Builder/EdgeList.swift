@@ -1,5 +1,5 @@
 //
-//  TableBuilder.swift
+//  EdgeList.swift
 //  Adjacency Table
 //
 //  Created by Dylan Conklin on 8/4/23.
@@ -67,7 +67,7 @@ struct EdgeCreator: View {
 }
 
 /// List showing edges in the graph
-struct TableBuilder: View {
+struct EdgeList: View {
     @ObservedObject var graph: GraphData
     @State var showEdgeCreator: Bool = false
 
@@ -76,7 +76,7 @@ struct TableBuilder: View {
             ZStack {
                 List {
                     ForEach($graph.G.edgesArray, id: \.self, editActions: .delete) { edge in
-                        EdgeBuilder(from: edge.verticesArray[0], to: edge.verticesArray[1], weight: edge.weight)
+                        EdgeView(from: edge.verticesArray[0], to: edge.verticesArray[1], weight: edge.weight)
                     }
                 }
                 .toolbar {
@@ -94,9 +94,9 @@ struct TableBuilder: View {
     }
 }
 
-struct TableBuilder_Previews: PreviewProvider {
+struct EdgeList_Previews: PreviewProvider {
     static var graph = GraphData()
     static var previews: some View {
-        TableBuilder(graph: graph)
+        EdgeList(graph: graph)
     }
 }

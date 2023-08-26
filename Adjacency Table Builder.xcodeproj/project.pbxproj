@@ -12,10 +12,12 @@
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
 		AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */; };
 		AB510F612A8A923F00B76121 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F602A8A923F00B76121 /* Cell.swift */; };
-		AB510F632A8A927200B76121 /* EdgeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F622A8A927200B76121 /* EdgeBuilder.swift */; };
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
-		AB510F692A8A92AD00B76121 /* TableBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F682A8A92AD00B76121 /* TableBuilder.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
+		AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9612A99A448007DE536 /* EdgeView.swift */; };
+		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
+		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
+		AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A96B2A99A74F007DE536 /* VertexView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +39,12 @@
 		AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adjacency Table BuilderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		AB510F622A8A927200B76121 /* EdgeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBuilder.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		AB510F682A8A92AD00B76121 /* TableBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBuilder.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		AB76A9612A99A448007DE536 /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
+		AB76A9672A99A620007DE536 /* VertexList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexList.swift; sourceTree = "<group>"; };
+		AB76A9692A99A645007DE536 /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
+		AB76A96B2A99A74F007DE536 /* VertexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexView.swift; sourceTree = "<group>"; };
 		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,8 +118,10 @@
 			children = (
 				AB510F602A8A923F00B76121 /* Cell.swift */,
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
-				AB510F622A8A927200B76121 /* EdgeBuilder.swift */,
-				AB510F682A8A92AD00B76121 /* TableBuilder.swift */,
+				AB76A9672A99A620007DE536 /* VertexList.swift */,
+				AB76A9612A99A448007DE536 /* EdgeView.swift */,
+				AB76A96B2A99A74F007DE536 /* VertexView.swift */,
+				AB76A9692A99A645007DE536 /* EdgeList.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
 			);
 			name = Views;
@@ -221,12 +227,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB510F632A8A927200B76121 /* EdgeBuilder.swift in Sources */,
+				AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */,
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
+				AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */,
+				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
+				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
-				AB510F692A8A92AD00B76121 /* TableBuilder.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

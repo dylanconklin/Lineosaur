@@ -1,5 +1,5 @@
 //
-//  EdgeBuilder.swift
+//  EdgeView.swift
 //  Adjacency Table
 //
 //  Created by Dylan Conklin on 8/1/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Displays information about a single edge
-struct EdgeBuilder: View {
+struct EdgeView: View {
     @Binding var from: String
     @Binding var to: String
     @Binding var weight: Double
@@ -35,14 +35,14 @@ struct EdgeBuilder: View {
     }
 }
 
-struct EdgeBuilder_Previews: PreviewProvider {
+struct EdgeView_Previews: PreviewProvider {
     @State static var x = "Destination"
     @State static var y = 5.0
     @State static var z = 5.5
     static var previews: some View {
         VStack {
-            EdgeBuilder(from: $x, to: $x, weight: $y)
-            EdgeBuilder(from: $x, to: $x, weight: $z)
+            EdgeView(from: $x, to: $x, weight: $y)
+            EdgeView(from: $x, to: $x, weight: $z)
         }
     }
 }

@@ -15,10 +15,14 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Builder") {
-                    NavigationLink("Build Table") {
-                        TableBuilder(graph: graph)
-                            .navigationTitle("Table Builder")
+                Section("Graph Builder") {
+                    NavigationLink("Edges") {
+                        EdgeList(graph: graph)
+                            .navigationTitle("Edges")
+                    }
+                    NavigationLink("Vertices") {
+                        VertexList(graph: graph)
+                            .navigationTitle("Vertices")
                     }
                 }
                 Section("Viewers") {
