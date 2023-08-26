@@ -84,13 +84,9 @@
 		AB510F322A8A91C800B76121 /* Adjacency Table Builder */ = {
 			isa = PBXGroup;
 			children = (
-				AB510F682A8A92AD00B76121 /* TableBuilder.swift */,
-				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
-				AB510F642A8A928800B76121 /* Graph.swift */,
+				AB76A95E2A998D4B007DE536 /* Views */,
 				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
-				AB510F352A8A91C800B76121 /* ContentView.swift */,
-				AB510F622A8A927200B76121 /* EdgeBuilder.swift */,
-				AB510F602A8A923F00B76121 /* Cell.swift */,
+				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
@@ -111,6 +107,18 @@
 			children = (
 			);
 			path = "Adjacency Table BuilderTests";
+			sourceTree = "<group>";
+		};
+		AB76A95E2A998D4B007DE536 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB510F602A8A923F00B76121 /* Cell.swift */,
+				AB510F352A8A91C800B76121 /* ContentView.swift */,
+				AB510F622A8A927200B76121 /* EdgeBuilder.swift */,
+				AB510F682A8A92AD00B76121 /* TableBuilder.swift */,
+				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

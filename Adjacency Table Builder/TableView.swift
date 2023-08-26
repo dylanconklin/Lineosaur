@@ -19,6 +19,11 @@ struct TableView: View {
             } else {
                 ScrollView(.vertical, showsIndicators: true) {
                     ScrollView(.horizontal, showsIndicators: true) {
+                        HStack {
+                            Text("Weight: \(String(G.cost))")
+                                .padding()
+                            Spacer()
+                        }
                         Grid {
                             GridRow {
                                 Cell(str: "")
@@ -52,7 +57,10 @@ struct TableView: View {
 }
 
 struct TableView_Previews: PreviewProvider {
-    static let mst: Graph = [:]
+    static let mst: Graph = [Set(["Baltimore", "Barre"]): 496,
+                             Set(["Baltimore", "Richmond"]): 149,
+                             Set(["Barre", "Richmond"]): 646,
+    ]
     static var previews: some View {
         TableView(G: mst)
     }

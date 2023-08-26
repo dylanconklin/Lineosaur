@@ -42,6 +42,7 @@ public class GraphData: ObservableObject {
                                Set(["Richmond", "SLC"]): 2141,
     ]
     
+    /// Generate the Minimum Spanning Tree (MST)
     var MST: Graph {
         G.mst()
     }
@@ -95,6 +96,12 @@ extension Graph {
                 insert(edge: Edge(vertices: edge.vertices, weight: edge.weight))
             }
         }
+    }
+    
+    /// Calculates the total cost of the graph
+    /// The cost is the sum of the weight (length) of all the edges in the graph
+    var cost: Double {
+        self.values.reduce(0, +)
     }
     
     /// Calculates the minimum spanning tree (MST) of a graph
