@@ -14,6 +14,7 @@
 		AB510F612A8A923F00B76121 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F602A8A923F00B76121 /* Cell.swift */; };
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
+		AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55B1142A99B20900928D09 /* TableViewer.swift */; };
 		AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9612A99A448007DE536 /* EdgeView.swift */; };
 		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
@@ -41,6 +42,7 @@
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		AB55B1142A99B20900928D09 /* TableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewer.swift; sourceTree = "<group>"; };
 		AB76A9612A99A448007DE536 /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		AB76A9672A99A620007DE536 /* VertexList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexList.swift; sourceTree = "<group>"; };
 		AB76A9692A99A645007DE536 /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				AB76A96B2A99A74F007DE536 /* VertexView.swift */,
 				AB76A9692A99A645007DE536 /* EdgeList.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
+				AB55B1142A99B20900928D09 /* TableViewer.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
+				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

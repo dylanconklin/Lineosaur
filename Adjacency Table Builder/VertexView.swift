@@ -16,8 +16,6 @@ struct VertexView: View {
             Text(vertex)
             Spacer()
         }
-        .monospaced()
-        .padding()
     }
 }
 
