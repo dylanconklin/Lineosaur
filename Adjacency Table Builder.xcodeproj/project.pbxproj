@@ -120,10 +120,10 @@
 			children = (
 				AB510F602A8A923F00B76121 /* Cell.swift */,
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
-				AB76A9672A99A620007DE536 /* VertexList.swift */,
-				AB76A9612A99A448007DE536 /* EdgeView.swift */,
-				AB76A96B2A99A74F007DE536 /* VertexView.swift */,
 				AB76A9692A99A645007DE536 /* EdgeList.swift */,
+				AB76A9612A99A448007DE536 /* EdgeView.swift */,
+				AB76A9672A99A620007DE536 /* VertexList.swift */,
+				AB76A96B2A99A74F007DE536 /* VertexView.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
 				AB55B1142A99B20900928D09 /* TableViewer.swift */,
 			);
