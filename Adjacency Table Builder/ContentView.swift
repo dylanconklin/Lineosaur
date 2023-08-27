@@ -36,7 +36,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Adjacency Table Builder")
+            .navigationTitle("Graph App")
         }
         .padding()
     }

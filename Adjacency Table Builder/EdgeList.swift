@@ -10,58 +10,51 @@ import SwiftUI
 
 /// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
-    @Binding var showing: Bool
     @ObservedObject var graph: GraphData
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
-
+    
     var body: some View {
-        if showing {
-            ZStack {
-                Color(.gray)
-                VStack {
-                    Form {
-                        HStack {
-                            Text("To     :")
-                            TextField("To", text: $to)
-                            Spacer()
-                        }
-                        HStack {
-                            Text("From   :")
-                            TextField("From", text: $from)
-                            Spacer()
-                        }
-                        HStack {
-                            Text("Weight :")
-                            TextField("weight",
-                                      text: Binding(
-                                        get: { String(weight) },
-                                        set: { weight = Double($0) ?? 0.0 }))
-                            Spacer()
-                        }
-                    }
-                    .monospaced()
-                    Button {
-                        if !to.isEmpty && !from.isEmpty {
-                            graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
-                        }
-                        
-                        // Reset form input fields
-                        to = ""
-                        from = ""
-                        weight = 0
-                        showing = false
-                    } label: {
-                        HStack {
-                            Image(systemName: "checkmark")
-                            Text("Add Edge")
-                        }
-                    }
-                    .padding()
+        VStack {
+            Form {
+                HStack {
+                    Text("To     :")
+                    TextField("To", text: $to)
+                    Spacer()
+                }
+                HStack {
+                    Text("From   :")
+                    TextField("From", text: $from)
+                    Spacer()
+                }
+                HStack {
+                    Text("Weight :")
+                    TextField("weight",
+                              text: Binding(
+                                get: { String(weight) },
+                                set: { weight = Double($0) ?? 0.0 }))
                     Spacer()
                 }
             }
+            .monospaced()
+            Button {
+                if !to.isEmpty && !from.isEmpty {
+                    graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
+                }
+                
+                // Reset form input fields
+                to = ""
+                from = ""
+                weight = 0
+            } label: {
+                HStack {
+                    Image(systemName: "checkmark")
+                    Text("Add Edge")
+                }
+            }
+            .padding()
+            Spacer()
         }
     }
 }
@@ -86,9 +79,11 @@ struct EdgeList: View {
                         } label: {
                             Image(systemName: "plus")
                         }
+                        .sheet(isPresented: $showEdgeCreator) {
+                            EdgeCreator(graph: graph)
+                        }
                     }
                 }
-                EdgeCreator(showing: $showEdgeCreator, graph: graph)
             }
         }
     }
