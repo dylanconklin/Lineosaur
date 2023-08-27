@@ -9,10 +9,20 @@ import Foundation
 
 typealias Vertex = String
 typealias Graph = [Set<Vertex>: Double]
+typealias Digraph = [Array<Vertex>: Double]
 
 struct Edge: Hashable {
-    var vertices: Set<Vertex>
+    var vertices: any Collection<Vertex>
     var weight: Double
+    
+    func hash(into hasher: inout Hasher) {
+        vertices.forEach({hasher.combine($0)})
+        hasher.combine(weight)
+    }
+    
+    static func == (lhs: Edge, rhs: Edge) -> Bool {
+        lhs.verticesArray == rhs.verticesArray && lhs.weight == rhs.weight
+    }
     
     /// Returns vertices of the edge, as an array
     var verticesArray: [Vertex] {
