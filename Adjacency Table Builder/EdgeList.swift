@@ -81,15 +81,14 @@ struct EdgeList: View {
                     }
                 }
                 .toolbar {
-                    ToolbarItemGroup(placement: .topBarTrailing) {
-                        Button {
-                            showEdgeCreator = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(graph: graph)
-                        }
+                    EditButton()
+                    Button {
+                        showEdgeCreator = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $showEdgeCreator) {
+                        EdgeCreator(graph: graph)
                     }
                 }
             }

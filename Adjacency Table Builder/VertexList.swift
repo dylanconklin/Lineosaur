@@ -16,6 +16,9 @@ struct VertexList: View {
                 VertexView(vertex: vertex)
             }
         }
+        .toolbar {
+            EditButton()
+        }
     }
 }
 
