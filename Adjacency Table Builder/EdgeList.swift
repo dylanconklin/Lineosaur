@@ -14,9 +14,17 @@ struct EdgeCreator: View {
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button("Done"){
+                    dismiss()
+                }
+                .padding()
+            }
             Form {
                 HStack {
                     Text("To     :")
