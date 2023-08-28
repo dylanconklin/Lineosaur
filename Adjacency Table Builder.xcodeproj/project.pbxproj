@@ -19,6 +19,7 @@
 		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
 		AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A96B2A99A74F007DE536 /* VertexView.swift */; };
+		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		AB76A9692A99A645007DE536 /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
 		AB76A96B2A99A74F007DE536 /* VertexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexView.swift; sourceTree = "<group>"; };
 		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				AB510F602A8A923F00B76121 /* Cell.swift */,
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
+				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
 				AB76A9692A99A645007DE536 /* EdgeList.swift */,
 				AB76A9612A99A448007DE536 /* EdgeView.swift */,
 				AB76A9672A99A620007DE536 /* VertexList.swift */,
@@ -234,6 +237,7 @@
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
 				AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
+				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,

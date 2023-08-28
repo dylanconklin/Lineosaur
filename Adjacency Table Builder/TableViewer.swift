@@ -9,52 +9,34 @@ import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
-    var G: Graph
-    @State var showDetails: Bool = false
+    @ObservedObject var graph: GraphData
 
     var body: some View {
-        ZStack {
-            VStack {
-                if G.isEmpty {
-                    Text("No table to view")
-                    Text("Go to the table builder to create a table")
-                } else {
-                    TableView(G: G)
-                }
-            }
-            .padding()
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button {
-                        showDetails = true
-                    } label: {
-                        Image(systemName: "info.circle.fill")
-                            .padding()
-                            .padding()
+        TabView {
+            TableView(G: graph.G)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "skew")
+                        Text("View G")
                     }
                 }
-            }
-            .alert("Graph Details", isPresented: $showDetails){
-                Button ("Okay") {
-                    showDetails = false
+            TableView(G: graph.MST)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "skew")
+                        Text("View MST")
+                    }
                 }
-            } message: {
-                VStack {
-                    Text("Cost is \(String(G.cost))\n\(G.vertices.count) vertices\n\(G.edges.count) edges")
-                }
-            }
         }
     }
 }
 
-struct TableViewer_Previews: PreviewProvider {
-    static let mst: Graph = [Set(["Baltimore", "Barre"]): 496,
-                             Set(["Baltimore", "Richmond"]): 149,
-                             Set(["Barre", "Richmond"]): 646,
-    ]
-    static var previews: some View {
-        TableViewer(G: mst)
-    }
-}
+//struct TableViewer_Previews: PreviewProvider {
+//    static let mst: Graph = [Set(["Baltimore", "Barre"]): 496,
+//                             Set(["Baltimore", "Richmond"]): 149,
+//                             Set(["Barre", "Richmond"]): 646,
+//    ]
+//    static var previews: some View {
+//        TableViewer(graph: mst)
+//    }
+//}

@@ -13,30 +13,23 @@ struct ContentView: View {
     @StateObject var graph = GraphData()
 
     var body: some View {
-        NavigationStack {
-            List {
-                Section("Graph Builder") {
-                    NavigationLink("Edges") {
-                        EdgeList(graph: graph)
-                            .navigationTitle("Edges")
+        ZStack {
+            TabView {
+                GraphEditor(graph: graph)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "pencil")
+                            Text("Edit Graph")
+                        }
                     }
-                    NavigationLink("Vertices") {
-                        VertexList(graph: graph)
-                            .navigationTitle("Vertices")
+                TableViewer(graph: graph)
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "tablecells")
+                            Text("View Table")
+                        }
                     }
-                }
-                Section("Viewers") {
-                    NavigationLink("View Given Table") {
-                        TableView(G: graph.G)
-                            .navigationTitle("Given Tree")
-                    }
-                    NavigationLink("View Minimum Spanning Tree") {
-                        TableView(G: graph.MST)
-                            .navigationTitle("Min. Spanning Tree")
-                    }
-                }
             }
-            .navigationTitle("Graph App")
         }
         .padding()
     }
