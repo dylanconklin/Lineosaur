@@ -18,15 +18,13 @@ struct ContentView: View {
                 GraphEditor(graph: graph)
                     .tabItem {
                         VStack {
-                            Image(systemName: "pencil")
-                            Text("Edit Graph")
+                            Label("Edit Graph", systemImage: "pencil")
                         }
                     }
                 TableViewer(graph: graph)
                     .tabItem {
                         VStack {
-                            Image(systemName: "tablecells")
-                            Text("View Table")
+                            Label("View Table", systemImage: "tablecells")
                         }
                     }
             }

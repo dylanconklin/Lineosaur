@@ -15,15 +15,13 @@ struct GraphEditor: View {
             EdgeList(graph: graph)
                 .tabItem {
                     VStack {
-                        Image(systemName: "smallcircle.filled.circle")
-                        Text("Edit Edges")
+                        Label("Edit Edges", systemImage: "smallcircle.filled.circle")
                     }
                 }
             VertexList(graph: graph)
                 .tabItem {
                     VStack {
-                        Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
-                        Text("Edit Vertices")
+                        Label("Edit Vertices", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
                     }
                 }
         }
