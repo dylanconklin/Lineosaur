@@ -30,6 +30,6 @@ struct GraphEditor: View {
     }
 }
 
-//#Preview {
-//    GraphEditor()
-//}
+#Preview {
+    GraphEditor(graph: GraphData())
+}
