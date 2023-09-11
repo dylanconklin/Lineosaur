@@ -9,21 +9,28 @@ import SwiftUI
 
 struct GraphEditor: View {
     @ObservedObject var graph: GraphData
+    @State var graphElement: GraphElements = .edges
+    
+    enum GraphElements {
+        case edges
+        case vertices
+    }
     
     var body: some View {
-        TabView {
-            EdgeList(graph: graph)
-                .tabItem {
-                    VStack {
-                        Label("Edit Edges", systemImage: "smallcircle.filled.circle")
-                    }
-                }
-            VertexList(graph: graph)
-                .tabItem {
-                    VStack {
-                        Label("Edit Vertices", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
-                    }
-                }
+        VStack {
+            Picker("Type of graph to display", selection: $graphElement) {
+                Text("Edges").tag(GraphElements.edges)
+                Text("Vertices").tag(GraphElements.vertices)
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            
+            switch graphElement {
+            case .edges:
+                EdgeList(graph: graph)
+            case .vertices:
+                VertexList(graph: graph)
+            }
         }
     }
 }

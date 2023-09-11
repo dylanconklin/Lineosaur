@@ -9,23 +9,21 @@ import SwiftUI
 
 /// Displays information about a single edge
 struct EdgeView: View {
-    @Binding var from: String
-    @Binding var to: String
-    @Binding var weight: Double
+    @Binding var edge: Edge
 
     var body: some View {
         HStack {
             VStack {
                 HStack {
-                    Text("from   : \(from)")
+                    Text("from   : \(edge.from)")
                     Spacer()
                 }
                 HStack {
-                    Text("to     : \(to)")
+                    Text("to     : \(edge.to)")
                     Spacer()
                 }
                 HStack {
-                    Text("weight : \(weight == weight.rounded() ? String(Int(weight)) : String(weight))")
+                    Text("weight : \(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
                     Spacer()
                 }
             }
@@ -36,13 +34,15 @@ struct EdgeView: View {
 }
 
 struct EdgeView_Previews: PreviewProvider {
-    @State static var x = "Destination"
-    @State static var y = 5.0
-    @State static var z = 5.5
+    static var x = "Destination"
+    static var y = 5.0
+    static var z = 5.5
+    @State static var edge1 = Edge(from: x, to: x, weight: y)
+    @State static var edge2 = Edge(from: x, to: x, weight: z)
     static var previews: some View {
         VStack {
-            EdgeView(from: $x, to: $x, weight: $y)
-            EdgeView(from: $x, to: $x, weight: $z)
+            EdgeView(edge: $edge1)
+            EdgeView(edge: $edge2)
         }
     }
 }

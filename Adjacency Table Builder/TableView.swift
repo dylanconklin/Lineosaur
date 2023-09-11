@@ -37,7 +37,7 @@ struct TableView: View {
                                     }
                                 } message: {
                                     VStack {
-                                        Text("Cost is \(String(G.cost))\n\(G.vertices.count) vertices\n\(G.edges.count) edges")
+                                        Text("Cost is \(String(G.cost))\n\(G.vertices.count) vertices\n\(G.count) edges")
                                     }
                                 }
                             }
@@ -57,7 +57,7 @@ struct TableView: View {
                                 ForEach(G.vertices.sorted(), id: \.self) { x in
                                     var distance: String {
                                         var distance: String = ""
-                                        distance = String(G[Set(arrayLiteral: y, x)] ?? 0.0)
+                                        distance = String(G.getEdges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
                                         distance = y != x && distance == "0.0" ? "-" : distance
                                         return distance
                                     }
@@ -75,9 +75,9 @@ struct TableView: View {
 }
 
 struct TableView_Previews: PreviewProvider {
-    static let mst: Graph = [Set(["Baltimore", "Barre"]): 496,
-                             Set(["Baltimore", "Richmond"]): 149,
-                             Set(["Barre", "Richmond"]): 646,
+    static let mst: Graph = [Edge(from: "Baltimore", to: "Barre", weight: 496),
+                             Edge(from: "Baltimore", to: "Richmond", weight: 149),
+                             Edge(from: "Barre", to: "Richmond", weight: 646),
     ]
     static var previews: some View {
         TableView(G: mst)

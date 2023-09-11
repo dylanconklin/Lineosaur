@@ -15,10 +15,16 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView {
-                GraphEditor(graph: graph)
+                EdgeList(graph: graph)
                     .tabItem {
                         VStack {
-                            Label("Edit Graph", systemImage: "pencil")
+                            Label("Edit Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
+                        }
+                    }
+                VertexList(graph: graph)
+                    .tabItem {
+                        VStack {
+                            Label("Edit Vertices", systemImage: "smallcircle.filled.circle")
                         }
                     }
                 TableViewer(graph: graph)

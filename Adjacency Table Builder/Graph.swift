@@ -8,19 +8,28 @@
 import Foundation
 
 typealias Vertex = String
-typealias Graph = [Set<Vertex>: Double]
+typealias Graph = Set<Edge>
 
-struct Edge: Hashable {
-    var vertices: Set<Vertex>
+struct Edge: Hashable, Comparable {
+    var from: Vertex
+    var to: Vertex
     var weight: Double
-    
-    /// Returns vertices of the edge, as an array
-    var verticesArray: [Vertex] {
+
+    static func < (lhs: Edge, rhs: Edge) -> Bool {
+        lhs.weight < rhs.weight
+    }
+
+    /// Returns vertices of the edge
+    var vertices: [Vertex] {
         get {
-            Array(vertices).sorted()
+            [from, to]
         }
         set {
-            vertices = Set<Vertex>(newValue)
+            guard newValue.count == 2 else {
+                return
+            }
+            from = newValue[0]
+            to = newValue[1]
         }
     }
 }
@@ -30,120 +39,110 @@ struct Edge: Hashable {
 /// NOTE: Bindings to a graph is a better way to do this
 /// But I have to demonstrate that I can use Observable Objects to potential employers
 public class GraphData: ObservableObject {
-    @Published var G: Graph = [Set(["Baltimore", "Barre"]): 496,
-                               Set(["Baltimore", "Portland"]): 2810,
-                               Set(["Baltimore", "Richmond"]): 149,
-                               Set(["Baltimore", "SLC"]): 2082,
-                               Set(["Barre", "Portland"]): 3052,
-                               Set(["Barre", "Richmond"]): 646,
-                               Set(["Barre", "SLC"]): 2328,
-                               Set(["Portland", "Richmond"]): 2867,
-                               Set(["Portland", "SLC"]): 768,
-                               Set(["Richmond", "SLC"]): 2141,
+    @Published var G: Graph = [Edge(from: "Baltimore", to: "Barre", weight: 496),
+                               Edge(from: "Baltimore", to: "Portland", weight: 2810),
+                               Edge(from: "Baltimore", to: "Richmond", weight: 149),
+                               Edge(from: "Baltimore", to: "SLC", weight: 2082),
+                               Edge(from: "Barre", to: "Portland", weight: 3052),
+                               Edge(from: "Barre", to: "Richmond", weight: 646),
+                               Edge(from: "Barre", to: "SLC", weight: 2328),
+                               Edge(from: "Portland", to: "Richmond", weight: 2867),
+                               Edge(from: "Portland", to: "SLC", weight: 768),
+                               Edge(from: "Richmond", to: "SLC", weight: 2141),
     ]
-    
-    /// Generate the Minimum Spanning Tree (MST)
-    var MST: Graph {
-        G.mst()
-    }
 }
 
 extension Graph {
     /// Insert edge into graph
     /// - Parameter edge: Edge object containing two vertices and the weight between them
     mutating func insert(edge: Edge) {
-        self[edge.vertices] = edge.weight
-    }
-    
-    /// Returns the vertices of the graph
-    var vertices: Set<Vertex> {
-        var vertices: Set<Vertex> = []
-        forEach { edge in
-            vertices.formUnion(edge.key)
-        }
-        return vertices
+        insert(edge)
     }
 
-    /// Returns the vertices of the graph, as an array
-    var verticesArray: [Vertex] {
-        get {
-            Array(vertices).sorted()
-        }
-        set {
-            let vertexToRemove: Vertex = self.vertices.filter({ !newValue.contains($0) }).first!
-            for edge in self.edgesArray {
-                if edge.vertices.contains(vertexToRemove) {
-                    self.removeValue(forKey: edge.vertices)
-                }
-            }
+    mutating func remove(_ vertex: Vertex) {
+        filter({ $0.vertices.contains(vertex) }).forEach { edge in
+            self.remove(edge)
         }
     }
-    
-    /// Returns edges of the graph, in the form of Edge objects
-    var edges: Set<Edge> {
-        var edges: Set<Edge> = []
-        vertices.forEach { v1 in
-            self.vertices.forEach { v2 in
-                if self[Set([v1, v2])] != nil {
-                    edges.insert(Edge(vertices: Set([v1, v2]), weight: self[Set([v1, v2])] ?? 0.0))
+
+    /// Returns the vertices of the graph
+    var vertices: [Vertex] {
+        get {
+            var vertices: Set<Vertex> = Set<Vertex>()
+            forEach { edge in
+                vertices.formUnion(edge.vertices)
+            }
+            return Array<Vertex>(vertices).sorted()
+        }
+        set {
+            Set<Vertex>(vertices).symmetricDifference(Set<Vertex>(newValue)).forEach { vertex in
+                if self.vertices.count < newValue.count {
+                    insert(edge: Edge(from: vertex, to: vertex, weight: 0))
+                } else {
+                    remove(vertex)
                 }
             }
         }
-        return edges
     }
 
     /// Returns edges of the graph, in the form of Edge objects in an array
     var edgesArray: [Edge] {
         get {
-            Array(edges).sorted(by: {
-                let index: Int = $0.verticesArray[0] != $1.verticesArray[0] ? 0 : 1
-                return $0.verticesArray[index] < $1.verticesArray[index]
+            Array(self).sorted(by: {
+                let index: Int = $0.from != $1.from ? 0 : 1
+                return $0.vertices[index] < $1.vertices[index]
             })
         }
         set {
             removeAll()
-            for edge in newValue {
-                insert(edge: Edge(vertices: edge.vertices, weight: edge.weight))
+            newValue.forEach { edge in
+                insert(edge: Edge(from: edge.from, to: edge.to, weight: edge.weight))
             }
         }
     }
-    
+
     /// Calculates the total cost of the graph
     /// The cost is the sum of the weight (length) of all the edges in the graph
     var cost: Double {
-        self.values.reduce(0, +)
+        var result: Double = 0
+        forEach({ edge in
+            result += edge.weight
+        })
+        return result
     }
-    
-    /// Calculates the minimum spanning tree (MST) of a graph
-    /// - Returns: The MST Graph generated by the edges in the graph
-    func mst() -> Graph {
-        var G: Graph = self
-        var vertices_left: Set<Vertex> = G.vertices // vertices that don't have an edge
-        var MST: Graph = [:]
 
-        while let edge = G.filter({ $0.key.containsAny(in: vertices_left) && $0.key.containsAny(in: MST.vertices) }).sorted(by: { $0.value < $1.value }).first ?? (MST.isEmpty ? G.sorted(by: { $0.value < $1.value }).first : nil) {
-            MST.insert(edge: Edge(vertices: edge.key, weight: edge.value))
-            for vertex in edge.key {
+    /// Generate the Minimum Spanning Tree (MST)
+    /// - Returns: The MST Graph generated by the edges in the graph
+    var mst: Graph {
+        var G: Graph = self
+        var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
+        var MST: Graph = []
+
+        while let edge = G.filter({ !Set<Vertex>($0.vertices).intersection(vertices_left).isEmpty && !Set<Vertex>($0.vertices).intersection(MST.vertices).isEmpty }).sorted(by: { $0.weight < $1.weight }).first ?? (MST.isEmpty ? G.sorted(by: { $0.weight < $1.weight }).first : nil) {
+            MST.insert(edge: edge)
+            for vertex in edge.vertices {
                 vertices_left.remove(vertex)
             }
-            G.removeValue(forKey: edge.key)
+            G.remove(edge)
         }
 
         return MST
     }
-}
 
-extension Set {
-    /// Check if there are any shared elements between the sets
-    /// - Parameter set: Any set containing any type of element
-    /// - Returns: Returns true if there are any shared elements between the sets, otherwise false
-    func containsAny(in set: Set) -> Bool {
-        var result: Bool = false
-        for element in set {
-            if contains(element) {
-                result = true
+    func getEdges(from: String, to: String, directional: Bool = true) -> [Edge] {
+        var result: [Edge] = [Edge]()
+        let f = directional ? { (from: String, to: String, edge: Edge) -> Bool in
+            edge.to == to && edge.from == from
+        } : { (from: String, to: String, edge: Edge) -> Bool in
+            Set<Vertex>(edge.vertices) == Set<Vertex>(arrayLiteral: from, to)
+        }
+
+        for edge in self {
+            if f(from, to, edge) {
+                result.append(edge)
             }
         }
+
         return result
     }
 }

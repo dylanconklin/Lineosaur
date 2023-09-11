@@ -48,7 +48,7 @@ struct EdgeCreator: View {
             .monospaced()
             Button {
                 if !to.isEmpty && !from.isEmpty {
-                    graph.G.insert(edge: Edge(vertices: Set<Vertex>([to, from]), weight: weight))
+                    graph.G.insert(edge: Edge(from: from, to: to, weight: weight))
                 }
                 
                 // Reset form input fields
@@ -77,7 +77,7 @@ struct EdgeList: View {
             ZStack {
                 List {
                     ForEach($graph.G.edgesArray, id: \.self, editActions: .delete) { edge in
-                        EdgeView(from: edge.verticesArray[0], to: edge.verticesArray[1], weight: edge.weight)
+                        EdgeView(edge: edge)
                     }
                 }
                 .toolbar {
