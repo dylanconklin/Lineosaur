@@ -38,7 +38,7 @@ struct EdgeCreator: View {
                 }
                 HStack {
                     Text("Weight :")
-                    TextField("weight",
+                    TextField("Weight",
                               text: Binding(
                                 get: { String(weight) },
                                 set: { weight = Double($0) ?? 0.0 }))
@@ -48,7 +48,7 @@ struct EdgeCreator: View {
             .monospaced()
             Button {
                 if !to.isEmpty && !from.isEmpty {
-                    graph.G.insert(edge: Edge(from: from, to: to, weight: weight))
+                    graph.G.insert(Edge(from: from, to: to, weight: weight))
                 }
                 
                 // Reset form input fields
@@ -76,7 +76,7 @@ struct EdgeList: View {
         NavigationStack {
             ZStack {
                 List {
-                    ForEach($graph.G.edgesArray, id: \.self, editActions: .delete) { edge in
+                    ForEach($graph.G.edges, id: \.self, editActions: .delete) { edge in
                         EdgeView(edge: edge)
                     }
                 }

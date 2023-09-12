@@ -17,21 +17,15 @@ struct ContentView: View {
             TabView {
                 EdgeList(graph: graph)
                     .tabItem {
-                        VStack {
-                            Label("Edit Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
-                        }
+                        Label("Edit Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
                     }
                 VertexList(graph: graph)
                     .tabItem {
-                        VStack {
-                            Label("Edit Vertices", systemImage: "smallcircle.filled.circle")
-                        }
+                        Label("Edit Vertices", systemImage: "smallcircle.circle")
                     }
                 TableViewer(graph: graph)
                     .tabItem {
-                        VStack {
-                            Label("View Table", systemImage: "tablecells")
-                        }
+                        Label("View Table", systemImage: "tablecells")
                     }
             }
         }

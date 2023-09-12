@@ -11,13 +11,17 @@ struct VertexList: View {
     @ObservedObject var graph: GraphData
     
     var body: some View {
-        List {
-            ForEach ($graph.G.vertices, id: \.self, editActions: .delete) { vertex in
-                VertexView(vertex: vertex)
+        NavigationStack {
+            ZStack {
+                List {
+                    ForEach ($graph.G.vertices, id: \.self, editActions: .delete) { vertex in
+                        VertexView(vertex: vertex)
+                    }
+                }
+                .toolbar {
+                    EditButton()
+                }
             }
-        }
-        .toolbar {
-            EditButton()
         }
     }
 }

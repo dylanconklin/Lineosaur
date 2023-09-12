@@ -32,31 +32,56 @@ struct Edge: Hashable, Comparable {
             to = newValue[1]
         }
     }
+
+    var isVertex: Bool {
+        to == from && weight == 0
+    }
 }
+
+let acyclic_graph: Graph = [
+    Edge(from: "1", to: "2", weight: 1),
+    Edge(from: "2", to: "3", weight: 1),
+    Edge(from: "2", to: "4", weight: 1),
+    Edge(from: "4", to: "5", weight: 1),
+    Edge(from: "4", to: "6", weight: 1),
+    Edge(from: "5", to: "6", weight: 1),
+    Edge(from: "6", to: "3", weight: 1),
+]
+
+let cyclic_graph: Graph = [
+    Edge(from: "1", to: "2", weight: 1),
+    Edge(from: "2", to: "3", weight: 1),
+    Edge(from: "2", to: "4", weight: 1),
+    Edge(from: "4", to: "5", weight: 1),
+    Edge(from: "5", to: "6", weight: 1),
+    Edge(from: "6", to: "3", weight: 1),
+    Edge(from: "6", to: "4", weight: 1),
+]
+
+var cities: Graph = [
+    Edge(from: "Baltimore", to: "Barre", weight: 496),
+    Edge(from: "Baltimore", to: "Portland", weight: 2810),
+    Edge(from: "Baltimore", to: "Richmond", weight: 149),
+    Edge(from: "Baltimore", to: "SLC", weight: 2082),
+    Edge(from: "Barre", to: "Portland", weight: 3052),
+    Edge(from: "Barre", to: "Richmond", weight: 646),
+    Edge(from: "Barre", to: "SLC", weight: 2328),
+    Edge(from: "Portland", to: "Richmond", weight: 2867),
+    Edge(from: "Portland", to: "SLC", weight: 768),
+    Edge(from: "Richmond", to: "SLC", weight: 2141),
+]
 
 /// Observable object containing a graph
 ///
 /// NOTE: Bindings to a graph is a better way to do this
 /// But I have to demonstrate that I can use Observable Objects to potential employers
 public class GraphData: ObservableObject {
-    @Published var G: Graph = [Edge(from: "Baltimore", to: "Barre", weight: 496),
-                               Edge(from: "Baltimore", to: "Portland", weight: 2810),
-                               Edge(from: "Baltimore", to: "Richmond", weight: 149),
-                               Edge(from: "Baltimore", to: "SLC", weight: 2082),
-                               Edge(from: "Barre", to: "Portland", weight: 3052),
-                               Edge(from: "Barre", to: "Richmond", weight: 646),
-                               Edge(from: "Barre", to: "SLC", weight: 2328),
-                               Edge(from: "Portland", to: "Richmond", weight: 2867),
-                               Edge(from: "Portland", to: "SLC", weight: 768),
-                               Edge(from: "Richmond", to: "SLC", weight: 2141),
-    ]
+    @Published var G: Graph = acyclic_graph
 }
 
 extension Graph {
-    /// Insert edge into graph
-    /// - Parameter edge: Edge object containing two vertices and the weight between them
-    mutating func insert(edge: Edge) {
-        insert(edge)
+    mutating func insert(_ vertex: Vertex) {
+        insert(Edge(from: vertex, to: vertex, weight: 0))
     }
 
     mutating func remove(_ vertex: Vertex) {
@@ -77,26 +102,10 @@ extension Graph {
         set {
             Set<Vertex>(vertices).symmetricDifference(Set<Vertex>(newValue)).forEach { vertex in
                 if self.vertices.count < newValue.count {
-                    insert(edge: Edge(from: vertex, to: vertex, weight: 0))
+                    insert(Edge(from: vertex, to: vertex, weight: 0))
                 } else {
                     remove(vertex)
                 }
-            }
-        }
-    }
-
-    /// Returns edges of the graph, in the form of Edge objects in an array
-    var edgesArray: [Edge] {
-        get {
-            Array(self).sorted(by: {
-                let index: Int = $0.from != $1.from ? 0 : 1
-                return $0.vertices[index] < $1.vertices[index]
-            })
-        }
-        set {
-            removeAll()
-            newValue.forEach { edge in
-                insert(edge: Edge(from: edge.from, to: edge.to, weight: edge.weight))
             }
         }
     }
@@ -119,7 +128,7 @@ extension Graph {
         var MST: Graph = []
 
         while let edge = G.filter({ !Set<Vertex>($0.vertices).intersection(vertices_left).isEmpty && !Set<Vertex>($0.vertices).intersection(MST.vertices).isEmpty }).sorted(by: { $0.weight < $1.weight }).first ?? (MST.isEmpty ? G.sorted(by: { $0.weight < $1.weight }).first : nil) {
-            MST.insert(edge: edge)
+            MST.insert(edge)
             for vertex in edge.vertices {
                 vertices_left.remove(vertex)
             }
@@ -129,19 +138,60 @@ extension Graph {
         return MST
     }
 
-    func getEdges(from: String, to: String, directional: Bool = true) -> [Edge] {
-        var result: [Edge] = [Edge]()
+    /// Returns edges of the graph, in the form of Edge objects in an array
+    var edges: [Edge] {
+        get {
+            Array(self).sorted(by: {
+                let index: Int = $0.from != $1.from ? 0 : 1
+                return $0.vertices[index] < $1.vertices[index]
+            })
+        }
+        set {
+            removeAll()
+            newValue.forEach { edge in
+                insert(edge)
+            }
+        }
+    }
+
+    func edges(from: String, to: String, directional: Bool = true) -> Set<Edge> {
+        var result: Set<Edge> = Set<Edge>()
         let f = directional ? { (from: String, to: String, edge: Edge) -> Bool in
             edge.to == to && edge.from == from
         } : { (from: String, to: String, edge: Edge) -> Bool in
             Set<Vertex>(edge.vertices) == Set<Vertex>(arrayLiteral: from, to)
         }
 
-        for edge in self {
-            if f(from, to, edge) {
-                result.append(edge)
+        for edge in edges {
+            if f(from, to, edge) && !edge.isVertex {
+                result.insert(edge)
             }
         }
+
+        return result
+    }
+
+    var leaves: Set<Vertex> {
+        var result: Set<Vertex> = Set<Vertex>()
+
+        for vertex in vertices {
+            if self.filter({ $0.from == vertex }).isEmpty {
+                result.insert(vertex)
+            }
+        }
+
+        return result
+    }
+
+    var isCyclic: Bool {
+        var result: Bool = false
+        var graph: Graph = self
+
+        while !graph.leaves.isEmpty {
+            graph.leaves.forEach({ graph.remove($0) })
+        }
+        
+        result = !graph.isEmpty
 
         return result
     }

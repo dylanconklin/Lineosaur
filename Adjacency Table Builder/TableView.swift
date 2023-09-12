@@ -10,7 +10,7 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     var G: Graph
-    @State var showDetails: Bool = false
+    @State var showFacts: Bool = false
     
     var body: some View {
         if G.isEmpty{
@@ -25,20 +25,14 @@ struct TableView: View {
                         GridRow {
                             Cell {
                                 Button {
-                                    showDetails = true
+                                    showFacts = true
                                 } label: {
                                     Image(systemName: "info.circle.fill")
                                         .padding()
                                         .padding()
                                 }
-                                .alert("Graph Details", isPresented: $showDetails){
-                                    Button ("Okay") {
-                                        showDetails = false
-                                    }
-                                } message: {
-                                    VStack {
-                                        Text("Cost is \(String(G.cost))\n\(G.vertices.count) vertices\n\(G.count) edges")
-                                    }
+                                .sheet(isPresented: $showFacts){
+                                    GraphFacts(graph: G)
                                 }
                             }
                             ForEach(G.vertices.sorted(), id: \.self) { x in
@@ -57,7 +51,7 @@ struct TableView: View {
                                 ForEach(G.vertices.sorted(), id: \.self) { x in
                                     var distance: String {
                                         var distance: String = ""
-                                        distance = String(G.getEdges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
+                                        distance = String(G.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
                                         distance = y != x && distance == "0.0" ? "-" : distance
                                         return distance
                                     }
