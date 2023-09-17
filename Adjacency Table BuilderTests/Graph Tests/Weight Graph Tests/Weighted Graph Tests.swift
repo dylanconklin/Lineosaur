@@ -6,13 +6,17 @@
 //
 
 import XCTest
+@testable import Adjacency_Table_Builder
 
 final class Weighted_Graph_Tests: XCTestCase {
+    
+    var sut: Graph!
 
     override func setUp() {
     }
 
     override func tearDown() {
+        sut = nil
     }
 
     func testExample() {

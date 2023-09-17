@@ -1,18 +1,19 @@
 //
-//  Undirected Graph Tests.swift
+//  Empty Graph Tests.swift
 //  Adjacency Table BuilderTests
 //
-//  Created by Dylan Conklin on 9/12/23.
+//  Created by Dylan Conklin on 9/16/23.
 //
 
 import XCTest
 @testable import Adjacency_Table_Builder
 
-final class Undirected_Graph_Tests: XCTestCase {
+final class Empty_Graph_Tests: XCTestCase {
     
     var sut: Graph!
 
     override func setUp() {
+        sut = []
     }
 
     override func tearDown() {
