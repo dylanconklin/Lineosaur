@@ -21,15 +21,13 @@ struct TableView: View {
         } else {
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
-                    Grid {
+                    Grid (horizontalSpacing: 0, verticalSpacing: 0) {
                         GridRow {
                             Cell {
                                 Button {
                                     showFacts = true
                                 } label: {
                                     Image(systemName: "info.circle.fill")
-                                        .padding()
-                                        .padding()
                                 }
                                 .sheet(isPresented: $showFacts){
                                     GraphFacts(graph: G)

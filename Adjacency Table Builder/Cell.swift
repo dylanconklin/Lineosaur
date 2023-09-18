@@ -13,7 +13,9 @@ struct Cell<Content:View>: View {
 
     var body: some View {
         content
-            .frame(width: 150, height: 75)
+            .padding()
+            .padding()
+            .frame(maxWidth: .infinity)
             .border(.foreground)
     }
 }
