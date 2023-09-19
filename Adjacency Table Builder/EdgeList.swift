@@ -27,13 +27,13 @@ struct EdgeCreator: View {
             }
             Form {
                 HStack {
-                    Text("To     :")
-                    TextField("To", text: $to)
+                    Text("From   :")
+                    TextField("From", text: $from)
                     Spacer()
                 }
                 HStack {
-                    Text("From   :")
-                    TextField("From", text: $from)
+                    Text("To     :")
+                    TextField("To", text: $to)
                     Spacer()
                 }
                 HStack {
@@ -52,8 +52,8 @@ struct EdgeCreator: View {
                 }
                 
                 // Reset form input fields
-                to = ""
                 from = ""
+                to = ""
                 weight = 0
             } label: {
                 HStack {
@@ -80,6 +80,7 @@ struct EdgeList: View {
                         EdgeView(edge: edge)
                     }
                 }
+                .navigationTitle("Edges")
                 .toolbar {
                     EditButton()
                     Button {

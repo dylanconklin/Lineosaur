@@ -12,23 +12,23 @@ struct EdgeView: View {
     @Binding var edge: Edge
 
     var body: some View {
-        HStack {
-            VStack {
-                HStack {
-                    Text("from   : \(edge.from)")
-                    Spacer()
-                }
-                HStack {
-                    Text("to     : \(edge.to)")
-                    Spacer()
-                }
-                HStack {
-                    Text("weight : \(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
-                    Spacer()
-                }
+        Grid (alignment: .leading) {
+            GridRow {
+                Text("From")
+                Text(":")
+                Text("\(edge.from)")
+            }
+            GridRow {
+                Text("To")
+                Text(":")
+                Text("\(edge.to)")
+            }
+            GridRow {
+                Text("Weight")
+                Text(":")
+                Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
             }
         }
-        .monospaced()
         .padding()
     }
 }
