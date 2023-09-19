@@ -60,6 +60,7 @@ struct TableView: View {
                             }
                         }
                     }
+                    .padding()
                 }
             }
         }
