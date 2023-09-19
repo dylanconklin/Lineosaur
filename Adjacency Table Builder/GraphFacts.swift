@@ -29,11 +29,11 @@ struct GraphFacts: View {
     var body: some View {
         TabView {
             GraphFact(fact: "The cost is \(graph.cost)",
-                      symbol: "dollarsign")
+                      symbol: "clock")
             .tabItem(){
             }
             GraphFact(fact: "The graph is \(graph.isCyclic ? "" : "a")cyclic",
-                      symbol: "arrow.triangle.2.circlepath")
+                      symbol: graph.isCyclic ? "arrow.triangle.2.circlepath" : "exclamationmark.arrow.triangle.2.circlepath")
             .tabItem(){
             }
             GraphFact(fact: "The graph has \(graph.vertices.count) vertices",
