@@ -114,7 +114,7 @@ extension Graph {
     /// The cost is the sum of the weight (length) of all the edges in the graph
     var cost: Double {
         var result: Double = 0
-        forEach({ edge in
+        edges.forEach({ edge in
             result += edge.weight
         })
         return result
