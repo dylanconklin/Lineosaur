@@ -21,6 +21,8 @@
 		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
 		AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A96B2A99A74F007DE536 /* VertexView.swift */; };
+		AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */; };
+		AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */; };
 		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
 		ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */; };
 		ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */; };
@@ -58,6 +60,8 @@
 		AB76A9692A99A645007DE536 /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
 		AB76A96B2A99A74F007DE536 /* VertexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexView.swift; sourceTree = "<group>"; };
 		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Samples.swift"; sourceTree = "<group>"; };
 		ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditor.swift; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weighted Graph Tests.swift"; sourceTree = "<group>"; };
@@ -106,9 +110,10 @@
 		AB510F322A8A91C800B76121 /* Adjacency Table Builder */ = {
 			isa = PBXGroup;
 			children = (
+				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
+				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
 				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
-				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
@@ -135,18 +140,59 @@
 		AB76A95E2A998D4B007DE536 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB510F602A8A923F00B76121 /* Cell.swift */,
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
-				AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */,
-				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
-				AB76A9692A99A645007DE536 /* EdgeList.swift */,
-				AB76A9612A99A448007DE536 /* EdgeView.swift */,
+				AB8BFA522ABAE0B900B1B2CC /* Table */,
+				AB8BFA512ABAE0AD00B1B2CC /* Edge */,
+				AB8BFA502ABAE09F00B1B2CC /* Vertex */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AB8BFA4E2ABAE06F00B1B2CC /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				AB510F642A8A928800B76121 /* Graph.swift */,
+				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		AB8BFA4F2ABAE07D00B1B2CC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		AB8BFA502ABAE09F00B1B2CC /* Vertex */ = {
+			isa = PBXGroup;
+			children = (
 				AB76A9672A99A620007DE536 /* VertexList.swift */,
 				AB76A96B2A99A74F007DE536 /* VertexView.swift */,
+			);
+			name = Vertex;
+			sourceTree = "<group>";
+		};
+		AB8BFA512ABAE0AD00B1B2CC /* Edge */ = {
+			isa = PBXGroup;
+			children = (
+				AB76A9692A99A645007DE536 /* EdgeList.swift */,
+				AB76A9612A99A448007DE536 /* EdgeView.swift */,
+			);
+			name = Edge;
+			sourceTree = "<group>";
+		};
+		AB8BFA522ABAE0B900B1B2CC /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				AB510F602A8A923F00B76121 /* Cell.swift */,
+				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
+				AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
 				AB55B1142A99B20900928D09 /* TableViewer.swift */,
 			);
-			name = Views;
+			name = Table;
 			sourceTree = "<group>";
 		};
 		ABEEF2602AB190AD004C9429 /* Weight Graph Tests */ = {
@@ -170,10 +216,10 @@
 		ABEEF2622AB1915B004C9429 /* Graph Tests */ = {
 			isa = PBXGroup;
 			children = (
-				ABEEF2612AB190D4004C9429 /* Directed Graphs */,
-				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
 				AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */,
 				ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */,
+				ABEEF2612AB190D4004C9429 /* Directed Graphs */,
+				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
 			);
 			path = "Graph Tests";
 			sourceTree = "<group>";
@@ -284,6 +330,7 @@
 				AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */,
 				AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
+				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
 				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
@@ -291,6 +338,7 @@
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
+				AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
