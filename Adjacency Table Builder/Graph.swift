@@ -113,11 +113,7 @@ extension Graph {
     /// Calculates the total cost of the graph
     /// The cost is the sum of the weight (length) of all the edges in the graph
     var cost: Double {
-        var result: Double = 0
-        edges.forEach({ edge in
-            result += edge.weight
-        })
-        return result
+        edges.reduce(0.0, {$0 + $1.weight})
     }
 
     /// Generate the Minimum Spanning Tree (MST)
@@ -176,22 +172,18 @@ extension Graph {
     }
 
     var leaves: Set<Vertex> {
-        let result = Set<Vertex>(vertices.filter { vertex in
+        Set<Vertex>(vertices.filter { vertex in
             self.filter { $0.from == vertex }.isEmpty
         })
-        return result
     }
 
     var isCyclic: Bool {
-        var result: Bool = false
         var graph: Graph = self
 
         while !graph.leaves.isEmpty {
             graph.leaves.forEach({ graph.remove($0) })
         }
 
-        result = !graph.isEmpty
-
-        return result
+        return !graph.isEmpty
     }
 }
