@@ -25,22 +25,18 @@ struct TableViewer: View {
             }
             .pickerStyle(.segmented)
             .padding()
+            Spacer()
             switch graphType {
             case .given:
                 TableView(G: graph.G)
             case .mst:
                 TableView(G: graph.G.mst)
             }
+            Spacer()
         }
     }
 }
 
-struct TableViewer_Previews: PreviewProvider {
-    static let mst: Graph = [Edge(from: "Baltimore", to: "Barre", weight: 496),
-                             Edge(from: "Baltimore", to: "Richmond", weight: 149),
-                             Edge(from: "Barre", to: "Richmond", weight: 646),
-    ]
-    static var previews: some View {
-        TableViewer(graph: GraphData())
-    }
+#Preview {
+    TableViewer(graph: GraphData())
 }

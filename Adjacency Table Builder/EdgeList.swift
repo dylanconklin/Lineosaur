@@ -26,26 +26,27 @@ struct EdgeCreator: View {
                 .padding()
             }
             Form {
-                HStack {
-                    Text("From   :")
-                    TextField("From", text: $from)
-                    Spacer()
-                }
-                HStack {
-                    Text("To     :")
-                    TextField("To", text: $to)
-                    Spacer()
-                }
-                HStack {
-                    Text("Weight :")
-                    TextField("Weight",
-                              text: Binding(
-                                get: { String(weight) },
-                                set: { weight = Double($0) ?? 0.0 }))
-                    Spacer()
+                Grid(alignment: .leading) {
+                    GridRow {
+                        Text("From")
+                        Text(":")
+                        TextField("From", text: $from)
+                    }
+                    GridRow {
+                        Text("To")
+                        Text(":")
+                        TextField("To", text: $to)
+                    }
+                    GridRow {
+                        Text("Weight")
+                        Text(":")
+                        TextField("Weight",
+                                  text: Binding(
+                                    get: { String(weight) },
+                                    set: { weight = Double($0) ?? 0.0 }))
+                    }
                 }
             }
-            .monospaced()
             Button {
                 if !to.isEmpty && !from.isEmpty {
                     graph.G.insert(Edge(from: from, to: to, weight: weight))
@@ -97,9 +98,6 @@ struct EdgeList: View {
     }
 }
 
-struct EdgeList_Previews: PreviewProvider {
-    static var graph = GraphData()
-    static var previews: some View {
-        EdgeList(graph: graph)
-    }
+#Preview {
+    EdgeList(graph: GraphData())
 }
