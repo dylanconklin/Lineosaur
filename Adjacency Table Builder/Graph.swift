@@ -141,10 +141,14 @@ extension Graph {
     /// Returns edges of the graph, in the form of Edge objects in an array
     var edges: [Edge] {
         get {
-            Array(self).sorted(by: {
-                let index: Int = $0.from != $1.from ? 0 : 1
-                return $0.vertices[index] < $1.vertices[index]
-            })
+            Array(self)
+                .filter({ edge in
+                    !edge.isVertex
+                })
+                .sorted(by: {
+                    let index: Int = $0.from != $1.from ? 0 : 1
+                    return $0.vertices[index] < $1.vertices[index]
+                })
         }
         set {
             removeAll()
@@ -162,8 +166,8 @@ extension Graph {
             Set<Vertex>(edge.vertices) == Set<Vertex>(arrayLiteral: from, to)
         }
 
-        for edge in edges {
-            if f(from, to, edge) && !edge.isVertex {
+        edges.forEach { edge in
+            if f(from, to, edge) {
                 result.insert(edge)
             }
         }
@@ -172,14 +176,9 @@ extension Graph {
     }
 
     var leaves: Set<Vertex> {
-        var result: Set<Vertex> = Set<Vertex>()
-
-        for vertex in vertices {
-            if self.filter({ $0.from == vertex }).isEmpty {
-                result.insert(vertex)
-            }
-        }
-
+        let result = Set<Vertex>(vertices.filter { vertex in
+            self.filter { $0.from == vertex }.isEmpty
+        })
         return result
     }
 
@@ -190,7 +189,7 @@ extension Graph {
         while !graph.leaves.isEmpty {
             graph.leaves.forEach({ graph.remove($0) })
         }
-        
+
         result = !graph.isEmpty
 
         return result
