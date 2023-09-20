@@ -147,10 +147,7 @@ extension Graph {
                 })
         }
         set {
-            removeAll()
-            newValue.forEach { edge in
-                insert(edge)
-            }
+            self = Set<Edge>(newValue)
         }
     }
 
