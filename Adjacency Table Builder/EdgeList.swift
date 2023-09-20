@@ -57,10 +57,7 @@ struct EdgeCreator: View {
                 to = ""
                 weight = 0
             } label: {
-                HStack {
-                    Image(systemName: "checkmark")
-                    Text("Add Edge")
-                }
+                Label("Add Edge", systemImage: "checkmark")
             }
             .padding()
             Spacer()
