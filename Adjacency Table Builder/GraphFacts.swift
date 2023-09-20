@@ -36,11 +36,11 @@ struct GraphFacts: View {
                       symbol: graph.isCyclic ? "arrow.triangle.2.circlepath" : "exclamationmark.arrow.triangle.2.circlepath")
             .tabItem(){
             }
-            GraphFact(fact: "The graph has \(graph.vertices.count) vertices",
+            GraphFact(fact: "The graph has \(graph.vertices.count) \(graph.vertices.count == 1 ? "vertex" : "vertices")",
                       symbol: "smallcircle.circle")
             .tabItem(){
             }
-            GraphFact(fact: "The graph has \(graph.edges.count) edges",
+            GraphFact(fact: "The graph has \(graph.edges.count) edge\(graph.edges.count == 1 ? "" : "s")",
                       symbol: "point.topleft.down.curvedto.point.bottomright.up")
             .tabItem(){
             }
