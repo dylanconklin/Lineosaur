@@ -9,7 +9,9 @@ import SwiftUI
 
 struct VertexList: View {
     @ObservedObject var graph: GraphData
-    
+    @State var showVertexBuilder: Bool = false
+    @State var vertexName: String = ""
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -21,6 +23,22 @@ struct VertexList: View {
                 .navigationTitle("Vertices")
                 .toolbar {
                     EditButton()
+                    Button {
+                        showVertexBuilder = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .alert("Add Vertex", isPresented: $showVertexBuilder) {
+                        TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+                        Button ("Cancel", role: .cancel) {
+                            showVertexBuilder = false
+                            vertexName = ""
+                        }
+                        Button ("Add") {
+                            graph.G.insert(vertexName)
+                            vertexName = ""
+                        }
+                    }
                 }
             }
         }
