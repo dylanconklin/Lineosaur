@@ -45,9 +45,6 @@ struct VertexList: View {
     }
 }
 
-struct VertexList_Previews: PreviewProvider {
-    static var graph = GraphData()
-    static var previews: some View {
-        VertexList(graph: graph)
-    }
+#Preview {
+    VertexList(graph: GraphData())
 }
