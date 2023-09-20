@@ -20,7 +20,14 @@ final class Empty_Graph_Tests: XCTestCase {
         sut = nil
     }
 
-    func testExample() {
+    func testEmptyGraphIsNotCyclic() {
+        // given
+
+        // when
+        let result: Bool = sut.isCyclic
+
+        // then
+        XCTAssertFalse(result)
     }
 
 }

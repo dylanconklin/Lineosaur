@@ -1,5 +1,5 @@
 //
-//  Cyclic Graph Tests.swift
+//  Acyclic Graph Tests.swift
 //  Adjacency Table BuilderTests
 //
 //  Created by Dylan Conklin on 9/12/23.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Adjacency_Table_Builder
 
-final class Cyclic_Graph_Tests: XCTestCase {
+final class Acyclic_Graph_Tests: XCTestCase {
     
     var sut: Graph!
 
@@ -18,9 +18,9 @@ final class Cyclic_Graph_Tests: XCTestCase {
             Edge(from: "2", to: "3", weight: 1),
             Edge(from: "2", to: "4", weight: 1),
             Edge(from: "4", to: "5", weight: 1),
+            Edge(from: "4", to: "6", weight: 1),
             Edge(from: "5", to: "6", weight: 1),
             Edge(from: "6", to: "3", weight: 1),
-            Edge(from: "6", to: "4", weight: 1),
         ]
     }
 
@@ -28,7 +28,14 @@ final class Cyclic_Graph_Tests: XCTestCase {
         sut = nil
     }
 
-    func testExample() {
+    func testAcyclicGraphIsNotCyclic() {
+        // given
+
+        // when
+        let result: Bool = sut.isCyclic
+
+        // then
+        XCTAssertFalse(result)
     }
 
 }
