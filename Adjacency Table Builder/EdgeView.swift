@@ -29,7 +29,6 @@ struct EdgeView: View {
                 Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
             }
         }
-        .padding()
     }
 }
 
