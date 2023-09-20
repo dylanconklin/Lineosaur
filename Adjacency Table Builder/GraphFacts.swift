@@ -50,5 +50,5 @@ struct GraphFacts: View {
 }
 
 #Preview {
-    GraphFacts(graph: cities)
+    GraphFacts(graph: acyclic_graph)
 }
