@@ -29,9 +29,13 @@ struct Graph: Equatable {
 
     mutating func remove(_ vertex: Vertex) {
         graphEdges.filter({ $0.vertices.contains(vertex) }).forEach { edge in
-            self.graphEdges.remove(edge)
+            remove(edge)
         }
         graphVertices.remove(vertex)
+    }
+
+    mutating func remove(_ edge: Edge) {
+        graphEdges.remove(edge)
     }
 
     /// Returns the vertices of the graph
@@ -40,12 +44,13 @@ struct Graph: Equatable {
             graphVertices.sorted()
         }
         set {
-            Set<Vertex>(vertices).symmetricDifference(Set<Vertex>(newValue)).forEach { vertex in
-                if self.vertices.count < newValue.count {
-                    insert(Edge(from: vertex, to: vertex, weight: 0))
-                } else {
-                    remove(vertex)
-                }
+            let newVertices = Set<Vertex>(newValue)
+            let difference = Set<Vertex>(vertices).symmetricDifference(newVertices)
+
+            if vertices.count < newVertices.count {
+                graphVertices.formUnion(difference)
+            } else {
+                difference.forEach { remove($0) }
             }
         }
     }
@@ -63,19 +68,14 @@ struct Graph: Equatable {
         var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
         var MST: Graph = Graph()
 
-        while let edge =
-            G.edges
-                .filter({
-                    !Set<Vertex>($0.vertices)
-                        .intersection(vertices_left).isEmpty && !Set<Vertex>($0.vertices).intersection(MST.vertices).isEmpty
-                })
-                .sorted(by: { $0.weight < $1.weight })
-                .first ?? (MST.isEmpty ? G.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
+        while let edge = G.edges.sorted().first(where: {
+            let a = Set<Vertex>($0.vertices).intersection(vertices_left)
+            let b = Set<Vertex>($0.vertices).intersection(MST.vertices)
+            return !a.isEmpty && !b.isEmpty
+        }) ?? (MST.isEmpty ? G.edges.first : nil) {
             MST.insert(edge)
-            for vertex in edge.vertices {
-                vertices_left.remove(vertex)
-            }
-            G.graphEdges.remove(edge)
+            G.remove(edge)
+            vertices_left.subtract(edge.vertices)
         }
 
         return MST
@@ -84,7 +84,15 @@ struct Graph: Equatable {
     /// Returns edges of the graph, in the form of Edge objects in an array
     var edges: [Edge] {
         get {
-            graphEdges.sorted()
+            graphEdges.sorted(by: {
+                if $0.from != $1.from {
+                    return $0.from < $0.from
+                } else if $0.to != $1.to {
+                    return $0.to < $0.to
+                } else {
+                    return $0.weight < $0.weight
+                }
+            })
         }
         set {
             graphEdges = Set<Edge>(newValue)
