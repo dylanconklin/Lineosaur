@@ -13,21 +13,13 @@ struct ContentView: View {
     @State var graph: Graph = Graph()
 
     var body: some View {
-        ZStack {
-            TabView {
-                EdgeList(graph: $graph)
-                    .tabItem {
-                        Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
-                    }
-                VertexList(graph: $graph)
-                    .tabItem {
-                        Label("Vertices", systemImage: "smallcircle.circle")
-                    }
-                TableViewer(graph: graph)
-                    .tabItem {
-                        Label("Table", systemImage: "tablecells")
-                    }
-            }
+        TabView {
+            EdgeList(graph: $graph)
+                .tabItem { Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up") }
+            VertexList(graph: $graph)
+                .tabItem { Label("Vertices", systemImage: "smallcircle.circle") }
+            TableViewer(graph: graph)
+                .tabItem { Label("Table", systemImage: "tablecells") }
         }
     }
 }
