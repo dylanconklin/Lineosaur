@@ -10,22 +10,22 @@ import SwiftUI
 
 /// Entry point into application
 struct ContentView: View {
-    @StateObject var graph = GraphData()
+    @State var graph: Graph = Graph()
 
     var body: some View {
         ZStack {
             TabView {
-                EdgeList(graph: graph)
+                EdgeList(graph: $graph)
                     .tabItem {
-                        Label("Edit Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
+                        Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up")
                     }
-                VertexList(graph: graph)
+                VertexList(graph: $graph)
                     .tabItem {
-                        Label("Edit Vertices", systemImage: "smallcircle.circle")
+                        Label("Vertices", systemImage: "smallcircle.circle")
                     }
                 TableViewer(graph: graph)
                     .tabItem {
-                        Label("View Table", systemImage: "tablecells")
+                        Label("Table", systemImage: "tablecells")
                     }
             }
         }

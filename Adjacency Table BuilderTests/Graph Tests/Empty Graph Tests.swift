@@ -13,7 +13,7 @@ final class Empty_Graph_Tests: XCTestCase {
     var sut: Graph!
 
     override func setUp() {
-        sut = []
+        sut = Graph()
     }
 
     override func tearDown() {

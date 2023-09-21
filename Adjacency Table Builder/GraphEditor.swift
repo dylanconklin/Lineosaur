@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GraphEditor: View {
-    @ObservedObject var graph: GraphData
+    @Binding var graph: Graph
     @State var graphElement: GraphElements = .edges
     
     enum GraphElements {
@@ -27,14 +27,15 @@ struct GraphEditor: View {
             
             switch graphElement {
             case .edges:
-                EdgeList(graph: graph)
+                EdgeList(graph: $graph)
             case .vertices:
-                VertexList(graph: graph)
+                VertexList(graph: $graph)
             }
         }
     }
 }
 
 #Preview {
-    GraphEditor(graph: GraphData())
+    @State var graph = Graph()
+    return GraphEditor(graph: $graph)
 }

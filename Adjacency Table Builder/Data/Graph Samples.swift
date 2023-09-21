@@ -7,7 +7,7 @@
 
 import Foundation
 
-let acyclic_graph: Graph = [
+let acyclic_graph: Set<Edge> = [
     Edge(from: "1", to: "2", weight: 1),
     Edge(from: "2", to: "3", weight: 1),
     Edge(from: "2", to: "4", weight: 1),
@@ -17,7 +17,7 @@ let acyclic_graph: Graph = [
     Edge(from: "6", to: "3", weight: 1),
 ]
 
-let cyclic_graph: Graph = [
+let cyclic_graph: Set<Edge> = [
     Edge(from: "1", to: "2", weight: 1),
     Edge(from: "2", to: "3", weight: 1),
     Edge(from: "2", to: "4", weight: 1),
@@ -27,7 +27,7 @@ let cyclic_graph: Graph = [
     Edge(from: "6", to: "4", weight: 1),
 ]
 
-var cities: Graph = [
+var cities: Set<Edge> = [
     Edge(from: "Baltimore", to: "Barre", weight: 496),
     Edge(from: "Baltimore", to: "Portland", weight: 2810),
     Edge(from: "Baltimore", to: "Richmond", weight: 149),

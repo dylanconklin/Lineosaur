@@ -25,7 +25,7 @@ struct GraphFact: View {
 
 struct GraphFacts: View {
     var graph: Graph
-    
+
     var body: some View {
         TabView {
             GraphFact(fact: "The cost is \(graph.cost)",
@@ -50,5 +50,5 @@ struct GraphFacts: View {
 }
 
 #Preview {
-    GraphFacts(graph: acyclic_graph)
+    GraphFacts(graph: Graph())
 }

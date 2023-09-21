@@ -9,11 +9,11 @@ import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
-    var G: Graph
+    var graph: Graph
     @State var showFacts: Bool = false
     
     var body: some View {
-        if G.isEmpty{
+        if graph.edges.isEmpty{
             VStack {
                 Text("No table to view")
                 Text("Go to the table builder to create a table")
@@ -30,26 +30,26 @@ struct TableView: View {
                                     Image(systemName: "info.circle.fill")
                                 }
                                 .sheet(isPresented: $showFacts){
-                                    GraphFacts(graph: G)
+                                    GraphFacts(graph: graph)
                                 }
                             }
-                            ForEach(G.vertices.sorted(), id: \.self) { x in
+                            ForEach(graph.vertices.sorted(), id: \.self) { x in
                                 Cell {
                                     Text(String(x))
                                         .fontWeight(Font.Weight.bold)
                                 }
                             }
                         }
-                        ForEach(G.vertices.sorted(), id: \.self) { y in
+                        ForEach(graph.vertices.sorted(), id: \.self) { y in
                             GridRow {
                                 Cell {
                                     Text(String(y))
                                         .fontWeight(Font.Weight.bold)
                                 }
-                                ForEach(G.vertices.sorted(), id: \.self) { x in
+                                ForEach(graph.vertices.sorted(), id: \.self) { x in
                                     var distance: String {
                                         var distance: String = ""
-                                        distance = String(G.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
+                                        distance = String(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
                                         distance = y != x && distance == "0.0" ? "-" : distance
                                         return distance
                                     }
@@ -67,12 +67,7 @@ struct TableView: View {
     }
 }
 
-struct TableView_Previews: PreviewProvider {
-    static let mst: Graph = [Edge(from: "Baltimore", to: "Barre", weight: 496),
-                             Edge(from: "Baltimore", to: "Richmond", weight: 149),
-                             Edge(from: "Barre", to: "Richmond", weight: 646),
-    ]
-    static var previews: some View {
-        TableView(G: mst)
-    }
+#Preview {
+    @State var graph = Graph()
+    return TableView(graph: graph)
 }

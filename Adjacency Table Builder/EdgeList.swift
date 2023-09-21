@@ -10,17 +10,17 @@ import SwiftUI
 
 /// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
-    @ObservedObject var graph: GraphData
+    @Binding var graph: Graph
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Button("Done"){
+                Button("Done") {
                     dismiss()
                 }
                 .padding()
@@ -42,16 +42,16 @@ struct EdgeCreator: View {
                         Text(":")
                         TextField("Weight",
                                   text: Binding(
-                                    get: { String(weight) },
-                                    set: { weight = Double($0) ?? 0.0 }))
+                                      get: { String(weight) },
+                                      set: { weight = Double($0) ?? 0.0 }))
                     }
                 }
             }
             Button {
                 if !to.isEmpty && !from.isEmpty {
-                    graph.G.insert(Edge(from: from, to: to, weight: weight))
+                    graph.insert(Edge(from: from, to: to, weight: weight))
                 }
-                
+
                 // Reset form input fields
                 from = ""
                 to = ""
@@ -67,28 +67,26 @@ struct EdgeCreator: View {
 
 /// List showing edges in the graph
 struct EdgeList: View {
-    @ObservedObject var graph: GraphData
+    @Binding var graph: Graph
     @State var showEdgeCreator: Bool = false
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                List {
-                    ForEach($graph.G.edges, id: \.self, editActions: .delete) { edge in
-                        EdgeView(edge: edge)
-                    }
+            List {
+                ForEach($graph.edges, id: \.self, editActions: .delete) { edge in
+                    EdgeView(edge: edge)
                 }
-                .navigationTitle("Edges")
-                .toolbar {
-                    EditButton()
-                    Button {
-                        showEdgeCreator = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .sheet(isPresented: $showEdgeCreator) {
-                        EdgeCreator(graph: graph)
-                    }
+            }
+            .navigationTitle("Edges")
+            .toolbar {
+                EditButton()
+                Button {
+                    showEdgeCreator = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+                .sheet(isPresented: $showEdgeCreator) {
+                    EdgeCreator(graph: $graph)
                 }
             }
         }
@@ -96,5 +94,6 @@ struct EdgeList: View {
 }
 
 #Preview {
-    EdgeList(graph: GraphData())
+    @State var graph = Graph()
+    return EdgeList(graph: $graph)
 }

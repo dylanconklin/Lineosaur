@@ -14,7 +14,7 @@ enum GraphType {
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
-    @ObservedObject var graph: GraphData
+    var graph: Graph
     @State var graphType: GraphType = .given
 
     var body: some View {
@@ -28,9 +28,9 @@ struct TableViewer: View {
             Spacer()
             switch graphType {
             case .given:
-                TableView(G: graph.G)
+                TableView(graph: graph)
             case .mst:
-                TableView(G: graph.G.mst)
+                TableView(graph: graph.mst)
             }
             Spacer()
         }
@@ -38,5 +38,5 @@ struct TableViewer: View {
 }
 
 #Preview {
-    TableViewer(graph: GraphData())
+    TableViewer(graph: Graph())
 }

@@ -30,7 +30,4 @@ struct Edge: Hashable, Comparable {
         }
     }
 
-    var isVertex: Bool {
-        to == from && weight == 0
-    }
 }

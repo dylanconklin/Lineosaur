@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VertexList: View {
-    @ObservedObject var graph: GraphData
+    @Binding var graph: Graph
     @State var showVertexBuilder: Bool = false
     @State var vertexName: String = ""
 
@@ -16,7 +16,7 @@ struct VertexList: View {
         NavigationStack {
             ZStack {
                 List {
-                    ForEach ($graph.G.vertices, id: \.self, editActions: .delete) { vertex in
+                    ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
                         VertexView(vertex: vertex)
                     }
                 }
@@ -35,7 +35,7 @@ struct VertexList: View {
                             vertexName = ""
                         }
                         Button ("Add") {
-                            graph.G.insert(vertexName)
+                            graph.insert(vertexName)
                             vertexName = ""
                         }
                     }
@@ -46,5 +46,6 @@ struct VertexList: View {
 }
 
 #Preview {
-    VertexList(graph: GraphData())
+    @State var graph = Graph()
+    return VertexList(graph: $graph)
 }

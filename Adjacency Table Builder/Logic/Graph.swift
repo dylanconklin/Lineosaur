@@ -8,35 +8,36 @@
 import Foundation
 
 typealias Vertex = String
-typealias Graph = Set<Edge>
 
-/// Observable object containing a graph
-///
-/// NOTE: Bindings to a graph is a better way to do this
-/// But I have to demonstrate that I can use Observable Objects to potential employers
-public class GraphData: ObservableObject {
-    @Published var G: Graph = acyclic_graph
-}
+struct Graph: Equatable {
+    private var graphEdges: Set<Edge> = []
+    private var graphVertices: Set<Vertex> = []
 
-extension Graph {
     mutating func insert(_ vertex: Vertex) {
-        insert(Edge(from: vertex, to: vertex, weight: 0))
+        graphVertices.insert(vertex)
+    }
+
+    mutating func insert(_ edge: Edge) {
+        graphEdges.insert(edge)
+        insert(edge.from)
+        insert(edge.to)
+    }
+
+    var isEmpty: Bool {
+        graphEdges.isEmpty && graphVertices.isEmpty
     }
 
     mutating func remove(_ vertex: Vertex) {
-        filter({ $0.vertices.contains(vertex) }).forEach { edge in
-            self.remove(edge)
+        graphEdges.filter({ $0.vertices.contains(vertex) }).forEach { edge in
+            self.graphEdges.remove(edge)
         }
+        graphVertices.remove(vertex)
     }
 
     /// Returns the vertices of the graph
     var vertices: [Vertex] {
         get {
-            var vertices: Set<Vertex> = Set<Vertex>()
-            forEach { edge in
-                vertices.formUnion(edge.vertices)
-            }
-            return Array<Vertex>(vertices).sorted()
+            graphVertices.sorted()
         }
         set {
             Set<Vertex>(vertices).symmetricDifference(Set<Vertex>(newValue)).forEach { vertex in
@@ -52,7 +53,7 @@ extension Graph {
     /// Calculates the total cost of the graph
     /// The cost is the sum of the weight (length) of all the edges in the graph
     var cost: Double {
-        edges.reduce(0.0, {$0 + $1.weight})
+        edges.reduce(0.0, { $0 + $1.weight })
     }
 
     /// Generate the Minimum Spanning Tree (MST)
@@ -60,14 +61,21 @@ extension Graph {
     var mst: Graph {
         var G: Graph = self
         var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
-        var MST: Graph = []
+        var MST: Graph = Graph()
 
-        while let edge = G.filter({ !Set<Vertex>($0.vertices).intersection(vertices_left).isEmpty && !Set<Vertex>($0.vertices).intersection(MST.vertices).isEmpty }).sorted(by: { $0.weight < $1.weight }).first ?? (MST.isEmpty ? G.sorted(by: { $0.weight < $1.weight }).first : nil) {
+        while let edge =
+            G.edges
+                .filter({
+                    !Set<Vertex>($0.vertices)
+                        .intersection(vertices_left).isEmpty && !Set<Vertex>($0.vertices).intersection(MST.vertices).isEmpty
+                })
+                .sorted(by: { $0.weight < $1.weight })
+                .first ?? (MST.isEmpty ? G.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
             MST.insert(edge)
             for vertex in edge.vertices {
                 vertices_left.remove(vertex)
             }
-            G.remove(edge)
+            G.graphEdges.remove(edge)
         }
 
         return MST
@@ -76,17 +84,10 @@ extension Graph {
     /// Returns edges of the graph, in the form of Edge objects in an array
     var edges: [Edge] {
         get {
-            Array(self)
-                .filter({ edge in
-                    !edge.isVertex
-                })
-                .sorted(by: {
-                    let index: Int = $0.from != $1.from ? 0 : 1
-                    return $0.vertices[index] < $1.vertices[index]
-                })
+            graphEdges.sorted()
         }
         set {
-            self = Set<Edge>(newValue)
+            graphEdges = Set<Edge>(newValue)
         }
     }
 
@@ -109,7 +110,7 @@ extension Graph {
 
     var leaves: Set<Vertex> {
         Set<Vertex>(vertices.filter { vertex in
-            self.filter { $0.from == vertex }.isEmpty
+            graphEdges.filter { $0.from == vertex }.isEmpty
         })
     }
 
