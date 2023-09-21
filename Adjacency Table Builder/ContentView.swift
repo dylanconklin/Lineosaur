@@ -16,7 +16,7 @@ struct ContentView: View {
         TabView {
             EdgeList(graph: $graph)
                 .tabItem { Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up") }
-            VertexList(graph: $graph)
+            VertexList(vertices: $graph.vertices)
                 .tabItem { Label("Vertices", systemImage: "smallcircle.circle") }
             TableViewer(graph: graph)
                 .tabItem { Label("Table", systemImage: "tablecells") }
