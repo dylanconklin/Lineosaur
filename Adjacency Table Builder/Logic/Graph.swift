@@ -80,11 +80,11 @@ struct Graph: Equatable {
         var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
         var MST: Graph = Graph()
 
-        while let edge = G.edges.sorted().first(where: {
+        while let edge = G.edges.sorted(by: {$0.weight < $1.weight}).first(where: {
             let a = Set<Vertex>($0.vertices).intersection(vertices_left)
             let b = Set<Vertex>($0.vertices).intersection(MST.vertices)
             return !a.isEmpty && !b.isEmpty
-        }) ?? (MST.isEmpty ? G.edges.first : nil) {
+        }) ?? (MST.isEmpty ? G.edges.sorted(by: {$0.weight < $1.weight}).first : nil) {
             MST.insert(edge)
             G.remove(edge)
             vertices_left.subtract(edge.vertices)
