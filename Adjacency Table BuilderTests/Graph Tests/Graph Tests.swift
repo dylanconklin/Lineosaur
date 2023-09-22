@@ -32,6 +32,20 @@ final class Graph_Tests: XCTestCase {
         XCTAssertEqual(sut.vertices, expectedResult)
     }
 
+    func testVerticesAreInsertedWithEdgesBinding() {
+        // given
+        let expectedResult: [Vertex] = ["a", "b", "c"]
+
+        // when
+        sut.edges = [
+            Edge(from: "a", to: "b", weight: 1.0),
+            Edge(from: "b", to: "c", weight: 1.0),
+        ]
+
+        // then
+        XCTAssertEqual(sut.vertices, expectedResult)
+    }
+
     func testVerticesPersistAfterAllEdgeAreDeleted() {
         // given
         let expectedResult: [Vertex] = ["a", "b", "c"]
@@ -47,7 +61,7 @@ final class Graph_Tests: XCTestCase {
         XCTAssertEqual(sut.vertices, expectedResult)
     }
 
-    func testRemovedVerticesRemoveAllConnectedEdges() {
+    func testRemoveAllEdgesConnectedToRemovedVertices() {
         // given
         let expectedResult: [Edge] = [Edge(from: "b", to: "c", weight: 1.0)]
 
