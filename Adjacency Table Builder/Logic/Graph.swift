@@ -34,8 +34,20 @@ struct Graph: Equatable {
         graphVertices.remove(vertex)
     }
 
+    mutating func remove(_ vertices: any Collection<Vertex>) {
+        vertices.forEach { vertex in
+            remove(vertex)
+        }
+    }
+
     mutating func remove(_ edge: Edge) {
         graphEdges.remove(edge)
+    }
+
+    mutating func remove(_ edges: any Collection<Edge>) {
+        edges.forEach { edge in
+            remove(edge)
+        }
     }
 
     /// Returns the vertices of the graph
@@ -95,7 +107,13 @@ struct Graph: Equatable {
             })
         }
         set {
-            graphEdges = Set<Edge>(newValue)
+            let difference = Set(newValue).symmetricDifference(Set(edges))
+            let addOrRemove = edges.count < newValue.count ? { (edge: Edge) in
+                insert(edge)
+            } : { (edge: Edge) in
+                remove(edge)
+            }
+            difference.forEach(addOrRemove)
         }
     }
 
