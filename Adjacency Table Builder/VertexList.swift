@@ -34,7 +34,7 @@ struct VertexList: View {
                         vertexName = ""
                     }
                     Button ("Add") {
-                        vertices.append(vertexName)
+                        vertices = vertices + [vertexName]
                         vertexName = ""
                     }
                 }
