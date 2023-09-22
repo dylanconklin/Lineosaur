@@ -20,10 +20,8 @@ struct Cell<Content:View>: View {
     }
 }
 
-struct Cell_Previews: PreviewProvider {
-    static var previews: some View {
-        Cell {
-            Text("-")
-        }
+#Preview {
+    Cell {
+        Text("-")
     }
 }

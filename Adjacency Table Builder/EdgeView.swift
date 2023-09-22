@@ -32,16 +32,14 @@ struct EdgeView: View {
     }
 }
 
-struct EdgeView_Previews: PreviewProvider {
-    static var x = "Destination"
-    static var y = 5.0
-    static var z = 5.5
-    @State static var edge1 = Edge(from: x, to: x, weight: y)
-    @State static var edge2 = Edge(from: x, to: x, weight: z)
-    static var previews: some View {
-        VStack {
-            EdgeView(edge: $edge1)
-            EdgeView(edge: $edge2)
-        }
+#Preview {
+    var x = "Destination"
+    var y = 5.0
+    var z = 5.5
+    @State var edge1 = Edge(from: x, to: x, weight: y)
+    @State var edge2 = Edge(from: x, to: x, weight: z)
+    return VStack {
+        EdgeView(edge: $edge1)
+        EdgeView(edge: $edge2)
     }
 }
