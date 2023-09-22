@@ -4,7 +4,6 @@
 //  Created by Dylan Conklin on 9/20/23.
 //
 
-import Foundation
 import XCTest
 @testable import Adjacency_Table_Builder
 
@@ -39,22 +38,22 @@ var cyclic_graph: Graph {
 var weighted_graph: Graph {
     var graph: Graph = Graph()
 
-    graph.insert(Edge(from: "A", to: "B", weight: 3))
-    graph.insert(Edge(from: "A", to: "C", weight: 4))
-    graph.insert(Edge(from: "B", to: "E", weight: 7))
-    graph.insert(Edge(from: "B", to: "I", weight: 11))
-    graph.insert(Edge(from: "C", to: "D", weight: 7))
-    graph.insert(Edge(from: "C", to: "F", weight: 9))
-    graph.insert(Edge(from: "D", to: "E", weight: 9))
-    graph.insert(Edge(from: "E", to: "F", weight: 11))
-    graph.insert(Edge(from: "E", to: "H", weight: 13))
-    graph.insert(Edge(from: "F", to: "G", weight: 13))
-    graph.insert(Edge(from: "G", to: "H", weight: 15))
-    graph.insert(Edge(from: "G", to: "K", weight: 18))
-    graph.insert(Edge(from: "H", to: "J", weight: 18))
-    graph.insert(Edge(from: "H", to: "K", weight: 19))
-    graph.insert(Edge(from: "H", to: "L", weight: 20))
-    graph.insert(Edge(from: "I", to: "J", weight: 19))
+    graph.insert(Edge(from: "a", to: "b", weight: 1))
+    graph.insert(Edge(from: "a", to: "c", weight: 7))
+    graph.insert(Edge(from: "a", to: "d", weight: 22))
+    graph.insert(Edge(from: "b", to: "c", weight: 2))
+    graph.insert(Edge(from: "c", to: "f", weight: 30))
+    graph.insert(Edge(from: "d", to: "f", weight: 11))
+    graph.insert(Edge(from: "d", to: "g", weight: 16))
+    graph.insert(Edge(from: "e", to: "f", weight: 31))
+    graph.insert(Edge(from: "e", to: "g", weight: 6))
+    graph.insert(Edge(from: "f", to: "g", weight: 18))
+    graph.insert(Edge(from: "f", to: "h", weight: 35))
+    graph.insert(Edge(from: "f", to: "k", weight: 28))
+    graph.insert(Edge(from: "h", to: "i", weight: 8))
+    graph.insert(Edge(from: "h", to: "j", weight: 24))
+    graph.insert(Edge(from: "i", to: "j", weight: 13))
+    graph.insert(Edge(from: "j", to: "k", weight: 5))
 
     return graph
 }

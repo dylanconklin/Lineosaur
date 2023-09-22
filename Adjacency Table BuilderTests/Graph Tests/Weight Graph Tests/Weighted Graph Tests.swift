@@ -23,17 +23,16 @@ final class Weighted_Graph_Tests: XCTestCase {
     func testMST() {
         // given
         var expectedResult: Graph = Graph()
-        expectedResult.insert(Edge(from: "A", to: "B", weight: 3))
-        expectedResult.insert(Edge(from: "A", to: "C", weight: 4))
-        expectedResult.insert(Edge(from: "C", to: "D", weight: 7))
-        expectedResult.insert(Edge(from: "B", to: "E", weight: 7))
-        expectedResult.insert(Edge(from: "C", to: "F", weight: 9))
-        expectedResult.insert(Edge(from: "B", to: "I", weight: 11))
-        expectedResult.insert(Edge(from: "E", to: "H", weight: 13))
-        expectedResult.insert(Edge(from: "F", to: "G", weight: 13))
-        expectedResult.insert(Edge(from: "G", to: "K", weight: 18))
-        expectedResult.insert(Edge(from: "H", to: "J", weight: 18))
-        expectedResult.insert(Edge(from: "H", to: "L", weight: 20))
+        expectedResult.insert(Edge(from: "a", to: "b", weight: 1))
+        expectedResult.insert(Edge(from: "b", to: "c", weight: 2))
+        expectedResult.insert(Edge(from: "a", to: "d", weight: 22))
+        expectedResult.insert(Edge(from: "d", to: "f", weight: 11))
+        expectedResult.insert(Edge(from: "d", to: "g", weight: 16))
+        expectedResult.insert(Edge(from: "e", to: "g", weight: 6))
+        expectedResult.insert(Edge(from: "f", to: "k", weight: 28))
+        expectedResult.insert(Edge(from: "j", to: "k", weight: 5))
+        expectedResult.insert(Edge(from: "i", to: "j", weight: 13))
+        expectedResult.insert(Edge(from: "h", to: "i", weight: 8))
 
         // when
         let actualResult: Graph = sut.mst
