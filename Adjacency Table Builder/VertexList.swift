@@ -14,30 +14,37 @@ struct VertexList: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
-                    VertexView(vertex: vertex)
-                }
-            }
-            .navigationTitle("Vertices")
-            .toolbar {
-                EditButton()
-                Button {
-                    showVertexBuilder = true
-                } label: {
-                    Image(systemName: "plus")
-                }
-                .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                    TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                    Button ("Cancel", role: .cancel) {
-                        showVertexBuilder = false
-                        vertexName = ""
-                    }
-                    Button ("Add") {
-                        vertices = vertices + [vertexName]
-                        vertexName = ""
+            ZStack {
+                if vertices.isEmpty {
+                    AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
+                } else {
+                    List {
+                        ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
+                            VertexView(vertex: vertex)
+                        }
                     }
                 }
+                Spacer()
+                    .navigationTitle("Vertices")
+                    .toolbar {
+                        EditButton()
+                        Button {
+                            showVertexBuilder = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .alert("Add Vertex", isPresented: $showVertexBuilder) {
+                            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+                            Button ("Cancel", role: .cancel) {
+                                showVertexBuilder = false
+                                vertexName = ""
+                            }
+                            Button ("Add") {
+                                vertices = vertices + [vertexName]
+                                vertexName = ""
+                            }
+                        }
+                    }
             }
         }
     }
