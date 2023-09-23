@@ -11,17 +11,48 @@ import SwiftUI
 struct TableView: View {
     var graph: Graph
     @State var showFacts: Bool = false
-    
+    @State var scale: Double = 1.0
+
     var body: some View {
-        if graph.edges.isEmpty{
+        if graph.edges.isEmpty {
             VStack {
-                Text("No table to view")
-                Text("Go to the table builder to create a table")
+                Spacer()
+                Text("No edges in graph\n\nGo to the Edges tab to create an edge")
+                    .font(Comfortaa.body)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                Grid {
+                    GridRow {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Image(systemName: "arrow.down")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
+                                    .padding()
+                                    .scaleEffect(scale)
+                                    .onAppear {
+                                        let baseAnimation = Animation.easeInOut(duration: 1)
+                                        let repeated = baseAnimation.repeatForever(autoreverses: true)
+                                        withAnimation(repeated) {
+                                            scale = 0.5
+                                        }
+                                    }
+                                Spacer()
+                            }
+                        }
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                        Spacer()
+                            .frame(maxWidth: .infinity)
+                    }
+                }
             }
         } else {
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
-                    Grid (horizontalSpacing: 0, verticalSpacing: 0) {
+                    Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                         GridRow {
                             Cell {
                                 Button {
@@ -29,7 +60,7 @@ struct TableView: View {
                                 } label: {
                                     Image(systemName: "info.circle.fill")
                                 }
-                                .sheet(isPresented: $showFacts){
+                                .sheet(isPresented: $showFacts) {
                                     GraphFacts(graph: graph)
                                 }
                             }
