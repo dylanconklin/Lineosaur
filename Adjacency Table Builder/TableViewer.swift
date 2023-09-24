@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum GraphType {
-    case mst
-    case given
-}
-
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
     var graph: Graph

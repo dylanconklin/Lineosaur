@@ -9,6 +9,11 @@ import Foundation
 
 typealias Vertex = String
 
+enum GraphType {
+    case mst
+    case given
+}
+
 struct Graph: Equatable {
     private var graphEdges: Set<Edge> = []
     private var graphVertices: Set<Vertex> = []
