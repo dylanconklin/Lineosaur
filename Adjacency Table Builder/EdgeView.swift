@@ -33,9 +33,9 @@ struct EdgeView: View {
 }
 
 #Preview {
-    var x = "Destination"
-    var y = 5.0
-    var z = 5.5
+    let x = "Destination"
+    let y = 5.0
+    let z = 5.5
     @State var edge1 = Edge(from: x, to: x, weight: y)
     @State var edge2 = Edge(from: x, to: x, weight: z)
     return VStack {
