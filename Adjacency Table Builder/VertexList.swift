@@ -8,23 +8,49 @@
 import SwiftUI
 
 struct VertexList: View {
-    @ObservedObject var graph: GraphData
-    
+    @Binding var vertices: [Vertex]
+    @State var showVertexBuilder: Bool = false
+    @State var vertexName: String = ""
+
     var body: some View {
-        List {
-            ForEach ($graph.G.verticesArray, id: \.self, editActions: .delete) { vertex in
-                VertexView(vertex: vertex)
+        NavigationStack {
+            ZStack {
+                if vertices.isEmpty {
+                    AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
+                } else {
+                    List {
+                        ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
+                            VertexView(vertex: vertex)
+                        }
+                    }
+                }
+                Spacer()
+                    .navigationTitle("Vertices")
+                    .toolbar {
+                        EditButton()
+                        Button {
+                            showVertexBuilder = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .alert("Add Vertex", isPresented: $showVertexBuilder) {
+                            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+                            Button ("Cancel", role: .cancel) {
+                                showVertexBuilder = false
+                                vertexName = ""
+                            }
+                            Button ("Add") {
+                                vertices = vertices + [vertexName]
+                                vertexName = ""
+                            }
+                        }
+                    }
             }
-        }
-        .toolbar {
-            EditButton()
         }
     }
 }
 
-struct VertexList_Previews: PreviewProvider {
-    static var graph = GraphData()
-    static var previews: some View {
-        VertexList(graph: graph)
-    }
+#Preview {
+    @State var vertices: [Vertex] = ["a", "b", "c"]
+    return VertexList(vertices: $vertices)
 }

@@ -5,45 +5,24 @@
 //  Created by Dylan Conklin on 7/19/23.
 //
 
-import SwiftData
 import SwiftUI
 
 /// Entry point into application
 struct ContentView: View {
-    @StateObject var graph = GraphData()
+    @State var graph: Graph = Graph()
 
     var body: some View {
-        NavigationStack {
-            List {
-                Section("Graph Builder") {
-                    NavigationLink("Edges") {
-                        EdgeList(graph: graph)
-                            .navigationTitle("Edges")
-                    }
-                    NavigationLink("Vertices") {
-                        VertexList(graph: graph)
-                            .navigationTitle("Vertices")
-                    }
-                }
-                Section("Viewers") {
-                    NavigationLink("View Given Table") {
-                        TableView(G: graph.G)
-                            .navigationTitle("Given Tree")
-                    }
-                    NavigationLink("View Minimum Spanning Tree") {
-                        TableView(G: graph.MST)
-                            .navigationTitle("Min. Spanning Tree")
-                    }
-                }
-            }
-            .navigationTitle("Graph App")
+        TabView {
+            EdgeList(edges: $graph.edges)
+                .tabItem { Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up") }
+            VertexList(vertices: $graph.vertices)
+                .tabItem { Label("Vertices", systemImage: "smallcircle.circle") }
+            TableViewer(graph: graph)
+                .tabItem { Label("Table", systemImage: "tablecells") }
         }
-        .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }

@@ -9,52 +9,29 @@ import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
-    var G: Graph
-    @State var showDetails: Bool = false
+    var graph: Graph
+    @State var graphType: GraphType = .given
 
     var body: some View {
-        ZStack {
-            VStack {
-                if G.isEmpty {
-                    Text("No table to view")
-                    Text("Go to the table builder to create a table")
-                } else {
-                    TableView(G: G)
-                }
+        VStack {
+            Picker("Type of graph to display", selection: $graphType) {
+                Text("Given").tag(GraphType.given)
+                Text("MST").tag(GraphType.mst)
             }
+            .pickerStyle(.segmented)
             .padding()
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button {
-                        showDetails = true
-                    } label: {
-                        Image(systemName: "info.circle.fill")
-                            .padding()
-                            .padding()
-                    }
-                }
+            Spacer()
+            switch graphType {
+            case .given:
+                TableView(graph: graph)
+            case .mst:
+                TableView(graph: graph.mst)
             }
-            .alert("Graph Details", isPresented: $showDetails){
-                Button ("Okay") {
-                    showDetails = false
-                }
-            } message: {
-                VStack {
-                    Text("Cost is \(String(G.cost))\n\(G.vertices.count) vertices\n\(G.edges.count) edges")
-                }
-            }
+            Spacer()
         }
     }
 }
 
-struct TableViewer_Previews: PreviewProvider {
-    static let mst: Graph = [Set(["Baltimore", "Barre"]): 496,
-                             Set(["Baltimore", "Richmond"]): 149,
-                             Set(["Barre", "Richmond"]): 646,
-    ]
-    static var previews: some View {
-        TableViewer(G: mst)
-    }
+#Preview {
+    TableViewer(graph: Graph())
 }

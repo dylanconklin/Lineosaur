@@ -1,0 +1,46 @@
+//
+//  Edge.swift
+//  Adjacency Table Builder
+//
+//  Created by Dylan Conklin on 9/20/23.
+//
+
+import Foundation
+
+struct Edge: Hashable, Comparable {
+    var from: Vertex
+    var to: Vertex
+    var weight: Double
+
+    static func < (lhs: Edge, rhs: Edge) -> Bool {
+        lhs.weight < rhs.weight
+    }
+
+    static func alphabetical() -> (Edge, Edge) -> Bool {
+        { (lhs: Edge, rhs: Edge) -> Bool in
+            var result: Bool = false
+            if lhs.from != rhs.from {
+                result = lhs.from < rhs.from
+            } else if lhs.to != rhs.to {
+                result = lhs.to < rhs.to
+            } else {
+                result = lhs.weight < rhs.weight
+            }
+            return result
+        }
+    }
+
+    /// Returns vertices of the edge
+    var vertices: [Vertex] {
+        get {
+            [from, to]
+        }
+        set {
+            guard newValue.count == 2 else {
+                return
+            }
+            from = newValue[0]
+            to = newValue[1]
+        }
+    }
+}

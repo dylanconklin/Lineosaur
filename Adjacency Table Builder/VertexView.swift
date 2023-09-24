@@ -19,9 +19,7 @@ struct VertexView: View {
     }
 }
 
-struct VertexView_Previews: PreviewProvider {
-    @State static var vertex = "TestVertex"
-    static var previews: some View {
-        VertexView(vertex: $vertex)
-    }
+#Preview {
+    @State var vertex = "TestVertex"
+    return VertexView(vertex: $vertex)
 }
