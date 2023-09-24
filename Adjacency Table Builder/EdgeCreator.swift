@@ -15,11 +15,23 @@ struct EdgeCreator: View {
     @State private var weight: Double = 0
     @Environment(\.dismiss) var dismiss
 
+    func insertEdge () {
+        if !to.isEmpty && !from.isEmpty {
+            edges = edges + [Edge(from: from, to: to, weight: weight)]
+        }
+
+        // Reset form input fields
+        from = ""
+        to = ""
+        weight = 0
+    }
+
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button("Done") {
+                    insertEdge()
                     dismiss()
                 }
                 .padding()
@@ -41,20 +53,14 @@ struct EdgeCreator: View {
                         Text(":")
                         TextField("Weight",
                                   text: Binding(
-                                    get: { String(weight) },
-                                    set: { weight = Double($0) ?? 0.0 }))
+                                      get: { String(weight) },
+                                      set: { weight = Double($0) ?? 0.0 }))
+                            .keyboardType(.decimalPad)
                     }
                 }
             }
             Button {
-                if !to.isEmpty && !from.isEmpty {
-                    edges = edges + [Edge(from: from, to: to, weight: weight)]
-                }
-
-                // Reset form input fields
-                from = ""
-                to = ""
-                weight = 0
+                insertEdge()
             } label: {
                 Label("Add Edge", systemImage: "checkmark")
             }
