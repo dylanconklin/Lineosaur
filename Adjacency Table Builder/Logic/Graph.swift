@@ -85,11 +85,11 @@ struct Graph: Equatable {
         var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
         var MST: Graph = Graph()
 
-        while let edge = G.edges.sorted(by: {$0.weight < $1.weight}).first(where: {
+        while let edge = G.edges.sorted(by: { $0.weight < $1.weight }).first(where: {
             let a = Set<Vertex>($0.vertices).intersection(vertices_left)
             let b = Set<Vertex>($0.vertices).intersection(MST.vertices)
             return !a.isEmpty && !b.isEmpty
-        }) ?? (MST.isEmpty ? G.edges.sorted(by: {$0.weight < $1.weight}).first : nil) {
+        }) ?? (MST.isEmpty ? G.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
             MST.insert(edge)
             G.remove(edge)
             vertices_left.subtract(edge.vertices)
@@ -103,11 +103,11 @@ struct Graph: Equatable {
         get {
             graphEdges.sorted(by: {
                 if $0.from != $1.from {
-                    return $0.from < $0.from
+                    return $0.from < $1.from
                 } else if $0.to != $1.to {
-                    return $0.to < $0.to
+                    return $0.to < $1.to
                 } else {
-                    return $0.weight < $0.weight
+                    return $0.weight < $1.weight
                 }
             })
         }
@@ -122,11 +122,11 @@ struct Graph: Equatable {
         }
     }
 
-    func edges(from: String, to: String, directional: Bool = true) -> Set<Edge> {
+    func edges(from: Vertex, to: Vertex, directional: Bool = true) -> Set<Edge> {
         var result: Set<Edge> = Set<Edge>()
-        let f = directional ? { (from: String, to: String, edge: Edge) -> Bool in
+        let f = directional ? { (from: Vertex, to: Vertex, edge: Edge) -> Bool in
             edge.to == to && edge.from == from
-        } : { (from: String, to: String, edge: Edge) -> Bool in
+        } : { (from: Vertex, to: Vertex, edge: Edge) -> Bool in
             Set<Vertex>(edge.vertices) == Set<Vertex>(arrayLiteral: from, to)
         }
 
@@ -139,6 +139,18 @@ struct Graph: Equatable {
         return result
     }
 
+    func edges(connectedTo vertex: Vertex) -> Set<Edge> {
+        return Set(edges.filter { $0.vertices.contains(vertex) })
+    }
+
+    func edges(connectedTo vertices: any Collection<Vertex>) -> Set<Edge> {
+        var result: Set<Edge> = []
+        for vertex in vertices {
+            result.formUnion(self.edges(connectedTo: vertex))
+        }
+        return result
+    }
+
     var leaves: Set<Vertex> {
         Set<Vertex>(vertices.filter { vertex in
             graphEdges.filter { $0.from == vertex }.isEmpty
@@ -147,11 +159,23 @@ struct Graph: Equatable {
 
     var isCyclic: Bool {
         var graph: Graph = self
-
         while !graph.leaves.isEmpty {
-            graph.leaves.forEach({ graph.remove($0) })
+            graph.leaves.forEach {
+                graph.remove($0)
+            }
         }
-
         return !graph.isEmpty
     }
+
+    var isConnected: Bool {
+        var connectedVertices: Set<Vertex> = vertices.isEmpty ? [] : [vertices.randomElement()!]
+        var connectedEdges: Set<Edge> = Set<Edge>()
+        while !edges(connectedTo: connectedVertices).subtracting(connectedEdges).isEmpty {
+            let newEdges = edges(connectedTo: connectedVertices)
+            connectedEdges.formUnion(newEdges)
+            connectedVertices.formUnion(newEdges.flatMap { $0.vertices })
+        }
+        return Set(edges).subtracting(connectedEdges).isEmpty
+    }
+    
 }

@@ -30,6 +30,7 @@
 		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
 		ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */; };
 		ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */; };
+		ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */; };
 		ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */; };
 		ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */; };
 		ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */; };
@@ -76,6 +77,7 @@
 		ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Adjacency-Table-Builder-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
 		ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingHelper.swift; sourceTree = "<group>"; };
+		ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Connectivity Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weighted Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unweighted Graph Tests.swift"; sourceTree = "<group>"; };
@@ -238,23 +240,24 @@
 			path = "Weight Graph Tests";
 			sourceTree = "<group>";
 		};
-		ABEEF2612AB190D4004C9429 /* Directed Graphs */ = {
+		ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */ = {
 			isa = PBXGroup;
 			children = (
 				ABEEF25D2AB19073004C9429 /* Acyclic Graph Tests.swift */,
 				ABEEF25B2AB1905E004C9429 /* Cyclic Graph Tests.swift */,
+				ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */,
 			);
-			path = "Directed Graphs";
+			path = "Directed and Undirected Graphs";
 			sourceTree = "<group>";
 		};
 		ABEEF2622AB1915B004C9429 /* Graph Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */,
 				AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */,
 				ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */,
 				AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */,
-				ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */,
-				ABEEF2612AB190D4004C9429 /* Directed Graphs */,
+				ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */,
 				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
 			);
 			path = "Graph Tests";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */,
+				ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */,
 				ABB518502ABD70E400CB4B98 /* Graph Tests.swift in Sources */,
 				ABEEF25C2AB1905E004C9429 /* Cyclic Graph Tests.swift in Sources */,
 				ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */,
@@ -460,7 +464,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,7 +521,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -554,7 +562,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,7 +601,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
