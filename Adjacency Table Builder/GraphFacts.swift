@@ -40,6 +40,9 @@ struct GraphFacts: View {
             GraphFact(fact: "The graph has \(graph.edges.count) edge\(graph.edges.count == 1 ? "" : "s")",
                       symbol: "point.topleft.down.curvedto.point.bottomright.up")
                 .tabItem {}
+            GraphFact(fact: "The graph is \(graph.isConnected ? "" : "not ")connected",
+                      symbol: "point.3.connected.trianglepath.dotted")
+                .tabItem {}
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
     }
