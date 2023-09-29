@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		ABEEF2622AB1915B004C9429 /* Graph Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */,
 				ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */,
 				AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */,
 				ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */,
@@ -396,6 +399,7 @@
 				ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */,
 				ABEEF25E2AB19073004C9429 /* Acyclic Graph Tests.swift in Sources */,
 				AB6BB0D72AB6859E0009D5F2 /* Empty Graph Tests.swift in Sources */,
+				AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */,
 				ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */,
 				AB6D565E2ABBDC5E005415F7 /* Graph Test Samples.swift in Sources */,
 			);

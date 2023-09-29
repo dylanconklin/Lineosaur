@@ -144,11 +144,9 @@ struct Graph: Equatable {
     }
 
     func edges(connectedTo vertices: any Collection<Vertex>) -> Set<Edge> {
-        var result: Set<Edge> = []
-        for vertex in vertices {
+        return vertices.reduce(into: Set<Edge>()) { result, vertex in
             result.formUnion(self.edges(connectedTo: vertex))
         }
-        return result
     }
 
     var leaves: Set<Vertex> {
@@ -177,5 +175,36 @@ struct Graph: Equatable {
         }
         return Set(edges).subtracting(connectedEdges).isEmpty
     }
-    
+
+    func isBipartite(selectedVertex: Vertex, _ groupA: inout Set<Vertex>, _ groupB: inout Set<Vertex>, _ group: Bool = true, visitedEdges: Set<Edge> = Set<Edge>()) {
+        if group {
+            groupA.insert(selectedVertex)
+        } else {
+            groupB.insert(selectedVertex)
+        }
+        let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex).filter({ $0.from != $0.to }).subtracting(visitedEdges)
+        let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
+        var connectedVertices: Set<Vertex> = connectedEdges.reduce(Set<Vertex>(), { $0.union($1.vertices) })
+        connectedVertices.remove(selectedVertex)
+        connectedVertices.forEach { vertex in
+            isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
+        }
+
+        let leftoverVertices: Set<Vertex> = Set(vertices).subtracting(groupA).subtracting(groupB)
+        if !leftoverVertices.isEmpty {
+            isBipartite(selectedVertex: leftoverVertices.randomElement()!, &groupA, &groupB, !group, visitedEdges: visitedEdges)
+        }
+    }
+
+    var isBipartite: Bool {
+        var groupA: Set<Vertex> = Set<Vertex>()
+        var groupB: Set<Vertex> = Set<Vertex>()
+
+        if !vertices.isEmpty {
+            isBipartite(selectedVertex: vertices.randomElement()!, &groupA, &groupB)
+        }
+
+        return groupA.intersection(groupB).isEmpty
+    }
+
 }
