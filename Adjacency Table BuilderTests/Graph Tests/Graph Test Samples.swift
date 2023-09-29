@@ -139,3 +139,32 @@ var non_bipartite_graph_with_bipartite_cycle: Graph {
 
     return graph
 }
+
+var tree_graph: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "a", to: "b", weight: 1.0))
+    graph.insert(Edge(from: "a", to: "c", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "d", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "e", weight: 1.0))
+    graph.insert(Edge(from: "c", to: "f", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "g", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "h", weight: 1.0))
+
+    return graph
+}
+
+var not_tree_graph: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "a", to: "b", weight: 1.0))
+    graph.insert(Edge(from: "a", to: "c", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "d", weight: 1.0))
+    graph.insert(Edge(from: "d", to: "h", weight: 1.0))
+    graph.insert(Edge(from: "h", to: "g", weight: 1.0))
+    graph.insert(Edge(from: "g", to: "f", weight: 1.0))
+    graph.insert(Edge(from: "f", to: "e", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "d", weight: 1.0))
+
+    return graph
+}

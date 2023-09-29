@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
+		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
 		AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
+		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
 		AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */,
 				ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */,
 				AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */,
+				AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */,
 				ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */,
 				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
 			);
@@ -394,6 +397,7 @@
 			files = (
 				ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */,
 				ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */,
+				AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */,
 				ABB518502ABD70E400CB4B98 /* Graph Tests.swift in Sources */,
 				ABEEF25C2AB1905E004C9429 /* Cyclic Graph Tests.swift in Sources */,
 				ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */,
