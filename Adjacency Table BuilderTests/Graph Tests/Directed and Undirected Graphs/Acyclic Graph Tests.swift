@@ -29,5 +29,4 @@ final class Acyclic_Graph_Tests: XCTestCase {
         // then
         XCTAssertFalse(result)
     }
-
 }

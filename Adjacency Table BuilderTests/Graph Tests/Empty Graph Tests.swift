@@ -39,5 +39,4 @@ final class Empty_Graph_Tests: XCTestCase {
         // then
         XCTAssertTrue(result)
     }
-
 }

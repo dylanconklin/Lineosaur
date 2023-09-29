@@ -51,5 +51,4 @@ final class Graph_Connectivity_Tests: XCTestCase {
         // then
         XCTAssertFalse(result)
     }
-
 }

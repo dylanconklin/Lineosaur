@@ -21,5 +21,4 @@ final class Unweighted_Graph_Tests: XCTestCase {
 
     func testExample() {
     }
-
 }

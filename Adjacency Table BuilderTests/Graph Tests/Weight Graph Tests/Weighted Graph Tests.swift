@@ -40,5 +40,4 @@ final class Weighted_Graph_Tests: XCTestCase {
         // then
         XCTAssertEqual(actualResult, expectedResult)
     }
-
 }
