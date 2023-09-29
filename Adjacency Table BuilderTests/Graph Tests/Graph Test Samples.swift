@@ -76,7 +76,6 @@ var disconnected_graph_no_outlier_vertex: Graph {
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
-    graph.insert(Edge(from: "c", to: "a", weight: 1.0))
     graph.insert(Edge(from: "d", to: "e", weight: 1.0))
     graph.insert(Edge(from: "e", to: "f", weight: 1.0))
 

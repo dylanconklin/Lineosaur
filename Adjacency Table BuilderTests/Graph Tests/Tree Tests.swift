@@ -64,4 +64,15 @@ final class Tree_Tests: XCTestCase {
         // then
         XCTAssertTrue(result)
     }
+
+    func testDisconnectedGraphIsNotTree () {
+        // given
+        sut = disconnected_graph_no_outlier_vertex
+
+        // when
+        let result = sut.isTree
+
+        // then
+        XCTAssertFalse(result)
+    }
 }

@@ -208,8 +208,6 @@ struct Graph: Equatable {
     }
 
     var isTree: Bool {
-        !isCyclic && vertices.allSatisfy { vertex in
-            edges.filter { $0.to == vertex }.count <= 1
-        }
+        isConnected && !isCyclic
     }
 }
