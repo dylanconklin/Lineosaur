@@ -43,6 +43,9 @@ struct GraphFacts: View {
             GraphFact(fact: "The graph is \(graph.isConnected ? "" : "not ")connected",
                       symbol: "point.3.connected.trianglepath.dotted")
                 .tabItem {}
+            GraphFact(fact: "The graph is \(graph.isBipartite ? "" : "not ")bipartite",
+                      symbol: graph.isBipartite ? "rectangle.split.2x1" : "rectangle.split.2x1.slash")
+                .tabItem {}
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
     }
