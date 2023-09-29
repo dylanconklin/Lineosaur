@@ -94,5 +94,48 @@ var disconnected_graph_outlier_vertex: Graph {
     graph.insert("z")
 
     return graph
+}
 
+var bipartite_graph: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "a", to: "b", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "c", weight: 1.0))
+    graph.insert(Edge(from: "c", to: "d", weight: 1.0))
+    graph.insert(Edge(from: "d", to: "e", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "f", weight: 1.0))
+    graph.insert(Edge(from: "f", to: "a", weight: 1.0))
+
+    return graph
+}
+
+var non_bipartite_graph: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "a", to: "b", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "c", weight: 1.0))
+    graph.insert(Edge(from: "c", to: "d", weight: 1.0))
+    graph.insert(Edge(from: "d", to: "e", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "a", weight: 1.0))
+
+    return graph
+}
+
+var non_bipartite_graph_with_bipartite_cycle: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "a", to: "b", weight: 1.0))
+    graph.insert(Edge(from: "b", to: "c", weight: 1.0))
+    graph.insert(Edge(from: "c", to: "d", weight: 1.0))
+    graph.insert(Edge(from: "d", to: "e", weight: 1.0))
+    graph.insert(Edge(from: "e", to: "f", weight: 1.0))
+    graph.insert(Edge(from: "f", to: "a", weight: 1.0))
+
+    graph.insert(Edge(from: "v", to: "w", weight: 1.0))
+    graph.insert(Edge(from: "w", to: "x", weight: 1.0))
+    graph.insert(Edge(from: "x", to: "y", weight: 1.0))
+    graph.insert(Edge(from: "y", to: "z", weight: 1.0))
+    graph.insert(Edge(from: "z", to: "v", weight: 1.0))
+
+    return graph
 }
