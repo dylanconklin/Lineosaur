@@ -46,6 +46,9 @@ struct GraphFacts: View {
             GraphFact(fact: "The graph is \(graph.isBipartite ? "" : "not ")bipartite",
                       symbol: graph.isBipartite ? "rectangle.split.2x1" : "rectangle.split.2x1.slash")
                 .tabItem {}
+            GraphFact(fact: "The graph is \(graph.isTree ? "" : "not ")a tree",
+                      symbol: "tree")
+                .tabItem {}
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
     }
