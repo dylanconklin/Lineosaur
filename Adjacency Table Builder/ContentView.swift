@@ -21,6 +21,8 @@ struct ContentView: View {
                 .tabItem { Label("Table", systemImage: "tablecells") }
             GraphVizViewer(graph: graph)
                 .tabItem { Label("View Graph", systemImage: "tree") }
+            Settings()
+                .tabItem { Label("Settings", systemImage: "gear") }
         }
     }
 }

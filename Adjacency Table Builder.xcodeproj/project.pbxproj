@@ -29,6 +29,7 @@
 		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
 		ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */; };
 		ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */; };
+		ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D502AC8ECDA00B23F64 /* Settings.swift */; };
 		ABB518502ABD70E400CB4B98 /* Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */; };
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
 		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
@@ -79,6 +80,7 @@
 		ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditor.swift; sourceTree = "<group>"; };
 		ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViz.swift; sourceTree = "<group>"; };
 		ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVizViewer.swift; sourceTree = "<group>"; };
+		ABAF3D502AC8ECDA00B23F64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Tests.swift"; sourceTree = "<group>"; };
 		ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCreator.swift; sourceTree = "<group>"; };
 		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
+				ABAF3D502AC8ECDA00B23F64 /* Settings.swift */,
 				ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */,
 				ABAF3D4F2AC767F100B23F64 /* GraphViz */,
 				AB8BFA522ABAE0B900B1B2CC /* Table */,
@@ -399,6 +402,7 @@
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
+				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
 				ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */,
 				ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
