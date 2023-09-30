@@ -155,6 +155,10 @@ struct Graph: Equatable {
         })
     }
 
+    var loops: Set<Edge> {
+        Set(edges.filter { $0.from == $0.to })
+    }
+
     var isCyclic: Bool {
         var graph: Graph = self
         while !graph.leaves.isEmpty {
@@ -184,7 +188,7 @@ struct Graph: Equatable {
         }
         let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex).filter({ $0.from != $0.to }).subtracting(visitedEdges)
         let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
-        var connectedVertices: Set<Vertex> = connectedEdges.reduce(Set<Vertex>(), { $0.union($1.vertices) })
+        var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>(), { $0.formUnion($1.vertices) })
         connectedVertices.remove(selectedVertex)
         connectedVertices.forEach { vertex in
             isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
@@ -209,5 +213,43 @@ struct Graph: Equatable {
 
     var isTree: Bool {
         isConnected && !isCyclic
+    }
+
+    var isTrivial: Bool {
+        edges.count == 0 && vertices.count == 1
+    }
+
+    var isComplete: Bool {
+        for vertex in vertices {
+            let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
+            if Set(connectedVertices).count != vertices.count {
+                return false
+            }
+        }
+        return true
+    }
+
+    var isSimple: Bool {
+        for v1 in vertices {
+            for v2 in vertices {
+                if edges(from: v1, to: v2, directional: false).count > 1 {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    var isMulti: Bool {
+        if loops.isEmpty {
+            for v1 in vertices {
+                for v2 in vertices {
+                    if edges(from: v1, to: v2, directional: false).count > 1 {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
     }
 }
