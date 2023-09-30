@@ -19,6 +19,8 @@ struct ContentView: View {
                 .tabItem { Label("Vertices", systemImage: "smallcircle.circle") }
             TableViewer(graph: graph)
                 .tabItem { Label("Table", systemImage: "tablecells") }
+            GraphVizViewer(graph: graph)
+                .tabItem { Label("View Graph", systemImage: "tree") }
         }
     }
 }

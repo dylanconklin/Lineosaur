@@ -46,6 +46,8 @@ struct TableView: View {
                             .frame(maxWidth: .infinity)
                         Spacer()
                             .frame(maxWidth: .infinity)
+                        Spacer()
+                            .frame(maxWidth: .infinity)
                     }
                 }
             }
