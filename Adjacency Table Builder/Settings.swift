@@ -9,7 +9,23 @@ import SwiftUI
 
 struct Settings: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                NavigationLink {
+                    VStack {
+                        Text("Developed by Dylan Conklin")
+                            .padding()
+                        Text("MIT License")
+                            .padding()
+                        Text("Made with ❤️ in Portland, OR")
+                            .padding()
+                    }
+                } label: {
+                    Label("About GraphApp", systemImage: "info")
+                }
+            }
+            .navigationTitle("Settings")
+        }
     }
 }
 
