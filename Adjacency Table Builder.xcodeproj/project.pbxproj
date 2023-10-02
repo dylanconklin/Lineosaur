@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
+		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
 		AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
+		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
 		AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */,
+			);
+			path = "GraphViz Generator";
+			sourceTree = "<group>";
+		};
 		AB510F272A8A91C800B76121 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 			children = (
 				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
+				AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -401,6 +412,7 @@
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
+				AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
 				ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */,
