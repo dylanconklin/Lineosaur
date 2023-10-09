@@ -13,10 +13,8 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            EdgeList(edges: $graph.edges)
-                .tabItem { Label("Edges", systemImage: "point.topleft.down.curvedto.point.bottomright.up") }
-            VertexList(vertices: $graph.vertices)
-                .tabItem { Label("Vertices", systemImage: "smallcircle.circle") }
+            GraphEditor(graph: $graph)
+                .tabItem { Label("Edit", systemImage: "pencil") }
             TableViewer(graph: graph)
                 .tabItem { Label("Table", systemImage: "tablecells") }
             GraphVizViewer(graph: graph)
