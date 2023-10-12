@@ -7,17 +7,40 @@
 
 import SwiftUI
 
+enum Compiler : String {
+    case dot = "dot"
+    case fdp = "fdp"
+    case neato = "neato"
+    case circo = "circo"
+    case twopi = "twopi"
+    case osage = "osage"
+    case patchwork = "patchwork"
+}
+
 struct Settings: View {
+    @AppStorage("displayWeights") var displayWeights: Bool = false
+    @AppStorage("compiler") var compiler: Compiler = .dot
+
     var body: some View {
         NavigationStack {
-            List {
+            Form {
+                Toggle("Show Edges", isOn: $displayWeights)
+                Picker("Compiler", selection: $compiler) {
+                    Text("Dot").tag(Compiler.dot)
+                    Text("FDP").tag(Compiler.fdp)
+                    Text("Neato").tag(Compiler.neato)
+                    Text("Circo").tag(Compiler.circo)
+                    Text("TwoPi").tag(Compiler.twopi)
+                    Text("Osage").tag(Compiler.osage)
+                    Text("Patchwork").tag(Compiler.patchwork)
+                }
                 NavigationLink {
                     VStack {
                         Text("Developed by Dylan Conklin")
                             .padding()
-                        Text("MIT License")
-                            .padding()
                         Text("Made with ❤️ in Portland, OR")
+                            .padding()
+                        Text("MIT License")
                             .padding()
                     }
                 } label: {
