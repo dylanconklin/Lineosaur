@@ -7,6 +7,15 @@
 
 import Foundation
 
+var mixed_int_and_double: Graph {
+    var graph: Graph = Graph()
+
+    graph.insert(Edge(from: "A", to: "B", weight: 1.0))
+    graph.insert(Edge(from: "B", to: "C", weight: 1.5))
+
+    return graph
+}
+
 var acyclic_graph: Graph {
     var graph: Graph = Graph()
 

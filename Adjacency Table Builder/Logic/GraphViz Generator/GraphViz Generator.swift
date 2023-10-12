@@ -15,9 +15,7 @@ extension Graph {
     }
 
     fileprivate var displayWeights: Bool {
-        let result = UserDefaults.standard.bool(forKey: "displayWeights")
-        print(result)
-        return result
+        UserDefaults.standard.bool(forKey: "displayWeights")
     }
 
     func generateGraphViz(directional: Bool) -> String {
@@ -35,11 +33,10 @@ extension Graph {
             result.append("\(edge.from)")
             result.append("\(directional ? "->" : "--")")
             result.append("\(edge.to)")
-            result.append("[\(displayWeights ? "label=\(edge.weight)" : "")]")
+            result.append("[\(displayWeights ? "label=\(numToString(edge.weight))" : "")]")
             result.append(";")
         }
         result.append("}")
-        print(result)
         return result
     }
 }
