@@ -13,39 +13,36 @@ struct VertexList: View {
     @State var vertexName: String = ""
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                if vertices.isEmpty {
-                    AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
-                } else {
-                    List {
-                        ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
-                            VertexView(vertex: vertex)
+        ZStack {
+            if vertices.isEmpty {
+                AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
+            } else {
+                List {
+                    ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
+                        VertexView(vertex: vertex)
+                    }
+                }
+            }
+            Spacer()
+                .toolbar {
+                    EditButton()
+                    Button {
+                        showVertexBuilder = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .alert("Add Vertex", isPresented: $showVertexBuilder) {
+                        TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+                        Button ("Cancel", role: .cancel) {
+                            showVertexBuilder = false
+                            vertexName = ""
+                        }
+                        Button ("Add") {
+                            vertices = vertices + [vertexName]
+                            vertexName = ""
                         }
                     }
                 }
-                Spacer()
-                    .navigationTitle("Vertices")
-                    .toolbar {
-                        EditButton()
-                        Button {
-                            showVertexBuilder = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                            Button ("Cancel", role: .cancel) {
-                                showVertexBuilder = false
-                                vertexName = ""
-                            }
-                            Button ("Add") {
-                                vertices = vertices + [vertexName]
-                                vertexName = ""
-                            }
-                        }
-                    }
-            }
         }
     }
 }

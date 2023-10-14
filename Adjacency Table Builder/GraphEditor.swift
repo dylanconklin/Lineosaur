@@ -17,19 +17,22 @@ struct GraphEditor: View {
     }
     
     var body: some View {
-        VStack {
-            Picker("Type of graph to display", selection: $graphElement) {
-                Text("Edges").tag(GraphElements.edges)
-                Text("Vertices").tag(GraphElements.vertices)
-            }
-            .pickerStyle(.segmented)
-            .padding()
-            
-            switch graphElement {
-            case .edges:
-                EdgeList(edges: $graph.edges)
-            case .vertices:
-                VertexList(vertices: $graph.vertices)
+        NavigationStack {
+            VStack {
+                Picker("Type of graph to display", selection: $graphElement) {
+                    Text("Edges").tag(GraphElements.edges)
+                    Text("Vertices").tag(GraphElements.vertices)
+                }
+                .navigationTitle("Graph Editor")
+                .pickerStyle(.segmented)
+                .padding()
+                
+                switch graphElement {
+                case .edges:
+                    EdgeList(edges: $graph.edges)
+                case .vertices:
+                    VertexList(vertices: $graph.vertices)
+                }
             }
         }
     }

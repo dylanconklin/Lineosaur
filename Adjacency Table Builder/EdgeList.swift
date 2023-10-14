@@ -13,31 +13,28 @@ struct EdgeList: View {
     @State var showEdgeCreator: Bool = false
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                if edges.isEmpty {
-                    AddingHelper(helpText: "Tap on + to add\nan edge to your graph")
-                } else {
-                    List {
-                        ForEach($edges, id: \.self, editActions: .delete) { edge in
-                            EdgeView(edge: edge)
-                        }
+        ZStack {
+            if edges.isEmpty {
+                AddingHelper(helpText: "Tap on + to add\nan edge to your graph")
+            } else {
+                List {
+                    ForEach($edges, id: \.self, editActions: .delete) { edge in
+                        EdgeView(edge: edge)
                     }
                 }
-                Spacer()
-                    .navigationTitle("Edges")
-                    .toolbar {
-                        EditButton()
-                        Button {
-                            showEdgeCreator = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(edges: $edges)
-                        }
-                    }
             }
+            Spacer()
+                .toolbar {
+                    EditButton()
+                    Button {
+                        showEdgeCreator = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $showEdgeCreator) {
+                        EdgeCreator(edges: $edges)
+                    }
+                }
         }
     }
 }

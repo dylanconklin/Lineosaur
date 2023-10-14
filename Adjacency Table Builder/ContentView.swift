@@ -9,7 +9,8 @@ import SwiftUI
 
 /// Entry point into application
 struct ContentView: View {
-    @State var graph: Graph = Graph()
+//    @State var graph: Graph = Graph()
+    @State var graph: Graph = weighted_graph
 
     var body: some View {
         TabView {
