@@ -316,6 +316,8 @@
 			dependencies = (
 			);
 			name = "Adjacency Table Builder";
+			packageProductDependencies = (
+			);
 			productName = "Adjacency Table Builder";
 			productReference = AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */;
 			productType = "com.apple.product-type.application";
@@ -367,6 +369,8 @@
 				Base,
 			);
 			mainGroup = AB510F272A8A91C800B76121;
+			packageReferences = (
+			);
 			productRefGroup = AB510F312A8A91C800B76121 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

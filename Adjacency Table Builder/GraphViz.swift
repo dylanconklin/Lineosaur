@@ -7,33 +7,28 @@
 
 import SwiftUI
 
-import WebKit
-
-struct WebView : UIViewRepresentable {
-    var url: URL
-
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView(frame: .zero)
-    }
-
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: url)
-        webView.load(request)
-    }
-}
-
 struct GraphViz: View {
     var graph: Graph
     var directional: Bool
-    var src: String { graph.generateGraphViz(directional: directional) }
-    var url: URL { URL(string: src)! }
-    var webView: WKWebView!
+    var url: URL {
+        URL(string:
+            graph.generateGraphViz(directional: directional)
+        )!
+    }
 
     var body: some View {
-        WebView(url: url)
+        VStack {
+            AsyncImage(url: url) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
+            }
+        }
     }
 }
 
 #Preview {
-    GraphViz(graph: Graph(), directional: false)
+    GraphViz(graph: weighted_graph, directional: false)
 }

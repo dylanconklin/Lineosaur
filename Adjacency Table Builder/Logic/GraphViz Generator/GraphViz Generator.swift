@@ -21,6 +21,7 @@ extension Graph {
     func generateGraphViz(directional: Bool) -> String {
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
         var result: String = "https://quickchart.io/graphviz?"
+        result.append("format=png&")
         result.append("layout=\(compiler)&")
         result.append("graph=\(directional ? "di" : "")graph")
         result.append("{")
