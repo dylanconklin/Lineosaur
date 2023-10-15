@@ -18,6 +18,7 @@
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
 		AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55B1142A99B20900928D09 /* TableViewer.swift */; };
+		AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */; };
 		AB6BB0D72AB6859E0009D5F2 /* Empty Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */; };
 		AB6D565E2ABBDC5E005415F7 /* Graph Test Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */; };
 		AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */; };
@@ -70,6 +71,7 @@
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AB55B1142A99B20900928D09 /* TableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewer.swift; sourceTree = "<group>"; };
+		AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Properties.swift"; sourceTree = "<group>"; };
 		AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Empty Graph Tests.swift"; sourceTree = "<group>"; };
 		AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Test Samples.swift"; sourceTree = "<group>"; };
 		AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphFacts.swift; sourceTree = "<group>"; };
@@ -152,9 +154,9 @@
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
 				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
-				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */,
 				AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */,
+				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
 			);
 			path = "Adjacency Table Builder";
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				AB510F642A8A928800B76121 /* Graph.swift */,
+				AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */,
 				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
 				AB90233B2AD7CD300015AC16 /* NumToString.swift */,
 				AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */,
@@ -423,6 +426,7 @@
 				AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
+				AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */,
 				ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */,
 				ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
