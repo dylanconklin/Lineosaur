@@ -25,8 +25,8 @@ struct GraphEditor: View {
                 }
                 .navigationTitle("Graph Editor")
                 .pickerStyle(.segmented)
-                .padding()
-                
+                .padding(.horizontal)
+
                 switch graphElement {
                 case .edges:
                     EdgeList(edges: $graph.edges)
