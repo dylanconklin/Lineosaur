@@ -33,5 +33,5 @@ struct GraphViz: View {
 }
 
 #Preview {
-    GraphViz(url: weighted_graph.generateGraphVizURL(directional: true))
+    GraphViz(url: weighted_graph.generateGraphVizURL(of: .given))
 }

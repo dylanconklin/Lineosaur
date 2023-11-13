@@ -26,15 +26,10 @@ struct GraphVizViewer: View {
             }
             .pickerStyle(.segmented)
             .padding()
-
+            
             Spacer()
-
-            switch graphType {
-            case .given:
-                GraphViz(url: graph.generateGraphVizURL(directional: directional))
-            case .mst:
-                GraphViz(url: graph.mst.generateGraphVizURL(directional: directional))
-            }
+            
+            GraphViz(url: graph.generateGraphVizURL(of: graphType))
         }
     }
 }
