@@ -10,12 +10,12 @@ import SwiftUI
 struct GraphEditor: View {
     @Binding var graph: Graph
     @State var graphElement: GraphElements = .edges
-    
+
     enum GraphElements {
         case edges
         case vertices
     }
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -23,7 +23,6 @@ struct GraphEditor: View {
                     Text("Edges").tag(GraphElements.edges)
                     Text("Vertices").tag(GraphElements.vertices)
                 }
-                .navigationTitle("Graph Editor")
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
 
@@ -34,6 +33,7 @@ struct GraphEditor: View {
                     VertexList(vertices: $graph.vertices)
                 }
             }
+            .navigationTitle("Graph Editor")
         }
     }
 }

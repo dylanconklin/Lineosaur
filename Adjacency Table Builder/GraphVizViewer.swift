@@ -28,13 +28,15 @@ struct GraphVizViewer: View {
                     Text("MST").tag(GraphType.mst)
                 }
                 .pickerStyle(.segmented)
-                .padding()
+                .padding(.horizontal)
 
                 Spacer()
 
                 GraphViz(url: graphURL)
 
                 Spacer()
+                    .navigationTitle("View Table")
+                    .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ShareLink(item: graphURL)
                     }
