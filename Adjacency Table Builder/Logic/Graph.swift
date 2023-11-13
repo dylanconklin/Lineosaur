@@ -14,21 +14,11 @@ enum GraphType {
     case given
 }
 
-struct Graph: Codable, Equatable, Identifiable {
+struct Graph: Equatable, Identifiable {
+    var id: UUID = UUID()
     private var graphEdges: Set<Edge> = []
     private var graphVertices: Set<Vertex> = []
     private var name: String?
-    var id: UUID = UUID()
-
-    #warning("Unimplemented: Codable")
-    enum CodingKeys: CodingKey {
-    }
-
-    func decode(from decoder: Decoder) throws {
-    }
-
-    func encode(to encoder: Encoder) throws {
-    }
 
     static func ==(lhs: Graph, rhs: Graph) -> Bool {
         return lhs.graphEdges == rhs.graphEdges &&
