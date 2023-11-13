@@ -14,7 +14,7 @@ enum GraphType {
     case given
 }
 
-struct Graph: Equatable, Identifiable {
+struct Graph: Codable, Equatable, Identifiable {
     var id: UUID = UUID()
     private var graphEdges: Set<Edge> = []
     private var graphVertices: Set<Vertex> = []

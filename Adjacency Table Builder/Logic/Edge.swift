@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Edge: Hashable, Comparable {
+struct Edge: Codable, Comparable, Hashable {
     var from: Vertex
     var to: Vertex
     var weight: Double
