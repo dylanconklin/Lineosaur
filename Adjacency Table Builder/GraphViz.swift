@@ -8,16 +8,9 @@
 import SwiftUI
 
 struct GraphViz: View {
-    var graph: Graph
-    var directional: Bool
+    var url: URL
 
     @GestureState private var scale: Double = 1.0
-
-    private var url: URL {
-        URL(string:
-                graph.generateGraphViz(directional: directional)
-        )!
-    }
 
     private var magnification: some Gesture {
         MagnifyGesture()
@@ -40,5 +33,5 @@ struct GraphViz: View {
 }
 
 #Preview {
-    GraphViz(graph: weighted_graph, directional: false)
+    GraphViz(url: weighted_graph.generateGraphVizURL(directional: true))
 }

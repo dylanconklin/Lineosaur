@@ -9,7 +9,14 @@ import SwiftUI
 
 struct GraphVizViewer: View {
     var graph: Graph
-    @State var graphType: GraphType = .given
+
+    @State private var graphType: GraphType = .given
+
+    private var directional: Bool {
+        if graphType == .given { return true }
+        else if graphType == .mst { return false }
+        else { return false }
+    }
 
     var body: some View {
         VStack {
@@ -19,14 +26,15 @@ struct GraphVizViewer: View {
             }
             .pickerStyle(.segmented)
             .padding()
+
             Spacer()
+
             switch graphType {
             case .given:
-                GraphViz(graph: graph, directional: true)
+                GraphViz(url: graph.generateGraphVizURL(directional: directional))
             case .mst:
-                GraphViz(graph: graph.mst, directional: false)
+                GraphViz(url: graph.mst.generateGraphVizURL(directional: directional))
             }
-            Spacer()
         }
     }
 }

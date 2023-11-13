@@ -18,7 +18,7 @@ extension Graph {
         UserDefaults.standard.bool(forKey: "displayWeights")
     }
 
-    func generateGraphViz(directional: Bool) -> String {
+    func generateGraphVizURL(directional: Bool) -> URL {
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
         var result: String = "https://quickchart.io/graphviz?"
         result.append("format=png&")
@@ -38,6 +38,6 @@ extension Graph {
             result.append(";")
         }
         result.append("}")
-        return result
+        return URL(string: result)!
     }
 }
