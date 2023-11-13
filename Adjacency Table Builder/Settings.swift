@@ -18,13 +18,19 @@ enum Compiler : String {
 }
 
 struct Settings: View {
-    @AppStorage("displayWeights") var displayWeights: Bool = false
+    @AppStorage("displayEdgeWeights") var displayEdgeWeights: Bool = false
+    @AppStorage("deleteDetachedVertices") var deleteDetachedVertices: Bool = false
     @AppStorage("compiler") var compiler: Compiler = .dot
 
     var body: some View {
         NavigationStack {
             Form {
-                Toggle("Show Edges", isOn: $displayWeights)
+                #warning("Unimplemented: Display Edge Weights")
+                Toggle("Show Edge Weights", isOn: $displayEdgeWeights)
+
+                #warning("Unimplemented: Delete Detatched Vertices")
+                Toggle("Delete Detached Vertices", isOn: $deleteDetachedVertices)
+
                 Picker("Compiler", selection: $compiler) {
                     Text("Dot").tag(Compiler.dot)
                     Text("FDP").tag(Compiler.fdp)
@@ -34,6 +40,7 @@ struct Settings: View {
                     Text("Osage").tag(Compiler.osage)
                     Text("Patchwork").tag(Compiler.patchwork)
                 }
+                
                 NavigationLink {
                     VStack {
                         Text("Developed by Dylan Conklin")
