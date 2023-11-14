@@ -19,6 +19,11 @@ extension Graph {
     }
 
     func generateGraphVizURL(of type: GraphType) -> URL {
+        var graph = self
+        if type == .mst {
+            graph = self.mst
+        }
+
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
         let directional: Bool = type == .given ? true : false
         var result: String = "https://quickchart.io/graphviz?"
@@ -28,10 +33,10 @@ extension Graph {
         result.append("{")
         result.append("sep=50;")
         result.append("esep=50;")
-        vertices.forEach { vertex in
+        graph.vertices.forEach { vertex in
             result.append("\(vertex);")
         }
-        edges.forEach { edge in
+        graph.edges.forEach { edge in
             result.append("\(edge.from)")
             result.append("\(directional ? "->" : "--")")
             result.append("\(edge.to)")
