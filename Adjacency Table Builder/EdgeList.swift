@@ -12,10 +12,19 @@ struct EdgeList: View {
     @Binding var edges: [Edge]
     @State var showEdgeCreator: Bool = false
 
+    let addEdgeTip = AddEdgeTip()
+
     var body: some View {
         ZStack {
             if edges.isEmpty {
-                AddingHelper(helpText: "Tap on + to add\nan edge to your graph")
+                VStack {
+                    Spacer()
+                    Text("Tap on + to add an edge to your graph")
+                        .font(Comfortaa.body)
+                        .frame(alignment: .center)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
             } else {
                 List {
                     ForEach($edges, id: \.self, editActions: .delete) { edge in
@@ -31,6 +40,7 @@ struct EdgeList: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .popoverTip(addEdgeTip)
                     .sheet(isPresented: $showEdgeCreator) {
                         EdgeCreator(edges: $edges)
                     }

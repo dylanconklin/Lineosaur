@@ -12,10 +12,19 @@ struct VertexList: View {
     @State var showVertexBuilder: Bool = false
     @State var vertexName: String = ""
 
+    let addVertexTip = AddVertexTip()
+
     var body: some View {
         ZStack {
             if vertices.isEmpty {
-                AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
+                VStack {
+                    Spacer()
+                    Text("Tap on + to add a vertex to your graph")
+                        .font(Comfortaa.body)
+                        .frame(alignment: .center)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
             } else {
                 List {
                     ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
@@ -31,6 +40,7 @@ struct VertexList: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .popoverTip(addVertexTip)
                     .alert("Add Vertex", isPresented: $showVertexBuilder) {
                         TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
                         Button ("Cancel", role: .cancel) {

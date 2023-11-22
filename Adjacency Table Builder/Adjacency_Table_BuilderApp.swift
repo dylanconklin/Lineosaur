@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct Adjacency_Table_BuilderApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    try? Tips.configure([
+                        .datastoreLocation(.applicationDefault),
+                        .displayFrequency(.immediate)
+                    ])
+                }
         }
     }
 }

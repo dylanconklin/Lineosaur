@@ -18,6 +18,7 @@
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
 		AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55B1142A99B20900928D09 /* TableViewer.swift */; };
+		AB5685402B0EA7D800144422 /* GraphEditorTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */; };
 		AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */; };
 		AB6BB0D72AB6859E0009D5F2 /* Empty Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */; };
 		AB6D565E2ABBDC5E005415F7 /* Graph Test Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */; };
@@ -37,7 +38,6 @@
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
 		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
 		ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */; };
-		ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */; };
 		ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */; };
 		ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */; };
 		ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */; };
@@ -71,6 +71,7 @@
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AB55B1142A99B20900928D09 /* TableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewer.swift; sourceTree = "<group>"; };
+		AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditorTips.swift; sourceTree = "<group>"; };
 		AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Properties.swift"; sourceTree = "<group>"; };
 		AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Empty Graph Tests.swift"; sourceTree = "<group>"; };
 		AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Test Samples.swift"; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
 		ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Adjacency-Table-Builder-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
-		ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingHelper.swift; sourceTree = "<group>"; };
 		ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Connectivity Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weighted Graph Tests.swift"; sourceTree = "<group>"; };
@@ -261,8 +261,8 @@
 		ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */ = {
 			isa = PBXGroup;
 			children = (
-				ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */,
 				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
+				AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */,
 				AB8BFA502ABAE09F00B1B2CC /* Vertex */,
 				AB8BFA512ABAE0AD00B1B2CC /* Edge */,
 			);
@@ -418,6 +418,7 @@
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
 				ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */,
+				AB5685402B0EA7D800144422 /* GraphEditorTips.swift in Sources */,
 				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
@@ -427,7 +428,6 @@
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
 				AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */,
-				ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */,
 				ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
