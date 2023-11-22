@@ -11,47 +11,30 @@ import SwiftUI
 struct TableView: View {
     var graph: Graph
     @State var showFacts: Bool = false
-    @State var scale: Double = 1.0
 
     var body: some View {
         if graph.edges.isEmpty {
             VStack {
                 Spacer()
-                Text("No edges in graph\n\nGo to the Edges tab to create an edge")
+                Text("No edges in graph")
+                    .font(Comfortaa.body)
+                    .multilineTextAlignment(.center)
+                Text("Go to the Edges tab to create an edge")
                     .font(Comfortaa.body)
                     .multilineTextAlignment(.center)
                 Spacer()
-                Grid {
-                    GridRow {
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Image(systemName: "arrow.down")
-                                    .resizable()
-                                    .frame(width: 35, height: 35)
-                                    .padding()
-                                    .scaleEffect(scale)
-                                    .onAppear {
-                                        let baseAnimation = Animation.easeInOut(duration: 1)
-                                        let repeated = baseAnimation.repeatForever(autoreverses: true)
-                                        withAnimation(repeated) {
-                                            scale = 0.5
-                                        }
-                                    }
-                                Spacer()
-                            }
-                        }
+                GeometryReader { geo in
+                    HStack {
+                        Image(systemName: "arrow.down")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .frame(width: geo.size.width / 4)
+                            .padding()
                         Spacer()
-                            .frame(maxWidth: .infinity)
-                        Spacer()
-                            .frame(maxWidth: .infinity)
-                        Spacer()
-                            .frame(maxWidth: .infinity)
-                        Spacer()
-                            .frame(maxWidth: .infinity)
                     }
                 }
+                .frame(height: 35)
+                .padding(.vertical)
             }
         } else {
             ScrollView(.vertical, showsIndicators: true) {
