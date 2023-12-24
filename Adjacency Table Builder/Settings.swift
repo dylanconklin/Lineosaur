@@ -25,7 +25,6 @@ struct Settings: View {
     var body: some View {
         NavigationStack {
             Form {
-                #warning("Unimplemented: Display Edge Weights")
                 Toggle("Show Edge Weights", isOn: $displayEdgeWeights)
 
                 #warning("Unimplemented: Delete Detatched Vertices")
