@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
-    @Binding var edges: [Edge]
+    @Binding var graph: Graph
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
@@ -17,7 +17,7 @@ struct EdgeCreator: View {
 
     func insertEdge () {
         if !to.isEmpty && !from.isEmpty {
-            edges = edges + [Edge(from: from, to: to, weight: weight)]
+            graph.insert(Edge(from: from, to: to, weight: weight))
         }
 
         // Reset form input fields
@@ -71,6 +71,6 @@ struct EdgeCreator: View {
 }
 
 #Preview {
-    @State var edges: [Edge] = []
-    return EdgeCreator(edges: $edges)
+    @State var graph: Graph = Graph()
+    return EdgeCreator(graph: $graph)
 }

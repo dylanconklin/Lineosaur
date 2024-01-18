@@ -28,7 +28,7 @@ struct GraphEditor: View {
 
                 switch graphElement {
                 case .edges:
-                    EdgeList(edges: $graph.edges)
+                    EdgeList(graph: $graph)
                 case .vertices:
                     VertexList(vertices: $graph.vertices)
                 }

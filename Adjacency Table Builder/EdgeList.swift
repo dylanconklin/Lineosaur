@@ -9,14 +9,14 @@ import SwiftUI
 
 /// List showing edges in the graph
 struct EdgeList: View {
-    @Binding var edges: [Edge]
+    @Binding var graph: Graph
     @State var showEdgeCreator: Bool = false
 
     let addEdgeTip = AddEdgeTip()
 
     var body: some View {
         ZStack {
-            if edges.isEmpty {
+            if graph.edges.isEmpty {
                 VStack {
                     Spacer()
                     Text("Tap on + to add an edge to your graph")
@@ -27,7 +27,7 @@ struct EdgeList: View {
                 }
             } else {
                 List {
-                    ForEach($edges, id: \.self, editActions: .delete) { edge in
+                    ForEach($graph.edges, id: \.self, editActions: .delete) { edge in
                         EdgeView(edge: edge)
                     }
                 }
@@ -42,7 +42,7 @@ struct EdgeList: View {
                     }
                     .popoverTip(addEdgeTip)
                     .sheet(isPresented: $showEdgeCreator) {
-                        EdgeCreator(edges: $edges)
+                        EdgeCreator(graph: $graph)
                     }
                 }
         }
@@ -51,5 +51,5 @@ struct EdgeList: View {
 
 #Preview {
     @State var graph = Graph()
-    return EdgeList(edges: $graph.edges)
+    return EdgeList(graph: $graph)
 }
