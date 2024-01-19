@@ -13,7 +13,7 @@ struct EdgeCreator: View {
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
 
     func insertEdge () {
         if !to.isEmpty && !from.isEmpty {
