@@ -10,7 +10,7 @@ import SwiftUI
 /// List showing edges in the graph
 struct EdgeList: View {
     @Binding var graph: Graph
-    @State var showEdgeCreator: Bool = false
+    @State private var showEdgeCreator: Bool = false
 
     let addEdgeTip = AddEdgeTip()
 
@@ -27,8 +27,21 @@ struct EdgeList: View {
                 }
             } else {
                 List {
-                    ForEach($graph.edges, id: \.self, editActions: .delete) { edge in
+                    ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
                         EdgeView(edge: edge)
+                            .contextMenu {
+                                Button {
+                                    graph.remove(edge.wrappedValue)
+                                    graph.insert(edge.wrappedValue.copy)
+                                } label: {
+                                    Label("Flip Direction", systemImage: "arrow.left.arrow.right")
+                                }
+                                Button {
+                                    graph.insert(edge.wrappedValue.copy)
+                                } label: {
+                                    Label("Duplicate", systemImage: "plus.square.on.square")
+                                }
+                            }
                     }
                 }
             }
