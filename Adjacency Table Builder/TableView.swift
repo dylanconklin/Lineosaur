@@ -14,39 +14,22 @@ struct TableView: View {
 
     var body: some View {
         if graph.edges.isEmpty {
-            VStack {
-                Spacer()
-                Text("No edges in graph")
-                    .font(Comfortaa.body)
-                    .multilineTextAlignment(.center)
-                Text("Go to the Edges tab to create an edge")
-                    .font(Comfortaa.body)
-                    .multilineTextAlignment(.center)
-                Spacer()
-                GeometryReader { geo in
-                    HStack {
-                        Image(systemName: "arrow.down")
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                            .frame(width: geo.size.width / 4)
-                            .padding()
-                        Spacer()
-                    }
-                }
-                .frame(height: 35)
-                .padding(.vertical)
-            }
+            EmptyTableView()
         } else {
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
                     Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                         GridRow {
                             Cell {
+                                Spacer()
+                            }
+                            .toolbar {
                                 Button {
                                     showFacts = true
                                 } label: {
-                                    Image(systemName: "info.circle.fill")
+                                    Image(systemName: "info.circle")
                                 }
+                                .popoverTip(GraphFactsTip())
                                 .sheet(isPresented: $showFacts) {
                                     GraphFacts(graph: graph)
                                 }
