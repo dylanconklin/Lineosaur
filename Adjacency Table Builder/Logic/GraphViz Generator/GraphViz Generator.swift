@@ -40,7 +40,6 @@ extension Graph {
             result.append("\(edge.from)")
             result.append("\(directional ? "->" : "--")")
             result.append("\(edge.to)")
-            print(displayWeights)
             if displayWeights {
                 result.append("[\(displayWeights ? "label=\(numToString(edge.weight))" : "")]")
             }
