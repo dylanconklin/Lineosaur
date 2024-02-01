@@ -7,30 +7,16 @@
 
 import TipKit
 
-struct AddEdgeTip: Tip {
+struct AddElementTip: Tip {
     var title: Text {
-        Text("Add Edges")
+        Text("Add Elements")
     }
 
     var message: Text? {
-        Text("Tap on + to add an edge to your graph")
+        Text("Tap on + to add edges and vertices to your graph")
     }
 
     var image: Image? {
         Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
-    }
-}
-
-struct AddVertexTip: Tip {
-    var title: Text {
-        Text("Add Vertices")
-    }
-
-    var message: Text? {
-        Text("Tap on + to add a vertex to your graph")
-    }
-
-    var image: Image? {
-        Image(systemName: "smallcircle.filled.circle")
     }
 }

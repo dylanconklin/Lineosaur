@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct VertexList: View {
-    @Binding var vertices: [Vertex]
-    @State var showVertexBuilder: Bool = false
-    @State var vertexName: String = ""
-
-    let addVertexTip = AddVertexTip()
+    @Binding var graph: Graph
 
     var body: some View {
         ZStack {
-            if vertices.isEmpty {
+            if graph.vertices.isEmpty {
                 VStack {
                     Spacer()
                     Text("Tap on + to add a vertex to your graph")
@@ -27,37 +23,21 @@ struct VertexList: View {
                 }
             } else {
                 List {
-                    ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
+                    ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
                         VertexView(vertex: vertex)
                     }
                 }
             }
-            Spacer()
-                .toolbar {
-                    EditButton()
-                    Button {
-                        showVertexBuilder = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .popoverTip(addVertexTip)
-                    .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                        TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                        Button ("Cancel", role: .cancel) {
-                            showVertexBuilder = false
-                            vertexName = ""
-                        }
-                        Button ("Add") {
-                            vertices = vertices + [vertexName]
-                            vertexName = ""
-                        }
-                    }
-                }
         }
     }
 }
 
-#Preview {
-    @State var vertices: [Vertex] = ["a", "b", "c"]
-    return VertexList(vertices: $vertices)
+#Preview("Empty List") {
+    @State var graph: Graph = Graph()
+    return VertexList(graph: $graph)
+}
+
+#Preview("Non-Empty List") {
+    @State var graph: Graph = connected_graph
+    return VertexList(graph: $graph)
 }

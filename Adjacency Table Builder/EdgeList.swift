@@ -10,10 +10,7 @@ import SwiftUI
 /// List showing edges in the graph
 struct EdgeList: View {
     @Binding var graph: Graph
-    @State private var showEdgeCreator: Bool = false
-
-    let addEdgeTip = AddEdgeTip()
-
+    
     var body: some View {
         ZStack {
             if graph.edges.isEmpty {
@@ -45,24 +42,16 @@ struct EdgeList: View {
                     }
                 }
             }
-            Spacer()
-                .toolbar {
-                    EditButton()
-                    Button {
-                        showEdgeCreator = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .popoverTip(addEdgeTip)
-                    .sheet(isPresented: $showEdgeCreator) {
-                        EdgeCreator(graph: $graph)
-                    }
-                }
         }
     }
 }
 
-#Preview {
+#Preview("Empty List") {
     @State var graph = Graph()
+    return EdgeList(graph: $graph)
+}
+
+#Preview("Non-Empty List") {
+    @State var graph = connected_graph
     return EdgeList(graph: $graph)
 }
