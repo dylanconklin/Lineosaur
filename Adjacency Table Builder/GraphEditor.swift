@@ -32,13 +32,32 @@ struct GraphEditor: View {
                 case .vertices:
                     VertexList(vertices: $graph.vertices)
                 }
+
+                Spacer()
+                    .toolbar {
+                    }
             }
             .navigationTitle("Graph Editor")
         }
     }
 }
 
-#Preview {
+#Preview("Edge List") {
+    @State var graph = connected_graph
+    return GraphEditor(graph: $graph, graphElement: .edges)
+}
+
+#Preview("Vertex List") {
+    @State var graph = connected_graph
+    return GraphEditor(graph: $graph, graphElement: .vertices)
+}
+
+#Preview("Empty Graph (Edge)") {
     @State var graph = Graph()
-    return GraphEditor(graph: $graph)
+    return GraphEditor(graph: $graph, graphElement: .edges)
+}
+
+#Preview("Empty Graph (Vertex)") {
+    @State var graph = Graph()
+    return GraphEditor(graph: $graph, graphElement: .vertices)
 }
