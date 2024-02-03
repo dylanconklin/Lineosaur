@@ -8,7 +8,7 @@
 import Foundation
 
 var mixed_int_and_double: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "A", to: "B", weight: 1.0))
     graph.insert(Edge(from: "B", to: "C", weight: 1.5))
@@ -17,7 +17,7 @@ var mixed_int_and_double: Graph {
 }
 
 var acyclic_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "1", to: "2", weight: 1))
     graph.insert(Edge(from: "2", to: "3", weight: 1))
@@ -31,7 +31,7 @@ var acyclic_graph: Graph {
 }
 
 var cyclic_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "1", to: "2", weight: 1))
     graph.insert(Edge(from: "2", to: "3", weight: 1))
@@ -45,7 +45,7 @@ var cyclic_graph: Graph {
 }
 
 var weighted_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1))
     graph.insert(Edge(from: "a", to: "c", weight: 7))
@@ -68,7 +68,7 @@ var weighted_graph: Graph {
 }
 
 var connected_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -81,7 +81,7 @@ var connected_graph: Graph {
 }
 
 var disconnected_graph_no_outlier_vertex: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -92,7 +92,7 @@ var disconnected_graph_no_outlier_vertex: Graph {
 }
 
 var disconnected_graph_outlier_vertex: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -105,7 +105,7 @@ var disconnected_graph_outlier_vertex: Graph {
 }
 
 var bipartite_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -118,7 +118,7 @@ var bipartite_graph: Graph {
 }
 
 var non_bipartite_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -130,7 +130,7 @@ var non_bipartite_graph: Graph {
 }
 
 var non_bipartite_graph_with_bipartite_cycle: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "b", to: "c", weight: 1.0))
@@ -149,7 +149,7 @@ var non_bipartite_graph_with_bipartite_cycle: Graph {
 }
 
 var tree_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "a", to: "c", weight: 1.0))
@@ -163,7 +163,7 @@ var tree_graph: Graph {
 }
 
 var not_tree_graph: Graph {
-    var graph: Graph = Graph()
+    let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
     graph.insert(Edge(from: "a", to: "c", weight: 1.0))

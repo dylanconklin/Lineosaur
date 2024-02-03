@@ -5,17 +5,18 @@
 //  Created by Dylan Conklin on 9/22/23.
 //
 
+import SwiftData
 import SwiftUI
 
 /// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
-    @Binding var graph: Graph
+    @Bindable var graph: Graph
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
     @Environment(\.dismiss) private var dismiss
 
-    func insertEdge () {
+    func insertEdge() {
         if !to.isEmpty && !from.isEmpty {
             graph.insert(Edge(from: from, to: to, weight: weight))
         }
@@ -70,7 +71,24 @@ struct EdgeCreator: View {
     }
 }
 
-#Preview {
-    @State var graph: Graph = Graph()
-    return EdgeCreator(graph: $graph)
+#Preview("Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return EdgeCreator(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return EdgeCreator(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

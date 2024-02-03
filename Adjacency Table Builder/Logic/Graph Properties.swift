@@ -61,7 +61,7 @@ extension Graph {
     }
 
     var isCyclic: Bool {
-        var graph: Graph = self
+        let graph: Graph = self
         while !graph.leaves.isEmpty {
             graph.leaves.forEach {
                 graph.remove($0)

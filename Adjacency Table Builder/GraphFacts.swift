@@ -5,6 +5,7 @@
 //  Created by Dylan Conklin on 9/11/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct GraphFact: View {
@@ -24,7 +25,7 @@ struct GraphFact: View {
 }
 
 struct GraphFacts: View {
-    var graph: Graph
+    @Bindable var graph: Graph
 
     var body: some View {
         TabView {
@@ -51,6 +52,24 @@ struct GraphFacts: View {
     }
 }
 
-#Preview {
-    GraphFacts(graph: Graph())
+#Preview("Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphFacts(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphFacts(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

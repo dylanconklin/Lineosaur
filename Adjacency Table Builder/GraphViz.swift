@@ -5,6 +5,7 @@
 //  Created by Dylan Conklin on 9/29/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct GraphViz: View {
@@ -33,5 +34,12 @@ struct GraphViz: View {
 }
 
 #Preview {
-    GraphViz(url: weighted_graph.generateGraphVizURL(of: .given))
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphViz(url: weighted_graph.generateGraphVizURL(of: .given))
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

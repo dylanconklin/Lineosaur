@@ -5,6 +5,7 @@
 //  Created by Dylan Conklin on 8/27/23.
 //
 
+import SwiftData
 import SwiftUI
 
 enum GraphElement {
@@ -13,7 +14,7 @@ enum GraphElement {
 }
 
 struct GraphEditor: View {
-    @Binding var graph: Graph
+    @Bindable var graph: Graph
     @State var graphElement: GraphElement = .edges
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
@@ -31,14 +32,15 @@ struct GraphEditor: View {
 
                 switch graphElement {
                 case .edges:
-                    EdgeList(graph: $graph)
+                    EdgeList(graph: graph)
                 case .vertices:
-                    VertexList(graph: $graph)
+                    VertexList(graph: graph)
                 }
 
                 Spacer()
                     .toolbar {
-                        EditButton()
+                        #warning("Replace Editing")
+//                        EditButton()
 
                         Button {
                             if graphElement == .vertices {
@@ -62,7 +64,7 @@ struct GraphEditor: View {
                             }
                         }
                         .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(graph: $graph)
+                            EdgeCreator(graph: graph)
                         }
                     }
             }
@@ -72,21 +74,45 @@ struct GraphEditor: View {
 }
 
 #Preview("Edge List") {
-    @State var graph = connected_graph
-    return GraphEditor(graph: $graph, graphElement: .edges)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphEditor(graph: connected_graph, graphElement: .edges)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }
 
 #Preview("Vertex List") {
-    @State var graph = connected_graph
-    return GraphEditor(graph: $graph, graphElement: .vertices)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphEditor(graph: connected_graph, graphElement: .vertices)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }
 
 #Preview("Empty Graph (Edge)") {
-    @State var graph = Graph()
-    return GraphEditor(graph: $graph, graphElement: .edges)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphEditor(graph: Graph(), graphElement: .edges)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }
 
-#Preview("Empty Graph (Vertex)") {
-    @State var graph = Graph()
-    return GraphEditor(graph: $graph, graphElement: .vertices)
+#Preview("Empty Graph (Vertices)") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphEditor(graph: Graph(), graphElement: .vertices)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

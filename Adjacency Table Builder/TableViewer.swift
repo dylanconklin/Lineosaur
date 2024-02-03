@@ -5,11 +5,12 @@
 //  Created by Dylan Conklin on 8/25/23.
 //
 
+import SwiftData
 import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
-    var graph: Graph
+    @Bindable var graph: Graph
     @State var graphType: GraphType = .given
 
     var body: some View {
@@ -36,6 +37,24 @@ struct TableViewer: View {
     }
 }
 
-#Preview {
-    TableViewer(graph: Graph())
+#Preview("Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return TableViewer(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return TableViewer(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

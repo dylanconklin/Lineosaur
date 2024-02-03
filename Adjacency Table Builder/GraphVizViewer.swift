@@ -5,10 +5,11 @@
 //  Created by Dylan Conklin on 9/29/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct GraphVizViewer: View {
-    var graph: Graph
+    @Bindable var graph: Graph
 
     @State private var graphType: GraphType = .given
 
@@ -45,6 +46,24 @@ struct GraphVizViewer: View {
     }
 }
 
-#Preview {
-    GraphVizViewer(graph: Graph())
+#Preview("Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphVizViewer(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return GraphVizViewer(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

@@ -5,10 +5,11 @@
 //  Created by Dylan Conklin on 8/25/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct VertexList: View {
-    @Binding var graph: Graph
+    @Bindable var graph: Graph
 
     var body: some View {
         ZStack {
@@ -33,11 +34,23 @@ struct VertexList: View {
 }
 
 #Preview("Empty List") {
-    @State var graph: Graph = Graph()
-    return VertexList(graph: $graph)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return VertexList(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }
 
 #Preview("Non-Empty List") {
-    @State var graph: Graph = connected_graph
-    return VertexList(graph: $graph)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return VertexList(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

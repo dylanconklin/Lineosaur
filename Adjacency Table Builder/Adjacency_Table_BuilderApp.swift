@@ -5,6 +5,7 @@
 //  Created by Dylan Conklin on 7/19/23.
 //
 
+import SwiftData
 import SwiftUI
 import TipKit
 
@@ -20,5 +21,6 @@ struct Adjacency_Table_BuilderApp: App {
                     ])
                 }
         }
+        .modelContainer(for: Graph.self)
     }
 }
