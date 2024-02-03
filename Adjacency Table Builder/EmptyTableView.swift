@@ -25,7 +25,6 @@ struct EmptyTableView: View {
                         .frame(width: 35, height: 35)
                         .frame(width: geo.size.width / 4)
                         .padding()
-                        .popoverTip(EmptyTableTip())
                     Spacer()
                 }
             }

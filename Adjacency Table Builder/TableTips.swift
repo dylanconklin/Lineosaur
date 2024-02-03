@@ -7,20 +7,6 @@
 
 import TipKit
 
-struct EmptyTableTip: Tip {
-    var title: Text {
-        Text("Build Graph")
-    }
-
-    var message: Text? {
-        Text("Tap on the Edit tab to add edges to your graph")
-    }
-
-    var image: Image? {
-        Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
-    }
-}
-
 struct GraphFactsTip: Tip {
     var title: Text {
         Text("Graph Facts")
