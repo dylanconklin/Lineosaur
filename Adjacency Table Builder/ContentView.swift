@@ -14,7 +14,8 @@ struct ContentView: View {
 
     #warning("Fix sorting")
 //    @Query(sort: \Graph.id) var savedGraphs: [Graph]
-    @Query var savedGraphs: [Graph]
+//    @Query var savedGraphs: [Graph]
+    @Query(sort: \Graph.lastAccessed, order: .reverse) var savedGraphs: [Graph]
 
     var graph: Graph {
         savedGraphs.first ?? Graph()

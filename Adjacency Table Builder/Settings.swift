@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-enum Compiler : String {
-    case dot = "dot"
-    case fdp = "fdp"
-    case neato = "neato"
-    case circo = "circo"
-    case twopi = "twopi"
-    case osage = "osage"
-    case patchwork = "patchwork"
+enum Compiler: String {
+    case dot
+    case fdp
+    case neato
+    case circo
+    case twopi
+    case osage
+    case patchwork
 }
 
 struct Settings: View {
@@ -39,7 +39,13 @@ struct Settings: View {
                     Text("Osage").tag(Compiler.osage)
                     Text("Patchwork").tag(Compiler.patchwork)
                 }
-                
+
+                NavigationLink {
+                    GraphSelector()
+                } label: {
+                    Label("Open Graph", systemImage: "folder")
+                }
+
                 NavigationLink {
                     VStack {
                         Text("Developed by Dylan Conklin")

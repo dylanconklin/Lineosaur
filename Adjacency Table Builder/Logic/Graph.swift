@@ -18,14 +18,18 @@ enum GraphType {
 
 @Model
 class Graph: Equatable {
-    private var graphEdges: Set<Edge> = []
-    private var graphVertices: Set<Vertex> = []
-    private var name: String?
+    private var graphEdges: Set<Edge>
+    private var graphVertices: Set<Vertex>
+    var name: String?
+    var lastAccessed: Date
+    var id: UUID
 
     init(graphEdges: Set<Edge> = Set<Edge>(), graphVertices: Set<Vertex> = Set<Vertex>(), name: String? = nil) {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
+        self.lastAccessed = Date.now
+        self.id = UUID()
     }
 
     static func ==(lhs: Graph, rhs: Graph) -> Bool {
