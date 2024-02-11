@@ -12,9 +12,6 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
 
-    #warning("Fix sorting")
-//    @Query(sort: \Graph.id) var savedGraphs: [Graph]
-//    @Query var savedGraphs: [Graph]
     @Query(sort: \Graph.lastAccessed, order: .reverse) var savedGraphs: [Graph]
 
     var graph: Graph {
@@ -35,14 +32,20 @@ struct ContentView: View {
     }
 }
 
-#warning("Fix Preview so it doesn't crash")
-//#Preview {
-//    do {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try ModelContainer(for: Graph.self, configurations: config)
-//        return ContentView()
-//            .modelContainer(container)
-//    } catch {
-//        fatalError("Failed to create model container")
-//    }
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+
+        let testGraphs = [connected_graph, disconnected_graph_outlier_vertex, disconnected_graph_no_outlier_vertex]
+
+        for graph in testGraphs {
+            container.mainContext.insert(graph)
+        }
+
+        return ContentView()
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
