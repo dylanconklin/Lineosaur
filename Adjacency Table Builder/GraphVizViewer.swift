@@ -24,16 +24,24 @@ struct GraphVizViewer: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("Type of graph to display", selection: $graphType) {
-                    Text("Given").tag(GraphType.given)
-                    Text("MST").tag(GraphType.mst)
+                if graph.isEmpty {
+                    Spacer()
+                    Text("No graph to display")
+                        .font(Comfortaa.body)
+                        .frame(alignment: .center)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Picker("Type of graph to display", selection: $graphType) {
+                        Text("Given").tag(GraphType.given)
+                        Text("MST").tag(GraphType.mst)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal)
+
+                    Spacer()
+
+                    GraphViz(url: graphURL)
                 }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-
-                Spacer()
-
-                GraphViz(url: graphURL)
 
                 Spacer()
                     .navigationTitle("View Table")
