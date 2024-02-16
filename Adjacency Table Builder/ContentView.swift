@@ -15,7 +15,11 @@ struct ContentView: View {
     @Query(sort: \Graph.lastAccessed, order: .reverse) var savedGraphs: [Graph]
 
     var graph: Graph {
-        savedGraphs.first ?? Graph()
+        var graph = savedGraphs.first ?? Graph()
+        if savedGraphs.isEmpty {
+            modelContext.insert(graph)
+        }
+        return graph
     }
 
     var body: some View {
