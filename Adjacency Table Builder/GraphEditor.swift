@@ -18,6 +18,7 @@ struct GraphEditor: View {
     @State var graphElement: GraphElement = .edges
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
+    @State private var showGraphSelector: Bool = false
     @State private var vertexName: String = ""
 
     var body: some View {
@@ -43,6 +44,14 @@ struct GraphEditor: View {
 //                        EditButton()
 
                         Button {
+                            showGraphSelector = true
+                        } label: {
+                            Image(systemName: "folder")
+                        }
+                        .sheet(isPresented: $showGraphSelector) {
+                            GraphSelector()
+                        }
+                        Button {
                             if graphElement == .vertices {
                                 showVertexBuilder = true
                             } else if graphElement == .edges {
@@ -50,6 +59,9 @@ struct GraphEditor: View {
                             }
                         } label: {
                             Image(systemName: "plus")
+                        }
+                        .sheet(isPresented: $showEdgeCreator) {
+                            EdgeCreator(graph: graph)
                         }
                         .popoverTip(AddElementTip())
                         .alert("Add Vertex", isPresented: $showVertexBuilder) {
@@ -59,12 +71,9 @@ struct GraphEditor: View {
                                 vertexName = ""
                             }
                             Button ("Add") {
-                                graph.vertices = graph.vertices + [vertexName]
+                                graph.insert(vertexName)
                                 vertexName = ""
                             }
-                        }
-                        .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(graph: graph)
                         }
                     }
             }
