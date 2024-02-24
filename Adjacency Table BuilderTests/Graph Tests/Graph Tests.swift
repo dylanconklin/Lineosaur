@@ -74,5 +74,4 @@ final class Graph_Tests: XCTestCase {
         // then
         XCTAssertEqual(sut.edges, expectedResult)
     }
-
 }

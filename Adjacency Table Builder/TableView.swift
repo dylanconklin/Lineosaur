@@ -5,61 +5,32 @@
 //  Created by Dylan Conklin on 8/9/23.
 //
 
+import SwiftData
 import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
-    var graph: Graph
+    @Bindable var graph: Graph
     @State var showFacts: Bool = false
-    @State var scale: Double = 1.0
 
     var body: some View {
         if graph.edges.isEmpty {
-            VStack {
-                Spacer()
-                Text("No edges in graph\n\nGo to the Edges tab to create an edge")
-                    .font(Comfortaa.body)
-                    .multilineTextAlignment(.center)
-                Spacer()
-                Grid {
-                    GridRow {
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Image(systemName: "arrow.down")
-                                    .resizable()
-                                    .frame(width: 35, height: 35)
-                                    .padding()
-                                    .scaleEffect(scale)
-                                    .onAppear {
-                                        let baseAnimation = Animation.easeInOut(duration: 1)
-                                        let repeated = baseAnimation.repeatForever(autoreverses: true)
-                                        withAnimation(repeated) {
-                                            scale = 0.5
-                                        }
-                                    }
-                                Spacer()
-                            }
-                        }
-                        Spacer()
-                            .frame(maxWidth: .infinity)
-                        Spacer()
-                            .frame(maxWidth: .infinity)
-                    }
-                }
-            }
+            EmptyTableView()
         } else {
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
                     Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                         GridRow {
                             Cell {
+                                Spacer()
+                            }
+                            .toolbar {
                                 Button {
                                     showFacts = true
                                 } label: {
-                                    Image(systemName: "info.circle.fill")
+                                    Image(systemName: "info.circle")
                                 }
+                                .popoverTip(GraphFactsTip())
                                 .sheet(isPresented: $showFacts) {
                                     GraphFacts(graph: graph)
                                 }
@@ -80,12 +51,12 @@ struct TableView: View {
                                 ForEach(graph.vertices.sorted(), id: \.self) { x in
                                     var distance: String {
                                         var distance: String = ""
-                                        distance = String(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
+                                        distance = numToString(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
                                         distance = y != x && distance == "0.0" ? "-" : distance
                                         return distance
                                     }
                                     Cell {
-                                        Text(String(distance))
+                                        Text(distance)
                                     }
                                 }
                             }
@@ -98,7 +69,24 @@ struct TableView: View {
     }
 }
 
-#Preview {
-    @State var graph = Graph()
-    return TableView(graph: graph)
+#Preview("Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return TableView(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty Graph") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return TableView(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

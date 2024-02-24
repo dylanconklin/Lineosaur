@@ -5,44 +5,66 @@
 //  Created by Dylan Conklin on 8/4/23.
 //
 
+import SwiftData
 import SwiftUI
 
 /// List showing edges in the graph
 struct EdgeList: View {
-    @Binding var edges: [Edge]
-    @State var showEdgeCreator: Bool = false
-
+    @Bindable var graph: Graph
+    
     var body: some View {
-        NavigationStack {
-            ZStack {
-                if edges.isEmpty {
-                    AddingHelper(helpText: "Tap on + to add\nan edge to your graph")
-                } else {
-                    List {
-                        ForEach($edges, id: \.self, editActions: .delete) { edge in
-                            EdgeView(edge: edge)
-                        }
+        ZStack {
+            if graph.edges.isEmpty {
+                VStack {
+                    Spacer()
+                    Text("Tap on + to add an edge to your graph")
+                        .font(Comfortaa.body)
+                        .frame(alignment: .center)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
+            } else {
+                List {
+                    ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
+                        EdgeView(edge: edge)
+                            .contextMenu {
+                                Button {
+                                    graph.remove(edge.wrappedValue)
+                                    graph.insert(edge.wrappedValue.copy)
+                                } label: {
+                                    Label("Flip Direction", systemImage: "arrow.left.arrow.right")
+                                }
+                                Button {
+                                    graph.insert(edge.wrappedValue.copy)
+                                } label: {
+                                    Label("Duplicate", systemImage: "plus.square.on.square")
+                                }
+                            }
                     }
                 }
-                Spacer()
-                    .navigationTitle("Edges")
-                    .toolbar {
-                        EditButton()
-                        Button {
-                            showEdgeCreator = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(edges: $edges)
-                        }
-                    }
             }
         }
     }
 }
 
-#Preview {
-    @State var graph = Graph()
-    return EdgeList(edges: $graph.edges)
+#Preview("Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return EdgeList(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return EdgeList(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

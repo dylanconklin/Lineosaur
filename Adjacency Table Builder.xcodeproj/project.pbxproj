@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
+		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
+		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
 		AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
@@ -15,21 +18,30 @@
 		AB510F652A8A928800B76121 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F642A8A928800B76121 /* Graph.swift */; };
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
 		AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55B1142A99B20900928D09 /* TableViewer.swift */; };
+		AB5685402B0EA7D800144422 /* GraphEditorTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */; };
+		AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */; };
 		AB6BB0D72AB6859E0009D5F2 /* Empty Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */; };
 		AB6D565E2ABBDC5E005415F7 /* Graph Test Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */; };
 		AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */; };
+		AB6EBA952B63982000096323 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EBA942B63982000096323 /* EmptyTableView.swift */; };
+		AB6EBA972B6398D700096323 /* TableTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6EBA962B6398D700096323 /* TableTips.swift */; };
 		AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9612A99A448007DE536 /* EdgeView.swift */; };
 		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
 		AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A96B2A99A74F007DE536 /* VertexView.swift */; };
 		AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */; };
 		AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */; };
+		AB90233C2AD7CD300015AC16 /* NumToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90233B2AD7CD300015AC16 /* NumToString.swift */; };
+		ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA988E62B71570400CEDC9C /* GraphSelector.swift */; };
 		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
+		ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */; };
+		ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */; };
+		ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D502AC8ECDA00B23F64 /* Settings.swift */; };
 		ABB518502ABD70E400CB4B98 /* Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */; };
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
 		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
 		ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */; };
-		ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */; };
+		ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */; };
 		ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */; };
 		ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */; };
 		ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */; };
@@ -48,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
+		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
+		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
 		AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,9 +74,13 @@
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AB55B1142A99B20900928D09 /* TableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewer.swift; sourceTree = "<group>"; };
+		AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditorTips.swift; sourceTree = "<group>"; };
+		AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Properties.swift"; sourceTree = "<group>"; };
 		AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Empty Graph Tests.swift"; sourceTree = "<group>"; };
 		AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Test Samples.swift"; sourceTree = "<group>"; };
 		AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphFacts.swift; sourceTree = "<group>"; };
+		AB6EBA942B63982000096323 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
+		AB6EBA962B6398D700096323 /* TableTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTips.swift; sourceTree = "<group>"; };
 		AB76A9612A99A448007DE536 /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		AB76A9672A99A620007DE536 /* VertexList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexList.swift; sourceTree = "<group>"; };
 		AB76A9692A99A645007DE536 /* EdgeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeList.swift; sourceTree = "<group>"; };
@@ -69,13 +88,18 @@
 		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
 		AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Samples.swift"; sourceTree = "<group>"; };
+		AB90233B2AD7CD300015AC16 /* NumToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumToString.swift; sourceTree = "<group>"; };
+		ABA988E62B71570400CEDC9C /* GraphSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSelector.swift; sourceTree = "<group>"; };
 		ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditor.swift; sourceTree = "<group>"; };
+		ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViz.swift; sourceTree = "<group>"; };
+		ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVizViewer.swift; sourceTree = "<group>"; };
+		ABAF3D502AC8ECDA00B23F64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Tests.swift"; sourceTree = "<group>"; };
 		ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCreator.swift; sourceTree = "<group>"; };
 		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
 		ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Adjacency-Table-Builder-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
-		ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingHelper.swift; sourceTree = "<group>"; };
+		ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Connectivity Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weighted Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unweighted Graph Tests.swift"; sourceTree = "<group>"; };
@@ -101,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */ = {
+			isa = PBXGroup;
+			children = (
+				AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */,
+			);
+			path = "GraphViz Generator";
+			sourceTree = "<group>";
+		};
 		AB510F272A8A91C800B76121 = {
 			isa = PBXGroup;
 			children = (
@@ -128,9 +160,9 @@
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
 				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
-				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */,
 				AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */,
+				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
 			);
 			path = "Adjacency Table Builder";
@@ -156,7 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
+				ABA988E52B7156DF00CEDC9C /* Settings */,
 				ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */,
+				ABAF3D4F2AC767F100B23F64 /* GraphViz */,
 				AB8BFA522ABAE0B900B1B2CC /* Table */,
 			);
 			name = Views;
@@ -166,7 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				AB510F642A8A928800B76121 /* Graph.swift */,
+				AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */,
 				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
+				AB90233B2AD7CD300015AC16 /* NumToString.swift */,
+				AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -204,9 +241,29 @@
 				AB510F602A8A923F00B76121 /* Cell.swift */,
 				AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */,
 				AB510F6A2A8A92CD00B76121 /* TableView.swift */,
+				AB6EBA942B63982000096323 /* EmptyTableView.swift */,
 				AB55B1142A99B20900928D09 /* TableViewer.swift */,
+				AB6EBA962B6398D700096323 /* TableTips.swift */,
 			);
 			name = Table;
+			sourceTree = "<group>";
+		};
+		ABA988E52B7156DF00CEDC9C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ABAF3D502AC8ECDA00B23F64 /* Settings.swift */,
+				ABA988E62B71570400CEDC9C /* GraphSelector.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		ABAF3D4F2AC767F100B23F64 /* GraphViz */ = {
+			isa = PBXGroup;
+			children = (
+				ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */,
+				ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */,
+			);
+			name = GraphViz;
 			sourceTree = "<group>";
 		};
 		ABB518582ABE64D400CB4B98 /* Fonts */ = {
@@ -221,8 +278,8 @@
 		ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */ = {
 			isa = PBXGroup;
 			children = (
-				ABBFEA1C2ABE6DB20061FF0E /* AddingHelper.swift */,
 				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
+				AB56853F2B0EA7D800144422 /* GraphEditorTips.swift */,
 				AB8BFA502ABAE09F00B1B2CC /* Vertex */,
 				AB8BFA512ABAE0AD00B1B2CC /* Edge */,
 			);
@@ -238,23 +295,26 @@
 			path = "Weight Graph Tests";
 			sourceTree = "<group>";
 		};
-		ABEEF2612AB190D4004C9429 /* Directed Graphs */ = {
+		ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */ = {
 			isa = PBXGroup;
 			children = (
 				ABEEF25D2AB19073004C9429 /* Acyclic Graph Tests.swift */,
 				ABEEF25B2AB1905E004C9429 /* Cyclic Graph Tests.swift */,
+				ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */,
 			);
-			path = "Directed Graphs";
+			path = "Directed and Undirected Graphs";
 			sourceTree = "<group>";
 		};
 		ABEEF2622AB1915B004C9429 /* Graph Tests */ = {
 			isa = PBXGroup;
 			children = (
+				AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */,
+				ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */,
 				AB6D565D2ABBDC5E005415F7 /* Graph Test Samples.swift */,
 				ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */,
 				AB6BB0D62AB6859E0009D5F2 /* Empty Graph Tests.swift */,
-				ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */,
-				ABEEF2612AB190D4004C9429 /* Directed Graphs */,
+				AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */,
+				ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */,
 				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
 			);
 			path = "Graph Tests";
@@ -276,6 +336,8 @@
 			dependencies = (
 			);
 			name = "Adjacency Table Builder";
+			packageProductDependencies = (
+			);
 			productName = "Adjacency Table Builder";
 			productReference = AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +389,8 @@
 				Base,
 			);
 			mainGroup = AB510F272A8A91C800B76121;
+			packageReferences = (
+			);
 			productRefGroup = AB510F312A8A91C800B76121 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -364,18 +428,27 @@
 			files = (
 				AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */,
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
+				ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */,
 				AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */,
+				AB90233C2AD7CD300015AC16 /* NumToString.swift in Sources */,
 				AB76A96C2A99A74F007DE536 /* VertexView.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
 				ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */,
+				ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */,
+				AB5685402B0EA7D800144422 /* GraphEditorTips.swift in Sources */,
 				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
 				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
+				AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
-				ABBFEA1D2ABE6DB20061FF0E /* AddingHelper.swift in Sources */,
+				AB6EBA952B63982000096323 /* EmptyTableView.swift in Sources */,
+				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
+				AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */,
+				AB6EBA972B6398D700096323 /* TableTips.swift in Sources */,
+				ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
 				AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */,
@@ -387,11 +460,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */,
+				ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */,
+				AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */,
 				ABB518502ABD70E400CB4B98 /* Graph Tests.swift in Sources */,
 				ABEEF25C2AB1905E004C9429 /* Cyclic Graph Tests.swift in Sources */,
 				ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */,
 				ABEEF25E2AB19073004C9429 /* Acyclic Graph Tests.swift in Sources */,
 				AB6BB0D72AB6859E0009D5F2 /* Empty Graph Tests.swift in Sources */,
+				AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */,
 				ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */,
 				AB6D565E2ABBDC5E005415F7 /* Graph Test Samples.swift in Sources */,
 			);
@@ -460,7 +536,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,7 +593,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -546,7 +626,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -554,7 +634,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -573,6 +653,7 @@
 				DEVELOPMENT_TEAM = 58X5N6584R;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Adjacency-Table-Builder-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -585,7 +666,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -593,7 +674,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -610,7 +691,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 58X5N6584R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderTests";
@@ -635,7 +716,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 58X5N6584R;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-BuilderTests";

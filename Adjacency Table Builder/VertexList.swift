@@ -5,52 +5,52 @@
 //  Created by Dylan Conklin on 8/25/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct VertexList: View {
-    @Binding var vertices: [Vertex]
-    @State var showVertexBuilder: Bool = false
-    @State var vertexName: String = ""
+    @Bindable var graph: Graph
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                if vertices.isEmpty {
-                    AddingHelper(helpText: "Tap on + to add\na vertex to your graph")
-                } else {
-                    List {
-                        ForEach ($vertices, id: \.self, editActions: .delete) { vertex in
-                            VertexView(vertex: vertex)
-                        }
+        ZStack {
+            if graph.vertices.isEmpty {
+                VStack {
+                    Spacer()
+                    Text("Tap on + to add a vertex to your graph")
+                        .font(Comfortaa.body)
+                        .frame(alignment: .center)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                }
+            } else {
+                List {
+                    ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
+                        VertexView(vertex: vertex)
                     }
                 }
-                Spacer()
-                    .navigationTitle("Vertices")
-                    .toolbar {
-                        EditButton()
-                        Button {
-                            showVertexBuilder = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                            Button ("Cancel", role: .cancel) {
-                                showVertexBuilder = false
-                                vertexName = ""
-                            }
-                            Button ("Add") {
-                                vertices = vertices + [vertexName]
-                                vertexName = ""
-                            }
-                        }
-                    }
             }
         }
     }
 }
 
-#Preview {
-    @State var vertices: [Vertex] = ["a", "b", "c"]
-    return VertexList(vertices: $vertices)
+#Preview("Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return VertexList(graph: Graph())
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
+}
+
+#Preview("Non-Empty List") {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Graph.self, configurations: config)
+        return VertexList(graph: connected_graph)
+            .modelContainer(container)
+    } catch {
+        fatalError("Failed to create model container")
+    }
 }

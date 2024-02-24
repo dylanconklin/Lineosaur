@@ -29,5 +29,4 @@ final class Cyclic_Graph_Tests: XCTestCase {
         // then
         XCTAssertTrue(result)
     }
-
 }

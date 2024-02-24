@@ -30,4 +30,13 @@ final class Empty_Graph_Tests: XCTestCase {
         XCTAssertFalse(result)
     }
 
+    func testEmptyGraphIsConnected() {
+        // given
+
+        // when
+        let result: Bool = sut.isConnected
+
+        // then
+        XCTAssertTrue(result)
+    }
 }

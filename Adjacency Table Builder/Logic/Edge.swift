@@ -7,10 +7,15 @@
 
 import Foundation
 
-struct Edge: Hashable, Comparable {
+struct Edge: Codable, Comparable, Hashable {
     var from: Vertex
     var to: Vertex
     var weight: Double
+    var id: UUID = UUID()
+
+    static func == (lhs: Edge, rhs: Edge) -> Bool {
+        return lhs.from == rhs.from && lhs.to == rhs.to && lhs.weight == rhs.weight
+    }
 
     static func < (lhs: Edge, rhs: Edge) -> Bool {
         lhs.weight < rhs.weight
@@ -42,5 +47,9 @@ struct Edge: Hashable, Comparable {
             from = newValue[0]
             to = newValue[1]
         }
+    }
+
+    var copy: Edge {
+        Edge(from: self.from, to: self.to, weight: self.weight)
     }
 }
