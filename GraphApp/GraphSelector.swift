@@ -39,12 +39,15 @@ struct GraphSelector: View {
                     VStack {
                         Text(graph.name ?? "Unnamed Graph")
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        Text("^[\(graph.edges.count) edge](inflect: true), ^[\(graph.vertices.count) vertex](inflect: true)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         Text("Last Accessed: \(df.string(from: graph.lastAccessed))")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .onTapGesture {
                         graph.lastAccessed = Date.now
-                        modelContext.processPendingChanges()
+                        try! modelContext.save()
+                        dismiss()
                     }
                 }
                 .onDelete(perform: deleteGraph)
@@ -62,7 +65,7 @@ struct GraphSelector: View {
                         graphName = graphName.trimmingCharacters(in: .whitespacesAndNewlines)
                         graphName = graphName.isEmpty ? "Unnamed Graph" : graphName
                         modelContext.insert(Graph(name: graphName))
-                        modelContext.processPendingChanges()
+                        try! modelContext.save()
                         dismiss()
                     }
                 }

@@ -63,13 +63,13 @@
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
 		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
-		AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adjacency Table Builder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB510F302A8A91C800B76121 /* GraphApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB510F392A8A91CA00B76121 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Adjacency_Table_Builder.entitlements; sourceTree = "<group>"; };
 		AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adjacency Table BuilderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
-				AB510F322A8A91C800B76121 /* Adjacency Table Builder */,
-				AB510F462A8A91CA00B76121 /* Adjacency Table BuilderTests */,
+				AB510F322A8A91C800B76121 /* GraphApp */,
+				AB510F462A8A91CA00B76121 /* GraphAppTests */,
 				AB510F312A8A91C800B76121 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,13 +146,13 @@
 		AB510F312A8A91C800B76121 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */,
-				AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */,
+				AB510F302A8A91C800B76121 /* GraphApp.app */,
+				AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB510F322A8A91C800B76121 /* Adjacency Table Builder */ = {
+		AB510F322A8A91C800B76121 /* GraphApp */ = {
 			isa = PBXGroup;
 			children = (
 				ABB518582ABE64D400CB4B98 /* Fonts */,
@@ -165,7 +165,7 @@
 				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
 			);
-			path = "Adjacency Table Builder";
+			path = GraphApp;
 			sourceTree = "<group>";
 		};
 		AB510F3C2A8A91CA00B76121 /* Preview Content */ = {
@@ -176,12 +176,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AB510F462A8A91CA00B76121 /* Adjacency Table BuilderTests */ = {
+		AB510F462A8A91CA00B76121 /* GraphAppTests */ = {
 			isa = PBXGroup;
 			children = (
 				ABEEF2622AB1915B004C9429 /* Graph Tests */,
 			);
-			path = "Adjacency Table BuilderTests";
+			path = GraphAppTests;
 			sourceTree = "<group>";
 		};
 		AB76A95E2A998D4B007DE536 /* Views */ = {
@@ -323,9 +323,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */ = {
+		AB510F2F2A8A91C800B76121 /* GraphApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table Builder" */;
+			buildConfigurationList = AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphApp" */;
 			buildPhases = (
 				AB510F2C2A8A91C800B76121 /* Sources */,
 				AB510F2D2A8A91C800B76121 /* Frameworks */,
@@ -335,16 +335,16 @@
 			);
 			dependencies = (
 			);
-			name = "Adjacency Table Builder";
+			name = GraphApp;
 			packageProductDependencies = (
 			);
 			productName = "Adjacency Table Builder";
-			productReference = AB510F302A8A91C800B76121 /* Adjacency Table Builder.app */;
+			productReference = AB510F302A8A91C800B76121 /* GraphApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB510F422A8A91CA00B76121 /* Adjacency Table BuilderTests */ = {
+		AB510F422A8A91CA00B76121 /* GraphAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table BuilderTests" */;
+			buildConfigurationList = AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphAppTests" */;
 			buildPhases = (
 				AB510F3F2A8A91CA00B76121 /* Sources */,
 				AB510F402A8A91CA00B76121 /* Frameworks */,
@@ -355,9 +355,9 @@
 			dependencies = (
 				AB510F452A8A91CA00B76121 /* PBXTargetDependency */,
 			);
-			name = "Adjacency Table BuilderTests";
+			name = GraphAppTests;
 			productName = "Adjacency Table BuilderTests";
-			productReference = AB510F432A8A91CA00B76121 /* Adjacency Table BuilderTests.xctest */;
+			productReference = AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -380,7 +380,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "Adjacency Table Builder" */;
+			buildConfigurationList = AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "GraphApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -395,8 +395,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */,
-				AB510F422A8A91CA00B76121 /* Adjacency Table BuilderTests */,
+				AB510F2F2A8A91C800B76121 /* GraphApp */,
+				AB510F422A8A91CA00B76121 /* GraphAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -478,7 +478,7 @@
 /* Begin PBXTargetDependency section */
 		AB510F452A8A91CA00B76121 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB510F2F2A8A91C800B76121 /* Adjacency Table Builder */;
+			target = AB510F2F2A8A91C800B76121 /* GraphApp */;
 			targetProxy = AB510F442A8A91CA00B76121 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -615,7 +615,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Adjacency-Table-Builder-Info.plist";
+				INFOPLIST_FILE = "GraphApp-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -631,7 +631,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
+				PRODUCT_BUNDLE_IDENTIFIER = conklin.dylan.GraphApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -655,7 +655,7 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Adjacency-Table-Builder-Info.plist";
+				INFOPLIST_FILE = "GraphApp-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -671,7 +671,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cloud.conklin.dylan.Adjacency-Table-Builder";
+				PRODUCT_BUNDLE_IDENTIFIER = conklin.dylan.GraphApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -702,7 +702,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adjacency Table Builder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Adjacency Table Builder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GraphApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GraphApp";
 			};
 			name = Debug;
 		};
@@ -726,14 +726,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adjacency Table Builder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Adjacency Table Builder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GraphApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GraphApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "Adjacency Table Builder" */ = {
+		AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "GraphApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F552A8A91CA00B76121 /* Debug */,
@@ -742,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table Builder" */ = {
+		AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F582A8A91CA00B76121 /* Debug */,
@@ -751,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Adjacency Table BuilderTests" */ = {
+		AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F5B2A8A91CA00B76121 /* Debug */,
