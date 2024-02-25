@@ -10,7 +10,7 @@
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
 		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
-		AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */; };
+		AB510F342A8A91C800B76121 /* LineosaurApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* LineosaurApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
 		AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F392A8A91CA00B76121 /* Assets.xcassets */; };
 		AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */; };
@@ -63,13 +63,13 @@
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
 		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
-		AB510F302A8A91C800B76121 /* GraphApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adjacency_Table_BuilderApp.swift; sourceTree = "<group>"; };
+		AB510F302A8A91C800B76121 /* Lineosaur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineosaur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB510F332A8A91C800B76121 /* LineosaurApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineosaurApp.swift; sourceTree = "<group>"; };
 		AB510F352A8A91C800B76121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB510F392A8A91CA00B76121 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Adjacency_Table_Builder.entitlements; sourceTree = "<group>"; };
+		AB510F3B2A8A91CA00B76121 /* Lineosaur.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lineosaur.entitlements; sourceTree = "<group>"; };
 		AB510F3D2A8A91CA00B76121 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB510F432A8A91CA00B76121 /* LineosaurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LineosaurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F602A8A923F00B76121 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		AB510F642A8A928800B76121 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		ABB5184F2ABD70E400CB4B98 /* Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Tests.swift"; sourceTree = "<group>"; };
 		ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCreator.swift; sourceTree = "<group>"; };
 		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
-		ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Adjacency-Table-Builder-Info.plist"; sourceTree = SOURCE_ROOT; };
+		ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lineosaur-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
 		ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Connectivity Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
-				AB510F322A8A91C800B76121 /* GraphApp */,
-				AB510F462A8A91CA00B76121 /* GraphAppTests */,
+				AB510F322A8A91C800B76121 /* Lineosaur */,
+				AB510F462A8A91CA00B76121 /* LineosaurTests */,
 				AB510F312A8A91C800B76121 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,26 +146,26 @@
 		AB510F312A8A91C800B76121 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AB510F302A8A91C800B76121 /* GraphApp.app */,
-				AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */,
+				AB510F302A8A91C800B76121 /* Lineosaur.app */,
+				AB510F432A8A91CA00B76121 /* LineosaurTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB510F322A8A91C800B76121 /* GraphApp */ = {
+		AB510F322A8A91C800B76121 /* Lineosaur */ = {
 			isa = PBXGroup;
 			children = (
 				ABB518582ABE64D400CB4B98 /* Fonts */,
 				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
-				AB510F332A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift */,
-				ABB518572ABE5F8D00CB4B98 /* Adjacency-Table-Builder-Info.plist */,
-				AB510F3B2A8A91CA00B76121 /* Adjacency_Table_Builder.entitlements */,
+				AB510F332A8A91C800B76121 /* LineosaurApp.swift */,
+				ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */,
+				AB510F3B2A8A91CA00B76121 /* Lineosaur.entitlements */,
 				AB510F392A8A91CA00B76121 /* Assets.xcassets */,
 				AB510F3C2A8A91CA00B76121 /* Preview Content */,
 			);
-			path = GraphApp;
+			path = Lineosaur;
 			sourceTree = "<group>";
 		};
 		AB510F3C2A8A91CA00B76121 /* Preview Content */ = {
@@ -176,12 +176,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AB510F462A8A91CA00B76121 /* GraphAppTests */ = {
+		AB510F462A8A91CA00B76121 /* LineosaurTests */ = {
 			isa = PBXGroup;
 			children = (
 				ABEEF2622AB1915B004C9429 /* Graph Tests */,
 			);
-			path = GraphAppTests;
+			path = LineosaurTests;
 			sourceTree = "<group>";
 		};
 		AB76A95E2A998D4B007DE536 /* Views */ = {
@@ -323,9 +323,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AB510F2F2A8A91C800B76121 /* GraphApp */ = {
+		AB510F2F2A8A91C800B76121 /* Lineosaur */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphApp" */;
+			buildConfigurationList = AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Lineosaur" */;
 			buildPhases = (
 				AB510F2C2A8A91C800B76121 /* Sources */,
 				AB510F2D2A8A91C800B76121 /* Frameworks */,
@@ -335,16 +335,16 @@
 			);
 			dependencies = (
 			);
-			name = GraphApp;
+			name = Lineosaur;
 			packageProductDependencies = (
 			);
 			productName = "Adjacency Table Builder";
-			productReference = AB510F302A8A91C800B76121 /* GraphApp.app */;
+			productReference = AB510F302A8A91C800B76121 /* Lineosaur.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB510F422A8A91CA00B76121 /* GraphAppTests */ = {
+		AB510F422A8A91CA00B76121 /* LineosaurTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphAppTests" */;
+			buildConfigurationList = AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "LineosaurTests" */;
 			buildPhases = (
 				AB510F3F2A8A91CA00B76121 /* Sources */,
 				AB510F402A8A91CA00B76121 /* Frameworks */,
@@ -355,9 +355,9 @@
 			dependencies = (
 				AB510F452A8A91CA00B76121 /* PBXTargetDependency */,
 			);
-			name = GraphAppTests;
+			name = LineosaurTests;
 			productName = "Adjacency Table BuilderTests";
-			productReference = AB510F432A8A91CA00B76121 /* GraphAppTests.xctest */;
+			productReference = AB510F432A8A91CA00B76121 /* LineosaurTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -380,7 +380,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "GraphApp" */;
+			buildConfigurationList = AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "Lineosaur" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -395,8 +395,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AB510F2F2A8A91C800B76121 /* GraphApp */,
-				AB510F422A8A91CA00B76121 /* GraphAppTests */,
+				AB510F2F2A8A91C800B76121 /* Lineosaur */,
+				AB510F422A8A91CA00B76121 /* LineosaurTests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,7 +438,7 @@
 				ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */,
 				AB5685402B0EA7D800144422 /* GraphEditorTips.swift in Sources */,
 				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
-				AB510F342A8A91C800B76121 /* Adjacency_Table_BuilderApp.swift in Sources */,
+				AB510F342A8A91C800B76121 /* LineosaurApp.swift in Sources */,
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
@@ -478,7 +478,7 @@
 /* Begin PBXTargetDependency section */
 		AB510F452A8A91CA00B76121 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AB510F2F2A8A91C800B76121 /* GraphApp */;
+			target = AB510F2F2A8A91C800B76121 /* Lineosaur */;
 			targetProxy = AB510F442A8A91CA00B76121 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -702,7 +702,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GraphApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GraphApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lineosaur.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lineosaur";
 			};
 			name = Debug;
 		};
@@ -726,14 +726,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GraphApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GraphApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lineosaur.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lineosaur";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "GraphApp" */ = {
+		AB510F2B2A8A91C800B76121 /* Build configuration list for PBXProject "Lineosaur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F552A8A91CA00B76121 /* Debug */,
@@ -742,7 +742,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphApp" */ = {
+		AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Lineosaur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F582A8A91CA00B76121 /* Debug */,
@@ -751,7 +751,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "GraphAppTests" */ = {
+		AB510F5A2A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "LineosaurTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AB510F5B2A8A91CA00B76121 /* Debug */,
