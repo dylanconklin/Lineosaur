@@ -30,6 +30,7 @@ struct GraphSelector: View {
         if savedGraphs.isEmpty {
             modelContext.insert(Graph())
         }
+        try! modelContext.save()
     }
 
     var body: some View {
