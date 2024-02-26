@@ -28,7 +28,7 @@ struct ContentView: View {
             TableViewer(graph: graph)
                 .tabItem { Label("Table", systemImage: "tablecells") }
             GraphVizViewer(graph: graph)
-                .tabItem { Label("View Graph", systemImage: "tree") }
+                .tabItem { Label("View Graph", systemImage: "point.3.connected.trianglepath.dotted") }
             Settings()
                 .tabItem { Label("Settings", systemImage: "gear") }
         }
