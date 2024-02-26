@@ -28,45 +28,47 @@ struct EdgeCreator: View {
     }
 
     var body: some View {
-        VStack {
-            HStack {
+        NavigationStack {
+            VStack {
+                Form {
+                    Grid(alignment: .leading) {
+                        GridRow {
+                            Text("From")
+                            Text(":")
+                            TextField("From", text: $from)
+                        }
+                        GridRow {
+                            Text("To")
+                            Text(":")
+                            TextField("To", text: $to)
+                        }
+                        GridRow {
+                            Text("Weight")
+                            Text(":")
+                            TextField("Weight",
+                                      text: Binding(
+                                        get: { String(weight) },
+                                        set: { weight = Double($0) ?? 0.0 }))
+                            .keyboardType(.decimalPad)
+                        }
+                    }
+                }
+                Button {
+                    insertEdge()
+                } label: {
+                    Label("Add Edge", systemImage: "checkmark")
+                }
+                .padding()
                 Spacer()
+            }
+            .navigationTitle("Insert Edge")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
                 Button("Done") {
                     insertEdge()
                     dismiss()
                 }
-                .padding()
             }
-            Form {
-                Grid(alignment: .leading) {
-                    GridRow {
-                        Text("From")
-                        Text(":")
-                        TextField("From", text: $from)
-                    }
-                    GridRow {
-                        Text("To")
-                        Text(":")
-                        TextField("To", text: $to)
-                    }
-                    GridRow {
-                        Text("Weight")
-                        Text(":")
-                        TextField("Weight",
-                                  text: Binding(
-                                      get: { String(weight) },
-                                      set: { weight = Double($0) ?? 0.0 }))
-                            .keyboardType(.decimalPad)
-                    }
-                }
-            }
-            Button {
-                insertEdge()
-            } label: {
-                Label("Add Edge", systemImage: "checkmark")
-            }
-            .padding()
-            Spacer()
         }
     }
 }
