@@ -20,7 +20,7 @@ struct GraphEditor: View {
     @State private var showEdgeCreator: Bool = false
     @State private var showGraphSelector: Bool = false
     @State private var vertexName: String = ""
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,7 +30,9 @@ struct GraphEditor: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-                
+
+                Tutorial()
+
                 switch graphElement {
                     case .edges:
                         EdgeList(graph: graph)
@@ -40,8 +42,8 @@ struct GraphEditor: View {
                 
                 Spacer()
                     .toolbar {
-#warning("Replace Editing")
-                        //                        EditButton()
+                        #warning("Replace Editing")
+                        // EditButton()
                         
                         Button {
                             showGraphSelector = true
@@ -63,7 +65,6 @@ struct GraphEditor: View {
                         .sheet(isPresented: $showEdgeCreator) {
                             EdgeCreator(graph: graph)
                         }
-                        .popoverTip(AddElementTip())
                         .alert("Add Vertex", isPresented: $showVertexBuilder) {
                             TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
                             Button ("Cancel", role: .cancel) {
