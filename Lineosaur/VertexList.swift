@@ -1,6 +1,6 @@
 //
 //  VertexList.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 8/25/23.
 //

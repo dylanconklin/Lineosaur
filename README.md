@@ -1,5 +1,5 @@
 <h1 align="center">
-  Adjacency Table Builder
+  Lineosaur
 </h1>
 
 <p align="center">
@@ -12,7 +12,7 @@
 <strong><a href="https://youtu.be/dJc68L8nda8">YouTube Preview</a></strong>
 </p>
 
-Adjacency Table Builder is an app to build weighted graphs and view the associated adjacency tables and generated Minimum Spanning Tree (MST).
+Lineosaur is an app to build weighted graphs and view the associated adjacency tables and generated Minimum Spanning Tree (MST).
 
 ## Features
 

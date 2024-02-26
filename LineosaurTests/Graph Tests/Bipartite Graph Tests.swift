@@ -1,11 +1,11 @@
 //
 //  Bipartite Graph Tests.swift
-//  Adjacency Table BuilderTests
+//  LineosaurTests
 //
 //  Created by Dylan Conklin on 9/28/23.
 //
 
-@testable import Adjacency_Table_Builder
+@testable import Lineosaur
 import XCTest
 
 class BipartiteGraphTests: XCTestCase {

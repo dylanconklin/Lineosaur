@@ -1,6 +1,6 @@
 //
 //  EdgeCreator.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 9/22/23.
 //

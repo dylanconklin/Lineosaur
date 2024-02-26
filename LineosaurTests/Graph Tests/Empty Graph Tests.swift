@@ -1,12 +1,12 @@
 //
 //  Empty Graph Tests.swift
-//  Adjacency Table BuilderTests
+//  LineosaurTests
 //
 //  Created by Dylan Conklin on 9/16/23.
 //
 
 import XCTest
-@testable import Adjacency_Table_Builder
+@testable import Lineosaur
 
 final class Empty_Graph_Tests: XCTestCase {
     

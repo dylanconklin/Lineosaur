@@ -1,6 +1,6 @@
 //
 //  EmptyTableView.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 1/25/24.
 //

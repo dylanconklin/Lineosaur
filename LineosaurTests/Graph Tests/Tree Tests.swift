@@ -1,12 +1,12 @@
 //
 //  Tree Tests.swift
-//  Adjacency Table BuilderTests
+//  LineosaurTests
 //
 //  Created by Dylan Conklin on 9/29/23.
 //
 
 import XCTest
-@testable import Adjacency_Table_Builder
+@testable import Lineosaur
 
 final class Tree_Tests: XCTestCase {
 

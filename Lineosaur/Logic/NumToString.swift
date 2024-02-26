@@ -1,6 +1,6 @@
 //
 //  NumToString.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 10/11/23.
 //

@@ -1,6 +1,6 @@
 //
 //  GraphEditor.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 8/27/23.
 //
@@ -20,7 +20,7 @@ struct GraphEditor: View {
     @State private var showEdgeCreator: Bool = false
     @State private var showGraphSelector: Bool = false
     @State private var vertexName: String = ""
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,19 +30,19 @@ struct GraphEditor: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-
+                
                 switch graphElement {
-                case .edges:
-                    EdgeList(graph: graph)
-                case .vertices:
-                    VertexList(graph: graph)
+                    case .edges:
+                        EdgeList(graph: graph)
+                    case .vertices:
+                        VertexList(graph: graph)
                 }
-
+                
                 Spacer()
                     .toolbar {
-                        #warning("Replace Editing")
-//                        EditButton()
-
+#warning("Replace Editing")
+                        //                        EditButton()
+                        
                         Button {
                             showGraphSelector = true
                         } label: {
@@ -77,8 +77,9 @@ struct GraphEditor: View {
                         }
                     }
             }
+            .navigationTitle("Graph Editor")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("Graph Editor")
     }
 }
 

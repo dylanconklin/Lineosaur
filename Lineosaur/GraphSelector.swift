@@ -1,6 +1,6 @@
 //
 //  GraphSelector.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 2/5/24.
 //

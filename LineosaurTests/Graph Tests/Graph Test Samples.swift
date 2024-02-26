@@ -5,7 +5,7 @@
 //
 
 import XCTest
-@testable import Adjacency_Table_Builder
+@testable import Lineosaur
 
 var acyclic_graph: Graph {
     var graph: Graph = Graph()

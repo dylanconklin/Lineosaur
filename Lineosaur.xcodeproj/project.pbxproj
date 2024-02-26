@@ -47,6 +47,7 @@
 		ABEEF25A2AB19050004C9429 /* Unweighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */; };
 		ABEEF25C2AB1905E004C9429 /* Cyclic Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25B2AB1905E004C9429 /* Cyclic Graph Tests.swift */; };
 		ABEEF25E2AB19073004C9429 /* Acyclic Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25D2AB19073004C9429 /* Acyclic Graph Tests.swift */; };
+		ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF8D022B8C63C1009EA940 /* Tutorial.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		ABEEF2592AB19050004C9429 /* Unweighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unweighted Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF25B2AB1905E004C9429 /* Cyclic Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cyclic Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF25D2AB19073004C9429 /* Acyclic Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Acyclic Graph Tests.swift"; sourceTree = "<group>"; };
+		ABEF8D022B8C63C1009EA940 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		AB510F322A8A91C800B76121 /* Lineosaur */ = {
 			isa = PBXGroup;
 			children = (
+				ABEF8D012B8C635F009EA940 /* Tutorial */,
 				ABB518582ABE64D400CB4B98 /* Fonts */,
 				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
@@ -320,6 +323,14 @@
 			path = "Graph Tests";
 			sourceTree = "<group>";
 		};
+		ABEF8D012B8C635F009EA940 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				ABEF8D022B8C63C1009EA940 /* Tutorial.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,6 +456,7 @@
 				AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				AB6EBA952B63982000096323 /* EmptyTableView.swift in Sources */,
+				ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */,
 				ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */,
 				AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */,
 				AB6EBA972B6398D700096323 /* TableTips.swift in Sources */,

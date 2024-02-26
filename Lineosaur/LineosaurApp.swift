@@ -10,7 +10,7 @@ import SwiftUI
 import TipKit
 
 @main
-struct Adjacency_Table_BuilderApp: App {
+struct LineosaurApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

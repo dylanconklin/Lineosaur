@@ -1,6 +1,6 @@
 //
 //  GraphVizViewer.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 9/29/23.
 //

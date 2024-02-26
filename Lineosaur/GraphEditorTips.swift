@@ -1,6 +1,6 @@
 //
 //  GraphEditorTips.swift
-//  Adjacency Table Builder
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 11/22/23.
 //

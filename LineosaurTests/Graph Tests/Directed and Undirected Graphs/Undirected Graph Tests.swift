@@ -1,12 +1,12 @@
 //
 //  Undirected Graph Tests.swift
-//  Adjacency Table BuilderTests
+//  LineosaurTests
 //
 //  Created by Dylan Conklin on 9/12/23.
 //
 
 import XCTest
-@testable import Adjacency_Table_Builder
+@testable import Lineosaur
 
 final class Undirected_Graph_Tests: XCTestCase {
     
