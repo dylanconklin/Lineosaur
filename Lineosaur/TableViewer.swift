@@ -15,24 +15,24 @@ struct TableViewer: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            if !graph.edges.isEmpty {
                 Picker("Type of graph to display", selection: $graphType) {
                     Text("Given").tag(GraphType.given)
                     Text("MST").tag(GraphType.mst)
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-                Spacer()
-                switch graphType {
-                    case .given:
-                        TableView(graph: graph)
-                    case .mst:
-                        TableView(graph: graph.mst)
-                }
-                Spacer()
+                .frame(alignment: .top)
             }
-            .navigationTitle("Adjacency Table")
-            .navigationBarTitleDisplayMode(.inline)
+            switch graphType {
+                case .given:
+                    TableView(graph: graph)
+                case .mst:
+                    TableView(graph: graph.mst)
+            }
+            Spacer()
+                .navigationTitle("Adjacency Table")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
