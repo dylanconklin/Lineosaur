@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB112E302B8DDC0F00007179 /* Lineosaur-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */; };
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
 		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
@@ -415,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */,
+				AB112E302B8DDC0F00007179 /* Lineosaur-Info.plist in Resources */,
 				ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */,
 				AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */,
 			);

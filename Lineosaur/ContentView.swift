@@ -18,7 +18,11 @@ struct ContentView: View {
             modelContext.insert(Graph())
             try! modelContext.save()
         }
-        return savedGraphs.first!
+        #warning("Check SwiftData issue, see comment below")
+        // Do not change this to return savedGraphs.first!
+        // It causes issues with SwiftData for some reason
+        let graph = savedGraphs.first!
+        return graph
     }
 
     var body: some View {
