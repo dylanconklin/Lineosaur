@@ -18,7 +18,6 @@ struct GraphEditor: View {
     @State var graphElement: GraphElement = .edges
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
-    @State private var showGraphSelector: Bool = false
     @State private var vertexName: String = ""
     
     var body: some View {
@@ -32,7 +31,7 @@ struct GraphEditor: View {
                 .padding(.horizontal)
                 
                 Tutorial()
-                
+
                 switch graphElement {
                     case .edges:
                         EdgeList(graph: graph)
@@ -42,13 +41,8 @@ struct GraphEditor: View {
                 
                 Spacer()
                     .toolbar {
-#warning("Replace Editing")
-                        // EditButton()
+                        EditButton()
                         
-                        Button("Add", systemImage: "folder", action: { showGraphSelector = true })
-                            .sheet(isPresented: $showGraphSelector) {
-                                GraphSelector()
-                            }
                         Button("Add", systemImage: "plus") {
                             if graphElement == .vertices {
                                 showVertexBuilder = true
