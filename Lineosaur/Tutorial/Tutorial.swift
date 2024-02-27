@@ -22,7 +22,7 @@ struct TutorialTip: Tip {
 struct Tutorial: View {
     @State private var showTutorial = false
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         TipView(TutorialTip()) { _ in
             showTutorial = true
@@ -30,19 +30,17 @@ struct Tutorial: View {
         .padding()
         .sheet(isPresented: $showTutorial) {
             VStack {
-                HStack {
-                    Spacer()
-                    Button {
-                        dismiss()
-                        showTutorial = false
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding()
-                    }
-                    .foregroundStyle(.primary)
+                Button {
+                    dismiss()
+                    showTutorial = false
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding()
                 }
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .infinity, alignment: .topTrailing)
                 Text("Thank you for downloading Lineosaur!")
                     .multilineTextAlignment(.center)
                     .font(.title)
