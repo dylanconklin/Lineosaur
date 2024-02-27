@@ -15,7 +15,7 @@ struct TableView: View {
 
     var body: some View {
         if graph.edges.isEmpty {
-            EmptyTableView()
+            ContentUnavailableView("No edges in graph", systemImage: "hammer", description: Text("Go to the Edit tab to create an edge"))
         } else {
             ScrollView(.vertical, showsIndicators: true) {
                 ScrollView(.horizontal, showsIndicators: true) {
@@ -25,11 +25,7 @@ struct TableView: View {
                                 Spacer()
                             }
                             .toolbar {
-                                Button {
-                                    showFacts = true
-                                } label: {
-                                    Image(systemName: "info.circle")
-                                }
+                                Button("Graph Facts", systemImage: "info.circle", action: { showFacts = true })
                                 .popoverTip(GraphFactsTip())
                                 .sheet(isPresented: $showFacts) {
                                     GraphFacts(graph: graph)
