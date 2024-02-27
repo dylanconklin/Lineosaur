@@ -54,11 +54,9 @@ struct GraphSelector: View {
                 .onDelete(perform: deleteGraph)
             }
             .toolbar {
-                Button {
+                Button("New Graph", systemImage: "plus") {
                     graphName = ""
                     showGraphNamer = true
-                } label: {
-                    Label("New Graph", systemImage: "plus")
                 }
                 .alert("Graph Name", isPresented: $showGraphNamer) {
                     TextField("Graph Name", text: $graphName, prompt: Text("Graph Name"))

@@ -53,12 +53,8 @@ struct EdgeCreator: View {
                         }
                     }
                 }
-                Button {
-                    insertEdge()
-                } label: {
-                    Label("Add Edge", systemImage: "checkmark")
-                }
-                .padding()
+                Button("Add Edge", systemImage: "checkmark", action: { insertEdge() })
+                    .padding()
                 Spacer()
             }
             .navigationTitle("Insert Edge")

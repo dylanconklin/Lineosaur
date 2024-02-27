@@ -15,30 +15,17 @@ struct EdgeList: View {
     var body: some View {
         ZStack {
             if graph.edges.isEmpty {
-                VStack {
-                    Spacer()
-                    Text("Tap on + to add an edge to your graph")
-                        .font(Comfortaa.body)
-                        .frame(alignment: .center)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                }
+                ContentUnavailableView("No edges", systemImage: "hammer", description: Text("Tap on + to add an edge to the graph"))
             } else {
                 List {
                     ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
                         EdgeView(edge: edge)
                             .contextMenu {
-                                Button {
+                                Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
                                     graph.remove(edge.wrappedValue)
                                     graph.insert(edge.wrappedValue.copy)
-                                } label: {
-                                    Label("Flip Direction", systemImage: "arrow.left.arrow.right")
                                 }
-                                Button {
-                                    graph.insert(edge.wrappedValue.copy)
-                                } label: {
-                                    Label("Duplicate", systemImage: "plus.square.on.square")
-                                }
+                                Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
                             }
                     }
                 }

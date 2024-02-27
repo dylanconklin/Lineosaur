@@ -20,7 +20,7 @@ struct GraphEditor: View {
     @State private var showEdgeCreator: Bool = false
     @State private var showGraphSelector: Bool = false
     @State private var vertexName: String = ""
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,9 +30,9 @@ struct GraphEditor: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-
+                
                 Tutorial()
-
+                
                 switch graphElement {
                     case .edges:
                         EdgeList(graph: graph)
@@ -42,25 +42,19 @@ struct GraphEditor: View {
                 
                 Spacer()
                     .toolbar {
-                        #warning("Replace Editing")
+#warning("Replace Editing")
                         // EditButton()
                         
-                        Button {
-                            showGraphSelector = true
-                        } label: {
-                            Image(systemName: "folder")
-                        }
-                        .sheet(isPresented: $showGraphSelector) {
-                            GraphSelector()
-                        }
-                        Button {
+                        Button("Add", systemImage: "folder", action: { showGraphSelector = true })
+                            .sheet(isPresented: $showGraphSelector) {
+                                GraphSelector()
+                            }
+                        Button("Add", systemImage: "plus") {
                             if graphElement == .vertices {
                                 showVertexBuilder = true
                             } else if graphElement == .edges {
                                 showEdgeCreator = true
                             }
-                        } label: {
-                            Image(systemName: "plus")
                         }
                         .sheet(isPresented: $showEdgeCreator) {
                             EdgeCreator(graph: graph)

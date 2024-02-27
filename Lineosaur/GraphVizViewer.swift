@@ -25,11 +25,7 @@ struct GraphVizViewer: View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {
-                    Spacer()
-                    Text("No graph to display")
-                        .font(Comfortaa.body)
-                        .frame(alignment: .center)
-                        .multilineTextAlignment(.center)
+                    ContentUnavailableView("No graph to display", systemImage: "hammer", description: Text("Go to the Edit tab to add edges and vertices"))
                 } else {
                     Picker("Type of graph to display", selection: $graphType) {
                         Text("Given").tag(GraphType.given)

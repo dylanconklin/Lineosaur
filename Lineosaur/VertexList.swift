@@ -14,14 +14,7 @@ struct VertexList: View {
     var body: some View {
         ZStack {
             if graph.vertices.isEmpty {
-                VStack {
-                    Spacer()
-                    Text("Tap on + to add a vertex to your graph")
-                        .font(Comfortaa.body)
-                        .frame(alignment: .center)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                }
+                ContentUnavailableView("No vertices", systemImage: "hammer", description: Text("Tap on + to add a vertex to the graph"))
             } else {
                 List {
                     ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
