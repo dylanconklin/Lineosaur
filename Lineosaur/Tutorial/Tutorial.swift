@@ -55,6 +55,8 @@ struct Tutorial: View {
                         .padding()
                     Tutorial5()
                         .padding()
+                    Tutorial6()
+                        .padding()
                 }
             }
         }
@@ -111,6 +113,17 @@ struct Tutorial5: View {
             Image(systemName: "hand.tap.fill")
                 .font(.system(size: 32))
             Text("Tap and hold the edges to see advanced actions")
+                .padding(.horizontal)
+        }
+    }
+}
+
+struct Tutorial6: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "square.and.arrow.down")
+                .font(.system(size: 32))
+            Text("Create and load multiple graphs in Settings")
                 .padding(.horizontal)
         }
     }
