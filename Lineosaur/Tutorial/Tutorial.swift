@@ -27,7 +27,6 @@ struct Tutorial: View {
         TipView(TutorialTip()) { _ in
             showTutorial = true
         }
-        .padding()
         .sheet(isPresented: $showTutorial) {
             VStack {
                 Button {
