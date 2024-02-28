@@ -20,43 +20,36 @@ struct TutorialTip: Tip {
 }
 
 struct Tutorial: View {
-    @State private var showTutorial = false
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
-        TipView(TutorialTip()) { _ in
-            showTutorial = true
-        }
-        .sheet(isPresented: $showTutorial) {
-            VStack {
-                Button {
-                    dismiss()
-                    showTutorial = false
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .padding()
-                }
-                .foregroundStyle(.primary)
-                .frame(maxWidth: .infinity, alignment: .topTrailing)
-                Text("Thank you for downloading Lineosaur!")
-                    .multilineTextAlignment(.center)
-                    .font(.title)
-                List {
-                    Tutorial1()
-                        .padding()
-                    Tutorial2()
-                        .padding()
-                    Tutorial3()
-                        .padding()
-                    Tutorial4()
-                        .padding()
-                    Tutorial5()
-                        .padding()
-                    Tutorial6()
-                        .padding()
-                }
+        VStack {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding()
+            }
+            .foregroundStyle(.primary)
+            .frame(maxWidth: .infinity, alignment: .topTrailing)
+            Text("Thank you for downloading Lineosaur!")
+                .multilineTextAlignment(.center)
+                .font(.title)
+            List {
+                Tutorial1()
+                    .padding()
+                Tutorial2()
+                    .padding()
+                Tutorial3()
+                    .padding()
+                Tutorial4()
+                    .padding()
+                Tutorial5()
+                    .padding()
+                Tutorial6()
+                    .padding()
             }
         }
     }

@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import TipKit
 
 enum GraphElement {
     case edges
@@ -19,6 +20,7 @@ struct GraphEditor: View {
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
     @State private var vertexName: String = ""
+    @State private var showTutorial = false
     
     var body: some View {
         NavigationStack {
@@ -30,7 +32,12 @@ struct GraphEditor: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
-                Tutorial()
+                TipView(TutorialTip()) { _ in
+                    showTutorial = true
+                }
+                .sheet(isPresented: $showTutorial) {
+                    Tutorial()
+                }
 
                 switch graphElement {
                     case .edges:
@@ -41,27 +48,35 @@ struct GraphEditor: View {
                 
                 Spacer()
                     .toolbar {
-                        EditButton()
-                        
-                        Button("Add", systemImage: "plus") {
-                            if graphElement == .vertices {
-                                showVertexBuilder = true
-                            } else if graphElement == .edges {
-                                showEdgeCreator = true
+                        ToolbarItemGroup(placement: .topBarLeading) {
+                            Button("Help", systemImage: "questionmark.circle") {
+                                showTutorial = true
                             }
                         }
-                        .sheet(isPresented: $showEdgeCreator) {
-                            EdgeCreator(graph: graph)
-                        }
-                        .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                            Button ("Cancel", role: .cancel) {
-                                showVertexBuilder = false
-                                vertexName = ""
+
+                        ToolbarItemGroup(placement: .topBarTrailing) {
+                            EditButton()
+
+                            Button("Add", systemImage: "plus") {
+                                if graphElement == .vertices {
+                                    showVertexBuilder = true
+                                } else if graphElement == .edges {
+                                    showEdgeCreator = true
+                                }
                             }
-                            Button ("Add") {
-                                graph.insert(vertexName)
-                                vertexName = ""
+                            .sheet(isPresented: $showEdgeCreator) {
+                                EdgeCreator(graph: graph)
+                            }
+                            .alert("Add Vertex", isPresented: $showVertexBuilder) {
+                                TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+                                Button ("Cancel", role: .cancel) {
+                                    showVertexBuilder = false
+                                    vertexName = ""
+                                }
+                                Button ("Add") {
+                                    graph.insert(vertexName)
+                                    vertexName = ""
+                                }
                             }
                         }
                     }
