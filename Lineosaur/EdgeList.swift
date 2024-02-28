@@ -11,25 +11,17 @@ import SwiftUI
 /// List showing edges in the graph
 struct EdgeList: View {
     @Bindable var graph: Graph
-    
+
     var body: some View {
-        ZStack {
-            if graph.edges.isEmpty {
-                ContentUnavailableView("No edges", systemImage: "hammer", description: Text("Tap on + to add an edge to the graph"))
-            } else {
-                List {
-                    ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
-                        EdgeView(edge: edge)
-                            .contextMenu {
-                                Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
-                                    graph.remove(edge.wrappedValue)
-                                    graph.insert(edge.wrappedValue.copy)
-                                }
-                                Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
-                            }
+        ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
+            EdgeView(edge: edge)
+                .contextMenu {
+                    Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
+                        graph.remove(edge.wrappedValue)
+                        graph.insert(edge.wrappedValue.copy)
                     }
+                    Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
                 }
-            }
         }
     }
 }
@@ -38,7 +30,7 @@ struct EdgeList: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return EdgeList(graph: Graph())
+        return List { EdgeList(graph: Graph()) }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")
@@ -49,7 +41,7 @@ struct EdgeList: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return EdgeList(graph: connected_graph)
+        return List { EdgeList(graph: connected_graph) }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

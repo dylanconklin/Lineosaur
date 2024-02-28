@@ -12,16 +12,8 @@ struct VertexList: View {
     @Bindable var graph: Graph
 
     var body: some View {
-        ZStack {
-            if graph.vertices.isEmpty {
-                ContentUnavailableView("No vertices", systemImage: "hammer", description: Text("Tap on + to add a vertex to the graph"))
-            } else {
-                List {
-                    ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
-                        VertexView(vertex: vertex)
-                    }
-                }
-            }
+        ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
+            VertexView(vertex: vertex)
         }
     }
 }
@@ -30,7 +22,7 @@ struct VertexList: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return VertexList(graph: Graph())
+        return List { VertexList(graph: Graph()) }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")
@@ -41,7 +33,7 @@ struct VertexList: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return VertexList(graph: connected_graph)
+        return List { VertexList(graph: connected_graph) }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")
