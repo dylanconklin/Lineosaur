@@ -10,7 +10,7 @@ import TipKit
 
 struct TutorialTip: Tip {
     var title: Text { Text("Need Help?") }
-    var message: Text? { Text("Learn the basic feature of Lineosaur, and how to use it") }
+    var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
     var image: Image? { Image(systemName: "graduationcap.fill") }
     var actions: [Tip.Action] {
         [
