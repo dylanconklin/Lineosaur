@@ -37,13 +37,10 @@ struct GraphSelector: View {
         NavigationStack {
             List {
                 ForEach(savedGraphs) { graph in
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text(graph.name ?? "Unnamed Graph")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                         Text("^[\(graph.edges.count) edge](inflect: true), ^[\(graph.vertices.count) vertex](inflect: true)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                         Text("Last Accessed: \(df.string(from: graph.lastAccessed))")
-                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .onTapGesture {
                         graph.lastAccessed = Date.now
