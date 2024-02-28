@@ -10,24 +10,28 @@ import SwiftUI
 /// Displays information about a single edge
 struct EdgeView: View {
     @Binding var edge: Edge
-
+    
     var body: some View {
-        Grid (alignment: .leading) {
-            GridRow {
-                Text("From")
-                Text(":")
-                Text("\(edge.from)")
+        HStack {
+            Grid (alignment: .topLeading) {
+                GridRow {
+                    Text("From")
+                    Text(":")
+                    Text("\(edge.from)")
+                }
+                GridRow {
+                    Text("To")
+                    Text(":")
+                    Text("\(edge.to)")
+                }
+                GridRow {
+                    Text("Weight")
+                    Text(":")
+                    Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
+                }
             }
-            GridRow {
-                Text("To")
-                Text(":")
-                Text("\(edge.to)")
-            }
-            GridRow {
-                Text("Weight")
-                Text(":")
-                Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
-            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Image(systemName: "app.connected.to.app.below.fill")
         }
     }
 }

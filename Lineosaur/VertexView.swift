@@ -14,7 +14,9 @@ struct VertexView: View {
     var body: some View {
         HStack {
             Text(vertex)
-            Spacer()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+            Image(systemName: "smallcircle.filled.circle")
         }
     }
 }
