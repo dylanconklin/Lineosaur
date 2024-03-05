@@ -34,12 +34,12 @@ extension Graph {
         result.append("sep=50;")
         result.append("esep=50;")
         graph.vertices.forEach { vertex in
-            result.append("\(vertex);")
+            result.append("\"\(vertex)\";")
         }
         graph.edges.forEach { edge in
-            result.append("\(edge.from)")
+            result.append("\"\(edge.from)\"")
             result.append("\(directional ? "->" : "--")")
-            result.append("\(edge.to)")
+            result.append("\"\(edge.to)\"")
             if displayWeights {
                 result.append("[\(displayWeights ? "label=\(numToString(edge.weight))" : "")]")
             }
