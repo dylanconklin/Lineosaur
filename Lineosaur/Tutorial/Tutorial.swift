@@ -50,6 +50,8 @@ struct Tutorial: View {
                     .padding()
                 Tutorial6()
                     .padding()
+                Tutorial7()
+                    .padding()
             }
         }
     }
@@ -80,6 +82,17 @@ struct Tutorial2: View {
 struct Tutorial3: View {
     var body: some View {
         HStack {
+            Image(systemName: "character.bubble")
+                .font(.system(size: 32))
+            Text("The names of the endpoints can include spaces, special characters and emojis")
+                .padding(.horizontal)
+        }
+    }
+}
+
+struct Tutorial4: View {
+    var body: some View {
+        HStack {
             Image(systemName: "list.bullet")
                 .font(.system(size: 32))
             Text("You will see the edges appear in a list as you add them")
@@ -88,7 +101,7 @@ struct Tutorial3: View {
     }
 }
 
-struct Tutorial4: View {
+struct Tutorial5: View {
     var body: some View {
         HStack {
             Image(systemName: "point.3.filled.connected.trianglepath.dotted")
@@ -99,7 +112,7 @@ struct Tutorial4: View {
     }
 }
 
-struct Tutorial5: View {
+struct Tutorial6: View {
     var body: some View {
         HStack {
             Image(systemName: "hand.tap.fill")
@@ -110,7 +123,7 @@ struct Tutorial5: View {
     }
 }
 
-struct Tutorial6: View {
+struct Tutorial7: View {
     var body: some View {
         HStack {
             Image(systemName: "square.and.arrow.down")
