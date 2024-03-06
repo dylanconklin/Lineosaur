@@ -16,7 +16,10 @@ struct GraphEditor: View {
     @State private var vertexName: String = ""
     @State private var showTutorial = false
     @State private var showAddItem = false
-    
+
+    @AppStorage("showEdges") private var showEdges: Bool = true
+    @AppStorage("showVertices") private var showVertices: Bool = true
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -24,56 +27,88 @@ struct GraphEditor: View {
                     showTutorial = true
                 }
                 .padding(.horizontal)
-                
-                if graph.edges.isEmpty && graph.vertices.isEmpty {
-                    ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add edges and vertices"))
+
+                if graph.isEmpty {
+                    ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add data"))
+                } else if !(showEdges || showVertices) {
+                    ContentUnavailableView {
+                        Label("Edges and vertices hidden", systemImage: "eye.slash")
+                    } actions: {
+                        Button("Show") {
+                            showEdges = true
+                            showVertices = true
+                        }
+                    }
                 } else {
                     List {
-                        EdgeList(graph: graph)
-                        VertexList(graph: graph)
+                        if showEdges {
+                            EdgeList(graph: graph)
+                        }
+                        if showVertices {
+                            VertexList(graph: graph)
+                        }
                     }
                 }
-                
+
                 Spacer()
                     .sheet(isPresented: $showTutorial) {
                         Tutorial()
                     }
                     .toolbar {
-                        ToolbarItemGroup(placement: .topBarLeading) {
-                            Button("Help", systemImage: "questionmark.circle") {
-                                showTutorial = true
-                            }
-                        }
-                        
-                        ToolbarItemGroup(placement: .topBarTrailing) {
+                        ToolbarItem(placement: .topBarLeading) {
                             EditButton()
-                            
-                            Button("Add", systemImage: "plus") {
-                                showAddItem = true
-                            }
-                            .confirmationDialog("Add Elements", isPresented: $showAddItem) {
-                                Button("Add Edge") { showEdgeCreator = true }
-                                Button("Add Vertex") { showVertexBuilder = true }
-                            }
-                            .sheet(isPresented: $showEdgeCreator) {
-                                EdgeCreator(graph: graph)
-                            }
-                            .alert("Add Vertex", isPresented: $showVertexBuilder) {
-                                TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
-                                Button ("Cancel", role: .cancel) {
-                                    showVertexBuilder = false
-                                    vertexName = ""
-                                }
-                                Button ("Add") {
-                                    graph.insert(vertexName)
-                                    vertexName = ""
-                                }
+                        }
+
+                        ToolbarItem(placement: .topBarTrailing) {
+                            HStack {
+                                menu
+                                addButton
                             }
                         }
                     }
             }
             .navigationTitle("Graph Editor")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+
+    var addButton: some View {
+        Button("Add", systemImage: "plus") {
+            showAddItem = true
+        }
+        .confirmationDialog("Add Elements", isPresented: $showAddItem) {
+            Button("Add Edge") { showEdgeCreator = true }
+            Button("Add Vertex") { showVertexBuilder = true }
+        }
+        .sheet(isPresented: $showEdgeCreator) {
+            EdgeCreator(graph: graph)
+        }
+        .alert("Add Vertex", isPresented: $showVertexBuilder) {
+            TextField("Add Vertex", text: $vertexName, prompt: Text("Vertex Name"))
+            Button("Cancel", role: .cancel) {
+                showVertexBuilder = false
+                vertexName = ""
+            }
+            Button("Add") {
+                graph.insert(vertexName)
+                vertexName = ""
+            }
+        }
+    }
+
+    var menu: some View {
+        Menu {
+            Menu("Show") {
+                Button("Edges", systemImage: "\(showEdges ? "checkmark" : "")") { showEdges.toggle() }
+                Button("Vertices", systemImage: "\(showVertices ? "checkmark" : "")") { showVertices.toggle() }
+            }
+            Menu("Delete") {
+                Button("Edges", systemImage: "trash", role: .destructive) { graph.deleteEdges() }
+                Button("Edges and Vertices", systemImage: "trash", role: .destructive) { graph.deleteEdgesAndVertices() }
+            }
+            Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
+        } label: {
+            Label("Menu", systemImage: "ellipsis.circle")
         }
     }
 }
