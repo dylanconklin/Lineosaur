@@ -16,6 +16,7 @@ struct EdgeList: View {
         ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
             EdgeView(edge: edge)
                 .contextMenu {
+                    #warning("Neither Button works; Need to re-write")
                     Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
                         graph.remove(edge.wrappedValue)
                         graph.insert(edge.wrappedValue.copy)
