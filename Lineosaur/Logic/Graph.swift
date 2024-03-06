@@ -181,4 +181,13 @@ class Graph: Equatable {
     var loops: Set<Edge> {
         Set(edges.filter { $0.from == $0.to })
     }
+
+    func deleteEdges() {
+        graphEdges = Set<Edge>()
+    }
+
+    func deleteEdgesAndVertices() {
+        deleteEdges()
+        graphVertices = Set<Vertex>()
+    }
 }
