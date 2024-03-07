@@ -43,7 +43,9 @@ struct GraphVizViewer: View {
                     .navigationTitle("View Table")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
-                        ShareLink(item: graphURL)
+                        if !graph.isEmpty {
+                            ShareLink(item: graphURL)
+                        }
                     }
             }
         }

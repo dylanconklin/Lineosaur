@@ -56,12 +56,18 @@ struct GraphEditor: View {
                     }
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
-                            EditButton()
+                            if !graph.isEmpty {
+                                EditButton()
+                            } else {
+                                Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
+                            }
                         }
 
                         ToolbarItem(placement: .topBarTrailing) {
                             HStack {
-                                menu
+                                if !graph.isEmpty {
+                                    menu
+                                }
                                 addButton
                             }
                         }
