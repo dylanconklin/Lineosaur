@@ -17,13 +17,16 @@ struct EdgeCreator: View {
     @Environment(\.dismiss) private var dismiss
 
     func insertEdge() {
+        from = from.trimmingCharacters(in: .whitespacesAndNewlines)
+        to = to.trimmingCharacters(in: .whitespacesAndNewlines)
+
         if !to.isEmpty && !from.isEmpty {
             graph.insert(Edge(from: from, to: to, weight: weight))
         }
 
         // Reset form input fields
-        from = ""
-        to = ""
+        from.removeAll()
+        to.removeAll()
         weight = 0
     }
 
