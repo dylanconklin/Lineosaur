@@ -42,10 +42,14 @@ struct GraphEditor: View {
                 } else {
                     List {
                         if showEdges {
-                            EdgeList(graph: graph)
+                            Section ("Edges") {
+                                EdgeList(graph: graph)
+                            }
                         }
                         if showVertices {
-                            VertexList(graph: graph)
+                            Section ("Vertices") {
+                                VertexList(graph: graph)
+                            }
                         }
                     }
                 }
