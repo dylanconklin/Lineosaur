@@ -100,7 +100,7 @@ struct GraphEditor: View {
                 vertexName = ""
             }
             Button("Add") {
-                graph.insert(vertexName)
+                graph.insert(Vertex(name: vertexName))
                 vertexName = ""
             }
         }

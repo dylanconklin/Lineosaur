@@ -21,7 +21,7 @@ struct EdgeCreator: View {
         to = to.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if !to.isEmpty && !from.isEmpty {
-            graph.insert(Edge(from: from, to: to, weight: weight))
+            graph.insert(Edge(from: Vertex(name: from), to: Vertex(name: to), weight: weight))
         }
 
         // Reset form input fields

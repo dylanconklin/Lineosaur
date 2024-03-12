@@ -8,8 +8,6 @@
 import Foundation
 import SwiftData
 
-typealias Vertex = String
-
 enum GraphType {
     case mst
     case given

@@ -40,8 +40,8 @@ struct EdgeView: View {
     let x = "Destination"
     let y = 5.0
     let z = 5.5
-    @State var edge1 = Edge(from: x, to: x, weight: y)
-    @State var edge2 = Edge(from: x, to: x, weight: z)
+    @State var edge1 = Edge(from: Vertex(name: x), to: Vertex(name: x), weight: y)
+    @State var edge2 = Edge(from: Vertex(name: x), to: Vertex(name: x), weight: z)
     return VStack {
         EdgeView(edge: $edge1)
         EdgeView(edge: $edge2)

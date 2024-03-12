@@ -33,7 +33,7 @@ struct TableView: View {
                             }
                             ForEach(graph.vertices.sorted(), id: \.self) { x in
                                 Cell {
-                                    Text(String(x))
+                                    Text(x.name)
                                         .fontWeight(Font.Weight.bold)
                                 }
                             }
@@ -41,7 +41,7 @@ struct TableView: View {
                         ForEach(graph.vertices.sorted(), id: \.self) { y in
                             GridRow {
                                 Cell {
-                                    Text(String(y))
+                                    Text(y.name)
                                         .fontWeight(Font.Weight.bold)
                                 }
                                 ForEach(graph.vertices.sorted(), id: \.self) { x in
