@@ -9,11 +9,11 @@ import SwiftUI
 
 /// Displays information about a single vertex
 struct VertexView: View {
-    @Binding var vertex: Vertex
+    @Binding var vertex: String
 
     var body: some View {
         HStack {
-            Text(vertex.name)
+            Text(vertex)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
             Image(systemName: "smallcircle.filled.circle")
@@ -22,6 +22,6 @@ struct VertexView: View {
 }
 
 #Preview {
-    @State var vertex = Vertex(name: "TestVertex")
+    @State var vertex = "TestVertex"
     return VertexView(vertex: $vertex)
 }
