@@ -12,27 +12,24 @@ struct EdgeView: View {
     @Binding var edge: Edge
     
     var body: some View {
-        HStack {
-            Grid (alignment: .topLeading) {
-                GridRow {
-                    Text("From")
-                    Text(":")
-                    Text("\(edge.from)")
-                }
-                GridRow {
-                    Text("To")
-                    Text(":")
-                    Text("\(edge.to)")
-                }
-                GridRow {
-                    Text("Weight")
-                    Text(":")
-                    Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
-                }
+        Grid (alignment: .topLeading) {
+            GridRow {
+                Text("From")
+                Text(":")
+                Text("\(edge.from)")
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Image(systemName: "app.connected.to.app.below.fill")
+            GridRow {
+                Text("To")
+                Text(":")
+                Text("\(edge.to)")
+            }
+            GridRow {
+                Text("Weight")
+                Text(":")
+                Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
+            }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
