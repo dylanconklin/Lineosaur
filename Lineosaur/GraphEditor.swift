@@ -41,12 +41,12 @@ struct GraphEditor: View {
                     }
                 } else {
                     List {
-                        if showEdges {
+                        if showEdges && !graph.edges.isEmpty {
                             Section ("Edges") {
                                 EdgeList(graph: graph)
                             }
                         }
-                        if showVertices {
+                        if showVertices && !graph.vertices.isEmpty {
                             Section ("Vertices") {
                                 VertexList(graph: graph)
                             }
