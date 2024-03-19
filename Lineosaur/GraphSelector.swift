@@ -38,7 +38,7 @@ struct GraphSelector: View {
             List {
                 ForEach(savedGraphs) { graph in
                     VStack(alignment: .leading) {
-                        Text(graph.name ?? "Unnamed Graph")
+                        Text(graph.name ?? "Untitled Graph")
                         Text("^[\(graph.edges.count) edge](inflect: true), ^[\(graph.vertices.count) vertex](inflect: true)")
                         Text("Last Accessed: \(df.string(from: graph.lastAccessed))")
                     }
