@@ -12,7 +12,7 @@ struct VertexList: View {
     @Bindable var graph: Graph
 
     var body: some View {
-        ForEach ($graph.vertices, id: \.self, editActions: .delete) { vertex in
+        ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
             VertexView(vertex: vertex)
         }
     }

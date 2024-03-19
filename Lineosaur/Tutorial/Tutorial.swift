@@ -23,24 +23,26 @@ struct Tutorial: View {
     var body: some View {
         VStack {
             CloseButtonView() {
-                Text("Thank you for downloading Lineosaur!")
-                    .multilineTextAlignment(.center)
-                    .font(.title)
-                List {
-                    Tutorial1()
-                        .padding()
-                    Tutorial2()
-                        .padding()
-                    Tutorial3()
-                        .padding()
-                    Tutorial4()
-                        .padding()
-                    Tutorial5()
-                        .padding()
-                    Tutorial6()
-                        .padding()
-                    Tutorial7()
-                        .padding()
+                VStack {
+                    Text("Thank you for downloading Lineosaur!")
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                    List {
+                        Tutorial1()
+                            .padding()
+                        Tutorial2()
+                            .padding()
+                        Tutorial3()
+                            .padding()
+                        Tutorial4()
+                            .padding()
+                        Tutorial5()
+                            .padding()
+                        Tutorial6()
+                            .padding()
+                        Tutorial7()
+                            .padding()
+                    }
                 }
             }
         }
