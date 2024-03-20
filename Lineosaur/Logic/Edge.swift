@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Edge: Codable, Comparable, Hashable {
+struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     var from: Vertex
     var to: Vertex
     var weight: Double
@@ -19,6 +19,10 @@ struct Edge: Codable, Comparable, Hashable {
 
     static func < (lhs: Edge, rhs: Edge) -> Bool {
         lhs.weight < rhs.weight
+    }
+    
+    var description: String {
+        return "Edge(from: \"\(self.from)\", to: \"\(self.to)\", weight: \(self.weight)\n"
     }
 
     static func alphabetical() -> (Edge, Edge) -> Bool {
