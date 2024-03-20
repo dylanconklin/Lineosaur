@@ -11,7 +11,7 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     @Bindable var graph: Graph
-    @State var showFacts: Bool = false
+    @State private var showFacts: Bool = false
 
     var body: some View {
         if graph.edges.isEmpty {
