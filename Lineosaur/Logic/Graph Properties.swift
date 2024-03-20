@@ -42,7 +42,7 @@ extension Graph {
     var isComplete: Bool {
         for vertex in vertices {
             let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
-            if Set(connectedVertices).count != vertices.count {
+            if connectedVertices.count != vertices.count {
                 return false
             }
         }
@@ -61,11 +61,9 @@ extension Graph {
     }
 
     var isCyclic: Bool {
-        let graph: Graph = self.copy()
+        let graph: Graph = self.copy
         while !graph.leaves.isEmpty {
-            graph.leaves.forEach {
-                graph.remove($0)
-            }
+            graph.remove(graph.leaves)
         }
         return !graph.isEmpty
     }
