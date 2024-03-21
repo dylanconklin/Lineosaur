@@ -16,6 +16,8 @@ struct GraphEditor: View {
     @State private var vertexName: String = ""
     @State private var showTutorial = false
     @State private var showAddItem = false
+    @State private var showEdgeSection = true
+    @State private var showVertexSection = true
 
     @AppStorage("showEdges") private var showEdges: Bool = true
     @AppStorage("showVertices") private var showVertices: Bool = true
@@ -42,12 +44,12 @@ struct GraphEditor: View {
                 } else {
                     List {
                         if showEdges && !graph.edges.isEmpty {
-                            Section("Edges") {
+                            Section("Edges", isExpanded: $showEdgeSection) {
                                 EdgeList(graph: graph)
                             }
                         }
                         if showVertices && !graph.vertices.isEmpty {
-                            Section("Vertices") {
+                            Section("Vertices", isExpanded: $showVertexSection) {
                                 VertexList(graph: graph)
                             }
                         }
