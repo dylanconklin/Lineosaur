@@ -22,10 +22,8 @@ struct TableViewer: View {
                 .toolbar {
                     if !graph.edges.isEmpty {
                         ToolbarItem(placement: .topBarTrailing) {
-                            #warning("The buttonStyle modifier should be removed in the future. It currently resolves a SwiftUI bug where the popover tip doesn't appear")
                             Menu {
                                 Button("Graph Facts", systemImage: "info.circle", action: { showFacts = true })
-                                    .popoverTip(GraphFactsTip())
                                 Menu {
                                     Picker("Graph Type", selection: $graphType) {
                                         Text("Given").tag(GraphType.given)
