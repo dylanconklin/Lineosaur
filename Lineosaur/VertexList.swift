@@ -10,10 +10,15 @@ import SwiftUI
 
 struct VertexList: View {
     @Bindable var graph: Graph
+    @State private var showVertexSection = true
 
     var body: some View {
-        ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
-            VertexView(vertex: vertex)
+        Section("Vertices", isExpanded: $showVertexSection) {
+            ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
+                Text(vertex.wrappedValue)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+            }
         }
     }
 }

@@ -11,18 +11,21 @@ import SwiftUI
 /// List showing edges in the graph
 struct EdgeList: View {
     @Bindable var graph: Graph
-
+    @State private var showEdgeSection = true
+    
     var body: some View {
         ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
-            EdgeView(edge: edge)
-                .contextMenu {
-                    #warning("Neither Button works; Need to re-write")
-                    Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
-                        graph.remove(edge.wrappedValue)
-                        graph.insert(edge.wrappedValue.copy)
+            Section("Edges", isExpanded: $showEdgeSection) {
+                EdgeView(edge: edge)
+                    .contextMenu {
+#warning("Neither Button works; Need to re-write")
+                        Button("Flip Direction", systemImage: "arrow.left.arrow.right") {
+                            graph.remove(edge.wrappedValue)
+                            graph.insert(edge.wrappedValue.copy)
+                        }
+                        Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
                     }
-                    Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
-                }
+            }
         }
     }
 }

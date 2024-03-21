@@ -16,12 +16,10 @@ struct GraphEditor: View {
     @State private var vertexName: String = ""
     @State private var showTutorial = false
     @State private var showAddItem = false
-    @State private var showEdgeSection = true
-    @State private var showVertexSection = true
-
+    
     @AppStorage("showEdges") private var showEdges: Bool = true
     @AppStorage("showVertices") private var showVertices: Bool = true
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -29,7 +27,7 @@ struct GraphEditor: View {
                     showTutorial = true
                 }
                 .padding(.horizontal)
-
+                
                 if graph.isEmpty {
                     ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add data"))
                 } else if !(showEdges || showVertices) {
@@ -44,19 +42,15 @@ struct GraphEditor: View {
                 } else {
                     List {
                         if showEdges && !graph.edges.isEmpty {
-                            Section("Edges", isExpanded: $showEdgeSection) {
-                                EdgeList(graph: graph)
-                            }
+                            EdgeList(graph: graph)
                         }
                         if showVertices && !graph.vertices.isEmpty {
-                            Section("Vertices", isExpanded: $showVertexSection) {
-                                VertexList(graph: graph)
-                            }
+                            VertexList(graph: graph)
                         }
                     }
                     .listStyle(.sidebar)
                 }
-
+                
                 Spacer()
                     .sheet(isPresented: $showTutorial) {
                         Tutorial()
@@ -69,7 +63,7 @@ struct GraphEditor: View {
                                 Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
                             }
                         }
-
+                        
                         ToolbarItem(placement: .topBarTrailing) {
                             HStack {
                                 if !graph.isEmpty {
@@ -83,7 +77,7 @@ struct GraphEditor: View {
             .navigationTitle("Graph Editor")
         }
     }
-
+    
     var addButton: some View {
         Button("Add", systemImage: "plus") {
             showAddItem = true
@@ -107,7 +101,7 @@ struct GraphEditor: View {
             }
         }
     }
-
+    
     var menu: some View {
         Menu {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
