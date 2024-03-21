@@ -26,8 +26,6 @@ struct GraphVizViewer: View {
             VStack {
                 if graph.isEmpty {
                     ContentUnavailableView("No graph to display", systemImage: "hammer", description: Text("Go to the Edit tab to add edges and vertices"))
-                } else if graphType == .mst && graph.mst == nil {
-                    ContentUnavailableView("No graph to display", systemImage: "exclamationmark.triangle", description: Text("Graph is not a tree"))
                 } else {
                     GraphViz(url: graphURL)
                 }
