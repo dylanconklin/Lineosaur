@@ -108,41 +108,27 @@ struct GraphEditor: View {
 
     var menu: some View {
         Menu {
-            Button("Help", systemImage: "questionmark.circle") {
-                showTutorial = true
-            }
-            Menu {
-                Button("Edges", systemImage: "\(showEdges ? "checkmark" : "")") {
-                    showEdges.toggle()
-                }
+            Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
+            Menu("Show", systemImage: "eye") {
+                Button("Edges", systemImage: "\(showEdges ? "checkmark" : "")") { showEdges.toggle() }
                 Button("Vertices", systemImage: "\(showVertices ? "checkmark" : "")") {
                     showVertices.toggle()
                 }
-            } label: {
-                Label("Show", systemImage: "eye")
             }
-            Menu {
+            Menu("Delete Edges", systemImage: "app.connected.to.app.below.fill") {
                 Button("Smallest Edges", systemImage: "trash", role: .destructive) {
                     graph.remove(graph.edges.sorted(by: <).first!)
                 }
                 Button("Largest Edges", systemImage: "trash", role: .destructive) {
                     graph.remove(graph.edges.sorted(by: >).first!)
                 }
-                Button("All Edges", systemImage: "trash", role: .destructive) {
-                    graph.deleteEdges()
-                }
-            } label: {
-                Label("Delete Edges", systemImage: "app.connected.to.app.below.fill")
+                Button("All Edges", systemImage: "trash", role: .destructive) { graph.deleteEdges() }
             }
-            Menu {
+            Menu("Delete Vertices", systemImage: "smallcircle.filled.circle") {
                 Button("Detached Vertices", systemImage: "trash", role: .destructive) {
                     graph.deleteDetachedVertices()
                 }
-                Button("Leaves", systemImage: "trash", role: .destructive) {
-                    graph.deleteLeaves()
-                }
-            } label: {
-                Label("Delete Vertices", systemImage: "smallcircle.filled.circle")
+                Button("Leaves", systemImage: "trash", role: .destructive) { graph.deleteLeaves() }
             }
             Button("Delete Graph", systemImage: "trash", role: .destructive) {
                 graph.deleteEdgesAndVertices()
