@@ -14,8 +14,8 @@ struct EdgeList: View {
     @State private var showEdgeSection = true
     
     var body: some View {
-        ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
-            Section("Edges", isExpanded: $showEdgeSection) {
+        Section("Edges", isExpanded: $showEdgeSection) {
+            ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
                 EdgeView(edge: edge)
                     .contextMenu {
 #warning("Neither Button works; Need to re-write")
