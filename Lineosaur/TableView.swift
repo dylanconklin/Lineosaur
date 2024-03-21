@@ -11,55 +11,45 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     @Bindable var graph: Graph
-    @State private var showFacts: Bool = false
-
+    
     var body: some View {
         if graph.edges.isEmpty {
             ContentUnavailableView("No edges in graph", systemImage: "hammer", description: Text("Go to the Edit tab to create an edge"))
         } else {
-            ScrollView(.vertical, showsIndicators: true) {
-                ScrollView(.horizontal, showsIndicators: true) {
-                    Grid(horizontalSpacing: 0, verticalSpacing: 0) {
-                        GridRow {
+            ScrollView([.horizontal, .vertical], showsIndicators: true) {
+                Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+                    GridRow {
+                        Cell {
+                            Spacer()
+                        }
+                        ForEach(graph.vertices.sorted(), id: \.self) { x in
                             Cell {
-                                Spacer()
-                            }
-                            .toolbar {
-                                Button("Graph Facts", systemImage: "info.circle", action: { showFacts = true })
-                                .popoverTip(GraphFactsTip())
-                                .sheet(isPresented: $showFacts) {
-                                    GraphFacts(graph: graph)
-                                }
-                            }
-                            ForEach(graph.vertices.sorted(), id: \.self) { x in
-                                Cell {
-                                    Text(String(x))
-                                        .fontWeight(Font.Weight.bold)
-                                }
+                                Text(String(x))
+                                    .fontWeight(Font.Weight.bold)
                             }
                         }
-                        ForEach(graph.vertices.sorted(), id: \.self) { y in
-                            GridRow {
-                                Cell {
-                                    Text(String(y))
-                                        .fontWeight(Font.Weight.bold)
+                    }
+                    ForEach(graph.vertices.sorted(), id: \.self) { y in
+                        GridRow {
+                            Cell {
+                                Text(String(y))
+                                    .fontWeight(Font.Weight.bold)
+                            }
+                            ForEach(graph.vertices.sorted(), id: \.self) { x in
+                                var distance: String {
+                                    var distance: String = ""
+                                    distance = numToString(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
+                                    distance = y != x && distance == "0.0" ? "-" : distance
+                                    return distance
                                 }
-                                ForEach(graph.vertices.sorted(), id: \.self) { x in
-                                    var distance: String {
-                                        var distance: String = ""
-                                        distance = numToString(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
-                                        distance = y != x && distance == "0.0" ? "-" : distance
-                                        return distance
-                                    }
-                                    Cell {
-                                        Text(distance)
-                                    }
+                                Cell {
+                                    Text(distance)
                                 }
                             }
                         }
                     }
-                    .padding()
                 }
+                .padding()
             }
         }
     }

@@ -11,28 +11,38 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableViewer: View {
     @Bindable var graph: Graph
-    @State var graphType: GraphType = .given
+    @State private var graphType: GraphType = .given
+    @State private var showFacts: Bool = false
 
     var body: some View {
         NavigationStack {
-            if !graph.edges.isEmpty {
-                Picker("Type of graph to display", selection: $graphType) {
-                    Text("Given").tag(GraphType.given)
-                    Text("MST").tag(GraphType.mst)
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                .frame(alignment: .top)
-            }
-            switch graphType {
-                case .given:
-                    TableView(graph: graph)
-                case .mst:
-                    TableView(graph: graph.mst)
-            }
+            TableView(graph: graphType == .given ? graph : graph.mst)
             Spacer()
                 .navigationTitle("Adjacency Table")
-                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    if !graph.edges.isEmpty {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            #warning("The buttonStyle modifier should be removed in the future. It currently resolves a SwiftUI bug where the popover tip doesn't appear")
+                            Menu {
+                                Button("Graph Facts", systemImage: "info.circle", action: { showFacts = true })
+                                    .popoverTip(GraphFactsTip())
+                                Menu {
+                                    Picker("Graph Type", selection: $graphType) {
+                                        Text("Given").tag(GraphType.given)
+                                        Text("MST").tag(GraphType.mst)
+                                    }
+                                } label: {
+                                    Label("Graph Type", systemImage: "square.on.circle")
+                                }
+                            } label: {
+                                Label("Menu", systemImage: "ellipsis.circle")
+                            }
+                        }
+                    }
+                }
+                .sheet(isPresented: $showFacts) {
+                    GraphFacts(graph: graph)
+                }
         }
     }
 }
