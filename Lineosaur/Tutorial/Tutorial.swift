@@ -40,8 +40,6 @@ struct Tutorial: View {
                             .padding()
                         Tutorial6()
                             .padding()
-                        Tutorial7()
-                            .padding()
                     }
                 }
             }
@@ -52,26 +50,15 @@ struct Tutorial: View {
 struct Tutorial1: View {
     var body: some View {
         HStack {
-            Image(systemName: "plus")
+            Image(systemName: "app.connected.to.app.below.fill")
                 .font(.system(size: 32))
-            Text("Click the + button to add edges to the graph")
+            Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. The vertices will be added for you automatically!")
                 .padding(.horizontal)
         }
     }
 }
 
 struct Tutorial2: View {
-    var body: some View {
-        HStack {
-            Image(systemName: "app.connected.to.app.below.fill")
-                .font(.system(size: 32))
-            Text("Start by adding a single edge. The vertices will be added for you automatically!")
-                .padding(.horizontal)
-        }
-    }
-}
-
-struct Tutorial3: View {
     var body: some View {
         HStack {
             Image(systemName: "character.bubble")
@@ -82,7 +69,7 @@ struct Tutorial3: View {
     }
 }
 
-struct Tutorial4: View {
+struct Tutorial3: View {
     var body: some View {
         HStack {
             Image(systemName: "list.bullet")
@@ -93,7 +80,7 @@ struct Tutorial4: View {
     }
 }
 
-struct Tutorial5: View {
+struct Tutorial4: View {
     var body: some View {
         HStack {
             Image(systemName: "point.3.filled.connected.trianglepath.dotted")
@@ -104,7 +91,7 @@ struct Tutorial5: View {
     }
 }
 
-struct Tutorial6: View {
+struct Tutorial5: View {
     var body: some View {
         HStack {
             Image(systemName: "hand.tap.fill")
@@ -115,7 +102,7 @@ struct Tutorial6: View {
     }
 }
 
-struct Tutorial7: View {
+struct Tutorial6: View {
     var body: some View {
         HStack {
             Image(systemName: "square.and.arrow.down")
