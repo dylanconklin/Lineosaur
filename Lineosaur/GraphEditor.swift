@@ -52,6 +52,7 @@ struct GraphEditor: View {
                             }
                         }
                     }
+                    .listStyle(.sidebar)
                 }
 
                 Spacer()
@@ -78,7 +79,6 @@ struct GraphEditor: View {
                     }
             }
             .navigationTitle("Graph Editor")
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
 
@@ -108,38 +108,44 @@ struct GraphEditor: View {
 
     var menu: some View {
         Menu {
-            Menu("Show") {
+            Button("Help", systemImage: "questionmark.circle") {
+                showTutorial = true
+            }
+            Menu {
                 Button("Edges", systemImage: "\(showEdges ? "checkmark" : "")") {
                     showEdges.toggle()
                 }
                 Button("Vertices", systemImage: "\(showVertices ? "checkmark" : "")") {
                     showVertices.toggle()
                 }
+            } label: {
+                Label("Show", systemImage: "eye")
             }
-            Menu("Delete Edges") {
+            Menu {
+                Button("Smallest Edges", systemImage: "trash", role: .destructive) {
+                    graph.remove(graph.edges.sorted(by: <).first!)
+                }
+                Button("Largest Edges", systemImage: "trash", role: .destructive) {
+                    graph.remove(graph.edges.sorted(by: >).first!)
+                }
                 Button("All Edges", systemImage: "trash", role: .destructive) {
                     graph.deleteEdges()
                 }
-                Button("Largest Edges", systemImage: "trash", role: .destructive) {
-                    graph.remove(graph.edges.sorted(by: <).first!)
-                }
-                Button("Edges and Vertices", systemImage: "trash", role: .destructive) {
-                    graph.deleteEdgesAndVertices()
-                }
+            } label: {
+                Label("Delete Edges", systemImage: "app.connected.to.app.below.fill")
             }
-            Menu("Delete Vertices") {
+            Menu {
                 Button("Detached Vertices", systemImage: "trash", role: .destructive) {
                     graph.deleteDetachedVertices()
                 }
                 Button("Leaves", systemImage: "trash", role: .destructive) {
                     graph.deleteLeaves()
                 }
-                Button("Edges and Vertices", systemImage: "trash", role: .destructive) {
-                    graph.deleteEdgesAndVertices()
-                }
+            } label: {
+                Label("Delete Vertices", systemImage: "smallcircle.filled.circle")
             }
-            Button("Help", systemImage: "questionmark.circle") {
-                showTutorial = true
+            Button("Delete Graph", systemImage: "trash", role: .destructive) {
+                graph.deleteEdgesAndVertices()
             }
         } label: {
             Label("Menu", systemImage: "ellipsis.circle")

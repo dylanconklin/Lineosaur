@@ -26,31 +26,38 @@ struct GraphVizViewer: View {
             VStack {
                 if graph.isEmpty {
                     ContentUnavailableView("No graph to display", systemImage: "hammer", description: Text("Go to the Edit tab to add edges and vertices"))
+                } else if graphType == .mst && graph.mst == nil {
+                    ContentUnavailableView("No graph to display", systemImage: "exclamationmark.triangle", description: Text("Graph is not a tree"))
                 } else {
-                    Picker("Type of graph to display", selection: $graphType) {
-                        Text("Given").tag(GraphType.given)
-                        Text("MST").tag(GraphType.mst)
-                    }
-                    .pickerStyle(.segmented)
-                    .padding(.horizontal)
-
-                    Spacer()
-
                     GraphViz(url: graphURL)
                 }
 
                 Spacer()
                     .navigationTitle("View Table")
-                    .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         if !graph.isEmpty {
-                            ShareLink(item: graphURL)
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Menu {
+                                    Menu {
+                                        Picker("Graph Type", selection: $graphType) {
+                                            Text("Given").tag(GraphType.given)
+                                            Text("MST").tag(GraphType.mst)
+                                        }
+                                    } label: {
+                                        Label("Graph Type", systemImage: "square.on.circle")
+                                    }
+                                    ShareLink("Share", item: graphURL)
+                                } label: {
+                                    Label("Menu", systemImage: "ellipsis.circle")
+                                }
+                            }
                         }
                     }
             }
         }
     }
 }
+
 
 #Preview("Empty Graph") {
     do {

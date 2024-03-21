@@ -61,7 +61,6 @@ struct EdgeCreator: View {
                 Spacer()
             }
             .navigationTitle("Insert Edge")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Done") {
                     insertEdge()
