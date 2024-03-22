@@ -38,7 +38,7 @@ struct GraphFacts: View {
     @Bindable var graph: Graph
     
     var body: some View {
-        CloseButtonView(title: "Graph Facts") {
+        CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
             List {
                 GraphFact(fact: "The graph has \(graph.edges.count) edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) \(graph.vertices.count == 1 ? "vertex" : "vertices")",
                           symbol: "point.topleft.down.curvedto.point.bottomright.up")

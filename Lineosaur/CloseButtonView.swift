@@ -9,13 +9,15 @@ import SwiftUI
 
 struct CloseButtonView<Content: View>: View {
     @State var title: String?
+    @State var titleStyle: NavigationBarItem.TitleDisplayMode?
     @ViewBuilder var content: () -> Content
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationStack {
             content()
-                .navigationTitle(title == nil ? "" : title!)
+                .navigationTitle(title ?? "")
+                .navigationBarTitleDisplayMode(titleStyle ?? .automatic)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 .toolbar {
                     Button {
