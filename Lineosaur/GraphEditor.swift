@@ -15,11 +15,11 @@ struct GraphEditor: View {
     @State private var showEdgeCreator: Bool = false
     @State private var vertexName: String = ""
     @State private var showTutorial = false
-    @State private var showAddItem = false
-    
+    @State private var showVertexSection = true
+
     @AppStorage("showEdges") private var showEdges: Bool = true
     @AppStorage("showVertices") private var showVertices: Bool = true
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -45,9 +45,23 @@ struct GraphEditor: View {
                             EdgeList(graph: graph)
                         }
                         if showVertices && !graph.vertices.isEmpty {
-                            VertexList(graph: graph)
+                            Section("Vertices", isExpanded: $showVertexSection) {
+                                ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
+                                    Text("\(vertex.wrappedValue)")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                .onDelete { offsets in
+                                    withAnimation {
+                                        for offset in offsets {
+                                            graph.remove(graph.vertices[offset])
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
+                    .navigationDestination(for: Edge.self) { _ in Spacer() }
                     .listStyle(.sidebar)
                 }
                 
@@ -77,14 +91,11 @@ struct GraphEditor: View {
             .navigationTitle("Graph Editor")
         }
     }
-    
+
     var addButton: some View {
-        Button("Add", systemImage: "plus") {
-            showAddItem = true
-        }
-        .confirmationDialog("Add Elements", isPresented: $showAddItem) {
-            Button("Add Edge") { showEdgeCreator = true }
-            Button("Add Vertex") { showVertexBuilder = true }
+        Menu("Add", systemImage: "plus") {
+            Button("Add Edge", systemImage: "app.connected.to.app.below.fill") { showEdgeCreator = true }
+            Button("Add Vertex", systemImage: "smallcircle.filled.circle") { showVertexBuilder = true }
         }
         .sheet(isPresented: $showEdgeCreator) {
             EdgeCreator(graph: graph)
@@ -101,7 +112,7 @@ struct GraphEditor: View {
             }
         }
     }
-    
+
     var menu: some View {
         Menu {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
