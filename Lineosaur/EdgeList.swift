@@ -26,6 +26,13 @@ struct EdgeList: View {
                         Button("Duplicate", systemImage: "plus.square.on.square", action: { graph.insert(edge.wrappedValue.copy) })
                     }
             }
+            .onDelete { offsets in
+                withAnimation {
+                    for offset in offsets {
+                        graph.remove(graph.edges[offset])
+                    }
+                }
+            }
         }
     }
 }
