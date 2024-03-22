@@ -38,12 +38,38 @@ struct EdgeCreator: View {
                         GridRow {
                             Text("From")
                             Text(":")
-                            TextField("From", text: $from)
+                            HStack {
+                                TextField("From", text: $from)
+                                if !graph.vertices.isEmpty {
+                                    Menu {
+                                        ForEach(graph.vertices, id: \.self) { vertex in
+                                            Button(vertex) {
+                                                from = vertex
+                                            }
+                                        }
+                                    } label: {
+                                        Image(systemName: "ellipsis")
+                                    }
+                                }
+                            }
                         }
                         GridRow {
                             Text("To")
                             Text(":")
-                            TextField("To", text: $to)
+                            HStack {
+                                TextField("To", text: $to)
+                                if !graph.vertices.isEmpty {
+                                    Menu {
+                                        ForEach(graph.vertices, id: \.self) { vertex in
+                                            Button(vertex) {
+                                                to = vertex
+                                            }
+                                        }
+                                    } label: {
+                                        Image(systemName: "ellipsis")
+                                    }
+                                }
+                            }
                         }
                         GridRow {
                             Text("Weight")
