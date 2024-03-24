@@ -21,13 +21,15 @@ class Graph: Equatable {
     private var graphVertices: Set<Vertex>
     var name: String?
     var lastAccessed: Date
+    var edgeStyles: Dictionary<UUID, EdgeStyle>
     var id: UUID
 
-    init(graphEdges: Set<Edge> = Set<Edge>(), graphVertices: Set<Vertex> = Set<Vertex>(), name: String? = nil) {
+    init(graphEdges: Set<Edge> = Set<Edge>(), graphVertices: Set<Vertex> = Set<Vertex>(), name: String? = nil, edgeStyles: Dictionary<UUID, EdgeStyle> = Dictionary<UUID, EdgeStyle>()) {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
         self.lastAccessed = Date.now
+        self.edgeStyles = edgeStyles
         self.id = UUID()
     }
 
@@ -39,10 +41,11 @@ class Graph: Equatable {
         graphVertices.insert(vertex)
     }
 
-    func insert(_ edge: Edge) {
+    func insert(_ edge: Edge, withStyle style: EdgeStyle? = nil) {
         graphEdges.insert(edge)
         insert(edge.from)
         insert(edge.to)
+        edgeStyles[edge.id] = style
     }
 
     func remove(_ vertex: Vertex) {

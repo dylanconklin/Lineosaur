@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB112E302B8DDC0F00007179 /* Lineosaur-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */; };
+		AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E64B2BAFF37200856696 /* EdgeStyle.swift */; };
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
 		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB11E64B2BAFF37200856696 /* EdgeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeStyle.swift; sourceTree = "<group>"; };
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
 		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */,
 				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
+				AB11E64B2BAFF37200856696 /* EdgeStyle.swift */,
 				AB90233B2AD7CD300015AC16 /* NumToString.swift */,
 				AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */,
 			);
@@ -445,6 +448,7 @@
 				AB510F612A8A923F00B76121 /* Cell.swift in Sources */,
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
+				AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */,
 				AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */,
