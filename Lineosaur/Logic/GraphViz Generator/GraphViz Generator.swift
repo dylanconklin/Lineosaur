@@ -31,19 +31,33 @@ extension Graph {
         result.append("layout=\(compiler)&")
         result.append("graph=\(directional ? "di" : "")graph")
         result.append("{")
-        result.append("sep=50;")
         result.append("esep=50;")
+        result.append("rankdir=TB;") // Can also be LR, RL, or BT
+        result.append("sep=50;")
         graph.vertices.forEach { vertex in
             result.append("\"\(vertex)\";")
         }
         graph.edges.forEach { edge in
+            let edgeStyle: EdgeStyle = type == .mst ? EdgeStyle(arrowhead: .none, arrowtail: .none) : graph.edgeStyles[edge.id, default: EdgeStyle()]
+
+            // Set to and from
             result.append("\"\(edge.from)\"")
             result.append("\(directional ? "->" : "--")")
             result.append("\"\(edge.to)\"")
-            if displayWeights {
-                result.append("[\(displayWeights ? "label=\(numToString(edge.weight))" : "")]")
-            }
-            result.append(";")
+
+            // Begin options
+            result.append("[")
+
+            // Display weight
+            result.append("\(displayWeights ? "label=\(numToString(edge.weight))," : "")")
+
+            // Arrows
+            result.append("dir=both,")
+            result.append("arrowhead=\(edgeStyle.arrowhead),")
+            result.append("arrowtail=\(edgeStyle.arrowtail),")
+
+            // End options
+            result.append("];")
         }
         result.append("}")
         return URL(string: result)!
