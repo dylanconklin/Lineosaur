@@ -52,7 +52,7 @@ struct GraphVizViewer: View {
                                             Text("MST").tag(GraphType.mst)
                                         }
                                     }
-                                    Menu("Compiler", systemImage: "tree") {
+                                    Menu("Compiler", systemImage: "brain") {
                                         Picker("Compiler", selection: $compiler) {
                                             Text("Dot").tag(Compiler.dot)
                                             Text("FDP").tag(Compiler.fdp)
