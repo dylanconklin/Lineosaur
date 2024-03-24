@@ -8,19 +8,29 @@
 import SwiftData
 import SwiftUI
 
+enum Compiler: String {
+    case dot
+    case fdp
+    case neato
+    case circo
+    case twopi
+    case osage
+    case patchwork
+}
+
 struct GraphVizViewer: View {
     @Bindable var graph: Graph
-
     @State private var graphType: GraphType = .given
-
+    @AppStorage("compiler") var compiler: Compiler = .dot
+    
     private var directional: Bool {
         if graphType == .given { return true }
         else if graphType == .mst { return false }
         else { return false }
     }
-
+    
     private var graphURL: URL { graph.generateGraphVizURL(of: graphType) }
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -29,20 +39,29 @@ struct GraphVizViewer: View {
                 } else {
                     GraphViz(url: graphURL)
                 }
-
+                
                 Spacer()
                     .navigationTitle("View Table")
                     .toolbar {
                         if !graph.isEmpty {
                             ToolbarItem(placement: .topBarTrailing) {
                                 Menu {
-                                    Menu {
+                                    Menu("Graph Type", systemImage: "square.on.circle") {
                                         Picker("Graph Type", selection: $graphType) {
                                             Text("Given").tag(GraphType.given)
                                             Text("MST").tag(GraphType.mst)
                                         }
-                                    } label: {
-                                        Label("Graph Type", systemImage: "square.on.circle")
+                                    }
+                                    Menu("Compiler", systemImage: "tree") {
+                                        Picker("Compiler", selection: $compiler) {
+                                            Text("Dot").tag(Compiler.dot)
+                                            Text("FDP").tag(Compiler.fdp)
+                                            Text("Neato").tag(Compiler.neato)
+                                            Text("Circo").tag(Compiler.circo)
+                                            Text("TwoPi").tag(Compiler.twopi)
+                                            Text("Osage").tag(Compiler.osage)
+                                            Text("Patchwork").tag(Compiler.patchwork)
+                                        }
                                     }
                                     ShareLink("Share", item: graphURL)
                                 } label: {
