@@ -17,9 +17,6 @@ struct GraphEditor: View {
     @State private var showTutorial = false
     @State private var showVertexSection = true
 
-    @AppStorage("showEdges") private var showEdges: Bool = true
-    @AppStorage("showVertices") private var showVertices: Bool = true
-
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,21 +27,12 @@ struct GraphEditor: View {
                 
                 if graph.isEmpty {
                     ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add data"))
-                } else if !(showEdges || showVertices) {
-                    ContentUnavailableView {
-                        Label("Edges and vertices hidden", systemImage: "eye.slash")
-                    } actions: {
-                        Button("Show") {
-                            showEdges = true
-                            showVertices = true
-                        }
-                    }
                 } else {
                     List {
-                        if showEdges && !graph.edges.isEmpty {
+                        if !graph.edges.isEmpty {
                             EdgeList(graph: graph)
                         }
-                        if showVertices && !graph.vertices.isEmpty {
+                        if !graph.vertices.isEmpty {
                             Section("Vertices", isExpanded: $showVertexSection) {
                                 ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
                                     Text("\(vertex.wrappedValue)")
@@ -114,14 +102,8 @@ struct GraphEditor: View {
     }
 
     var menu: some View {
-        Menu {
+        Menu("Menu", systemImage: "ellipsis.circle") {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
-            Menu("Show", systemImage: "eye") {
-                Button("Edges", systemImage: "\(showEdges ? "checkmark" : "")") { showEdges.toggle() }
-                Button("Vertices", systemImage: "\(showVertices ? "checkmark" : "")") {
-                    showVertices.toggle()
-                }
-            }
             Menu("Delete Edges", systemImage: "app.connected.to.app.below.fill") {
                 Button("Smallest Edges", systemImage: "trash", role: .destructive) {
                     graph.remove(graph.edges.sorted(by: <).first!)
@@ -140,8 +122,6 @@ struct GraphEditor: View {
             Button("Delete Graph", systemImage: "trash", role: .destructive) {
                 graph.deleteEdgesAndVertices()
             }
-        } label: {
-            Label("Menu", systemImage: "ellipsis.circle")
         }
         .onAppear {
             assert(!graph.isEmpty)
