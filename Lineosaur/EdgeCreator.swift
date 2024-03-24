@@ -8,12 +8,38 @@
 import SwiftData
 import SwiftUI
 
+struct VertexSelector: View {
+    @State var prompt: String
+    @Binding var value: String
+    @State var selection: [String]
+
+    var body: some View {
+        Text(prompt)
+        Text(":")
+        HStack {
+            TextField(prompt, text: $value)
+            if !selection.isEmpty {
+                Menu {
+                    ForEach(selection, id: \.self) { val in
+                        Button(val) {
+                            value = val
+                        }
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                }
+            }
+        }
+    }
+}
+
 /// Simple form to input vertices and edges into graph
 struct EdgeCreator: View {
     @Bindable var graph: Graph
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
+    @State private var style: EdgeStyle = EdgeStyle()
     @Environment(\.dismiss) private var dismiss
 
     func insertEdge() {
@@ -21,13 +47,14 @@ struct EdgeCreator: View {
         to = to.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if !to.isEmpty && !from.isEmpty {
-            graph.insert(Edge(from: from, to: to, weight: weight))
+            graph.insert(Edge(from: from, to: to, weight: weight), withStyle: style)
         }
 
         // Reset form input fields
         from.removeAll()
         to.removeAll()
         weight = 0
+        style = EdgeStyle()
     }
 
     var body: some View {
@@ -36,40 +63,10 @@ struct EdgeCreator: View {
                 Form {
                     Grid(alignment: .leading) {
                         GridRow {
-                            Text("From")
-                            Text(":")
-                            HStack {
-                                TextField("From", text: $from)
-                                if !graph.vertices.isEmpty {
-                                    Menu {
-                                        ForEach(graph.vertices, id: \.self) { vertex in
-                                            Button(vertex) {
-                                                from = vertex
-                                            }
-                                        }
-                                    } label: {
-                                        Image(systemName: "ellipsis")
-                                    }
-                                }
-                            }
+                            VertexSelector(prompt: "From", value: $from, selection: graph.vertices)
                         }
                         GridRow {
-                            Text("To")
-                            Text(":")
-                            HStack {
-                                TextField("To", text: $to)
-                                if !graph.vertices.isEmpty {
-                                    Menu {
-                                        ForEach(graph.vertices, id: \.self) { vertex in
-                                            Button(vertex) {
-                                                to = vertex
-                                            }
-                                        }
-                                    } label: {
-                                        Image(systemName: "ellipsis")
-                                    }
-                                }
-                            }
+                            VertexSelector(prompt: "To", value: $to, selection: graph.vertices)
                         }
                         GridRow {
                             Text("Weight")
@@ -79,6 +76,18 @@ struct EdgeCreator: View {
                                         get: { String(weight) },
                                         set: { weight = Double($0) ?? 0.0 }))
                             .keyboardType(.decimalPad)
+                        }
+                    }
+                    DisclosureGroup("Styling") {
+                        Picker("Arrowhead", selection: $style.arrowhead) {
+                            ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
+                                Text("\(arrow.description)")
+                            }
+                        }
+                        Picker("Arrowtail", selection: $style.arrowtail) {
+                            ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
+                                Text("\(arrow.description)")
+                            }
                         }
                     }
                 }
