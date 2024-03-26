@@ -30,7 +30,30 @@ struct GraphVizViewer: View {
     }
     
     private var graphURL: URL { graph.generateGraphVizURL(of: graphType) }
-    
+
+    var ToolBarMenu: some View {
+        Menu("Menu", systemImage: "ellipsis.circle") {
+            Menu("Graph Type", systemImage: "square.on.circle") {
+                Picker("Graph Type", selection: $graphType) {
+                    Text("Given").tag(GraphType.given)
+                    Text("MST").tag(GraphType.mst)
+                }
+            }
+            Menu("Compiler", systemImage: "brain") {
+                Picker("Compiler", selection: $compiler) {
+                    Text("Dot").tag(Compiler.dot)
+                    Text("FDP").tag(Compiler.fdp)
+                    Text("Neato").tag(Compiler.neato)
+                    Text("Circo").tag(Compiler.circo)
+                    Text("TwoPi").tag(Compiler.twopi)
+                    Text("Osage").tag(Compiler.osage)
+                    Text("Patchwork").tag(Compiler.patchwork)
+                }
+            }
+            ShareLink("Share", item: graphURL)
+        }
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -45,28 +68,7 @@ struct GraphVizViewer: View {
                     .toolbar {
                         if !graph.isEmpty {
                             ToolbarItem(placement: .topBarTrailing) {
-                                Menu {
-                                    Menu("Graph Type", systemImage: "square.on.circle") {
-                                        Picker("Graph Type", selection: $graphType) {
-                                            Text("Given").tag(GraphType.given)
-                                            Text("MST").tag(GraphType.mst)
-                                        }
-                                    }
-                                    Menu("Compiler", systemImage: "brain") {
-                                        Picker("Compiler", selection: $compiler) {
-                                            Text("Dot").tag(Compiler.dot)
-                                            Text("FDP").tag(Compiler.fdp)
-                                            Text("Neato").tag(Compiler.neato)
-                                            Text("Circo").tag(Compiler.circo)
-                                            Text("TwoPi").tag(Compiler.twopi)
-                                            Text("Osage").tag(Compiler.osage)
-                                            Text("Patchwork").tag(Compiler.patchwork)
-                                        }
-                                    }
-                                    ShareLink("Share", item: graphURL)
-                                } label: {
-                                    Label("Menu", systemImage: "ellipsis.circle")
-                                }
+                                ToolBarMenu
                             }
                         }
                     }
