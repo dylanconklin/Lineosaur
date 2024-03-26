@@ -18,11 +18,7 @@ struct ContentView: View {
             modelContext.insert(Graph())
             try! modelContext.save()
         }
-        #warning("Check SwiftData issue, see comment below")
-        // Do not change this to return savedGraphs.first!
-        // It causes issues with SwiftData for some reason
-        let graph = savedGraphs.first!
-        return graph
+        return savedGraphs.first!
     }
 
     var body: some View {
@@ -34,7 +30,7 @@ struct ContentView: View {
             GraphVizViewer(graph: graph)
                 .tabItem { Label("View Graph", systemImage: "point.3.connected.trianglepath.dotted") }
             Settings()
-                .tabItem { Label("Settings", systemImage: "gear") }
+                .tabItem { Label("About", systemImage: "info.circle") }
         }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E64B2BAFF37200856696 /* EdgeStyle.swift */; };
+		AB11E65F2BB2898D00856696 /* HelpTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E65E2BB2898D00856696 /* HelpTip.swift */; };
 		AB2763A92AC6840D007F3812 /* Bipartite Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */; };
 		AB2763AB2AC6C4F3007F3812 /* Tree Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */; };
 		AB4BA6CC2ACA8BCF00783897 /* GraphViz Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		AB11E64B2BAFF37200856696 /* EdgeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeStyle.swift; sourceTree = "<group>"; };
+		AB11E65E2BB2898D00856696 /* HelpTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTip.swift; sourceTree = "<group>"; };
 		AB2763A82AC6840D007F3812 /* Bipartite Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bipartite Graph Tests.swift"; sourceTree = "<group>"; };
 		AB2763AA2AC6C4F3007F3812 /* Tree Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tree Tests.swift"; sourceTree = "<group>"; };
 		AB4BA6CB2ACA8BCF00783897 /* GraphViz Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphViz Generator.swift"; sourceTree = "<group>"; };
@@ -271,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				ABAF3D502AC8ECDA00B23F64 /* Settings.swift */,
-				ABA988E62B71570400CEDC9C /* GraphSelector.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -298,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */,
+				ABA988E62B71570400CEDC9C /* GraphSelector.swift */,
 				AB8BFA502ABAE09F00B1B2CC /* Vertex */,
 				AB8BFA512ABAE0AD00B1B2CC /* Edge */,
 			);
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				ABEF8D022B8C63C1009EA940 /* Tutorial.swift */,
+				AB11E65E2BB2898D00856696 /* HelpTip.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				AB57AAD52ADC969F000E31D4 /* Graph Properties.swift in Sources */,
 				ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */,
 				AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */,
+				AB11E65F2BB2898D00856696 /* HelpTip.swift in Sources */,
 				AB9F12832BA92D020089CB90 /* CloseButtonView.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
 				AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */,

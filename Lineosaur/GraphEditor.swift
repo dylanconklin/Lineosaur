@@ -16,16 +16,16 @@ struct GraphEditor: View {
     @State private var vertexName: String = ""
     @State private var showTutorial = false
     @State private var showVertexSection = true
+    @State private var showGraphSelector = false
 
     var body: some View {
         NavigationStack {
             VStack {
-                TipView(TutorialTip()) { _ in
-                    showTutorial = true
-                }
-                .padding(.horizontal)
-                
                 if graph.isEmpty {
+                    TipView(TutorialTip()) { _ in
+                        showTutorial = true
+                    }
+                    .padding(.horizontal)
                     ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add data"))
                 } else {
                     List {
@@ -52,8 +52,11 @@ struct GraphEditor: View {
                     .navigationDestination(for: Edge.self) { _ in Spacer() }
                     .listStyle(.sidebar)
                 }
-                
+
                 Spacer()
+                    .sheet(isPresented: $showGraphSelector) {
+                        GraphSelector()
+                    }
                     .sheet(isPresented: $showTutorial) {
                         Tutorial()
                     }
@@ -65,13 +68,16 @@ struct GraphEditor: View {
                                 Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
                             }
                         }
-                        
+
                         ToolbarItem(placement: .topBarTrailing) {
                             HStack {
                                 if !graph.isEmpty {
                                     menu
                                 }
-                                addButton
+                                if graph.isEmpty {
+                                    GraphSelectorButton
+                                }
+                                AddButton
                             }
                         }
                     }
@@ -80,7 +86,13 @@ struct GraphEditor: View {
         }
     }
 
-    var addButton: some View {
+    var GraphSelectorButton: some View {
+        Button("Open Graph", systemImage: "folder") {
+            showGraphSelector = true
+        }
+    }
+
+    var AddButton: some View {
         Menu("Add", systemImage: "plus") {
             Button("Add Edge", systemImage: "app.connected.to.app.below.fill") { showEdgeCreator = true }
             Button("Add Vertex", systemImage: "smallcircle.filled.circle") { showVertexBuilder = true }
@@ -104,6 +116,7 @@ struct GraphEditor: View {
     var menu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
+            GraphSelectorButton
             Menu("Delete Edges", systemImage: "app.connected.to.app.below.fill") {
                 Button("Smallest Edges", systemImage: "trash", role: .destructive) {
                     graph.remove(graph.edges.sorted(by: <).first!)
@@ -126,6 +139,7 @@ struct GraphEditor: View {
         .onAppear {
             assert(!graph.isEmpty)
         }
+        .popoverTip(HelpTip())
     }
 }
 

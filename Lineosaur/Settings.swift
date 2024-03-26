@@ -12,27 +12,17 @@ struct Settings: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-#warning("Unimplemented: Delete Detatched Vertices")
-                    Toggle("Delete Detached Vertices", isOn: $deleteDetachedVertices)
-
-                    NavigationLink {
-                        GraphSelector()
-                    } label: {
-                        Label("Open Graph", systemImage: "folder")
-                    }
-                } footer: {
-                    VStack {
-                        Text("Made with ❤️ in Portland, OR")
-                        Text("MIT License")
-                    }
-                    .font(.callout)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            VStack {
+                VStack {
+                    Text("Made with ❤️ in Portland, OR")
+                    Text("MIT License")
                 }
+                .font(.callout)
+                .padding()
+
+                Link("Check out my other projects", destination: URL(string: "https://dylanconklin.github.io")!)
+                    .navigationTitle("About")
             }
-            .navigationTitle("Settings")
         }
     }
 }
