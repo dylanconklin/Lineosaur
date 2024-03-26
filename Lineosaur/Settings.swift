@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct Settings: View {
-    @AppStorage("displayEdgeWeights") var displayEdgeWeights: Bool = false
     @AppStorage("deleteDetachedVertices") var deleteDetachedVertices: Bool = false
 
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    Toggle("Show Edge Weights", isOn: $displayEdgeWeights)
-
 #warning("Unimplemented: Delete Detatched Vertices")
                     Toggle("Delete Detached Vertices", isOn: $deleteDetachedVertices)
 

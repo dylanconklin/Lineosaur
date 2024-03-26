@@ -22,7 +22,8 @@ struct GraphVizViewer: View {
     @Bindable var graph: Graph
     @State private var graphType: GraphType = .given
     @AppStorage("compiler") var compiler: Compiler = .dot
-    
+    @AppStorage("displayEdgeWeights") var displayEdgeWeights: Bool = false
+
     private var directional: Bool {
         if graphType == .given { return true }
         else if graphType == .mst { return false }
@@ -49,6 +50,9 @@ struct GraphVizViewer: View {
                     Text("Osage").tag(Compiler.osage)
                     Text("Patchwork").tag(Compiler.patchwork)
                 }
+            }
+            Menu("Edge Weights", systemImage: "eye") {
+                Toggle("Show Edge Weights", isOn: $displayEdgeWeights)
             }
             ShareLink("Share", item: graphURL)
         }
