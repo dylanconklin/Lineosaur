@@ -49,7 +49,7 @@ extension Graph {
             result.append("[")
 
             // Display weight
-            result.append("\(displayWeights ? "label=\(numToString(edge.weight))," : "")")
+            result.append("\(displayWeights ? "label=\(String(edge.weight))," : "")")
 
             // Arrows
             result.append("dir=both,")

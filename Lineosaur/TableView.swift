@@ -38,7 +38,7 @@ struct TableView: View {
                             ForEach(graph.vertices.sorted(), id: \.self) { x in
                                 var distance: String {
                                     var distance: String = ""
-                                    distance = numToString(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
+                                    distance = String(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
                                     distance = y != x && distance == "0.0" ? "-" : distance
                                     return distance
                                 }

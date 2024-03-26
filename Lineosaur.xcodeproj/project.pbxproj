@@ -28,7 +28,6 @@
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
 		AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */; };
 		AB8BFA4D2ABAE04D00B1B2CC /* Graph Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */; };
-		AB90233C2AD7CD300015AC16 /* NumToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90233B2AD7CD300015AC16 /* NumToString.swift */; };
 		AB9F12832BA92D020089CB90 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F12822BA92D020089CB90 /* CloseButtonView.swift */; };
 		ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA988E62B71570400CEDC9C /* GraphSelector.swift */; };
 		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
@@ -84,7 +83,6 @@
 		AB8B740C2A8CD2A500CC4CE9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
 		AB8BFA4C2ABAE04D00B1B2CC /* Graph Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Samples.swift"; sourceTree = "<group>"; };
-		AB90233B2AD7CD300015AC16 /* NumToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumToString.swift; sourceTree = "<group>"; };
 		AB9F12822BA92D020089CB90 /* CloseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonView.swift; sourceTree = "<group>"; };
 		ABA988E62B71570400CEDC9C /* GraphSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSelector.swift; sourceTree = "<group>"; };
 		ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEditor.swift; sourceTree = "<group>"; };
@@ -128,6 +126,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB11E65C2BB2816C00856696 /* Edge */ = {
+			isa = PBXGroup;
+			children = (
+				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
+				AB11E64B2BAFF37200856696 /* EdgeStyle.swift */,
+			);
+			path = Edge;
+			sourceTree = "<group>";
+		};
+		AB11E65D2BB2824100856696 /* Container Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB9F12822BA92D020089CB90 /* CloseButtonView.swift */,
+			);
+			name = "Container Views";
 			sourceTree = "<group>";
 		};
 		AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */ = {
@@ -195,11 +210,11 @@
 			isa = PBXGroup;
 			children = (
 				AB510F352A8A91C800B76121 /* ContentView.swift */,
-				ABA988E52B7156DF00CEDC9C /* Settings */,
+				AB11E65D2BB2824100856696 /* Container Views */,
 				ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */,
 				ABAF3D4F2AC767F100B23F64 /* GraphViz */,
+				ABA988E52B7156DF00CEDC9C /* Settings */,
 				AB8BFA522ABAE0B900B1B2CC /* Table */,
-				AB9F12822BA92D020089CB90 /* CloseButtonView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -209,9 +224,7 @@
 			children = (
 				AB510F642A8A928800B76121 /* Graph.swift */,
 				AB57AAD42ADC969F000E31D4 /* Graph Properties.swift */,
-				AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */,
-				AB11E64B2BAFF37200856696 /* EdgeStyle.swift */,
-				AB90233B2AD7CD300015AC16 /* NumToString.swift */,
+				AB11E65C2BB2816C00856696 /* Edge */,
 				AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */,
 			);
 			path = Logic;
@@ -443,7 +456,6 @@
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
 				ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */,
 				AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */,
-				AB90233C2AD7CD300015AC16 /* NumToString.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
 				ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */,
