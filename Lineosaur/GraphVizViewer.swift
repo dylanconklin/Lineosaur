@@ -51,8 +51,8 @@ struct GraphVizViewer: View {
                     Text("Patchwork").tag(Compiler.patchwork)
                 }
             }
-            Menu("Edge Weights", systemImage: "eye") {
-                Toggle("Show Edge Weights", isOn: $displayEdgeWeights)
+            Menu("Display", systemImage: "eye") {
+                Toggle("Edge Weights", isOn: $displayEdgeWeights)
             }
             ShareLink("Share", item: graphURL)
         }
