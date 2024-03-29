@@ -5,11 +5,10 @@
 //  Created by Dylan Conklin on 9/29/23.
 //
 
-import XCTest
 @testable import Lineosaur
+import XCTest
 
 final class TreeTests: XCTestCase {
-
     var sut: Graph!
 
     override func setUp() {
@@ -20,7 +19,7 @@ final class TreeTests: XCTestCase {
         sut = nil
     }
 
-    func testTreeGraphIsTree () {
+    func testTreeGraphIsTree() {
         // given
         sut = treeGraph
 
@@ -31,7 +30,7 @@ final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testNonTreeGraphIsNotTree () {
+    func testNonTreeGraphIsNotTree() {
         // given
         sut = notTreeGraph
 
@@ -42,7 +41,7 @@ final class TreeTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testGraphWithoutEdgesIsTree () {
+    func testGraphWithoutEdgesIsTree() {
         // given
         sut.insert("a")
         sut.insert("b")
@@ -55,7 +54,7 @@ final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testEmptyGraphIsTree () {
+    func testEmptyGraphIsTree() {
         // given
 
         // when
@@ -65,7 +64,7 @@ final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testDisconnectedGraphIsNotTree () {
+    func testDisconnectedGraphIsNotTree() {
         // given
         sut = disconnectedGraphNoOutlierVertex
 

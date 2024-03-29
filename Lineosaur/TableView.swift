@@ -39,12 +39,12 @@ struct TableView: View {
                             }
                             ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                                 var distance: String {
-                                    var distance: String = ""
+                                    var distance = ""
                                     distance = String(graph.edges(from: vertex2,
                                                                   to: vertex1,
                                                                   directional: false)
-                                        .sorted()
-                                        .first?.weight ?? 0.0)
+                                            .sorted()
+                                            .first?.weight ?? 0.0)
                                     distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
                                     return distance
                                 }

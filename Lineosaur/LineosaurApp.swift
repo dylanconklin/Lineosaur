@@ -1,5 +1,5 @@
 //
-//  Adjacency_TableApp.swift
+//  LineosaurApp.swift
 //  Adjacency Table
 //
 //  Created by Dylan Conklin on 7/19/23.
@@ -17,7 +17,7 @@ struct LineosaurApp: App {
                 .task {
                     try? Tips.configure([
                         .datastoreLocation(.applicationDefault),
-                        .displayFrequency(.immediate)
+                        .displayFrequency(.immediate),
                     ])
                 }
         }

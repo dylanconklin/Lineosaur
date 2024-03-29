@@ -12,17 +12,17 @@ struct EdgeStyle: Codable {
     var arrowtail: Arrow = EdgeStyle.Arrow.none
 
     enum Arrow: String, CaseIterable, Codable {
-        case box = "box"
-        case crow = "crow"
-        case curve = "curve"
-        case diamond = "diamond"
-        case dot = "dot"
+        case box
+        case crow
+        case curve
+        case diamond
+        case dot
         case inverse = "inv"
         case inverseCurve = "icurve"
-        case none = "none"
-        case normal = "normal"
-        case tee = "tee"
-        case vee = "vee"
+        case none
+        case normal
+        case tee
+        case vee
 
         var description: String {
             switch self {
@@ -31,7 +31,7 @@ struct EdgeStyle: Codable {
             case .inverseCurve:
                 return "Inverse curve"
             default:
-                return self.rawValue.capitalized
+                return rawValue.capitalized
             }
         }
     }

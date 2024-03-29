@@ -11,7 +11,7 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     var from: Vertex
     var to: Vertex
     var weight: Double
-    var id: UUID = UUID()
+    var id: UUID = .init()
 
     static func == (lhs: Edge, rhs: Edge) -> Bool {
         return lhs.from == rhs.from && lhs.to == rhs.to && lhs.weight == rhs.weight
@@ -22,7 +22,7 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     }
 
     var description: String {
-        return "Edge(from: \"\(self.from)\", to: \"\(self.to)\", weight: \(self.weight)\n"
+        return "Edge(from: \"\(from)\", to: \"\(to)\", weight: \(weight)\n"
     }
 
     static func alphabetical() -> (Edge, Edge) -> Bool {
@@ -54,6 +54,6 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     }
 
     var copy: Edge {
-        Edge(from: self.from, to: self.to, weight: self.weight)
+        Edge(from: from, to: to, weight: weight)
     }
 }

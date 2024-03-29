@@ -5,11 +5,10 @@
 //  Created by Dylan Conklin on 9/12/23.
 //
 
-import XCTest
 @testable import Lineosaur
+import XCTest
 
 final class WeightedGraphTests: XCTestCase {
-
     var sut: Graph!
 
     override func setUp() {
@@ -22,7 +21,7 @@ final class WeightedGraphTests: XCTestCase {
 
     func testMST() {
         // given
-        let expectedResult: Graph = Graph(graphEdges: [
+        let expectedResult = Graph(graphEdges: [
             Edge(from: "a", to: "b", weight: 1),
             Edge(from: "b", to: "c", weight: 2),
             Edge(from: "a", to: "d", weight: 22),
@@ -32,7 +31,7 @@ final class WeightedGraphTests: XCTestCase {
             Edge(from: "f", to: "k", weight: 28),
             Edge(from: "j", to: "k", weight: 5),
             Edge(from: "i", to: "j", weight: 13),
-            Edge(from: "h", to: "i", weight: 8)
+            Edge(from: "h", to: "i", weight: 8),
         ])
 
         // when

@@ -14,8 +14,8 @@ struct GraphViz: View {
     @State private var currScale: CGFloat = 1.0
     @State private var changingScale: CGFloat = 1.0
 
-    @State private var currOffSet: CGPoint = CGPoint()
-    @State private var changingOffSet: CGPoint = CGPoint()
+    @State private var currOffSet: CGPoint = .init()
+    @State private var changingOffSet: CGPoint = .init()
 
     private var move: some Gesture {
         DragGesture()

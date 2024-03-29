@@ -27,13 +27,14 @@ class Graph: Equatable {
     init(graphEdges: Set<Edge> = Set<Edge>(),
          graphVertices: Set<Vertex> = Set<Vertex>(),
          name: String? = nil,
-         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()) {
+         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]())
+    {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
-        self.lastAccessed = Date.now
+        lastAccessed = Date.now
         self.edgeStyles = edgeStyles
-        self.id = UUID()
+        id = UUID()
     }
 
     static func == (lhs: Graph, rhs: Graph) -> Bool {
@@ -52,14 +53,14 @@ class Graph: Equatable {
     }
 
     func remove(_ vertex: Vertex) {
-        graphEdges.filter({ $0.vertices.contains(vertex) }).forEach { edge in
+        for edge in graphEdges.filter({ $0.vertices.contains(vertex) }) {
             remove(edge)
         }
         graphVertices.remove(vertex)
     }
 
     func remove(_ vertices: any Collection<Vertex>) {
-        vertices.forEach { vertex in
+        for vertex in vertices {
             remove(vertex)
         }
     }
@@ -69,7 +70,7 @@ class Graph: Equatable {
     }
 
     func remove(_ edges: any Collection<Edge>) {
-        edges.forEach { edge in
+        for edge in edges {
             remove(edge)
         }
     }
@@ -94,7 +95,7 @@ class Graph: Equatable {
     /// Calculates the total cost of the graph
     /// The cost is the sum of the weight (length) of all the edges in the graph
     var cost: Double {
-        edges.reduce(0.0, { $0 + $1.weight })
+        edges.reduce(0.0) { $0 + $1.weight }
     }
 
     /// Generate the Minimum Spanning Tree (MST)
@@ -104,9 +105,9 @@ class Graph: Equatable {
             return Graph()
         }
 
-        let graph: Graph = self.copy
-        var verticesLeft: Set<Vertex> = Set<Vertex>(graph.vertices) // vertices that don't have an edge
-        let MST: Graph = Graph()
+        let graph: Graph = copy
+        var verticesLeft = Set<Vertex>(graph.vertices) // vertices that don't have an edge
+        let MST = Graph()
 
         while let edge = graph.edges.sorted(by: { $0.weight < $1.weight }).first(where: {
             let groupA = Set<Vertex>($0.vertices).intersection(verticesLeft)
@@ -189,6 +190,6 @@ class Graph: Equatable {
     }
 
     var copy: Graph {
-        Graph(graphEdges: self.graphEdges, graphVertices: self.graphVertices)
+        Graph(graphEdges: graphEdges, graphVertices: graphVertices)
     }
 }

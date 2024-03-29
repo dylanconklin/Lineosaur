@@ -5,11 +5,10 @@
 //  Created by Dylan Conklin on 9/21/23.
 //
 
-import XCTest
 @testable import Lineosaur
+import XCTest
 
 final class GraphTests: XCTestCase {
-
     var sut: Graph!
 
     override func setUp() {
@@ -39,7 +38,7 @@ final class GraphTests: XCTestCase {
         // when
         sut.edges = [
             Edge(from: "a", to: "b", weight: 1.0),
-            Edge(from: "b", to: "c", weight: 1.0)
+            Edge(from: "b", to: "c", weight: 1.0),
         ]
 
         // then

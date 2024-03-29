@@ -15,7 +15,7 @@ struct GraphSelector: View {
     @State var graphName: String = ""
     @Environment(\.dismiss) var dismiss
 
-    var dateFormatter:  DateFormatter {
+    var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
@@ -44,7 +44,7 @@ struct GraphSelector: View {
                     VStack(alignment: .leading) {
                         Text(graph.name ?? "Untitled Graph")
                         Text("^[\(graph.edges.count) edge](inflect: true), "
-                             + "^[\(graph.vertices.count) vertex](inflect: true)")
+                            + "^[\(graph.vertices.count) vertex](inflect: true)")
                         Text("Last Accessed: \(dateFormatter.string(from: graph.lastAccessed))")
                     }
                     .onTapGesture {

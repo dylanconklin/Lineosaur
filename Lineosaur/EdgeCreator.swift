@@ -39,7 +39,7 @@ struct EdgeCreator: View {
     @State private var from: String = ""
     @State private var to: String = ""
     @State private var weight: Double = 0
-    @State private var style: EdgeStyle = EdgeStyle()
+    @State private var style: EdgeStyle = .init()
     @Environment(\.dismiss) private var dismiss
 
     func insertEdge() {
@@ -73,9 +73,10 @@ struct EdgeCreator: View {
                             Text(":")
                             TextField("Weight",
                                       text: Binding(
-                                        get: { String(weight) },
-                                        set: { weight = Double($0) ?? 0.0 }))
-                            .keyboardType(.decimalPad)
+                                          get: { String(weight) },
+                                          set: { weight = Double($0) ?? 0.0 }
+                                      ))
+                                      .keyboardType(.decimalPad)
                         }
                     }
                     DisclosureGroup("Styling") {

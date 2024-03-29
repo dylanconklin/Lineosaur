@@ -9,8 +9,8 @@ import Foundation
 
 extension Graph {
     var isBipartite: Bool {
-        var groupA: Set<Vertex> = Set<Vertex>()
-        var groupB: Set<Vertex> = Set<Vertex>()
+        var groupA = Set<Vertex>()
+        var groupB = Set<Vertex>()
 
         if !vertices.isEmpty {
             isBipartite(selectedVertex: vertices.randomElement()!, &groupA, &groupB)
@@ -23,19 +23,20 @@ extension Graph {
                      _ groupA: inout Set<Vertex>,
                      _ groupB: inout Set<Vertex>,
                      _ group: Bool = true,
-                     visitedEdges: Set<Edge> = Set<Edge>()) {
+                     visitedEdges: Set<Edge> = Set<Edge>())
+    {
         if group {
             groupA.insert(selectedVertex)
         } else {
             groupB.insert(selectedVertex)
         }
         let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex)
-            .filter({ $0.from != $0.to })
+            .filter { $0.from != $0.to }
             .subtracting(visitedEdges)
         let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
-        var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>(), { $0.formUnion($1.vertices) })
+        var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>()) { $0.formUnion($1.vertices) }
         connectedVertices.remove(selectedVertex)
-        connectedVertices.forEach { vertex in
+        for vertex in connectedVertices {
             isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
         }
 
@@ -61,7 +62,7 @@ extension Graph {
 
     var isConnected: Bool {
         var connectedVertices: Set<Vertex> = vertices.isEmpty ? [] : [vertices.randomElement()!]
-        var connectedEdges: Set<Edge> = Set<Edge>()
+        var connectedEdges = Set<Edge>()
         while !edges(connectedTo: connectedVertices).subtracting(connectedEdges).isEmpty {
             let newEdges = edges(connectedTo: connectedVertices)
             connectedEdges.formUnion(newEdges)

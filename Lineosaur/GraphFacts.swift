@@ -41,9 +41,9 @@ struct GraphFacts: View {
         CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
             List {
                 GraphFact(fact: "The graph has \(graph.edges.count) "
-                          + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
-                          + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
-                          symbol: "point.topleft.down.curvedto.point.bottomright.up")
+                    + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
+                    + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
+                    symbol: "point.topleft.down.curvedto.point.bottomright.up")
                 GraphFact(fact: "The cost is \(graph.cost)",
                           symbol: "clock")
                 GraphFact(fact: "The graph is \(graph.isCyclic ? "" : "a")cyclic",

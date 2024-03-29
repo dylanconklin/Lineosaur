@@ -25,7 +25,7 @@ extension Graph {
 
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
         let directional: Bool = type == .given ? true : false
-        var result: String = "https://quickchart.io/graphviz?"
+        var result = "https://quickchart.io/graphviz?"
         result.append("format=png&")
         result.append("layout=\(compiler)&")
         result.append("graph=\(directional ? "di" : "")graph")
@@ -33,10 +33,10 @@ extension Graph {
         result.append("esep=50;")
         result.append("rankdir=TB;") // Can also be LR, RL, or BT
         result.append("sep=50;")
-        graph.vertices.forEach { vertex in
+        for vertex in graph.vertices {
             result.append("\"\(vertex)\";")
         }
-        graph.edges.forEach { edge in
+        for edge in graph.edges {
             let edgeStyle: EdgeStyle = type == .mst ?
                 EdgeStyle(arrowhead: .none, arrowtail: .none) : graph.edgeStyles[edge.id, default: EdgeStyle()]
 

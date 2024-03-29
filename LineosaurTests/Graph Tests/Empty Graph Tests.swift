@@ -5,11 +5,10 @@
 //  Created by Dylan Conklin on 9/16/23.
 //
 
-import XCTest
 @testable import Lineosaur
+import XCTest
 
 final class EmptyGraphTests: XCTestCase {
-
     var sut: Graph!
 
     override func setUp() {

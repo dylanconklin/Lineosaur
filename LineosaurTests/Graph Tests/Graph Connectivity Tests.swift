@@ -5,15 +5,13 @@
 //  Created by Dylan Conklin on 9/27/23.
 //
 
-import XCTest
 @testable import Lineosaur
+import XCTest
 
 final class GraphConnectivityTests: XCTestCase {
-
     var sut: Graph!
 
-    override func setUp() {
-    }
+    override func setUp() {}
 
     override func tearDown() {
         sut = nil

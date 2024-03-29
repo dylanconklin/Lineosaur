@@ -14,7 +14,7 @@ struct TutorialTip: Tip {
     var image: Image? { Image(systemName: "graduationcap.fill") }
     var actions: [Tip.Action] {
         [
-            Tips.Action(title: "Open Tutorial") {}
+            Tips.Action(title: "Open Tutorial") {},
         ]
     }
 }
@@ -53,8 +53,8 @@ struct Tutorial1: View {
             Image(systemName: "app.connected.to.app.below.fill")
                 .font(.system(size: 32))
             Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. "
-                 + "The vertices will be added for you automatically!")
-            .padding(.horizontal)
+                + "The vertices will be added for you automatically!")
+                .padding(.horizontal)
         }
     }
 }
