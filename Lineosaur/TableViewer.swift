@@ -60,7 +60,7 @@ struct TableViewer: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return TableViewer(graph: connected_graph)
+        return TableViewer(graph: connectedGraph)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

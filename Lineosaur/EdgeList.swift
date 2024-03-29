@@ -12,7 +12,7 @@ import SwiftUI
 struct EdgeList: View {
     @Bindable var graph: Graph
     @State private var showEdgeSection = true
-    
+
     var body: some View {
         Section("Edges", isExpanded: $showEdgeSection) {
             ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
@@ -44,7 +44,7 @@ struct EdgeList: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return List { EdgeList(graph: connected_graph) }
+        return List { EdgeList(graph: connectedGraph) }
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

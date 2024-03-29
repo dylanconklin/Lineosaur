@@ -11,10 +11,12 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     @Bindable var graph: Graph
-    
+
     var body: some View {
         if graph.edges.isEmpty {
-            ContentUnavailableView("No edges in graph", systemImage: "hammer", description: Text("Go to the Edit tab to create an edge"))
+            ContentUnavailableView("No edges in graph",
+                                   systemImage: "hammer",
+                                   description: Text("Go to the Edit tab to create an edge"))
         } else {
             ScrollView([.horizontal, .vertical], showsIndicators: true) {
                 Grid(horizontalSpacing: 0, verticalSpacing: 0) {
@@ -22,24 +24,28 @@ struct TableView: View {
                         Cell {
                             Spacer()
                         }
-                        ForEach(graph.vertices.sorted(), id: \.self) { x in
+                        ForEach(graph.vertices.sorted(), id: \.self) { vertex in
                             Cell {
-                                Text(String(x))
+                                Text(String(vertex))
                                     .fontWeight(Font.Weight.bold)
                             }
                         }
                     }
-                    ForEach(graph.vertices.sorted(), id: \.self) { y in
+                    ForEach(graph.vertices.sorted(), id: \.self) { vertex1 in
                         GridRow {
                             Cell {
-                                Text(String(y))
+                                Text(String(vertex1))
                                     .fontWeight(Font.Weight.bold)
                             }
-                            ForEach(graph.vertices.sorted(), id: \.self) { x in
+                            ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                                 var distance: String {
                                     var distance: String = ""
-                                    distance = String(graph.edges(from: x, to: y, directional: false).sorted().first?.weight ?? 0.0)
-                                    distance = y != x && distance == "0.0" ? "-" : distance
+                                    distance = String(graph.edges(from: vertex2,
+                                                                  to: vertex1,
+                                                                  directional: false)
+                                        .sorted()
+                                        .first?.weight ?? 0.0)
+                                    distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
                                     return distance
                                 }
                                 Cell {
@@ -70,7 +76,7 @@ struct TableView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return TableView(graph: connected_graph)
+        return TableView(graph: connectedGraph)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

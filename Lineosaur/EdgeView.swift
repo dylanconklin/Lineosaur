@@ -10,9 +10,9 @@ import SwiftUI
 /// Displays information about a single edge
 struct EdgeView: View {
     @Binding var edge: Edge
-    
+
     var body: some View {
-        Grid (alignment: .topLeading) {
+        Grid(alignment: .topLeading) {
             GridRow {
                 Text("From")
                 Text(":")
@@ -34,11 +34,11 @@ struct EdgeView: View {
 }
 
 #Preview {
-    let x = "Destination"
-    let y = 5.0
-    let z = 5.5
-    @State var edge1 = Edge(from: x, to: x, weight: y)
-    @State var edge2 = Edge(from: x, to: x, weight: z)
+    let vertex = "Destination"
+    let lengthA = 5.0
+    let lengthB = 5.5
+    @State var edge1 = Edge(from: vertex, to: vertex, weight: lengthA)
+    @State var edge2 = Edge(from: vertex, to: vertex, weight: lengthB)
     return VStack {
         EdgeView(edge: $edge1)
         EdgeView(edge: $edge2)

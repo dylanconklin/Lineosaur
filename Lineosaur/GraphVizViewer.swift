@@ -25,14 +25,12 @@ struct GraphVizViewer: View {
     @AppStorage("displayEdgeWeights") var displayEdgeWeights: Bool = false
 
     private var directional: Bool {
-        if graphType == .given { return true }
-        else if graphType == .mst { return false }
-        else { return false }
+        graphType == .given
     }
-    
+
     private var graphURL: URL { graph.generateGraphVizURL(of: graphType) }
 
-    var ToolBarMenu: some View {
+    var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Menu("Graph Type", systemImage: "square.on.circle") {
                 Picker("Graph Type", selection: $graphType) {
@@ -62,17 +60,19 @@ struct GraphVizViewer: View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {
-                    ContentUnavailableView("No graph to display", systemImage: "hammer", description: Text("Go to the Edit tab to add edges and vertices"))
+                    ContentUnavailableView("No graph to display",
+                                           systemImage: "hammer",
+                                           description: Text("Go to the Edit tab to add edges and vertices"))
                 } else {
                     GraphViz(url: graphURL)
                 }
-                
+
                 Spacer()
                     .navigationTitle("View Table")
                     .toolbar {
                         if !graph.isEmpty {
                             ToolbarItem(placement: .topBarTrailing) {
-                                ToolBarMenu
+                                toolBarMenu
                             }
                         }
                     }
@@ -80,7 +80,6 @@ struct GraphVizViewer: View {
         }
     }
 }
-
 
 #Preview("Empty Graph") {
     do {
@@ -97,7 +96,7 @@ struct GraphVizViewer: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return GraphVizViewer(graph: connected_graph)
+        return GraphVizViewer(graph: connectedGraph)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

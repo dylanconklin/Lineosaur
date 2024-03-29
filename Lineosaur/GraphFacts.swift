@@ -36,11 +36,13 @@ struct GraphFact: View {
 
 struct GraphFacts: View {
     @Bindable var graph: Graph
-    
+
     var body: some View {
         CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
             List {
-                GraphFact(fact: "The graph has \(graph.edges.count) edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) \(graph.vertices.count == 1 ? "vertex" : "vertices")",
+                GraphFact(fact: "The graph has \(graph.edges.count) "
+                          + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
+                          + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
                           symbol: "point.topleft.down.curvedto.point.bottomright.up")
                 GraphFact(fact: "The cost is \(graph.cost)",
                           symbol: "clock")
@@ -76,7 +78,7 @@ struct GraphFacts: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return GraphFacts(graph: connected_graph)
+        return GraphFacts(graph: connectedGraph)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

@@ -20,7 +20,7 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     static func < (lhs: Edge, rhs: Edge) -> Bool {
         lhs.weight < rhs.weight
     }
-    
+
     var description: String {
         return "Edge(from: \"\(self.from)\", to: \"\(self.to)\", weight: \(self.weight)\n"
     }

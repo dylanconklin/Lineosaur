@@ -8,7 +8,7 @@
 import XCTest
 @testable import Lineosaur
 
-final class Tree_Tests: XCTestCase {
+final class TreeTests: XCTestCase {
 
     var sut: Graph!
 
@@ -22,7 +22,7 @@ final class Tree_Tests: XCTestCase {
 
     func testTreeGraphIsTree () {
         // given
-        sut = tree_graph
+        sut = treeGraph
 
         // when
         let result = sut.isTree
@@ -33,7 +33,7 @@ final class Tree_Tests: XCTestCase {
 
     func testNonTreeGraphIsNotTree () {
         // given
-        sut = not_tree_graph
+        sut = notTreeGraph
 
         // when
         let result = sut.isTree
@@ -67,7 +67,7 @@ final class Tree_Tests: XCTestCase {
 
     func testDisconnectedGraphIsNotTree () {
         // given
-        sut = disconnected_graph_no_outlier_vertex
+        sut = disconnectedGraphNoOutlierVertex
 
         // when
         let result = sut.isTree

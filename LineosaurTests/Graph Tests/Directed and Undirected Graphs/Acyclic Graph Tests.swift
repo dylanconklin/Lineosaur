@@ -8,12 +8,12 @@
 import XCTest
 @testable import Lineosaur
 
-final class Acyclic_Graph_Tests: XCTestCase {
-    
+final class AcyclicGraphTests: XCTestCase {
+
     var sut: Graph!
 
     override func setUp() {
-        sut = acyclic_graph
+        sut = acyclicGraph
     }
 
     override func tearDown() {

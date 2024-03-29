@@ -21,10 +21,13 @@ class Graph: Equatable {
     private var graphVertices: Set<Vertex>
     var name: String?
     var lastAccessed: Date
-    var edgeStyles: Dictionary<UUID, EdgeStyle>
+    var edgeStyles: [UUID: EdgeStyle]
     var id: UUID
 
-    init(graphEdges: Set<Edge> = Set<Edge>(), graphVertices: Set<Vertex> = Set<Vertex>(), name: String? = nil, edgeStyles: Dictionary<UUID, EdgeStyle> = Dictionary<UUID, EdgeStyle>()) {
+    init(graphEdges: Set<Edge> = Set<Edge>(),
+         graphVertices: Set<Vertex> = Set<Vertex>(),
+         name: String? = nil,
+         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()) {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
@@ -33,7 +36,7 @@ class Graph: Equatable {
         self.id = UUID()
     }
 
-    static func ==(lhs: Graph, rhs: Graph) -> Bool {
+    static func == (lhs: Graph, rhs: Graph) -> Bool {
         return lhs.edges == rhs.edges && lhs.vertices == rhs.vertices
     }
 
@@ -101,20 +104,20 @@ class Graph: Equatable {
             return Graph()
         }
 
-        let G: Graph = self.copy
-        var vertices_left: Set<Vertex> = Set<Vertex>(G.vertices) // vertices that don't have an edge
+        let graph: Graph = self.copy
+        var verticesLeft: Set<Vertex> = Set<Vertex>(graph.vertices) // vertices that don't have an edge
         let MST: Graph = Graph()
-        
-        while let edge = G.edges.sorted(by: { $0.weight < $1.weight }).first(where: {
-            let a = Set<Vertex>($0.vertices).intersection(vertices_left)
-            let b = Set<Vertex>($0.vertices).intersection(MST.vertices)
-            return !a.isEmpty && !b.isEmpty
-        }) ?? (MST.isEmpty ? G.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
+
+        while let edge = graph.edges.sorted(by: { $0.weight < $1.weight }).first(where: {
+            let groupA = Set<Vertex>($0.vertices).intersection(verticesLeft)
+            let groupB = Set<Vertex>($0.vertices).intersection(MST.vertices)
+            return !groupA.isEmpty && !groupB.isEmpty
+        }) ?? (MST.isEmpty ? graph.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
             MST.insert(edge)
-            G.remove(edge)
-            vertices_left.subtract(edge.vertices)
+            graph.remove(edge)
+            verticesLeft.subtract(edge.vertices)
         }
-        
+
         return MST
     }
 

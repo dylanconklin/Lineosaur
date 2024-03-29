@@ -22,7 +22,7 @@ struct TutorialTip: Tip {
 struct Tutorial: View {
     var body: some View {
         VStack {
-            CloseButtonView() {
+            CloseButtonView {
                 VStack {
                     Text("Thank you for downloading Lineosaur!")
                         .multilineTextAlignment(.center)
@@ -52,8 +52,9 @@ struct Tutorial1: View {
         HStack {
             Image(systemName: "app.connected.to.app.below.fill")
                 .font(.system(size: 32))
-            Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. The vertices will be added for you automatically!")
-                .padding(.horizontal)
+            Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. "
+                 + "The vertices will be added for you automatically!")
+            .padding(.horizontal)
         }
     }
 }

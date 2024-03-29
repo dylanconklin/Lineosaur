@@ -19,23 +19,23 @@ struct GraphViz: View {
 
     private var move: some Gesture {
         DragGesture()
-            .onChanged { x in
-                changingOffSet = CGPoint(x: x.translation.width, y: x.translation.height)
+            .onChanged { gestureData in
+                changingOffSet = CGPoint(x: gestureData.translation.width, y: gestureData.translation.height)
             }
-            .onEnded { x in
-                currOffSet.x = currOffSet.x + changingOffSet.x
-                currOffSet.y = currOffSet.y + changingOffSet.y
+            .onEnded { _ in
+                currOffSet.x += changingOffSet.x
+                currOffSet.y += changingOffSet.y
                 changingOffSet = CGPoint(x: 0.0, y: 0.0)
             }
     }
 
     private var magnification: some Gesture {
         MagnifyGesture()
-            .onChanged { v in
-                changingScale = v.magnification
+            .onChanged { gestureData in
+                changingScale = gestureData.magnification
             }
-            .onEnded { v in
-                currScale *= v.magnification
+            .onEnded { gestureData in
+                currScale *= gestureData.magnification
                 changingScale = 1.0
             }
     }
@@ -63,7 +63,7 @@ struct GraphViz: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return GraphViz(url: weighted_graph.generateGraphVizURL(of: .given))
+        return GraphViz(url: weightedGraph.generateGraphVizURL(of: .given))
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

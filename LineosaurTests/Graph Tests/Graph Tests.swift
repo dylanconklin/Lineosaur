@@ -8,7 +8,7 @@
 import XCTest
 @testable import Lineosaur
 
-final class Graph_Tests: XCTestCase {
+final class GraphTests: XCTestCase {
 
     var sut: Graph!
 
@@ -39,7 +39,7 @@ final class Graph_Tests: XCTestCase {
         // when
         sut.edges = [
             Edge(from: "a", to: "b", weight: 1.0),
-            Edge(from: "b", to: "c", weight: 1.0),
+            Edge(from: "b", to: "c", weight: 1.0)
         ]
 
         // then

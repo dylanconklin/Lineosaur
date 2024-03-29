@@ -8,12 +8,12 @@
 import XCTest
 @testable import Lineosaur
 
-final class Weighted_Graph_Tests: XCTestCase {
+final class WeightedGraphTests: XCTestCase {
 
     var sut: Graph!
 
     override func setUp() {
-        sut = weighted_graph
+        sut = weightedGraph
     }
 
     override func tearDown() {
@@ -32,7 +32,7 @@ final class Weighted_Graph_Tests: XCTestCase {
             Edge(from: "f", to: "k", weight: 28),
             Edge(from: "j", to: "k", weight: 5),
             Edge(from: "i", to: "j", weight: 13),
-            Edge(from: "h", to: "i", weight: 8),
+            Edge(from: "h", to: "i", weight: 8)
         ])
 
         // when

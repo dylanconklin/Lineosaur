@@ -16,7 +16,9 @@ struct ContentView: View {
     var graph: Graph {
         if savedGraphs.isEmpty {
             modelContext.insert(Graph())
-            try! modelContext.save()
+            do {
+                try? modelContext.save()
+            }
         }
         return savedGraphs.first!
     }
@@ -40,7 +42,7 @@ struct ContentView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
 
-        let testGraphs = [connected_graph, disconnected_graph_outlier_vertex, disconnected_graph_no_outlier_vertex]
+        let testGraphs = [connectedGraph, disconnectedGraphOutlierVertex, disconnectedGraphNoOutlierVertex]
 
         for graph in testGraphs {
             container.mainContext.insert(graph)

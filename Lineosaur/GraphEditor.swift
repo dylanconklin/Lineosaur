@@ -26,7 +26,9 @@ struct GraphEditor: View {
                         showTutorial = true
                     }
                     .padding(.horizontal)
-                    ContentUnavailableView("No edges or vertices to display", systemImage: "hammer", description: Text("Tap on + to add data"))
+                    ContentUnavailableView("No edges or vertices to display",
+                                           systemImage: "hammer",
+                                           description: Text("Tap on + to add data"))
                 } else {
                     List {
                         if !graph.edges.isEmpty {
@@ -75,9 +77,9 @@ struct GraphEditor: View {
                                     menu
                                 }
                                 if graph.isEmpty {
-                                    GraphSelectorButton
+                                    graphSelectorButton
                                 }
-                                AddButton
+                                addButton
                             }
                         }
                     }
@@ -86,13 +88,13 @@ struct GraphEditor: View {
         }
     }
 
-    var GraphSelectorButton: some View {
+    var graphSelectorButton: some View {
         Button("Open Graph", systemImage: "folder") {
             showGraphSelector = true
         }
     }
 
-    var AddButton: some View {
+    var addButton: some View {
         Menu("Add", systemImage: "plus") {
             Button("Add Edge", systemImage: "app.connected.to.app.below.fill") { showEdgeCreator = true }
             Button("Add Vertex", systemImage: "smallcircle.filled.circle") { showVertexBuilder = true }
@@ -116,7 +118,7 @@ struct GraphEditor: View {
     var menu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
-            GraphSelectorButton
+            graphSelectorButton
             Menu("Delete Edges", systemImage: "app.connected.to.app.below.fill") {
                 Button("Smallest Edges", systemImage: "trash", role: .destructive) {
                     graph.remove(graph.edges.sorted(by: <).first!)
@@ -147,7 +149,7 @@ struct GraphEditor: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Graph.self, configurations: config)
-        return GraphEditor(graph: connected_graph)
+        return GraphEditor(graph: connectedGraph)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

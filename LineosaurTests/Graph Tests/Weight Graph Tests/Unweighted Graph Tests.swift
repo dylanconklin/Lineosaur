@@ -8,8 +8,8 @@
 import XCTest
 @testable import Lineosaur
 
-final class Unweighted_Graph_Tests: XCTestCase {
-    
+final class UnweightedGraphTests: XCTestCase {
+
     var sut: Graph!
 
     override func setUp() {

@@ -8,7 +8,6 @@
 import Foundation
 
 extension Graph {
-
     fileprivate var compiler: Compiler {
         let compiler = UserDefaults.standard.string(forKey: "compiler")
         return compiler.flatMap(Compiler.init) ?? .dot
@@ -21,7 +20,7 @@ extension Graph {
     func generateGraphVizURL(of type: GraphType) -> URL {
         var graph = self
         if type == .mst {
-            graph = self.mst
+            graph = mst
         }
 
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
@@ -38,7 +37,8 @@ extension Graph {
             result.append("\"\(vertex)\";")
         }
         graph.edges.forEach { edge in
-            let edgeStyle: EdgeStyle = type == .mst ? EdgeStyle(arrowhead: .none, arrowtail: .none) : graph.edgeStyles[edge.id, default: EdgeStyle()]
+            let edgeStyle: EdgeStyle = type == .mst ?
+                EdgeStyle(arrowhead: .none, arrowtail: .none) : graph.edgeStyles[edge.id, default: EdgeStyle()]
 
             // Set to and from
             result.append("\"\(edge.from)\"")

@@ -18,7 +18,7 @@ struct EdgeStyle: Codable {
         case diamond = "diamond"
         case dot = "dot"
         case inverse = "inv"
-        case inverse_curve = "icurve"
+        case inverseCurve = "icurve"
         case none = "none"
         case normal = "normal"
         case tee = "tee"
@@ -28,7 +28,7 @@ struct EdgeStyle: Codable {
             switch self {
             case .inverse:
                 return "Inverse"
-            case .inverse_curve:
+            case .inverseCurve:
                 return "Inverse curve"
             default:
                 return self.rawValue.capitalized

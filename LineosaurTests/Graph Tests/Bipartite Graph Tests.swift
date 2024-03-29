@@ -22,7 +22,7 @@ class BipartiteGraphTests: XCTestCase {
 
     func testBipartiteGraphIsBipartite () {
         // given
-        sut = bipartite_graph
+        sut = bipartiteGraph
 
         // when
         let result = sut.isBipartite
@@ -33,7 +33,7 @@ class BipartiteGraphTests: XCTestCase {
 
     func testNonBipartiteGraphIsNotBeBipartite () {
         // given
-        sut = non_bipartite_graph
+        sut = nonBipartiteGraph
 
         // when
         let result = sut.isBipartite
@@ -44,7 +44,7 @@ class BipartiteGraphTests: XCTestCase {
 
     func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite () {
         // given
-        sut = non_bipartite_graph_with_bipartite_cycle
+        sut = nonBipartiteGraphWithBipartiteCycle
 
         // when
         let result = sut.isBipartite

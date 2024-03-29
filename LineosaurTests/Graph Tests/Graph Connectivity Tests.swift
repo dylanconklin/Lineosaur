@@ -8,7 +8,7 @@
 import XCTest
 @testable import Lineosaur
 
-final class Graph_Connectivity_Tests: XCTestCase {
+final class GraphConnectivityTests: XCTestCase {
 
     var sut: Graph!
 
@@ -21,7 +21,7 @@ final class Graph_Connectivity_Tests: XCTestCase {
 
     func testConnectedGraphIsConnected() {
         // given
-        sut = connected_graph
+        sut = connectedGraph
 
         // when
         let result: Bool = sut.isConnected
@@ -32,7 +32,7 @@ final class Graph_Connectivity_Tests: XCTestCase {
 
     func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
         // given
-        sut = disconnected_graph_no_outlier_vertex
+        sut = disconnectedGraphNoOutlierVertex
 
         // when
         let result: Bool = sut.isConnected
@@ -43,7 +43,7 @@ final class Graph_Connectivity_Tests: XCTestCase {
 
     func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
         // given
-        sut = disconnected_graph_outlier_vertex
+        sut = disconnectedGraphOutlierVertex
 
         // when
         let result: Bool = sut.isConnected

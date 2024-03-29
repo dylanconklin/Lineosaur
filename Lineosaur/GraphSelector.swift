@@ -15,22 +15,26 @@ struct GraphSelector: View {
     @State var graphName: String = ""
     @Environment(\.dismiss) var dismiss
 
-    var df:  DateFormatter {
-        let df = DateFormatter()
-        df.dateStyle = .short
-        df.timeStyle = .short
-        return df
+    var dateFormatter:  DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
     }
 
     func deleteGraph(at offsets: IndexSet) {
         for index in offsets {
             modelContext.delete(savedGraphs[index])
         }
-        try! modelContext.save()
+        do {
+            try? modelContext.save()
+        }
         if savedGraphs.isEmpty {
             modelContext.insert(Graph())
         }
-        try! modelContext.save()
+        do {
+            try? modelContext.save()
+        }
     }
 
     var body: some View {
@@ -39,12 +43,15 @@ struct GraphSelector: View {
                 ForEach(savedGraphs) { graph in
                     VStack(alignment: .leading) {
                         Text(graph.name ?? "Untitled Graph")
-                        Text("^[\(graph.edges.count) edge](inflect: true), ^[\(graph.vertices.count) vertex](inflect: true)")
-                        Text("Last Accessed: \(df.string(from: graph.lastAccessed))")
+                        Text("^[\(graph.edges.count) edge](inflect: true), "
+                             + "^[\(graph.vertices.count) vertex](inflect: true)")
+                        Text("Last Accessed: \(dateFormatter.string(from: graph.lastAccessed))")
                     }
                     .onTapGesture {
                         graph.lastAccessed = Date.now
-                        try! modelContext.save()
+                        do {
+                            try? modelContext.save()
+                        }
                         dismiss()
                     }
                 }
@@ -57,11 +64,13 @@ struct GraphSelector: View {
                 }
                 .alert("Graph Name", isPresented: $showGraphNamer) {
                     TextField("Graph Name", text: $graphName, prompt: Text("Graph Name"))
-                    Button ("Add") {
+                    Button("Add") {
                         graphName = graphName.trimmingCharacters(in: .whitespacesAndNewlines)
                         graphName = graphName.isEmpty ? "Unnamed Graph" : graphName
                         modelContext.insert(Graph(name: graphName))
-                        try! modelContext.save()
+                        do {
+                            try? modelContext.save()
+                        }
                         dismiss()
                     }
                 }

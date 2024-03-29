@@ -7,7 +7,7 @@
 import XCTest
 @testable import Lineosaur
 
-var acyclic_graph: Graph {
+var acyclicGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "1", to: "2", weight: 1))
@@ -21,7 +21,7 @@ var acyclic_graph: Graph {
     return graph
 }
 
-var cyclic_graph: Graph {
+var cyclicGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "1", to: "2", weight: 1))
@@ -35,7 +35,7 @@ var cyclic_graph: Graph {
     return graph
 }
 
-var weighted_graph: Graph {
+var weightedGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1))
@@ -58,7 +58,7 @@ var weighted_graph: Graph {
     return graph
 }
 
-var connected_graph: Graph {
+var connectedGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -71,7 +71,7 @@ var connected_graph: Graph {
     return graph
 }
 
-var disconnected_graph_no_outlier_vertex: Graph {
+var disconnectedGraphNoOutlierVertex: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -82,7 +82,7 @@ var disconnected_graph_no_outlier_vertex: Graph {
     return graph
 }
 
-var disconnected_graph_outlier_vertex: Graph {
+var disconnectedGraphOutlierVertex: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -95,7 +95,7 @@ var disconnected_graph_outlier_vertex: Graph {
     return graph
 }
 
-var bipartite_graph: Graph {
+var bipartiteGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -108,7 +108,7 @@ var bipartite_graph: Graph {
     return graph
 }
 
-var non_bipartite_graph: Graph {
+var nonBipartiteGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -120,7 +120,7 @@ var non_bipartite_graph: Graph {
     return graph
 }
 
-var non_bipartite_graph_with_bipartite_cycle: Graph {
+var nonBipartiteGraphWithBipartiteCycle: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -139,7 +139,7 @@ var non_bipartite_graph_with_bipartite_cycle: Graph {
     return graph
 }
 
-var tree_graph: Graph {
+var treeGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
@@ -153,7 +153,7 @@ var tree_graph: Graph {
     return graph
 }
 
-var not_tree_graph: Graph {
+var notTreeGraph: Graph {
     let graph: Graph = Graph()
 
     graph.insert(Edge(from: "a", to: "b", weight: 1.0))
