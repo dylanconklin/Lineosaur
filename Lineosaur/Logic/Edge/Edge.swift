@@ -9,12 +9,12 @@ import Foundation
 
 struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     var from: Vertex
-    var to: Vertex
+    var toward: Vertex
     var weight: Double
     var id: UUID = .init()
 
     static func == (lhs: Edge, rhs: Edge) -> Bool {
-        return lhs.from == rhs.from && lhs.to == rhs.to && lhs.weight == rhs.weight
+        return lhs.from == rhs.from && lhs.toward == rhs.toward && lhs.weight == rhs.weight
     }
 
     static func < (lhs: Edge, rhs: Edge) -> Bool {
@@ -22,7 +22,7 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     }
 
     var description: String {
-        return "Edge(from: \"\(from)\", to: \"\(to)\", weight: \(weight)\n"
+        return "Edge(from: \"\(from)\", to: \"\(toward)\", weight: \(weight)\n"
     }
 
     static func alphabetical() -> (Edge, Edge) -> Bool {
@@ -30,8 +30,8 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
             var result: Bool = false
             if lhs.from != rhs.from {
                 result = lhs.from < rhs.from
-            } else if lhs.to != rhs.to {
-                result = lhs.to < rhs.to
+            } else if lhs.toward != rhs.toward {
+                result = lhs.toward < rhs.toward
             } else {
                 result = lhs.weight < rhs.weight
             }
@@ -42,18 +42,18 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     /// Returns vertices of the edge
     var vertices: [Vertex] {
         get {
-            [from, to]
+            [from, toward]
         }
         set {
             guard newValue.count == 2 else {
                 return
             }
             from = newValue[0]
-            to = newValue[1]
+            toward = newValue[1]
         }
     }
 
     var copy: Edge {
-        Edge(from: from, to: to, weight: weight)
+        Edge(from: from, toward: toward, weight: weight)
     }
 }

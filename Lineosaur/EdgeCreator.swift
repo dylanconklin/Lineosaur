@@ -37,22 +37,22 @@ struct VertexSelector: View {
 struct EdgeCreator: View {
     @Bindable var graph: Graph
     @State private var from: String = ""
-    @State private var to: String = ""
+    @State private var toward: String = ""
     @State private var weight: Double = 0
     @State private var style: EdgeStyle = .init()
     @Environment(\.dismiss) private var dismiss
 
     func insertEdge() {
         from = from.trimmingCharacters(in: .whitespacesAndNewlines)
-        to = to.trimmingCharacters(in: .whitespacesAndNewlines)
+        toward = toward.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        if !to.isEmpty && !from.isEmpty {
-            graph.insert(Edge(from: from, to: to, weight: weight), withStyle: style)
+        if !toward.isEmpty && !from.isEmpty {
+            graph.insert(Edge(from: from, toward: toward, weight: weight), withStyle: style)
         }
 
         // Reset form input fields
         from.removeAll()
-        to.removeAll()
+        toward.removeAll()
         weight = 0
         style = EdgeStyle()
     }
@@ -66,7 +66,7 @@ struct EdgeCreator: View {
                             VertexSelector(prompt: "From", value: $from, selection: graph.vertices)
                         }
                         GridRow {
-                            VertexSelector(prompt: "To", value: $to, selection: graph.vertices)
+                            VertexSelector(prompt: "To", value: $toward, selection: graph.vertices)
                         }
                         GridRow {
                             Text("Weight")

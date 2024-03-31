@@ -27,8 +27,7 @@ class Graph: Equatable {
     init(graphEdges: Set<Edge> = Set<Edge>(),
          graphVertices: Set<Vertex> = Set<Vertex>(),
          name: String? = nil,
-         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]())
-    {
+         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()) {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
@@ -48,7 +47,7 @@ class Graph: Equatable {
     func insert(_ edge: Edge, withStyle style: EdgeStyle? = nil) {
         graphEdges.insert(edge)
         insert(edge.from)
-        insert(edge.to)
+        insert(edge.toward)
         edgeStyles[edge.id] = style
     }
 
@@ -128,8 +127,8 @@ class Graph: Equatable {
             graphEdges.sorted(by: {
                 if $0.from != $1.from {
                     return $0.from < $1.from
-                } else if $0.to != $1.to {
-                    return $0.to < $1.to
+                } else if $0.toward != $1.toward {
+                    return $0.toward < $1.toward
                 } else {
                     return $0.weight < $1.weight
                 }
@@ -146,9 +145,10 @@ class Graph: Equatable {
         }
     }
 
-    func edges(from: Vertex, to: Vertex, directional: Bool = true) -> Set<Edge> {
+    func edges(from: Vertex, toward: Vertex, directional: Bool = true) -> Set<Edge> {
         return Set<Edge>(edges.filter { edge in
-            directional ? (edge.to == to && edge.from == from) : (Set<Vertex>(edge.vertices) == Set<Vertex>([from, to]))
+            directional ? (edge.toward == toward && edge.from == from) :
+                (Set<Vertex>(edge.vertices) == Set<Vertex>([from, toward]))
         })
     }
 
@@ -169,7 +169,7 @@ class Graph: Equatable {
     }
 
     var loops: Set<Edge> {
-        Set(edges.filter { $0.from == $0.to })
+        Set(edges.filter { $0.from == $0.toward })
     }
 
     func deleteEdges() {

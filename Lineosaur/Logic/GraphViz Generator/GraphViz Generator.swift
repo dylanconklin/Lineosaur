@@ -43,7 +43,7 @@ extension Graph {
             // Set to and from
             result.append("\"\(edge.from)\"")
             result.append("\(directional ? "->" : "--")")
-            result.append("\"\(edge.to)\"")
+            result.append("\"\(edge.toward)\"")
 
             // Begin options
             result.append("[")

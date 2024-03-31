@@ -21,7 +21,7 @@ struct EdgeView: View {
             GridRow {
                 Text("To")
                 Text(":")
-                Text("\(edge.to)")
+                Text("\(edge.toward)")
             }
             GridRow {
                 Text("Weight")
@@ -37,8 +37,8 @@ struct EdgeView: View {
     let vertex = "Destination"
     let lengthA = 5.0
     let lengthB = 5.5
-    @State var edge1 = Edge(from: vertex, to: vertex, weight: lengthA)
-    @State var edge2 = Edge(from: vertex, to: vertex, weight: lengthB)
+    @State var edge1 = Edge(from: vertex, toward: vertex, weight: lengthA)
+    @State var edge2 = Edge(from: vertex, toward: vertex, weight: lengthB)
     return VStack {
         EdgeView(edge: $edge1)
         EdgeView(edge: $edge2)

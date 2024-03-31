@@ -14,7 +14,7 @@ struct TutorialTip: Tip {
     var image: Image? { Image(systemName: "graduationcap.fill") }
     var actions: [Tip.Action] {
         [
-            Tips.Action(title: "Open Tutorial") {},
+            Tips.Action(title: "Open Tutorial") {}
         ]
     }
 }

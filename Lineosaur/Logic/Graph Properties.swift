@@ -23,15 +23,14 @@ extension Graph {
                      _ groupA: inout Set<Vertex>,
                      _ groupB: inout Set<Vertex>,
                      _ group: Bool = true,
-                     visitedEdges: Set<Edge> = Set<Edge>())
-    {
+                     visitedEdges: Set<Edge> = Set<Edge>()) {
         if group {
             groupA.insert(selectedVertex)
         } else {
             groupB.insert(selectedVertex)
         }
         let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex)
-            .filter { $0.from != $0.to }
+            .filter { $0.from != $0.toward }
             .subtracting(visitedEdges)
         let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
         var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>()) { $0.formUnion($1.vertices) }
@@ -86,7 +85,7 @@ extension Graph {
     var isMulti: Bool {
         if loops.isEmpty {
             for vertex1 in vertices {
-                for vertex2 in vertices where edges(from: vertex1, to: vertex2, directional: false).count > 1 {
+                for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
                     return true
                 }
             }
@@ -96,7 +95,7 @@ extension Graph {
 
     var isSimple: Bool {
         for vertex1 in vertices {
-            for vertex2 in vertices where edges(from: vertex1, to: vertex2, directional: false).count > 1 {
+            for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
                 return false
             }
         }

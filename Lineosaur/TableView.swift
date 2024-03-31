@@ -41,7 +41,7 @@ struct TableView: View {
                                 var distance: String {
                                     var distance = ""
                                     distance = String(graph.edges(from: vertex2,
-                                                                  to: vertex1,
+                                                                  toward: vertex1,
                                                                   directional: false)
                                             .sorted()
                                             .first?.weight ?? 0.0)

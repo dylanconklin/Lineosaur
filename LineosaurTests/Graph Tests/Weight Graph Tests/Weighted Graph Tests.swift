@@ -22,16 +22,16 @@ final class WeightedGraphTests: XCTestCase {
     func testMST() {
         // given
         let expectedResult = Graph(graphEdges: [
-            Edge(from: "a", to: "b", weight: 1),
-            Edge(from: "b", to: "c", weight: 2),
-            Edge(from: "a", to: "d", weight: 22),
-            Edge(from: "d", to: "f", weight: 11),
-            Edge(from: "d", to: "g", weight: 16),
-            Edge(from: "e", to: "g", weight: 6),
-            Edge(from: "f", to: "k", weight: 28),
-            Edge(from: "j", to: "k", weight: 5),
-            Edge(from: "i", to: "j", weight: 13),
-            Edge(from: "h", to: "i", weight: 8),
+            Edge(from: "a", toward: "b", weight: 1),
+            Edge(from: "b", toward: "c", weight: 2),
+            Edge(from: "a", toward: "d", weight: 22),
+            Edge(from: "d", toward: "f", weight: 11),
+            Edge(from: "d", toward: "g", weight: 16),
+            Edge(from: "e", toward: "g", weight: 6),
+            Edge(from: "f", toward: "k", weight: 28),
+            Edge(from: "j", toward: "k", weight: 5),
+            Edge(from: "i", toward: "j", weight: 13),
+            Edge(from: "h", toward: "i", weight: 8)
         ])
 
         // when

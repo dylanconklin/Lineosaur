@@ -24,8 +24,8 @@ final class GraphTests: XCTestCase {
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
         // when
-        sut.insert(Edge(from: "a", to: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", to: "c", weight: 1.0))
+        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
         // then
         XCTAssertEqual(sut.vertices, expectedResult)
@@ -37,8 +37,8 @@ final class GraphTests: XCTestCase {
 
         // when
         sut.edges = [
-            Edge(from: "a", to: "b", weight: 1.0),
-            Edge(from: "b", to: "c", weight: 1.0),
+            Edge(from: "a", toward: "b", weight: 1.0),
+            Edge(from: "b", toward: "c", weight: 1.0)
         ]
 
         // then
@@ -50,11 +50,11 @@ final class GraphTests: XCTestCase {
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
         // when
-        sut.insert(Edge(from: "a", to: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", to: "c", weight: 1.0))
+        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
-        sut.remove(Edge(from: "a", to: "b", weight: 1.0))
-        sut.remove(Edge(from: "b", to: "c", weight: 1.0))
+        sut.remove(Edge(from: "a", toward: "b", weight: 1.0))
+        sut.remove(Edge(from: "b", toward: "c", weight: 1.0))
 
         // then
         XCTAssertEqual(sut.vertices, expectedResult)
@@ -62,11 +62,11 @@ final class GraphTests: XCTestCase {
 
     func testRemoveAllEdgesConnectedToRemovedVertices() {
         // given
-        let expectedResult: [Edge] = [Edge(from: "b", to: "c", weight: 1.0)]
+        let expectedResult: [Edge] = [Edge(from: "b", toward: "c", weight: 1.0)]
 
         // when
-        sut.insert(Edge(from: "a", to: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", to: "c", weight: 1.0))
+        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
         sut.remove("a")
 

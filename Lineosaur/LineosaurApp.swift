@@ -17,7 +17,7 @@ struct LineosaurApp: App {
                 .task {
                     try? Tips.configure([
                         .datastoreLocation(.applicationDefault),
-                        .displayFrequency(.immediate),
+                        .displayFrequency(.immediate)
                     ])
                 }
         }
