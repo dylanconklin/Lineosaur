@@ -18,11 +18,11 @@ opt_in_rules:
   - anonymous_argument_in_multiline_closure
   - array_init
   - attributes
-
-disabled_rules:
   - balanced_xctest_lifecycle
   - blanket_disable_command
   - block_based_kvo
+
+disabled_rules:
   - capture_variable
   - class_delegate_protocol
   - closing_brace
