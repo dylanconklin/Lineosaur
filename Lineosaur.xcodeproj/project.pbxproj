@@ -39,6 +39,8 @@
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
 		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
 		ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */; };
+		ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
+		ABC6D02A2BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC87FEB2AC4C97B00EEA68A /* Graph Connectivity Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */; };
 		ABEEF2562AB1902B004C9429 /* Undirected Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */; };
 		ABEEF2582AB19043004C9429 /* Weighted Graph Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */; };
@@ -96,6 +98,7 @@
 		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
 		ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lineosaur-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
+		ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		ABC87FEA2AC4C97B00EEA68A /* Graph Connectivity Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Connectivity Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* Undirected Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Undirected Graph Tests.swift"; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* Weighted Graph Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weighted Graph Tests.swift"; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 		AB510F272A8A91C800B76121 = {
 			isa = PBXGroup;
 			children = (
+				ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */,
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
 				AB510F322A8A91C800B76121 /* Lineosaur */,
 				AB510F462A8A91CA00B76121 /* LineosaurTests */,
@@ -379,6 +383,7 @@
 				AB510F3F2A8A91CA00B76121 /* Sources */,
 				AB510F402A8A91CA00B76121 /* Frameworks */,
 				AB510F412A8A91CA00B76121 /* Resources */,
+				ABC6D0272BE3317F00AA4F8F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -436,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */,
 				AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */,
 				ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */,
 				AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */,
@@ -446,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC6D02A2BE333EC00AA4F8F /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +460,24 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		AB03A7062BB68CBA00D07433 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		ABC6D0272BE3317F00AA4F8F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -747,6 +772,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 58X5N6584R;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -773,6 +799,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 58X5N6584R;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
