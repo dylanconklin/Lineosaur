@@ -26,7 +26,8 @@ struct VertexSelector: View {
                         }
                     }
                 } label: {
-                    Image(systemName: "ellipsis")
+                    Label("Select Existing Vertex", systemImage: "ellipsis")
+                        .labelStyle(.iconOnly)
                 }
             }
         }
@@ -40,7 +41,8 @@ struct EdgeCreator: View {
     @State private var toward: String = ""
     @State private var weight: Double = 0
     @State private var style: EdgeStyle = .init()
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     func insertEdge() {
         from = from.trimmingCharacters(in: .whitespacesAndNewlines)

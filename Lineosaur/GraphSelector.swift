@@ -9,11 +9,14 @@ import SwiftData
 import SwiftUI
 
 struct GraphSelector: View {
-    @Environment(\.modelContext) var modelContext
-    @Query(sort: \Graph.lastAccessed, order: .reverse) var savedGraphs: [Graph]
+    @Environment(\.modelContext)
+    var modelContext
+    @Query(sort: \Graph.lastAccessed, order: .reverse)
+    var savedGraphs: [Graph]
     @State var showGraphNamer: Bool = false
     @State var graphName: String = ""
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss)
+    var dismiss
 
     var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -54,6 +57,7 @@ struct GraphSelector: View {
                         }
                         dismiss()
                     }
+                    .accessibilityAddTraits(.isButton)
                 }
                 .onDelete(perform: deleteGraph)
             }

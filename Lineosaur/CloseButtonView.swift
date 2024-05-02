@@ -11,7 +11,8 @@ struct CloseButtonView<Content: View>: View {
     @State var title: String?
     @State var titleStyle: NavigationBarItem.TitleDisplayMode?
     @ViewBuilder var content: () -> Content
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss)
+    var dismiss
 
     var body: some View {
         NavigationStack {
@@ -20,13 +21,8 @@ struct CloseButtonView<Content: View>: View {
                 .navigationBarTitleDisplayMode(titleStyle ?? .automatic)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 .toolbar {
-                    Button {
+                    Button("Dismiss", systemImage: "xmark.circle.fill") {
                         dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding()
                     }
                     .foregroundStyle(.primary)
                     .frame(maxWidth: .infinity, alignment: .topTrailing)

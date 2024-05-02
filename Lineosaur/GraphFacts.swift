@@ -19,10 +19,12 @@ struct GraphFact: View {
                 ZStack {
                     Image(systemName: symbol)
                         .font(.system(size: 32))
+                        .accessibilityLabel("Icon correlating to stated property")
                     if value == true {
                         Image(systemName: "xmark")
                             .font(.system(size: 48))
                             .foregroundStyle(Color.red)
+                            .accessibilityLabel("Indicates negation of stated property")
                     }
                 }
                 .frame(minHeight: 48)

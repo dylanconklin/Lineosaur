@@ -21,8 +21,10 @@ enum Compiler: String {
 struct GraphVizViewer: View {
     @Bindable var graph: Graph
     @State private var graphType: GraphType = .given
-    @AppStorage("compiler") var compiler: Compiler = .dot
-    @AppStorage("displayEdgeWeights") var displayEdgeWeights: Bool = false
+    @AppStorage("compiler")
+    var compiler: Compiler = .dot
+    @AppStorage("displayEdgeWeights")
+    var displayEdgeWeights: Bool = false
 
     private var directional: Bool {
         graphType == .given

@@ -108,9 +108,9 @@ class Graph: Equatable {
         var verticesLeft = Set<Vertex>(graph.vertices) // vertices that don't have an edge
         let MST = Graph()
 
-        while let edge = graph.edges.sorted(by: { $0.weight < $1.weight }).first(where: {
-            let groupA = Set<Vertex>($0.vertices).intersection(verticesLeft)
-            let groupB = Set<Vertex>($0.vertices).intersection(MST.vertices)
+        while let edge = graph.edges.sorted(by: { $0.weight < $1.weight }).first(where: { edge in
+            let groupA = Set<Vertex>(edge.vertices).intersection(verticesLeft)
+            let groupB = Set<Vertex>(edge.vertices).intersection(MST.vertices)
             return !groupA.isEmpty && !groupB.isEmpty
         }) ?? (MST.isEmpty ? graph.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
             MST.insert(edge)
@@ -124,13 +124,13 @@ class Graph: Equatable {
     /// Returns edges of the graph, in the form of Edge objects in an array
     var edges: [Edge] {
         get {
-            graphEdges.sorted(by: {
-                if $0.from != $1.from {
-                    return $0.from < $1.from
-                } else if $0.toward != $1.toward {
-                    return $0.toward < $1.toward
+            graphEdges.sorted(by: { lhs, rhs in
+                if lhs.from != rhs.from {
+                    return lhs.from < rhs.from
+                } else if lhs.toward != rhs.toward {
+                    return lhs.toward < rhs.toward
                 } else {
-                    return $0.weight < $1.weight
+                    return lhs.weight < rhs.weight
                 }
             })
         }

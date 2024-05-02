@@ -10,8 +10,10 @@ import SwiftUI
 
 /// Entry point into application
 struct ContentView: View {
-    @Environment(\.modelContext) var modelContext
-    @Query(sort: \Graph.lastAccessed, order: .reverse) var savedGraphs: [Graph]
+    @Environment(\.modelContext)
+    var modelContext
+    @Query(sort: \Graph.lastAccessed, order: .reverse)
+    var savedGraphs: [Graph]
 
     var graph: Graph {
         if savedGraphs.isEmpty {
