@@ -107,6 +107,6 @@ extension Graph {
     }
 
     var isTrivial: Bool {
-        edges.count == 0 && vertices.count == 1
+        edges.isEmpty && vertices.count == 1
     }
 }
