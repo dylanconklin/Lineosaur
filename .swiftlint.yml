@@ -73,8 +73,6 @@ opt_in_rules:
   - explicit_top_level_acl
   - explicit_type_interface
   - extension_access_modifier
-
-disabled_rules:
   - fallthrough
   - fatal_error_message
   - file_header
@@ -91,6 +89,8 @@ disabled_rules:
   - function_body_length
   - function_default_parameter_at_end
   - function_parameter_count
+
+disabled_rules:
   - generic_type_name
   - ibinspectable_in_extension
   - identical_operands
