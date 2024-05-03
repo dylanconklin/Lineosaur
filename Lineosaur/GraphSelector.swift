@@ -18,14 +18,14 @@ struct GraphSelector: View {
     @Environment(\.dismiss)
     var dismiss
 
-    var dateFormatter: DateFormatter {
+    private var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         return dateFormatter
     }
 
-    func deleteGraph(at offsets: IndexSet) {
+    private func deleteGraph(at offsets: IndexSet) {
         for index in offsets {
             modelContext.delete(savedGraphs[index])
         }
@@ -47,7 +47,7 @@ struct GraphSelector: View {
                     VStack(alignment: .leading) {
                         Text(graph.name ?? "Untitled Graph")
                         Text("^[\(graph.edges.count) edge](inflect: true), "
-                            + "^[\(graph.vertices.count) vertex](inflect: true)")
+                             + "^[\(graph.vertices.count) vertex](inflect: true)")
                         Text("Last Accessed: \(dateFormatter.string(from: graph.lastAccessed))")
                     }
                     .onTapGesture {
@@ -61,6 +61,12 @@ struct GraphSelector: View {
                 }
                 .onDelete(perform: deleteGraph)
             }
+            toolbar
+        }
+    }
+
+    private var toolbar: some View {
+        Spacer()
             .toolbar {
                 Button("New Graph", systemImage: "plus") {
                     graphName = ""
@@ -80,7 +86,6 @@ struct GraphSelector: View {
                 }
             }
             .navigationTitle("Saved Graphs")
-        }
     }
 }
 
