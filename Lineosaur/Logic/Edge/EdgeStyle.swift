@@ -12,17 +12,17 @@ struct EdgeStyle: Codable {
     var arrowtail: Arrow = EdgeStyle.Arrow.plain
 
     enum Arrow: String, CaseIterable, Codable {
-        case box
-        case crow
-        case curve
-        case diamond
-        case dot
+        case box = "box"
+        case crow = "crow"
+        case curve = "curve"
+        case diamond = "diamond"
+        case dot = "dot"
         case inverse = "inv"
         case inverseCurve = "icurve"
         case plain = "none"
-        case normal
-        case tee
-        case vee
+        case normal = "normal"
+        case tee = "tee"
+        case vee = "vee"
 
         var description: String {
             switch self {

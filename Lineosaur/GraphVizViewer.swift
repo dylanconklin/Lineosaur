@@ -9,13 +9,13 @@ import SwiftData
 import SwiftUI
 
 enum Compiler: String {
-    case dot
-    case fdp
-    case neato
-    case circo
-    case twopi
-    case osage
-    case patchwork
+    case dot = "dot"
+    case fdp = "fdp"
+    case neato = "neato"
+    case circo = "circo"
+    case twopi = "twopi"
+    case osage = "osage"
+    case patchwork = "patchwork"
 }
 
 struct GraphVizViewer: View {
