@@ -30,7 +30,7 @@ internal struct GraphVizViewer: View {
         graphType == .given
     }
 
-    private var graphURL: URL { graph.generateGraphVizURL(of: graphType) }
+    private var graphURL: URL? { graph.generateGraphVizURL(of: graphType) }
 
     internal var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
@@ -54,7 +54,9 @@ internal struct GraphVizViewer: View {
             Menu("Display", systemImage: "eye") {
                 Toggle("Edge Weights", isOn: $displayEdgeWeights)
             }
-            ShareLink("Share", item: graphURL)
+            if let url: URL = graphURL {
+                ShareLink("Share", item: url)
+            }
         }
     }
 

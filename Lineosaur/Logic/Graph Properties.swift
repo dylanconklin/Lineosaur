@@ -12,8 +12,8 @@ extension Graph {
         var groupA: Set<Vertex> = .init()
         var groupB: Set<Vertex> = .init()
 
-        if !vertices.isEmpty {
-            isBipartite(selectedVertex: vertices.randomElement()!, &groupA, &groupB)
+        if !vertices.isEmpty, let vertex: Vertex = vertices.randomElement() {
+            isBipartite(selectedVertex: vertex, &groupA, &groupB)
         }
 
         return groupA.isDisjoint(with: groupB)
@@ -40,8 +40,8 @@ extension Graph {
         }
 
         let leftoverVertices: Set<Vertex> = Set(vertices).subtracting(groupA).subtracting(groupB)
-        if !leftoverVertices.isEmpty {
-            isBipartite(selectedVertex: leftoverVertices.randomElement()!,
+        if !leftoverVertices.isEmpty, let vertex: Vertex = leftoverVertices.randomElement() {
+            isBipartite(selectedVertex: vertex,
                         &groupA,
                         &groupB,
                         !group,
@@ -60,8 +60,12 @@ extension Graph {
     }
 
     internal var isConnected: Bool {
-        var connectedVertices: Set<Vertex> = vertices.isEmpty ? [] : [vertices.randomElement()!]
+        var connectedVertices: Set<Vertex> = .init()
         var connectedEdges: Set<Edge> = .init()
+
+        if let vertex = vertices.randomElement() {
+            connectedVertices.insert(vertex)
+        }
         while !edges(connectedTo: connectedVertices).subtracting(connectedEdges).isEmpty {
             let newEdges: Set<Edge> = edges(connectedTo: connectedVertices)
             connectedEdges.formUnion(newEdges)

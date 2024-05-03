@@ -65,10 +65,14 @@ internal struct GraphEditor: View {
             graphSelectorButton
             Menu("Delete Edges", systemImage: "app.connected.to.app.below.fill") {
                 Button("Smallest Edges", systemImage: "trash", role: .destructive) {
-                    graph.remove(graph.edges.sorted(by: <).first!)
+                    if let edge: Edge = graph.edges.sorted(by: <).first {
+                        graph.remove(edge)
+                    }
                 }
                 Button("Largest Edges", systemImage: "trash", role: .destructive) {
-                    graph.remove(graph.edges.sorted(by: >).first!)
+                    if let edge: Edge = graph.edges.sorted(by: >).first {
+                        graph.remove(edge)
+                    }
                 }
                 Button("All Edges", systemImage: "trash", role: .destructive) { graph.deleteEdges() }
             }

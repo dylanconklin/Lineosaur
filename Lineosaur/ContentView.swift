@@ -22,7 +22,10 @@ internal struct ContentView: View {
                 try? modelContext.save()
             }
         }
-        return savedGraphs.first!
+        if let result: Graph = savedGraphs.first {
+            return result
+        }
+        fatalError("Could not load graph")
     }
 
     internal var body: some View {

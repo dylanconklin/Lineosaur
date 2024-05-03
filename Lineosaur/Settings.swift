@@ -21,8 +21,10 @@ internal struct Settings: View {
                 .font(.callout)
                 .padding()
 
-                Link("Check out my other projects", destination: URL(string: "https://dylanconklin.github.io")!)
-                    .navigationTitle("About")
+                if let url: URL = .init(string: "https://dylanconklin.github.io") {
+                    Link("Check out my other projects", destination: url)
+                        .navigationTitle("About")
+                }
             }
         }
     }
