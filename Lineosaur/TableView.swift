@@ -11,7 +11,7 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     @Bindable var graph: Graph
-
+    
     var body: some View {
         if graph.edges.isEmpty {
             ContentUnavailableView("No edges in graph",
@@ -19,45 +19,57 @@ struct TableView: View {
                                    description: Text("Go to the Edit tab to create an edge"))
         } else {
             ScrollView([.horizontal, .vertical], showsIndicators: true) {
-                Grid(horizontalSpacing: 0, verticalSpacing: 0) {
-                    GridRow {
-                        Cell {
-                            Spacer()
-                        }
-                        ForEach(graph.vertices.sorted(), id: \.self) { vertex in
-                            Cell {
-                                Text(String(vertex))
-                                    .fontWeight(Font.Weight.bold)
-                            }
-                        }
-                    }
-                    ForEach(graph.vertices.sorted(), id: \.self) { vertex1 in
-                        GridRow {
-                            Cell {
-                                Text(String(vertex1))
-                                    .fontWeight(Font.Weight.bold)
-                            }
-                            ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
-                                var distance: String {
-                                    var distance = ""
-                                    distance = String(graph.edges(from: vertex2,
-                                                                  toward: vertex1,
-                                                                  directional: false)
-                                            .sorted()
-                                            .first?.weight ?? 0.0)
-                                    distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
-                                    return distance
-                                }
-                                Cell {
-                                    Text(distance)
-                                }
-                            }
-                        }
-                    }
-                }
-                .padding()
+                table
             }
         }
+    }
+    
+    private var tableTopRow: some View {
+        GridRow {
+            Cell {
+                Spacer()
+            }
+            ForEach(graph.vertices.sorted(), id: \.self) { vertex in
+                Cell {
+                    Text(String(vertex))
+                        .fontWeight(Font.Weight.bold)
+                }
+            }
+        }
+    }
+    
+    private var tableBody: some View {
+        ForEach(graph.vertices.sorted(), id: \.self) { vertex1 in
+            GridRow {
+                Cell {
+                    Text(String(vertex1))
+                        .fontWeight(Font.Weight.bold)
+                }
+                ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
+                    var distance: String {
+                        var distance = ""
+                        distance = String(graph.edges(from: vertex2,
+                                                      toward: vertex1,
+                                                      directional: false)
+                            .sorted()
+                            .first?.weight ?? 0.0)
+                        distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
+                        return distance
+                    }
+                    Cell {
+                        Text(distance)
+                    }
+                }
+            }
+        }
+    }
+    
+    private var table: some View {
+        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+            tableTopRow
+            tableBody
+        }
+        .padding()
     }
 }
 
