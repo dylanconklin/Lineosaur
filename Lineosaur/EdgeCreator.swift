@@ -63,40 +63,10 @@ struct EdgeCreator: View {
         NavigationStack {
             VStack {
                 Form {
-                    Grid(alignment: .leading) {
-                        GridRow {
-                            VertexSelector(prompt: "From", value: $from, selection: graph.vertices)
-                        }
-                        GridRow {
-                            VertexSelector(prompt: "To", value: $toward, selection: graph.vertices)
-                        }
-                        GridRow {
-                            Text("Weight")
-                            Text(":")
-                            TextField("Weight",
-                                      text: Binding(
-                                          get: { String(weight) },
-                                          set: { weight = Double($0) ?? 0.0 }
-                                      ))
-                                      .keyboardType(.decimalPad)
-                        }
-                    }
-                    DisclosureGroup("Styling") {
-                        Picker("Arrowhead", selection: $style.arrowhead) {
-                            ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
-                                Text("\(arrow.description)")
-                            }
-                        }
-                        Picker("Arrowtail", selection: $style.arrowtail) {
-                            ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
-                                Text("\(arrow.description)")
-                            }
-                        }
-                    }
+                    edgeDataForm
+                    edgeStylePicker
                 }
-                Button("Add Edge", systemImage: "checkmark", action: { insertEdge() })
-                    .padding()
-                Spacer()
+                addButton
             }
             .navigationTitle("Insert Edge")
             .navigationBarTitleDisplayMode(.inline)
@@ -105,6 +75,48 @@ struct EdgeCreator: View {
                     insertEdge()
                     dismiss()
                 }
+            }
+        }
+    }
+
+    private var addButton: some View {
+        Button("Add Edge", systemImage: "checkmark", action: { insertEdge() })
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+    }
+
+    private var edgeStylePicker: some View {
+        DisclosureGroup("Styling") {
+            Picker("Arrowhead", selection: $style.arrowhead) {
+                ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
+                    Text("\(arrow.description)")
+                }
+            }
+            Picker("Arrowtail", selection: $style.arrowtail) {
+                ForEach(EdgeStyle.Arrow.allCases, id: \.self) { arrow in
+                    Text("\(arrow.description)")
+                }
+            }
+        }
+    }
+
+    private var edgeDataForm: some View {
+        Grid(alignment: .leading) {
+            GridRow {
+                VertexSelector(prompt: "From", value: $from, selection: graph.vertices)
+            }
+            GridRow {
+                VertexSelector(prompt: "To", value: $toward, selection: graph.vertices)
+            }
+            GridRow {
+                Text("Weight")
+                Text(":")
+                TextField("Weight",
+                          text: Binding(
+                              get: { String(weight) },
+                              set: { weight = Double($0) ?? 0.0 }
+                          ))
+                          .keyboardType(.decimalPad)
             }
         }
     }
