@@ -9,7 +9,7 @@ import Foundation
 
 struct EdgeStyle: Codable {
     var arrowhead: Arrow = .normal
-    var arrowtail: Arrow = EdgeStyle.Arrow.none
+    var arrowtail: Arrow = EdgeStyle.Arrow.plain
 
     enum Arrow: String, CaseIterable, Codable {
         case box
@@ -19,7 +19,7 @@ struct EdgeStyle: Codable {
         case dot
         case inverse = "inv"
         case inverseCurve = "icurve"
-        case none
+        case plain = "none"
         case normal
         case tee
         case vee

@@ -38,7 +38,7 @@ extension Graph {
         }
         for edge in graph.edges {
             let edgeStyle: EdgeStyle = type == .mst ?
-                EdgeStyle(arrowhead: .none, arrowtail: .none) : graph.edgeStyles[edge.id, default: EdgeStyle()]
+                EdgeStyle(arrowhead: .plain, arrowtail: .plain) : graph.edgeStyles[edge.id, default: EdgeStyle()]
 
             // Set to and from
             result.append("\"\(edge.from)\"")
