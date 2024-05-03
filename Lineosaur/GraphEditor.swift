@@ -22,66 +22,23 @@ struct GraphEditor: View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {
-                    TipView(TutorialTip()) { _ in
-                        showTutorial = true
-                    }
-                    .padding(.horizontal)
-                    ContentUnavailableView("No edges or vertices to display",
-                                           systemImage: "hammer",
-                                           description: Text("Tap on + to add data"))
+                    emptyView
                 } else {
-                    List {
-                        if !graph.edges.isEmpty {
-                            EdgeList(graph: graph)
-                        }
-                        if !graph.vertices.isEmpty {
-                            VertexList(graph: graph)
-                        }
-                    }
-                    .navigationDestination(for: Edge.self) { _ in Spacer() }
-                    .listStyle(.sidebar)
+                    graphData
                 }
-
-                Spacer()
-                    .sheet(isPresented: $showGraphSelector) {
-                        GraphSelector()
-                    }
-                    .sheet(isPresented: $showTutorial) {
-                        Tutorial()
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            if !graph.isEmpty {
-                                EditButton()
-                            } else {
-                                Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
-                            }
-                        }
-
-                        ToolbarItem(placement: .topBarTrailing) {
-                            HStack {
-                                if !graph.isEmpty {
-                                    menu
-                                }
-                                if graph.isEmpty {
-                                    graphSelectorButton
-                                }
-                                addButton
-                            }
-                        }
-                    }
+                toolbar
             }
             .navigationTitle("Graph Editor")
         }
     }
 
-    var graphSelectorButton: some View {
+    private var graphSelectorButton: some View {
         Button("Open Graph", systemImage: "folder") {
             showGraphSelector = true
         }
     }
 
-    var addButton: some View {
+    private var addButton: some View {
         Menu("Add", systemImage: "plus") {
             Button("Add Edge", systemImage: "app.connected.to.app.below.fill") { showEdgeCreator = true }
             Button("Add Vertex", systemImage: "smallcircle.filled.circle") { showVertexBuilder = true }
@@ -102,7 +59,7 @@ struct GraphEditor: View {
         }
     }
 
-    var menu: some View {
+    private var menu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
             graphSelectorButton
@@ -129,6 +86,62 @@ struct GraphEditor: View {
             assert(!graph.isEmpty)
         }
         .popoverTip(HelpTip())
+    }
+
+    private var graphData: some View {
+        List {
+            if !graph.edges.isEmpty {
+                EdgeList(graph: graph)
+            }
+            if !graph.vertices.isEmpty {
+                VertexList(graph: graph)
+            }
+        }
+        .navigationDestination(for: Edge.self) { _ in Spacer() }
+        .listStyle(.sidebar)
+    }
+
+    private var toolbar: some View {
+        Spacer()
+            .sheet(isPresented: $showGraphSelector) {
+                GraphSelector()
+            }
+            .sheet(isPresented: $showTutorial) {
+                Tutorial()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    if !graph.isEmpty {
+                        EditButton()
+                    } else {
+                        Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
+                    }
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack {
+                        if !graph.isEmpty {
+                            menu
+                        }
+                        if graph.isEmpty {
+                            graphSelectorButton
+                        }
+                        addButton
+                    }
+                }
+            }
+    }
+
+    private var emptyView: some View {
+        VStack {
+            TipView(TutorialTip()) { _ in
+                showTutorial = true
+            }
+            .padding(.horizontal)
+            ContentUnavailableView("No edges or vertices to display",
+                                   systemImage: "hammer",
+                                   description: Text("Tap on + to add data"))
+        }
     }
 }
 
