@@ -21,7 +21,7 @@ final class WeightedGraphTests: XCTestCase {
 
     func testMST() {
         // given
-        let expectedResult = Graph(graphEdges: [
+        let expectedResult: Graph = .init(graphEdges: [
             Edge(from: "a", toward: "b", weight: 1),
             Edge(from: "b", toward: "c", weight: 2),
             Edge(from: "a", toward: "d", weight: 22),

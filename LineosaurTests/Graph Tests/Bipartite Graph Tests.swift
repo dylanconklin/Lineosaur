@@ -24,7 +24,7 @@ class BipartiteGraphTests: XCTestCase {
         sut = bipartiteGraph
 
         // when
-        let result = sut.isBipartite
+        let result: Bool = sut.isBipartite
 
         // then
         XCTAssertTrue(result)
@@ -35,7 +35,7 @@ class BipartiteGraphTests: XCTestCase {
         sut = nonBipartiteGraph
 
         // when
-        let result = sut.isBipartite
+        let result: Bool = sut.isBipartite
 
         // then
         XCTAssertFalse(result)
@@ -46,7 +46,7 @@ class BipartiteGraphTests: XCTestCase {
         sut = nonBipartiteGraphWithBipartiteCycle
 
         // when
-        let result = sut.isBipartite
+        let result: Bool = sut.isBipartite
 
         // then
         XCTAssertFalse(result)
@@ -60,7 +60,7 @@ class BipartiteGraphTests: XCTestCase {
         sut.insert("B")
         sut.insert("C")
 
-        let result = sut.isBipartite
+        let result: Bool = sut.isBipartite
 
         // then
         XCTAssertTrue(result)
@@ -70,7 +70,7 @@ class BipartiteGraphTests: XCTestCase {
         // given
 
         // when
-        let result = sut.isBipartite
+        let result: Bool = sut.isBipartite
 
         // then
         XCTAssertTrue(result)

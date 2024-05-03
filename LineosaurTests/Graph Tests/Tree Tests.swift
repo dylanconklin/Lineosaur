@@ -24,7 +24,7 @@ final class TreeTests: XCTestCase {
         sut = treeGraph
 
         // when
-        let result = sut.isTree
+        let result: Bool = sut.isTree
 
         // then
         XCTAssertTrue(result)
@@ -35,7 +35,7 @@ final class TreeTests: XCTestCase {
         sut = notTreeGraph
 
         // when
-        let result = sut.isTree
+        let result: Bool = sut.isTree
 
         // then
         XCTAssertFalse(result)
@@ -48,7 +48,7 @@ final class TreeTests: XCTestCase {
         sut.insert("c")
 
         // when
-        let result = sut.isTree
+        let result: Bool = sut.isTree
 
         // then
         XCTAssertTrue(result)
@@ -58,7 +58,7 @@ final class TreeTests: XCTestCase {
         // given
 
         // when
-        let result = sut.isTree
+        let result: Bool = sut.isTree
 
         // then
         XCTAssertTrue(result)
@@ -69,7 +69,7 @@ final class TreeTests: XCTestCase {
         sut = disconnectedGraphNoOutlierVertex
 
         // when
-        let result = sut.isTree
+        let result: Bool = sut.isTree
 
         // then
         XCTAssertFalse(result)
