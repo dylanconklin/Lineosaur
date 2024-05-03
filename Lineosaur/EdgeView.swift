@@ -34,11 +34,11 @@ struct EdgeView: View {
 }
 
 #Preview {
-    let vertex = "Destination"
-    let lengthA = 5.0
-    let lengthB = 5.5
-    @State var edge1 = Edge(from: vertex, toward: vertex, weight: lengthA)
-    @State var edge2 = Edge(from: vertex, toward: vertex, weight: lengthB)
+    let vertex: String = "Destination"
+    let lengthA: Double = 5.0
+    let lengthB: Double = 5.5
+    @State var edge1: Edge = .init(from: vertex, toward: vertex, weight: lengthA)
+    @State var edge2: Edge = .init(from: vertex, toward: vertex, weight: lengthB)
     return VStack {
         EdgeView(edge: $edge1)
         EdgeView(edge: $edge2)

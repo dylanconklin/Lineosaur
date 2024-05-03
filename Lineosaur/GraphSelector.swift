@@ -10,16 +10,16 @@ import SwiftUI
 
 struct GraphSelector: View {
     @Environment(\.modelContext)
-    var modelContext
+    var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
     var savedGraphs: [Graph]
     @State var showGraphNamer: Bool = false
     @State var graphName: String = ""
     @Environment(\.dismiss)
-    var dismiss
+    var dismiss: DismissAction
 
     private var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
+        let dateFormatter: DateFormatter = .init()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         return dateFormatter
@@ -91,8 +91,8 @@ struct GraphSelector: View {
 
 #Preview {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphSelector()
             .modelContainer(container)
     } catch {

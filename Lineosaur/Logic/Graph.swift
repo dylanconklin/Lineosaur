@@ -80,8 +80,8 @@ class Graph: Equatable {
             graphVertices.sorted()
         }
         set {
-            let newVertices = Set<Vertex>(newValue)
-            let difference = Set<Vertex>(vertices).symmetricDifference(newVertices)
+            let newVertices: Set<Vertex> = .init(newValue)
+            let difference: Set<Vertex> = .init(vertices).symmetricDifference(newVertices)
 
             if vertices.count < newVertices.count {
                 graphVertices.formUnion(difference)
@@ -105,12 +105,12 @@ class Graph: Equatable {
         }
 
         let graph: Graph = copy
-        var verticesLeft = Set<Vertex>(graph.vertices) // vertices that don't have an edge
-        let MST = Graph()
+        var verticesLeft: Set<Vertex> = .init(graph.vertices) // vertices that don't have an edge
+        let MST: Graph = .init()
 
         while let edge = graph.edges.sorted(by: { $0.weight < $1.weight }).first(where: { edge in
-            let groupA = Set<Vertex>(edge.vertices).intersection(verticesLeft)
-            let groupB = Set<Vertex>(edge.vertices).intersection(MST.vertices)
+            let groupA: Set<Vertex> = .init(edge.vertices).intersection(verticesLeft)
+            let groupB: Set<Vertex> = .init(edge.vertices).intersection(MST.vertices)
             return !groupA.isEmpty && !groupB.isEmpty
         }) ?? (MST.isEmpty ? graph.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
             MST.insert(edge)
@@ -135,8 +135,8 @@ class Graph: Equatable {
             })
         }
         set {
-            let difference = Set(newValue).symmetricDifference(Set(edges))
-            let addOrRemove = edges.count < newValue.count ? { (edge: Edge) in
+            let difference: Set<Edge> = .init(newValue).symmetricDifference(Set(edges))
+            let addOrRemove: (Edge) -> Void = edges.count < newValue.count ? { (edge: Edge) in
                 self.insert(edge)
             } : { (edge: Edge) in
                 self.remove(edge)

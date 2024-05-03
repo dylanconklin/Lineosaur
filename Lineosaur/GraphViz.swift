@@ -61,8 +61,8 @@ struct GraphViz: View {
 
 #Preview {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphViz(url: weightedGraph.generateGraphVizURL(of: .given))
             .modelContainer(container)
     } catch {

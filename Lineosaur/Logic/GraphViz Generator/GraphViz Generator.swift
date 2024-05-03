@@ -9,7 +9,7 @@ import Foundation
 
 extension Graph {
     fileprivate var compiler: Compiler {
-        let compiler = UserDefaults.standard.string(forKey: "compiler")
+        let compiler: String? = UserDefaults.standard.string(forKey: "compiler")
         return compiler.flatMap(Compiler.init) ?? .dot
     }
 
@@ -18,14 +18,14 @@ extension Graph {
     }
 
     func generateGraphVizURL(of type: GraphType) -> URL {
-        var graph = self
+        var graph: Graph = self
         if type == .mst {
             graph = mst
         }
 
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
         let directional: Bool = type == .given ? true : false
-        var result = "https://quickchart.io/graphviz?"
+        var result: String = "https://quickchart.io/graphviz?"
         result.append("format=png&")
         result.append("layout=\(compiler)&")
         result.append("graph=\(directional ? "di" : "")graph")

@@ -42,7 +42,7 @@ struct EdgeCreator: View {
     @State private var weight: Double = 0
     @State private var style: EdgeStyle = .init()
     @Environment(\.dismiss)
-    private var dismiss
+    private var dismiss: DismissAction
 
     func insertEdge() {
         from = from.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -124,8 +124,8 @@ struct EdgeCreator: View {
 
 #Preview("Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return EdgeCreator(graph: Graph())
             .modelContainer(container)
     } catch {
@@ -135,8 +135,8 @@ struct EdgeCreator: View {
 
 #Preview("Non-Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return EdgeCreator(graph: connectedGraph)
             .modelContainer(container)
     } catch {

@@ -8,5 +8,5 @@
 import SwiftUI
 
 enum Comfortaa {
-    static let body = Font.custom("Comfortaa-Regular", size: 24.0)
+    static let body: Font = .custom("Comfortaa-Regular", size: 24.0)
 }

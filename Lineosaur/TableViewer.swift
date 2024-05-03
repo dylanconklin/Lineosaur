@@ -47,8 +47,8 @@ struct TableViewer: View {
 
 #Preview("Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return TableViewer(graph: Graph())
             .modelContainer(container)
     } catch {
@@ -58,8 +58,8 @@ struct TableViewer: View {
 
 #Preview("Non-Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return TableViewer(graph: connectedGraph)
             .modelContainer(container)
     } catch {

@@ -12,7 +12,7 @@ struct CloseButtonView<Content: View>: View {
     @State var titleStyle: NavigationBarItem.TitleDisplayMode?
     @ViewBuilder var content: () -> Content
     @Environment(\.dismiss)
-    var dismiss
+    var dismiss: DismissAction
 
     var body: some View {
         NavigationStack {

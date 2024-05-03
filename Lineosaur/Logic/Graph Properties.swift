@@ -9,8 +9,8 @@ import Foundation
 
 extension Graph {
     var isBipartite: Bool {
-        var groupA = Set<Vertex>()
-        var groupB = Set<Vertex>()
+        var groupA: Set<Vertex> = .init()
+        var groupB: Set<Vertex> = .init()
 
         if !vertices.isEmpty {
             isBipartite(selectedVertex: vertices.randomElement()!, &groupA, &groupB)
@@ -61,9 +61,9 @@ extension Graph {
 
     var isConnected: Bool {
         var connectedVertices: Set<Vertex> = vertices.isEmpty ? [] : [vertices.randomElement()!]
-        var connectedEdges = Set<Edge>()
+        var connectedEdges: Set<Edge> = .init()
         while !edges(connectedTo: connectedVertices).subtracting(connectedEdges).isEmpty {
-            let newEdges = edges(connectedTo: connectedVertices)
+            let newEdges: Set<Edge> = edges(connectedTo: connectedVertices)
             connectedEdges.formUnion(newEdges)
             connectedVertices.formUnion(newEdges.flatMap { $0.vertices })
         }

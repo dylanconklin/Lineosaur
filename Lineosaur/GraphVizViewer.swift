@@ -85,8 +85,8 @@ struct GraphVizViewer: View {
 
 #Preview("Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphVizViewer(graph: Graph())
             .modelContainer(container)
     } catch {
@@ -96,8 +96,8 @@ struct GraphVizViewer: View {
 
 #Preview("Non-Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphVizViewer(graph: connectedGraph)
             .modelContainer(container)
     } catch {

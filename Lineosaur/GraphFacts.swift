@@ -20,7 +20,7 @@ struct GraphFact: View {
                     Image(systemName: symbol)
                         .font(.system(size: 32))
                         .accessibilityLabel("Icon correlating to stated property")
-                    if value == false {
+                    if !value {
                         Image(systemName: "xmark")
                             .font(.system(size: 48))
                             .foregroundStyle(Color.red)
@@ -67,8 +67,8 @@ struct GraphFacts: View {
 
 #Preview("Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphFacts(graph: Graph())
             .modelContainer(container)
     } catch {
@@ -78,8 +78,8 @@ struct GraphFacts: View {
 
 #Preview("Non-Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphFacts(graph: connectedGraph)
             .modelContainer(container)
     } catch {

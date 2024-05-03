@@ -11,7 +11,7 @@ import SwiftUI
 /// Displays graph data as an adjacency table, using cells to display each data point
 struct TableView: View {
     @Bindable var graph: Graph
-    
+
     var body: some View {
         if graph.edges.isEmpty {
             ContentUnavailableView("No edges in graph",
@@ -23,7 +23,7 @@ struct TableView: View {
             }
         }
     }
-    
+
     private var tableTopRow: some View {
         GridRow {
             Cell {
@@ -37,7 +37,7 @@ struct TableView: View {
             }
         }
     }
-    
+
     private var tableBody: some View {
         ForEach(graph.vertices.sorted(), id: \.self) { vertex1 in
             GridRow {
@@ -47,7 +47,7 @@ struct TableView: View {
                 }
                 ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                     var distance: String {
-                        var distance = ""
+                        var distance: String = ""
                         distance = String(graph.edges(from: vertex2,
                                                       toward: vertex1,
                                                       directional: false)
@@ -63,7 +63,7 @@ struct TableView: View {
             }
         }
     }
-    
+
     private var table: some View {
         Grid(horizontalSpacing: 0, verticalSpacing: 0) {
             tableTopRow
@@ -75,8 +75,8 @@ struct TableView: View {
 
 #Preview("Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return TableView(graph: Graph())
             .modelContainer(container)
     } catch {
@@ -86,8 +86,8 @@ struct TableView: View {
 
 #Preview("Non-Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return TableView(graph: connectedGraph)
             .modelContainer(container)
     } catch {

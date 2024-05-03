@@ -11,7 +11,7 @@ import SwiftUI
 /// List showing edges in the graph
 struct EdgeList: View {
     @Bindable var graph: Graph
-    @State private var showEdgeSection = true
+    @State private var showEdgeSection: Bool = true
 
     var body: some View {
         Section("Edges", isExpanded: $showEdgeSection) {
@@ -31,8 +31,8 @@ struct EdgeList: View {
 
 #Preview("Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return List { EdgeList(graph: Graph()) }
             .modelContainer(container)
     } catch {
@@ -42,8 +42,8 @@ struct EdgeList: View {
 
 #Preview("Non-Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return List { EdgeList(graph: connectedGraph) }
             .modelContainer(container)
     } catch {

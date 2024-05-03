@@ -14,9 +14,9 @@ struct GraphEditor: View {
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
     @State private var vertexName: String = ""
-    @State private var showTutorial = false
-    @State private var showVertexSection = true
-    @State private var showGraphSelector = false
+    @State private var showTutorial: Bool = false
+    @State private var showVertexSection: Bool = true
+    @State private var showGraphSelector: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -147,8 +147,8 @@ struct GraphEditor: View {
 
 #Preview("Non-Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphEditor(graph: connectedGraph)
             .modelContainer(container)
     } catch {
@@ -158,8 +158,8 @@ struct GraphEditor: View {
 
 #Preview("Empty Graph") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return GraphEditor(graph: Graph())
             .modelContainer(container)
     } catch {

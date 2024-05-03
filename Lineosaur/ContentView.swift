@@ -11,7 +11,7 @@ import SwiftUI
 /// Entry point into application
 struct ContentView: View {
     @Environment(\.modelContext)
-    var modelContext
+    var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
     var savedGraphs: [Graph]
 
@@ -41,10 +41,10 @@ struct ContentView: View {
 
 #Preview {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
 
-        let testGraphs = [connectedGraph, disconnectedGraphOutlierVertex, disconnectedGraphNoOutlierVertex]
+        let testGraphs: [Graph] = [connectedGraph, disconnectedGraphOutlierVertex, disconnectedGraphNoOutlierVertex]
 
         for graph in testGraphs {
             container.mainContext.insert(graph)

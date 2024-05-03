@@ -10,7 +10,7 @@ import SwiftUI
 
 struct VertexList: View {
     @Bindable var graph: Graph
-    @State private var showVertexSection = true
+    @State private var showVertexSection: Bool = true
 
     var body: some View {
         Section("Vertices", isExpanded: $showVertexSection) {
@@ -32,8 +32,8 @@ struct VertexList: View {
 
 #Preview("Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return List { VertexList(graph: Graph()) }
             .modelContainer(container)
     } catch {
@@ -43,8 +43,8 @@ struct VertexList: View {
 
 #Preview("Non-Empty List") {
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Graph.self, configurations: config)
+        let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
+        let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         return List { VertexList(graph: connectedGraph) }
             .modelContainer(container)
     } catch {
