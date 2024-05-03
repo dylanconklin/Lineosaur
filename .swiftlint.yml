@@ -10,6 +10,7 @@ reporter: "xcode"
 strict: false
 
 analyzer_rules:
+  - capture_variable
   - explicit_self
 
 opt_in_rules:
@@ -21,9 +22,6 @@ opt_in_rules:
   - balanced_xctest_lifecycle
   - blanket_disable_command
   - block_based_kvo
-
-disabled_rules:
-  - capture_variable
   - class_delegate_protocol
   - closing_brace
   - closure_body_length
@@ -46,6 +44,8 @@ disabled_rules:
   - convenience_type
   - custom_rules
   - cyclomatic_complexity
+
+disabled_rules:
   - deployment_target
   - direct_return
   - discarded_notification_center_observer
