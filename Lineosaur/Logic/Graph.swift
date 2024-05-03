@@ -37,7 +37,7 @@ internal class Graph: Equatable {
     }
 
     internal static func == (lhs: Graph, rhs: Graph) -> Bool {
-        return lhs.edges == rhs.edges && lhs.vertices == rhs.vertices
+        lhs.edges == rhs.edges && lhs.vertices == rhs.vertices
     }
 
     internal func insert(_ vertex: Vertex) {
