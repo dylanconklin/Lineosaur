@@ -35,20 +35,7 @@ struct GraphEditor: View {
                             EdgeList(graph: graph)
                         }
                         if !graph.vertices.isEmpty {
-                            Section("Vertices", isExpanded: $showVertexSection) {
-                                ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
-                                    Text("\(vertex.wrappedValue)")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .multilineTextAlignment(.leading)
-                                }
-                                .onDelete { offsets in
-                                    withAnimation {
-                                        for offset in offsets {
-                                            graph.remove(graph.vertices[offset])
-                                        }
-                                    }
-                                }
-                            }
+                            VertexList(graph: graph)
                         }
                     }
                     .navigationDestination(for: Edge.self) { _ in Spacer() }

@@ -19,6 +19,13 @@ struct VertexList: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
             }
+            .onDelete { offsets in
+                withAnimation {
+                    for offset in offsets {
+                        graph.remove(graph.vertices[offset])
+                    }
+                }
+            }
         }
     }
 }
