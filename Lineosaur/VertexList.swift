@@ -9,10 +9,10 @@ import SwiftData
 import SwiftUI
 
 internal struct VertexList: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
     @State private var showVertexSection: Bool = true
 
-    var body: some View {
+    internal var body: some View {
         Section("Vertices", isExpanded: $showVertexSection) {
             ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
                 Text(vertex.wrappedValue)

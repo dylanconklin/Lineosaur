@@ -10,9 +10,9 @@ import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
 internal struct TableView: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
 
-    var body: some View {
+    internal var body: some View {
         if graph.edges.isEmpty {
             ContentUnavailableView("No edges in graph",
                                    systemImage: "hammer",

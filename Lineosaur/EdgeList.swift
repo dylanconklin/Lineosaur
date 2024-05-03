@@ -10,10 +10,10 @@ import SwiftUI
 
 /// List showing edges in the graph
 internal struct EdgeList: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
     @State private var showEdgeSection: Bool = true
 
-    var body: some View {
+    internal var body: some View {
         Section("Edges", isExpanded: $showEdgeSection) {
             ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
                 EdgeView(edge: edge)

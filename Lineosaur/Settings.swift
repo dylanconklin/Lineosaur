@@ -9,9 +9,9 @@ import SwiftUI
 
 internal struct Settings: View {
     @AppStorage("deleteDetachedVertices")
-    var deleteDetachedVertices: Bool = false
+    private var deleteDetachedVertices: Bool = false
 
-    var body: some View {
+    internal var body: some View {
         NavigationStack {
             VStack {
                 VStack {

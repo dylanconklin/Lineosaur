@@ -9,17 +9,17 @@
 import XCTest
 
 internal final class EmptyGraphTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = Graph()
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 
-    func testEmptyGraphIsNotCyclic() {
+    private func testEmptyGraphIsNotCyclic() {
         // given
 
         // when
@@ -29,7 +29,7 @@ internal final class EmptyGraphTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testEmptyGraphIsConnected() {
+    private func testEmptyGraphIsConnected() {
         // given
 
         // when

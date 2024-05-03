@@ -8,7 +8,7 @@
 import Foundation
 
 extension Graph {
-    var isBipartite: Bool {
+    internal var isBipartite: Bool {
         var groupA: Set<Vertex> = .init()
         var groupB: Set<Vertex> = .init()
 
@@ -19,7 +19,7 @@ extension Graph {
         return groupA.isDisjoint(with: groupB)
     }
 
-    func isBipartite(selectedVertex: Vertex,
+    internal func isBipartite(selectedVertex: Vertex,
                      _ groupA: inout Set<Vertex>,
                      _ groupB: inout Set<Vertex>,
                      _ group: Bool = true,
@@ -49,7 +49,7 @@ extension Graph {
         }
     }
 
-    var isComplete: Bool {
+    internal var isComplete: Bool {
         for vertex in vertices {
             let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
             if connectedVertices.count != vertices.count {
@@ -59,7 +59,7 @@ extension Graph {
         return true
     }
 
-    var isConnected: Bool {
+    internal var isConnected: Bool {
         var connectedVertices: Set<Vertex> = vertices.isEmpty ? [] : [vertices.randomElement()!]
         var connectedEdges: Set<Edge> = .init()
         while !edges(connectedTo: connectedVertices).subtracting(connectedEdges).isEmpty {
@@ -70,7 +70,7 @@ extension Graph {
         return Set(edges).subtracting(connectedEdges).isEmpty
     }
 
-    var isCyclic: Bool {
+    internal var isCyclic: Bool {
         let graph: Graph = copy
         while !graph.leaves.isEmpty {
             graph.remove(graph.leaves)
@@ -78,11 +78,11 @@ extension Graph {
         return !graph.isEmpty
     }
 
-    var isEmpty: Bool {
+    internal var isEmpty: Bool {
         edges.isEmpty && vertices.isEmpty
     }
 
-    var isMulti: Bool {
+    internal var isMulti: Bool {
         if loops.isEmpty {
             for vertex1 in vertices {
                 for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
@@ -93,7 +93,7 @@ extension Graph {
         return false
     }
 
-    var isSimple: Bool {
+    internal var isSimple: Bool {
         for vertex1 in vertices {
             for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
                 return false
@@ -102,11 +102,11 @@ extension Graph {
         return true
     }
 
-    var isTree: Bool {
+    internal var isTree: Bool {
         isConnected && !isCyclic
     }
 
-    var isTrivial: Bool {
+    internal var isTrivial: Bool {
         edges.isEmpty && vertices.count == 1
     }
 }

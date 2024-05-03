@@ -8,13 +8,13 @@
 import SwiftUI
 
 internal struct CloseButtonView<Content: View>: View {
-    @State var title: String?
-    @State var titleStyle: NavigationBarItem.TitleDisplayMode?
-    @ViewBuilder var content: () -> Content
+    @State internal var title: String?
+    @State internal var titleStyle: NavigationBarItem.TitleDisplayMode?
+    @ViewBuilder internal var content: () -> Content
     @Environment(\.dismiss)
-    var dismiss: DismissAction
+    private var dismiss: DismissAction
 
-    var body: some View {
+    internal var body: some View {
         NavigationStack {
             content()
                 .navigationTitle(title ?? "")

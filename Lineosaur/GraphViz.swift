@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 internal struct GraphViz: View {
-    var url: URL
+    internal var url: URL
 
     @State private var currScale: CGFloat = 1.0
     @State private var changingScale: CGFloat = 1.0
@@ -40,7 +40,7 @@ internal struct GraphViz: View {
             }
     }
 
-    var body: some View {
+    internal var body: some View {
         VStack {
             AsyncImage(url: url) { image in
                 image

@@ -9,7 +9,7 @@ import SwiftUI
 import TipKit
 
 internal struct HelpTip: Tip {
-    var title: Text { Text("Need Help?") }
-    var message: Text? { Text("Tap here for help if you need a refresher") }
-    var image: Image? { Image(systemName: "graduationcap.fill") }
+    internal var title: Text { Text("Need Help?") }
+    internal var message: Text? { Text("Tap here for help if you need a refresher") }
+    internal var image: Image? { Image(systemName: "graduationcap.fill") }
 }

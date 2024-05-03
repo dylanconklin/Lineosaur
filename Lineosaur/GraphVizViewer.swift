@@ -19,12 +19,12 @@ internal enum Compiler: String {
 }
 
 internal struct GraphVizViewer: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
     @State private var graphType: GraphType = .given
     @AppStorage("compiler")
-    var compiler: Compiler = .dot
+    private var compiler: Compiler = .dot
     @AppStorage("displayEdgeWeights")
-    var displayEdgeWeights: Bool = false
+    private var displayEdgeWeights: Bool = false
 
     private var directional: Bool {
         graphType == .given
@@ -32,7 +32,7 @@ internal struct GraphVizViewer: View {
 
     private var graphURL: URL { graph.generateGraphVizURL(of: graphType) }
 
-    var toolBarMenu: some View {
+    internal var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Menu("Graph Type", systemImage: "square.on.circle") {
                 Picker("Graph Type", selection: $graphType) {
@@ -58,7 +58,7 @@ internal struct GraphVizViewer: View {
         }
     }
 
-    var body: some View {
+    internal var body: some View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {

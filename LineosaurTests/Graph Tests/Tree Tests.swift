@@ -9,17 +9,17 @@
 import XCTest
 
 internal final class TreeTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = Graph()
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 
-    func testTreeGraphIsTree() {
+    private func testTreeGraphIsTree() {
         // given
         sut = treeGraph
 
@@ -30,7 +30,7 @@ internal final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testNonTreeGraphIsNotTree() {
+    private func testNonTreeGraphIsNotTree() {
         // given
         sut = notTreeGraph
 
@@ -41,7 +41,7 @@ internal final class TreeTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testGraphWithoutEdgesIsTree() {
+    private func testGraphWithoutEdgesIsTree() {
         // given
         sut.insert("a")
         sut.insert("b")
@@ -54,7 +54,7 @@ internal final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testEmptyGraphIsTree() {
+    private func testEmptyGraphIsTree() {
         // given
 
         // when
@@ -64,7 +64,7 @@ internal final class TreeTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testDisconnectedGraphIsNotTree() {
+    private func testDisconnectedGraphIsNotTree() {
         // given
         sut = disconnectedGraphNoOutlierVertex
 

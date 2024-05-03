@@ -10,13 +10,13 @@ import SwiftUI
 
 internal struct GraphSelector: View {
     @Environment(\.modelContext)
-    var modelContext: ModelContext
+    private var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
-    var savedGraphs: [Graph]
-    @State var showGraphNamer: Bool = false
-    @State var graphName: String = ""
+    private var savedGraphs: [Graph]
+    @State private var showGraphNamer: Bool = false
+    @State private var graphName: String = ""
     @Environment(\.dismiss)
-    var dismiss: DismissAction
+    private var dismiss: DismissAction
 
     private var dateFormatter: DateFormatter {
         let dateFormatter: DateFormatter = .init()
@@ -40,7 +40,7 @@ internal struct GraphSelector: View {
         }
     }
 
-    var body: some View {
+    internal var body: some View {
         NavigationStack {
             List {
                 ForEach(savedGraphs) { graph in

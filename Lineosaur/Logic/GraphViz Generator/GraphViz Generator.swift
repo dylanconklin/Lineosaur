@@ -17,7 +17,7 @@ extension Graph {
         UserDefaults.standard.bool(forKey: "displayEdgeWeights")
     }
 
-    func generateGraphVizURL(of type: GraphType) -> URL {
+    internal func generateGraphVizURL(of type: GraphType) -> URL {
         var graph: Graph = self
         if type == .mst {
             graph = mst

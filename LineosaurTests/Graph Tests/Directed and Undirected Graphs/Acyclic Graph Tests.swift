@@ -9,17 +9,17 @@
 import XCTest
 
 internal final class AcyclicGraphTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = acyclicGraph
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 
-    func testAcyclicGraphIsNotCyclic() {
+    private func testAcyclicGraphIsNotCyclic() {
         // given
 
         // when

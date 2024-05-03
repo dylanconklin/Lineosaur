@@ -10,7 +10,7 @@ import SwiftUI
 import TipKit
 
 internal struct GraphEditor: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false
     @State private var vertexName: String = ""
@@ -18,7 +18,7 @@ internal struct GraphEditor: View {
     @State private var showVertexSection: Bool = true
     @State private var showGraphSelector: Bool = false
 
-    var body: some View {
+    internal var body: some View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {

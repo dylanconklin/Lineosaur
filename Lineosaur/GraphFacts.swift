@@ -9,11 +9,11 @@ import SwiftData
 import SwiftUI
 
 internal struct GraphFact: View {
-    var fact: String
-    var symbol: String
-    var value: Bool = true
+    internal var fact: String
+    internal var symbol: String
+    internal var value: Bool = true
 
-    var body: some View {
+    internal var body: some View {
         Grid {
             GridRow {
                 ZStack {
@@ -37,9 +37,9 @@ internal struct GraphFact: View {
 }
 
 internal struct GraphFacts: View {
-    @Bindable var graph: Graph
+    @Bindable internal var graph: Graph
 
-    var body: some View {
+    internal var body: some View {
         CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
             List {
                 GraphFact(fact: "The graph has \(graph.edges.count) "

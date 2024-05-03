@@ -9,10 +9,10 @@ import SwiftUI
 import TipKit
 
 internal struct TutorialTip: Tip {
-    var title: Text { Text("Need Help?") }
-    var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
-    var image: Image? { Image(systemName: "graduationcap.fill") }
-    var actions: [Tip.Action] {
+    internal var title: Text { Text("Need Help?") }
+    internal var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
+    internal var image: Image? { Image(systemName: "graduationcap.fill") }
+    internal var actions: [Tip.Action] {
         [
             Tips.Action(title: "Open Tutorial") {}
         ]
@@ -20,7 +20,7 @@ internal struct TutorialTip: Tip {
 }
 
 internal struct Tutorial: View {
-    var body: some View {
+    internal var body: some View {
         VStack {
             CloseButtonView {
                 VStack {

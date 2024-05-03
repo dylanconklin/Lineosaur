@@ -9,13 +9,13 @@
 import XCTest
 
 internal final class UnweightedGraphTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = Graph()
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 }

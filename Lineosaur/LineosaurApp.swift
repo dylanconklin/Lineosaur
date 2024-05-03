@@ -11,7 +11,7 @@ import TipKit
 
 @main
 internal struct LineosaurApp: App {
-    var body: some Scene {
+    internal var body: some Scene {
         WindowGroup {
             ContentView()
                 .task {

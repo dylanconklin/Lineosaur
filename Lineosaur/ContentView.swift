@@ -11,11 +11,11 @@ import SwiftUI
 /// Entry point into application
 internal struct ContentView: View {
     @Environment(\.modelContext)
-    var modelContext: ModelContext
+    private var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
-    var savedGraphs: [Graph]
+    private var savedGraphs: [Graph]
 
-    var graph: Graph {
+    private var graph: Graph {
         if savedGraphs.isEmpty {
             modelContext.insert(Graph())
             do {
@@ -25,7 +25,7 @@ internal struct ContentView: View {
         return savedGraphs.first!
     }
 
-    var body: some View {
+    internal var body: some View {
         TabView {
             GraphEditor(graph: graph)
                 .tabItem { Label("Edit", systemImage: "pencil") }

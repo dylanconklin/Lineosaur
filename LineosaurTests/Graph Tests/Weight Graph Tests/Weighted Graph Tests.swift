@@ -9,17 +9,17 @@
 import XCTest
 
 internal final class WeightedGraphTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = weightedGraph
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 
-    func testMST() {
+    private func testMST() {
         // given
         let expectedResult: Graph = .init(graphEdges: [
             Edge(from: "a", toward: "b", weight: 1),

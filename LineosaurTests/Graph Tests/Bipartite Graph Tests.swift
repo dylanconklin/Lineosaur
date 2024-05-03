@@ -9,17 +9,17 @@
 import XCTest
 
 internal class BipartiteGraphTests: XCTestCase {
-    var sut: Graph!
+    private var sut: Graph!
 
-    override func setUp() {
+    internal override func setUp() {
         sut = Graph()
     }
 
-    override func tearDown() {
+    internal override func tearDown() {
         sut = nil
     }
 
-    func testBipartiteGraphIsBipartite() {
+    private func testBipartiteGraphIsBipartite() {
         // given
         sut = bipartiteGraph
 
@@ -30,7 +30,7 @@ internal class BipartiteGraphTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testNonBipartiteGraphIsNotBeBipartite() {
+    private func testNonBipartiteGraphIsNotBeBipartite() {
         // given
         sut = nonBipartiteGraph
 
@@ -41,7 +41,7 @@ internal class BipartiteGraphTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
+    private func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
         // given
         sut = nonBipartiteGraphWithBipartiteCycle
 
@@ -52,7 +52,7 @@ internal class BipartiteGraphTests: XCTestCase {
         XCTAssertFalse(result)
     }
 
-    func testGraphWithoutEdgesIsBipartite() {
+    private func testGraphWithoutEdgesIsBipartite() {
         // given
 
         // when
@@ -66,7 +66,7 @@ internal class BipartiteGraphTests: XCTestCase {
         XCTAssertTrue(result)
     }
 
-    func testEmptyGraphIsBipartite() {
+    private func testEmptyGraphIsBipartite() {
         // given
 
         // when

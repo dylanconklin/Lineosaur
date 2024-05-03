@@ -9,9 +9,9 @@ import SwiftUI
 
 /// Displays information from graph
 internal struct Cell<Content: View>: View {
-    @ViewBuilder let content: Content
+    @ViewBuilder internal let content: Content
 
-    var body: some View {
+    internal var body: some View {
         content
             .padding()
             .padding()
