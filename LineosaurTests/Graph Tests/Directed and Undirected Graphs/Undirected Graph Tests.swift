@@ -11,11 +11,11 @@ import XCTest
 final class UndirectedGraphTests: XCTestCase {
     var sut: Graph!
 
-    override func setUp() {}
+    override func setUp() {
+        sut = Graph()
+    }
 
     override func tearDown() {
         sut = nil
     }
-
-    func testExample() {}
 }

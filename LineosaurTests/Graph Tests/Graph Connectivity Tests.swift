@@ -11,7 +11,9 @@ import XCTest
 final class GraphConnectivityTests: XCTestCase {
     var sut: Graph!
 
-    override func setUp() {}
+    override func setUp() {
+        sut = Graph()
+    }
 
     override func tearDown() {
         sut = nil
