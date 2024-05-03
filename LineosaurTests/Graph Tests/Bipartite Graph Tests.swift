@@ -8,7 +8,7 @@
 @testable import Lineosaur
 import XCTest
 
-class BipartiteGraphTests: XCTestCase {
+internal class BipartiteGraphTests: XCTestCase {
     var sut: Graph!
 
     override func setUp() {

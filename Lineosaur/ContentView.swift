@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 /// Entry point into application
-struct ContentView: View {
+internal struct ContentView: View {
     @Environment(\.modelContext)
     var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)

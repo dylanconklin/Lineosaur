@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-enum Compiler: String {
+internal enum Compiler: String {
     case dot = "dot"
     case fdp = "fdp"
     case neato = "neato"
@@ -18,7 +18,7 @@ enum Compiler: String {
     case patchwork = "patchwork"
 }
 
-struct GraphVizViewer: View {
+internal struct GraphVizViewer: View {
     @Bindable var graph: Graph
     @State private var graphType: GraphType = .given
     @AppStorage("compiler")

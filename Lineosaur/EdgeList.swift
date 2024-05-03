@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 /// List showing edges in the graph
-struct EdgeList: View {
+internal struct EdgeList: View {
     @Bindable var graph: Graph
     @State private var showEdgeSection: Bool = true
 

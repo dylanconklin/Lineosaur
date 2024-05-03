@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CloseButtonView<Content: View>: View {
+internal struct CloseButtonView<Content: View>: View {
     @State var title: String?
     @State var titleStyle: NavigationBarItem.TitleDisplayMode?
     @ViewBuilder var content: () -> Content

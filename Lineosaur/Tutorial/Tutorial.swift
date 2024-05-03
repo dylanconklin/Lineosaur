@@ -8,7 +8,7 @@
 import SwiftUI
 import TipKit
 
-struct TutorialTip: Tip {
+internal struct TutorialTip: Tip {
     var title: Text { Text("Need Help?") }
     var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
     var image: Image? { Image(systemName: "graduationcap.fill") }
@@ -19,7 +19,7 @@ struct TutorialTip: Tip {
     }
 }
 
-struct Tutorial: View {
+internal struct Tutorial: View {
     var body: some View {
         VStack {
             CloseButtonView {
@@ -47,7 +47,7 @@ struct Tutorial: View {
     }
 }
 
-struct Tutorial1: View {
+private struct Tutorial1: View {
     var body: some View {
         HStack {
             Image(systemName: "app.connected.to.app.below.fill")
@@ -60,7 +60,7 @@ struct Tutorial1: View {
     }
 }
 
-struct Tutorial2: View {
+private struct Tutorial2: View {
     var body: some View {
         HStack {
             Image(systemName: "character.bubble")
@@ -72,7 +72,7 @@ struct Tutorial2: View {
     }
 }
 
-struct Tutorial3: View {
+private struct Tutorial3: View {
     var body: some View {
         HStack {
             Image(systemName: "list.bullet")
@@ -84,7 +84,7 @@ struct Tutorial3: View {
     }
 }
 
-struct Tutorial4: View {
+private struct Tutorial4: View {
     var body: some View {
         HStack {
             Image(systemName: "point.3.filled.connected.trianglepath.dotted")
@@ -96,7 +96,7 @@ struct Tutorial4: View {
     }
 }
 
-struct Tutorial5: View {
+private struct Tutorial5: View {
     var body: some View {
         HStack {
             Image(systemName: "hand.tap.fill")
@@ -108,7 +108,7 @@ struct Tutorial5: View {
     }
 }
 
-struct Tutorial6: View {
+private struct Tutorial6: View {
     var body: some View {
         HStack {
             Image(systemName: "square.and.arrow.down")

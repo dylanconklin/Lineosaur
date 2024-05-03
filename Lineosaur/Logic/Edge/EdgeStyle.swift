@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EdgeStyle: Codable {
+internal struct EdgeStyle: Codable {
     var arrowhead: Arrow = .normal
     var arrowtail: Arrow = EdgeStyle.Arrow.plain
 

@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct GraphSelector: View {
+internal struct GraphSelector: View {
     @Environment(\.modelContext)
     var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)

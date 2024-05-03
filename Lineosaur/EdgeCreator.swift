@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct VertexSelector: View {
+internal struct VertexSelector: View {
     @State var prompt: String
     @Binding var value: String
     @State var selection: [String]
@@ -35,7 +35,7 @@ struct VertexSelector: View {
 }
 
 /// Simple form to input vertices and edges into graph
-struct EdgeCreator: View {
+internal struct EdgeCreator: View {
     @Bindable var graph: Graph
     @State private var from: String = ""
     @State private var toward: String = ""

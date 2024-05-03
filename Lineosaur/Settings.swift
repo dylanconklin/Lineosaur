@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Settings: View {
+internal struct Settings: View {
     @AppStorage("deleteDetachedVertices")
     var deleteDetachedVertices: Bool = false
 

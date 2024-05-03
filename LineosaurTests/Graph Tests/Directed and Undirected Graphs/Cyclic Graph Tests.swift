@@ -8,7 +8,7 @@
 @testable import Lineosaur
 import XCTest
 
-final class CyclicGraphTests: XCTestCase {
+internal final class CyclicGraphTests: XCTestCase {
     var sut: Graph!
 
     override func setUp() {

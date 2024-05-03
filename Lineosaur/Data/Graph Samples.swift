@@ -7,7 +7,7 @@
 
 import Foundation
 
-var mixedIntAndDouble: Graph {
+internal var mixedIntAndDouble: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "A", toward: "B", weight: 1.0))
@@ -16,7 +16,7 @@ var mixedIntAndDouble: Graph {
     return graph
 }
 
-var acyclicGraph: Graph {
+internal var acyclicGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "1", toward: "2", weight: 1))
@@ -30,7 +30,7 @@ var acyclicGraph: Graph {
     return graph
 }
 
-var cyclicGraph: Graph {
+internal var cyclicGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "1", toward: "2", weight: 1))
@@ -44,7 +44,7 @@ var cyclicGraph: Graph {
     return graph
 }
 
-var weightedGraph: Graph {
+internal var weightedGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1))
@@ -67,7 +67,7 @@ var weightedGraph: Graph {
     return graph
 }
 
-var connectedGraph: Graph {
+internal var connectedGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -80,7 +80,7 @@ var connectedGraph: Graph {
     return graph
 }
 
-var disconnectedGraphNoOutlierVertex: Graph {
+internal var disconnectedGraphNoOutlierVertex: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -91,7 +91,7 @@ var disconnectedGraphNoOutlierVertex: Graph {
     return graph
 }
 
-var disconnectedGraphOutlierVertex: Graph {
+internal var disconnectedGraphOutlierVertex: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -104,7 +104,7 @@ var disconnectedGraphOutlierVertex: Graph {
     return graph
 }
 
-var bipartiteGraph: Graph {
+internal var bipartiteGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -117,7 +117,7 @@ var bipartiteGraph: Graph {
     return graph
 }
 
-var nonBipartiteGraph: Graph {
+internal var nonBipartiteGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -129,7 +129,7 @@ var nonBipartiteGraph: Graph {
     return graph
 }
 
-var nonBipartiteGraphWithBipartiteCycle: Graph {
+internal var nonBipartiteGraphWithBipartiteCycle: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -148,7 +148,7 @@ var nonBipartiteGraphWithBipartiteCycle: Graph {
     return graph
 }
 
-var treeGraph: Graph {
+internal var treeGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -162,7 +162,7 @@ var treeGraph: Graph {
     return graph
 }
 
-var notTreeGraph: Graph {
+internal var notTreeGraph: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))

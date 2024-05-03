@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct GraphFact: View {
+internal struct GraphFact: View {
     var fact: String
     var symbol: String
     var value: Bool = true
@@ -36,7 +36,7 @@ struct GraphFact: View {
     }
 }
 
-struct GraphFacts: View {
+internal struct GraphFacts: View {
     @Bindable var graph: Graph
 
     var body: some View {

@@ -8,15 +8,15 @@
 import Foundation
 import SwiftData
 
-typealias Vertex = String
+internal typealias Vertex = String
 
-enum GraphType {
+internal enum GraphType {
     case mst
     case given
 }
 
 @Model
-class Graph: Equatable {
+internal class Graph: Equatable {
     private var graphEdges: Set<Edge>
     private var graphVertices: Set<Vertex>
     var name: String?

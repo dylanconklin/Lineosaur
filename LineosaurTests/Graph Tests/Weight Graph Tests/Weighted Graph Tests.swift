@@ -8,7 +8,7 @@
 @testable import Lineosaur
 import XCTest
 
-final class WeightedGraphTests: XCTestCase {
+internal final class WeightedGraphTests: XCTestCase {
     var sut: Graph!
 
     override func setUp() {

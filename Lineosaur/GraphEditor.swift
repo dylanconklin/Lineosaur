@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-struct GraphEditor: View {
+internal struct GraphEditor: View {
     @Bindable var graph: Graph
     @State private var showVertexBuilder: Bool = false
     @State private var showEdgeCreator: Bool = false

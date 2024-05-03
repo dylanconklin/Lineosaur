@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 /// Displays graph data as an adjacency table, using cells to display each data point
-struct TableView: View {
+internal struct TableView: View {
     @Bindable var graph: Graph
 
     var body: some View {

@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct GraphViz: View {
+internal struct GraphViz: View {
     var url: URL
 
     @State private var currScale: CGFloat = 1.0

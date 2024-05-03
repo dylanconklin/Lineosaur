@@ -10,7 +10,7 @@ import SwiftUI
 import TipKit
 
 @main
-struct LineosaurApp: App {
+internal struct LineosaurApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

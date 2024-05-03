@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Displays information about a single edge
-struct EdgeView: View {
+internal struct EdgeView: View {
     @Binding var edge: Edge
 
     var body: some View {

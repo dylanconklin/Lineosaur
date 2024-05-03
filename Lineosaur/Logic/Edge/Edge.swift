@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
+internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     var from: Vertex
     var toward: Vertex
     var weight: Double

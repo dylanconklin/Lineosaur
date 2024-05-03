@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct VertexList: View {
+internal struct VertexList: View {
     @Bindable var graph: Graph
     @State private var showVertexSection: Bool = true
 
