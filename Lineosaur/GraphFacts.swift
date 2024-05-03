@@ -11,7 +11,7 @@ import SwiftUI
 struct GraphFact: View {
     var fact: String
     var symbol: String
-    var value: Bool?
+    var value: Bool = true
 
     var body: some View {
         Grid {
@@ -20,7 +20,7 @@ struct GraphFact: View {
                     Image(systemName: symbol)
                         .font(.system(size: 32))
                         .accessibilityLabel("Icon correlating to stated property")
-                    if value == true {
+                    if value == false {
                         Image(systemName: "xmark")
                             .font(.system(size: 48))
                             .foregroundStyle(Color.red)
@@ -50,16 +50,16 @@ struct GraphFacts: View {
                           symbol: "clock")
                 GraphFact(fact: "The graph is \(graph.isCyclic ? "" : "a")cyclic",
                           symbol: "arrow.triangle.2.circlepath",
-                          value: !graph.isCyclic)
+                          value: graph.isCyclic)
                 GraphFact(fact: "The graph is \(graph.isConnected ? "" : "not ")connected",
                           symbol: "point.3.connected.trianglepath.dotted",
-                          value: !graph.isConnected)
+                          value: graph.isConnected)
                 GraphFact(fact: "The graph is \(graph.isTree ? "" : "not ")a tree",
                           symbol: "tree",
-                          value: !graph.isTree)
+                          value: graph.isTree)
                 GraphFact(fact: "The graph is \(graph.isBipartite ? "" : "not ")bipartite",
                           symbol: "rectangle.split.2x1",
-                          value: !graph.isBipartite)
+                          value: graph.isBipartite)
             }
         }
     }
