@@ -98,9 +98,9 @@ opt_in_rules:
   - inclusive_language
   - invalid_swiftlint_command
   - is_disjoint
+  - joined_default_parameter
 
 disabled_rules:
-  - joined_default_parameter
   - large_tuple
   - last_where
   - leading_whitespace
