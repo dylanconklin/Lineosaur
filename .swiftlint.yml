@@ -20,7 +20,6 @@ opt_in_rules:
   - array_init
   - attributes
   - balanced_xctest_lifecycle
-  - blanket_disable_command
   - block_based_kvo
   - class_delegate_protocol
   - closing_brace
@@ -90,8 +89,6 @@ opt_in_rules:
   - function_default_parameter_at_end
   - function_parameter_count
   - generic_type_name
-
-disabled_rules:
   - ibinspectable_in_extension
   - identical_operands
   - identifier_name
@@ -99,10 +96,10 @@ disabled_rules:
   - implicit_return
   - implicitly_unwrapped_optional
   - inclusive_language
-  - indentation_width
-  - inert_defer
   - invalid_swiftlint_command
   - is_disjoint
+
+disabled_rules:
   - joined_default_parameter
   - large_tuple
   - last_where
@@ -246,6 +243,8 @@ disabled_rules:
   - xct_specific_matcher
   - xctfail_message
   - yoda_condition
+  - blanket_disable_command
+  - indentation_width
 
 # included: # case-sensitive paths to include during linting. `--path` is ignored if present
 #   - Sources

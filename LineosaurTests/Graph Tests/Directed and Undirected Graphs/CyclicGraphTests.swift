@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class CyclicGraphTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = cyclicGraph
@@ -23,9 +23,11 @@ internal final class CyclicGraphTests: XCTestCase {
         // given
 
         // when
-        let result: Bool = sut.isCyclic
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isCyclic {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 }

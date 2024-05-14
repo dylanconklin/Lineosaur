@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class TreeTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = Graph()
@@ -24,10 +24,12 @@ internal final class TreeTests: XCTestCase {
         sut = treeGraph
 
         // when
-        let result: Bool = sut.isTree
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isTree {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testNonTreeGraphIsNotTree() {
@@ -35,33 +37,39 @@ internal final class TreeTests: XCTestCase {
         sut = notTreeGraph
 
         // when
-        let result: Bool = sut.isTree
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isTree {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testGraphWithoutEdgesIsTree() {
         // given
-        sut.insert("a")
-        sut.insert("b")
-        sut.insert("c")
+        sut?.insert("a")
+        sut?.insert("b")
+        sut?.insert("c")
 
         // when
-        let result: Bool = sut.isTree
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isTree {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testEmptyGraphIsTree() {
         // given
 
         // when
-        let result: Bool = sut.isTree
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isTree {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testDisconnectedGraphIsNotTree() {
@@ -69,9 +77,11 @@ internal final class TreeTests: XCTestCase {
         sut = disconnectedGraphNoOutlierVertex
 
         // when
-        let result: Bool = sut.isTree
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isTree {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 }

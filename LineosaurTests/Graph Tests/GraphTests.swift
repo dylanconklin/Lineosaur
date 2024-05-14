@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class GraphTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = Graph()
@@ -24,11 +24,11 @@ internal final class GraphTests: XCTestCase {
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
         // when
-        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
+        sut?.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut?.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
         // then
-        XCTAssertEqual(sut.vertices, expectedResult)
+        XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
     private func testVerticesAreInsertedWithEdgesBinding() {
@@ -36,13 +36,13 @@ internal final class GraphTests: XCTestCase {
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
         // when
-        sut.edges = [
+        sut?.edges = [
             Edge(from: "a", toward: "b", weight: 1.0),
             Edge(from: "b", toward: "c", weight: 1.0)
         ]
 
         // then
-        XCTAssertEqual(sut.vertices, expectedResult)
+        XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
     private func testVerticesPersistAfterAllEdgeAreDeleted() {
@@ -50,14 +50,14 @@ internal final class GraphTests: XCTestCase {
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
         // when
-        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
+        sut?.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut?.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
-        sut.remove(Edge(from: "a", toward: "b", weight: 1.0))
-        sut.remove(Edge(from: "b", toward: "c", weight: 1.0))
+        sut?.remove(Edge(from: "a", toward: "b", weight: 1.0))
+        sut?.remove(Edge(from: "b", toward: "c", weight: 1.0))
 
         // then
-        XCTAssertEqual(sut.vertices, expectedResult)
+        XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
     private func testRemoveAllEdgesConnectedToRemovedVertices() {
@@ -65,12 +65,12 @@ internal final class GraphTests: XCTestCase {
         let expectedResult: [Edge] = [Edge(from: "b", toward: "c", weight: 1.0)]
 
         // when
-        sut.insert(Edge(from: "a", toward: "b", weight: 1.0))
-        sut.insert(Edge(from: "b", toward: "c", weight: 1.0))
+        sut?.insert(Edge(from: "a", toward: "b", weight: 1.0))
+        sut?.insert(Edge(from: "b", toward: "c", weight: 1.0))
 
-        sut.remove("a")
+        sut?.remove("a")
 
         // then
-        XCTAssertEqual(sut.edges, expectedResult)
+        XCTAssertEqual(sut?.edges, expectedResult)
     }
 }

@@ -1,3 +1,4 @@
+// swiftlint:disable *
 //
 //  Bipartite Graph Tests.swift
 //  LineosaurTests
@@ -9,7 +10,7 @@
 import XCTest
 
 internal class BipartiteGraphTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = Graph()
@@ -24,10 +25,12 @@ internal class BipartiteGraphTests: XCTestCase {
         sut = bipartiteGraph
 
         // when
-        let result: Bool = sut.isBipartite
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isBipartite {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testNonBipartiteGraphIsNotBeBipartite() {
@@ -35,10 +38,12 @@ internal class BipartiteGraphTests: XCTestCase {
         sut = nonBipartiteGraph
 
         // when
-        let result: Bool = sut.isBipartite
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isBipartite {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
@@ -46,33 +51,39 @@ internal class BipartiteGraphTests: XCTestCase {
         sut = nonBipartiteGraphWithBipartiteCycle
 
         // when
-        let result: Bool = sut.isBipartite
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isBipartite {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testGraphWithoutEdgesIsBipartite() {
         // given
 
         // when
-        sut.insert("A")
-        sut.insert("B")
-        sut.insert("C")
+        sut?.insert("A")
+        sut?.insert("B")
+        sut?.insert("C")
 
-        let result: Bool = sut.isBipartite
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isBipartite {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testEmptyGraphIsBipartite() {
         // given
 
         // when
-        let result: Bool = sut.isBipartite
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isBipartite {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 }

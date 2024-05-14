@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class GraphConnectivityTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = Graph()
@@ -24,10 +24,12 @@ internal final class GraphConnectivityTests: XCTestCase {
         sut = connectedGraph
 
         // when
-        let result: Bool = sut.isConnected
-
-        // then
-        XCTAssertTrue(result)
+        if let result: Bool = sut?.isConnected {
+            // then
+            XCTAssertTrue(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
@@ -35,10 +37,12 @@ internal final class GraphConnectivityTests: XCTestCase {
         sut = disconnectedGraphNoOutlierVertex
 
         // when
-        let result: Bool = sut.isConnected
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isConnected {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 
     private func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
@@ -46,9 +50,11 @@ internal final class GraphConnectivityTests: XCTestCase {
         sut = disconnectedGraphOutlierVertex
 
         // when
-        let result: Bool = sut.isConnected
-
-        // then
-        XCTAssertFalse(result)
+        if let result: Bool = sut?.isConnected {
+            // then
+            XCTAssertFalse(result)
+        } else {
+            XCTFail()
+        }
     }
 }

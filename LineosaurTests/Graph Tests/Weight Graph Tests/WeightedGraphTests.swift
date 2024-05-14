@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class WeightedGraphTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = weightedGraph
@@ -35,9 +35,9 @@ internal final class WeightedGraphTests: XCTestCase {
         ])
 
         // when
-        let actualResult: Graph = sut.mst
+        let actualResult: Graph? = sut?.mst
 
         // then
-        XCTAssertEqual(actualResult.edges, expectedResult.edges)
+        XCTAssertEqual(actualResult?.edges, expectedResult.edges)
     }
 }

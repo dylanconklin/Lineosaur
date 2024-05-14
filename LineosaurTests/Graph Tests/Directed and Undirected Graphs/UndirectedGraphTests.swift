@@ -9,7 +9,7 @@
 import XCTest
 
 internal final class UndirectedGraphTests: XCTestCase {
-    private var sut: Graph!
+    private var sut: Graph?
 
     internal override func setUp() {
         sut = Graph()
