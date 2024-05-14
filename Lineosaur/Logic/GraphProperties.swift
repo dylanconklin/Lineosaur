@@ -12,19 +12,21 @@ extension Graph {
     internal var isBipartite: Bool {
         var groupA: Set<Vertex> = .init()
         var groupB: Set<Vertex> = .init()
-
+        
         if !vertices.isEmpty, let vertex: Vertex = vertices.randomElement() {
             isBipartite(selectedVertex: vertex, &groupA, &groupB)
         }
-
+        
         return groupA.isDisjoint(with: groupB)
     }
-
-    internal func isBipartite(selectedVertex: Vertex,
-                     _ groupA: inout Set<Vertex>,
-                     _ groupB: inout Set<Vertex>,
-                     _ group: Bool = true,
-                     visitedEdges: Set<Edge> = Set<Edge>()) {
+    
+    internal func isBipartite(
+        selectedVertex: Vertex,
+        _ groupA: inout Set<Vertex>,
+        _ groupB: inout Set<Vertex>,
+        _ group: Bool = true,
+        visitedEdges: Set<Edge> = Set<Edge>()
+    ){
         if group {
             groupA.insert(selectedVertex)
         } else {
@@ -39,14 +41,16 @@ extension Graph {
         for vertex in connectedVertices {
             isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
         }
-
+        
         let leftoverVertices: Set<Vertex> = Set(vertices).subtracting(groupA).subtracting(groupB)
         if !leftoverVertices.isEmpty, let vertex: Vertex = leftoverVertices.randomElement() {
-            isBipartite(selectedVertex: vertex,
-                        &groupA,
-                        &groupB,
-                        !group,
-                        visitedEdges: visitedEdges)
+            isBipartite(
+                selectedVertex: vertex,
+                &groupA,
+                &groupB,
+                !group,
+                visitedEdges: visitedEdges
+            )
         }
     }
 
@@ -59,11 +63,11 @@ extension Graph {
         }
         return true
     }
-
+    
     internal var isConnected: Bool {
         var connectedVertices: Set<Vertex> = .init()
         var connectedEdges: Set<Edge> = .init()
-
+        
         if let vertex = vertices.randomElement() {
             connectedVertices.insert(vertex)
         }
@@ -74,7 +78,7 @@ extension Graph {
         }
         return Set(edges).subtracting(connectedEdges).isEmpty
     }
-
+    
     internal var isCyclic: Bool {
         let graph: Graph = copy
         while !graph.leaves.isEmpty {
@@ -82,11 +86,11 @@ extension Graph {
         }
         return !graph.isEmpty
     }
-
+    
     internal var isEmpty: Bool {
         edges.isEmpty && vertices.isEmpty
     }
-
+    
     internal var isMulti: Bool {
         if loops.isEmpty {
             for vertex1 in vertices {
@@ -97,7 +101,7 @@ extension Graph {
         }
         return false
     }
-
+    
     internal var isSimple: Bool {
         for vertex1 in vertices {
             for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
@@ -106,11 +110,11 @@ extension Graph {
         }
         return true
     }
-
+    
     internal var isTree: Bool {
         isConnected && !isCyclic
     }
-
+    
     internal var isTrivial: Bool {
         edges.isEmpty && vertices.count == 1
     }

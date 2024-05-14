@@ -14,9 +14,11 @@ internal struct TableView: View {
 
     internal var body: some View {
         if graph.edges.isEmpty {
-            ContentUnavailableView("No edges in graph",
-                                   systemImage: "hammer",
-                                   description: Text("Go to the Edit tab to create an edge"))
+            ContentUnavailableView(
+                "No edges in graph",
+                systemImage: "hammer",
+                description: Text("Go to the Edit tab to create an edge")
+            )
         } else {
             ScrollView([.horizontal, .vertical], showsIndicators: true) {
                 table
@@ -48,11 +50,15 @@ internal struct TableView: View {
                 ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                     var distance: String {
                         var distance: String = ""
-                        distance = String(graph.edges(from: vertex2,
-                                                      toward: vertex1,
-                                                      directional: false)
+                        distance = String(
+                            graph.edges(
+                                from: vertex2,
+                                toward: vertex1,
+                                directional: false
+                            )
                             .sorted()
-                            .first?.weight ?? 0.0)
+                            .first?.weight ?? 0.0
+                        )
                         distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
                         return distance
                     }

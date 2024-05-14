@@ -43,22 +43,22 @@ internal struct EdgeCreator: View {
     @State private var style: EdgeStyle = .init()
     @Environment(\.dismiss)
     private var dismiss: DismissAction
-
+    
     private func insertEdge() {
         from = from.trimmingCharacters(in: .whitespacesAndNewlines)
         toward = toward.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
         if !toward.isEmpty && !from.isEmpty {
             graph.insert(Edge(from: from, toward: toward, weight: weight), withStyle: style)
         }
-
+        
         // Reset form input fields
         from.removeAll()
         toward.removeAll()
         weight = 0
         style = EdgeStyle()
     }
-
+    
     internal var body: some View {
         NavigationStack {
             VStack {
@@ -78,13 +78,13 @@ internal struct EdgeCreator: View {
             }
         }
     }
-
+    
     private var addButton: some View {
         Button("Add Edge", systemImage: "checkmark", action: { insertEdge() })
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
-
+    
     private var edgeStylePicker: some View {
         DisclosureGroup("Styling") {
             Picker("Arrowhead", selection: $style.arrowhead) {
@@ -99,7 +99,7 @@ internal struct EdgeCreator: View {
             }
         }
     }
-
+    
     private var edgeDataForm: some View {
         Grid(alignment: .leading) {
             GridRow {
@@ -111,12 +111,14 @@ internal struct EdgeCreator: View {
             GridRow {
                 Text("Weight")
                 Text(":")
-                TextField("Weight",
-                          text: Binding(
-                              get: { String(weight) },
-                              set: { weight = Double($0) ?? 0.0 }
-                          ))
-                          .keyboardType(.decimalPad)
+                TextField(
+                    "Weight",
+                    text: Binding(
+                        get: { String(weight) },
+                        set: { weight = Double($0) ?? 0.0 }
+                    )
+                )
+                .keyboardType(.decimalPad)
             }
         }
     }

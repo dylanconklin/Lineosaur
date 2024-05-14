@@ -115,8 +115,6 @@ opt_in_rules:
   - literal_expression_end_indentation
   - local_doc_comment
   - lower_acl_than_parent
-
-disabled_rules:
   - mark
   - missing_docs
   - modifier_order
@@ -127,6 +125,8 @@ disabled_rules:
   - multiline_parameters
   - multiline_parameters_brackets
   - multiple_closures_with_trailing_closure
+
+disabled_rules:
   - nesting
   - nimble_operator
   - no_extension_access_modifier

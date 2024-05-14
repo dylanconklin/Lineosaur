@@ -12,11 +12,11 @@ import XCTest
 internal class BipartiteGraphTests: XCTestCase {
     private var sut: Graph?
 
-    internal override func setUp() {
+    override internal func setUp() {
         sut = Graph()
     }
 
-    internal override func tearDown() {
+    override internal func tearDown() {
         sut = nil
     }
 

@@ -25,13 +25,13 @@ internal struct GraphVizViewer: View {
     private var compiler: Compiler = .dot
     @AppStorage("displayEdgeWeights")
     private var displayEdgeWeights: Bool = false
-
+    
     private var directional: Bool {
         graphType == .given
     }
-
+    
     private var graphURL: URL? { graph.generateGraphVizURL(of: graphType) }
-
+    
     internal var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Menu("Graph Type", systemImage: "square.on.circle") {
@@ -59,18 +59,20 @@ internal struct GraphVizViewer: View {
             }
         }
     }
-
+    
     internal var body: some View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {
-                    ContentUnavailableView("No graph to display",
-                                           systemImage: "hammer",
-                                           description: Text("Go to the Edit tab to add edges and vertices"))
+                    ContentUnavailableView(
+                        "No graph to display",
+                        systemImage: "hammer",
+                        description: Text("Go to the Edit tab to add edges and vertices")
+                    )
                 } else {
                     GraphViz(url: graphURL)
                 }
-
+                
                 Spacer()
                     .navigationTitle("View Table")
                     .toolbar {

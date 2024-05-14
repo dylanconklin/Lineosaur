@@ -11,11 +11,11 @@ import XCTest
 internal final class CyclicGraphTests: XCTestCase {
     private var sut: Graph?
 
-    internal override func setUp() {
+    override internal func setUp() {
         sut = cyclicGraph
     }
 
-    internal override func tearDown() {
+    override internal func tearDown() {
         sut = nil
     }
 
