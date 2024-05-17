@@ -208,7 +208,7 @@ opt_in_rules:
   - trailing_semicolon
   - trailing_whitespace
   - type_body_length
-#  - type_contents_order
+  - type_contents_order
   - type_name
   - unavailable_condition
   - unavailable_function

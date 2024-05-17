@@ -8,9 +8,6 @@
 import Foundation
 
 internal struct EdgeStyle: Codable {
-    internal var arrowhead: Arrow = .normal
-    internal var arrowtail: Arrow = .plain
-
     internal enum Arrow: String, CaseIterable, Codable {
         case box = "box"
         case crow = "crow"
@@ -35,4 +32,7 @@ internal struct EdgeStyle: Codable {
             }
         }
     }
+
+    internal var arrowhead: Arrow = .normal
+    internal var arrowtail: Arrow = .plain
 }

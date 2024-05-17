@@ -20,34 +20,6 @@ internal struct TutorialTip: Tip {
 }
 
 internal struct Tutorial: View {
-    internal static var symbolSize: CGFloat = 32
-
-    internal var body: some View {
-        VStack {
-            CloseButtonView {
-                VStack {
-                    Text("Thank you for downloading Lineosaur!")
-                        .multilineTextAlignment(.center)
-                        .font(.title)
-                    List {
-                        Tutorial1()
-                            .padding()
-                        Tutorial2()
-                            .padding()
-                        Tutorial3()
-                            .padding()
-                        Tutorial4()
-                            .padding()
-                        Tutorial5()
-                            .padding()
-                        Tutorial6()
-                            .padding()
-                    }
-                }
-            }
-        }
-    }
-
     private struct Tutorial1: View {
         var body: some View {
             HStack {
@@ -117,6 +89,34 @@ internal struct Tutorial: View {
                     .font(.system(size: Tutorial.symbolSize))
                 Text("Create and load multiple graphs in Settings")
                     .padding(.horizontal)
+            }
+        }
+    }
+
+    internal static var symbolSize: CGFloat = 32
+
+    internal var body: some View {
+        VStack {
+            CloseButtonView {
+                VStack {
+                    Text("Thank you for downloading Lineosaur!")
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                    List {
+                        Tutorial1()
+                            .padding()
+                        Tutorial2()
+                            .padding()
+                        Tutorial3()
+                            .padding()
+                        Tutorial4()
+                            .padding()
+                        Tutorial5()
+                            .padding()
+                        Tutorial6()
+                            .padding()
+                    }
+                }
             }
         }
     }

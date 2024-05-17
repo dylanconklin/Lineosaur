@@ -24,58 +24,6 @@ internal class Graph: Equatable {
     internal var edgeStyles: [UUID: EdgeStyle]
     internal var id: UUID
 
-    internal init(
-        graphEdges: Set<Edge> = Set<Edge>(),
-        graphVertices: Set<Vertex> = Set<Vertex>(),
-        name: String? = nil,
-        edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()
-    ) {
-        self.graphEdges = graphEdges
-        self.graphVertices = graphVertices
-        self.name = name
-        lastAccessed = Date.now
-        self.edgeStyles = edgeStyles
-        id = UUID()
-    }
-
-    internal static func == (lhs: Graph, rhs: Graph) -> Bool {
-        lhs.edges == rhs.edges && lhs.vertices == rhs.vertices
-    }
-
-    internal func insert(_ vertex: Vertex) {
-        graphVertices.insert(vertex)
-    }
-
-    internal func insert(_ edge: Edge, withStyle style: EdgeStyle? = nil) {
-        graphEdges.insert(edge)
-        insert(edge.from)
-        insert(edge.toward)
-        edgeStyles[edge.id] = style
-    }
-
-    internal func remove(_ vertex: Vertex) {
-        for edge in graphEdges.filter({ $0.vertices.contains(vertex) }) {
-            remove(edge)
-        }
-        graphVertices.remove(vertex)
-    }
-
-    internal func remove(_ vertices: any Collection<Vertex>) {
-        for vertex in vertices {
-            remove(vertex)
-        }
-    }
-
-    internal func remove(_ edge: Edge) {
-        graphEdges.remove(edge)
-    }
-
-    internal func remove(_ edges: any Collection<Edge>) {
-        for edge in edges {
-            remove(edge)
-        }
-    }
-
     /// Returns the vertices of the graph
     internal var vertices: [Vertex] {
         get {
@@ -147,21 +95,8 @@ internal class Graph: Equatable {
         }
     }
 
-    internal func edges(from: Vertex, toward: Vertex, directional: Bool = true) -> Set<Edge> {
-        Set<Edge>(edges.filter { edge in
-            directional ? (edge.toward == toward && edge.from == from) :
-            (Set<Vertex>(edge.vertices) == Set<Vertex>([from, toward]))
-        })
-    }
-
-    internal func edges(connectedTo vertex: Vertex) -> Set<Edge> {
-        Set(edges.filter { $0.vertices.contains(vertex) })
-    }
-
-    internal func edges(connectedTo vertices: any Collection<Vertex>) -> Set<Edge> {
-        vertices.reduce(into: Set<Edge>()) { result, vertex in
-            result.formUnion(self.edges(connectedTo: vertex))
-        }
+    internal var copy: Graph {
+        Graph(graphEdges: graphEdges, graphVertices: graphVertices)
     }
 
     internal var leaves: Set<Vertex> {
@@ -172,6 +107,24 @@ internal class Graph: Equatable {
 
     internal var loops: Set<Edge> {
         Set(edges.filter { $0.from == $0.toward })
+    }
+
+    internal init(
+        graphEdges: Set<Edge> = Set<Edge>(),
+        graphVertices: Set<Vertex> = Set<Vertex>(),
+        name: String? = nil,
+        edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()
+    ) {
+        self.graphEdges = graphEdges
+        self.graphVertices = graphVertices
+        self.name = name
+        lastAccessed = Date.now
+        self.edgeStyles = edgeStyles
+        id = UUID()
+    }
+
+    internal static func == (lhs: Graph, rhs: Graph) -> Bool {
+        lhs.edges == rhs.edges && lhs.vertices == rhs.vertices
     }
 
     internal func deleteEdges() {
@@ -191,7 +144,54 @@ internal class Graph: Equatable {
         vertices.filter { edges(connectedTo: $0).isEmpty }.forEach { remove($0) }
     }
 
-    internal var copy: Graph {
-        Graph(graphEdges: graphEdges, graphVertices: graphVertices)
+    internal func edges(from: Vertex, toward: Vertex, directional: Bool = true) -> Set<Edge> {
+        Set<Edge>(edges.filter { edge in
+            directional ? (edge.toward == toward && edge.from == from) :
+            (Set<Vertex>(edge.vertices) == Set<Vertex>([from, toward]))
+        })
+    }
+
+    internal func edges(connectedTo vertex: Vertex) -> Set<Edge> {
+        Set(edges.filter { $0.vertices.contains(vertex) })
+    }
+
+    internal func edges(connectedTo vertices: any Collection<Vertex>) -> Set<Edge> {
+        vertices.reduce(into: Set<Edge>()) { result, vertex in
+            result.formUnion(self.edges(connectedTo: vertex))
+        }
+    }
+
+    internal func insert(_ vertex: Vertex) {
+        graphVertices.insert(vertex)
+    }
+
+    internal func insert(_ edge: Edge, withStyle style: EdgeStyle? = nil) {
+        graphEdges.insert(edge)
+        insert(edge.from)
+        insert(edge.toward)
+        edgeStyles[edge.id] = style
+    }
+
+    internal func remove(_ vertex: Vertex) {
+        for edge in graphEdges.filter({ $0.vertices.contains(vertex) }) {
+            remove(edge)
+        }
+        graphVertices.remove(vertex)
+    }
+
+    internal func remove(_ vertices: any Collection<Vertex>) {
+        for vertex in vertices {
+            remove(vertex)
+        }
+    }
+
+    internal func remove(_ edge: Edge) {
+        graphEdges.remove(edge)
+    }
+
+    internal func remove(_ edges: any Collection<Edge>) {
+        for edge in edges {
+            remove(edge)
+        }
     }
 }

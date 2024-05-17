@@ -25,21 +25,6 @@ internal struct GraphSelector: View {
         return dateFormatter
     }
 
-    private func deleteGraph(at offsets: IndexSet) {
-        for index in offsets {
-            modelContext.delete(savedGraphs[index])
-        }
-        do {
-            try? modelContext.save()
-        }
-        if savedGraphs.isEmpty {
-            modelContext.insert(Graph())
-        }
-        do {
-            try? modelContext.save()
-        }
-    }
-
     internal var body: some View {
         NavigationStack {
             List {
@@ -86,6 +71,21 @@ internal struct GraphSelector: View {
                 }
             }
             .navigationTitle("Saved Graphs")
+    }
+
+    private func deleteGraph(at offsets: IndexSet) {
+        for index in offsets {
+            modelContext.delete(savedGraphs[index])
+        }
+        do {
+            try? modelContext.save()
+        }
+        if savedGraphs.isEmpty {
+            modelContext.insert(Graph())
+        }
+        do {
+            try? modelContext.save()
+        }
     }
 }
 

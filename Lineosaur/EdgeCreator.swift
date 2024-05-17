@@ -44,21 +44,6 @@ internal struct EdgeCreator: View {
     @Environment(\.dismiss)
     private var dismiss: DismissAction
 
-    private func insertEdge() {
-        from = from.trimmingCharacters(in: .whitespacesAndNewlines)
-        toward = toward.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        if !toward.isEmpty && !from.isEmpty {
-            graph.insert(Edge(from: from, toward: toward, weight: weight), withStyle: style)
-        }
-
-        // Reset form input fields
-        from.removeAll()
-        toward.removeAll()
-        weight = 0
-        style = EdgeStyle()
-    }
-
     internal var body: some View {
         NavigationStack {
             VStack {
@@ -121,6 +106,21 @@ internal struct EdgeCreator: View {
                 .keyboardType(.decimalPad)
             }
         }
+    }
+
+    private func insertEdge() {
+        from = from.trimmingCharacters(in: .whitespacesAndNewlines)
+        toward = toward.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if !toward.isEmpty && !from.isEmpty {
+            graph.insert(Edge(from: from, toward: toward, weight: weight), withStyle: style)
+        }
+
+        // Reset form input fields
+        from.removeAll()
+        toward.removeAll()
+        weight = 0
+        style = EdgeStyle()
     }
 }
 

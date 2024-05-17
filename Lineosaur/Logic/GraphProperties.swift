@@ -20,40 +20,6 @@ extension Graph {
         return groupA.isDisjoint(with: groupB)
     }
 
-    internal func isBipartite(
-        selectedVertex: Vertex,
-        _ groupA: inout Set<Vertex>,
-        _ groupB: inout Set<Vertex>,
-        _ group: Bool = true,
-        visitedEdges: Set<Edge> = Set<Edge>()
-    ) {
-        if group {
-            groupA.insert(selectedVertex)
-        } else {
-            groupB.insert(selectedVertex)
-        }
-        let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex)
-            .filter { $0.from != $0.toward }
-            .subtracting(visitedEdges)
-        let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
-        var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>()) { $0.formUnion($1.vertices) }
-        connectedVertices.remove(selectedVertex)
-        for vertex in connectedVertices {
-            isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
-        }
-
-        let leftoverVertices: Set<Vertex> = Set(vertices).subtracting(groupA).subtracting(groupB)
-        if !leftoverVertices.isEmpty, let vertex: Vertex = leftoverVertices.randomElement() {
-            isBipartite(
-                selectedVertex: vertex,
-                &groupA,
-                &groupB,
-                !group,
-                visitedEdges: visitedEdges
-            )
-        }
-    }
-
     internal var isComplete: Bool {
         for vertex in vertices {
             let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
@@ -117,5 +83,39 @@ extension Graph {
 
     internal var isTrivial: Bool {
         edges.isEmpty && vertices.count == 1
+    }
+
+    internal func isBipartite(
+        selectedVertex: Vertex,
+        _ groupA: inout Set<Vertex>,
+        _ groupB: inout Set<Vertex>,
+        _ group: Bool = true,
+        visitedEdges: Set<Edge> = Set<Edge>()
+    ) {
+        if group {
+            groupA.insert(selectedVertex)
+        } else {
+            groupB.insert(selectedVertex)
+        }
+        let connectedEdges: Set<Edge> = edges(connectedTo: selectedVertex)
+            .filter { $0.from != $0.toward }
+            .subtracting(visitedEdges)
+        let visitedEdges: Set<Edge> = visitedEdges.union(connectedEdges)
+        var connectedVertices: Set<Vertex> = connectedEdges.reduce(into: Set<Vertex>()) { $0.formUnion($1.vertices) }
+        connectedVertices.remove(selectedVertex)
+        for vertex in connectedVertices {
+            isBipartite(selectedVertex: vertex, &groupA, &groupB, !group, visitedEdges: visitedEdges)
+        }
+
+        let leftoverVertices: Set<Vertex> = Set(vertices).subtracting(groupA).subtracting(groupB)
+        if !leftoverVertices.isEmpty, let vertex: Vertex = leftoverVertices.randomElement() {
+            isBipartite(
+                selectedVertex: vertex,
+                &groupA,
+                &groupB,
+                !group,
+                visitedEdges: visitedEdges
+            )
+        }
     }
 }

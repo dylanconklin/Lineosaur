@@ -13,16 +13,25 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     internal var weight: Double
     internal var id: UUID = .init()
 
+    internal var description: String {
+        "Edge(from: \"\(from)\", to: \"\(toward)\", weight: \(weight)\n"
+    }
+
+    /// Returns vertices of the edge
+    internal var vertices: [Vertex] {
+        [from, toward]
+    }
+
+    internal var copy: Self {
+        Self(from: from, toward: toward, weight: weight)
+    }
+
     internal static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.from == rhs.from && lhs.toward == rhs.toward && lhs.weight == rhs.weight
     }
 
     internal static func < (lhs: Self, rhs: Self) -> Bool {
         lhs.weight < rhs.weight
-    }
-
-    internal var description: String {
-        "Edge(from: \"\(from)\", to: \"\(toward)\", weight: \(weight)\n"
     }
 
     internal static func alphabetical() -> (Self, Self) -> Bool {
@@ -37,14 +46,5 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
             }
             return result
         }
-    }
-
-    /// Returns vertices of the edge
-    internal var vertices: [Vertex] {
-        [from, toward]
-    }
-
-    internal var copy: Self {
-        Self(from: from, toward: toward, weight: weight)
     }
 }
