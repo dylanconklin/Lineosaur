@@ -236,9 +236,9 @@ opt_in_rules:
   - weak_delegate
   - xct_specific_matcher
   - xctfail_message
+  - yoda_condition
 
 disabled_rules:
-  - yoda_condition
   - blanket_disable_command
   - explicit_enum_raw_value
   - indentation_width
