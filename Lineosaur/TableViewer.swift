@@ -23,7 +23,7 @@ internal struct TableViewer: View {
                     if !graph.edges.isEmpty {
                         ToolbarItem(placement: .topBarTrailing) {
                             Menu {
-                                Button("Graph Facts", systemImage: "info.circle", action: { showFacts = true })
+                                Button("Graph Facts", systemImage: "info.circle") { showFacts = true }
                                 Menu {
                                     Picker("Graph Type", selection: $graphType) {
                                         Text("Given").tag(GraphType.given)

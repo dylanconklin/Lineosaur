@@ -25,13 +25,13 @@ internal struct GraphVizViewer: View {
     private var compiler: Compiler = .dot
     @AppStorage("displayEdgeWeights")
     private var displayEdgeWeights: Bool = .init(false)
-    
+
     private var directional: Bool {
         graphType == .given
     }
-    
+
     private var graphURL: URL? { graph.generateGraphVizURL(of: graphType) }
-    
+
     internal var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Menu("Graph Type", systemImage: "square.on.circle") {
@@ -59,7 +59,7 @@ internal struct GraphVizViewer: View {
             }
         }
     }
-    
+
     internal var body: some View {
         NavigationStack {
             VStack {
@@ -72,7 +72,7 @@ internal struct GraphVizViewer: View {
                 } else {
                     GraphViz(url: graphURL)
                 }
-                
+
                 Spacer()
                     .navigationTitle("View Table")
                     .toolbar {

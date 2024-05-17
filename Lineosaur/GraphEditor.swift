@@ -31,13 +31,13 @@ internal struct GraphEditor: View {
             .navigationTitle("Graph Editor")
         }
     }
-    
+
     private var graphSelectorButton: some View {
         Button("Open Graph", systemImage: "folder") {
             showGraphSelector = true
         }
     }
-    
+
     private var addButton: some View {
         Menu("Add", systemImage: "plus") {
             Button("Add Edge", systemImage: "app.connected.to.app.below.fill") { showEdgeCreator = true }
@@ -58,7 +58,7 @@ internal struct GraphEditor: View {
             }
         }
     }
-    
+
     private var menu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
@@ -91,7 +91,7 @@ internal struct GraphEditor: View {
         }
         .popoverTip(HelpTip())
     }
-    
+
     private var graphData: some View {
         List {
             if !graph.edges.isEmpty {
@@ -104,7 +104,7 @@ internal struct GraphEditor: View {
         .navigationDestination(for: Edge.self) { _ in Spacer() }
         .listStyle(.sidebar)
     }
-    
+
     private var toolbar: some View {
         Spacer()
             .sheet(isPresented: $showGraphSelector) {
@@ -121,7 +121,7 @@ internal struct GraphEditor: View {
                         Button("Help", systemImage: "questionmark.circle") { showTutorial = true }
                     }
                 }
-                
+
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
                         if !graph.isEmpty {
@@ -135,7 +135,7 @@ internal struct GraphEditor: View {
                 }
             }
     }
-    
+
     private var emptyView: some View {
         VStack {
             TipView(TutorialTip()) { _ in

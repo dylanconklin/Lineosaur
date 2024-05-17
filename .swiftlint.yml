@@ -12,6 +12,7 @@ strict: false
 analyzer_rules:
   - capture_variable
   - explicit_self
+  - typesafe_array_init
 
 opt_in_rules:
   - accessibility_label_for_image
@@ -196,8 +197,6 @@ opt_in_rules:
   - switch_case_alignment
   - switch_case_on_newline
   - syntactic_sugar
-
-disabled_rules:
   - test_case_accessibility
   - todo
   - toggle_bool
@@ -207,9 +206,10 @@ disabled_rules:
   - trailing_semicolon
   - trailing_whitespace
   - type_body_length
-  - type_contents_order
+#  - type_contents_order
   - type_name
-  - typesafe_array_init
+
+disabled_rules:
   - unavailable_condition
   - unavailable_function
   - unhandled_throwing_task
