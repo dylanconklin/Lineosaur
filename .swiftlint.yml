@@ -139,8 +139,6 @@ opt_in_rules:
   - nslocalizedstring_require_bundle
   - nsobject_prefer_isequal
   - number_separator
-
-disabled_rules:
   - object_literal
   - opening_brace
   - operator_usage_whitespace
@@ -149,6 +147,8 @@ disabled_rules:
   - orphaned_doc_comment
   - overridden_super_call
   - override_in_extension
+
+disabled_rules:
   - pattern_matching_keywords
   - period_spacing
   - prefer_nimble

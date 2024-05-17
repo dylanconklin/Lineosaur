@@ -26,7 +26,7 @@ extension Graph {
         _ groupB: inout Set<Vertex>,
         _ group: Bool = true,
         visitedEdges: Set<Edge> = Set<Edge>()
-    ){
+    ) {
         if group {
             groupA.insert(selectedVertex)
         } else {

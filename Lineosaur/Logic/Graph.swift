@@ -29,7 +29,7 @@ internal class Graph: Equatable {
         graphVertices: Set<Vertex> = Set<Vertex>(),
         name: String? = nil,
         edgeStyles: [UUID: EdgeStyle] = [UUID: EdgeStyle]()
-    ){
+    ) {
         self.graphEdges = graphEdges
         self.graphVertices = graphVertices
         self.name = name
