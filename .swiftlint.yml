@@ -234,10 +234,10 @@ opt_in_rules:
   - void_function_in_ternary
   - void_return
   - weak_delegate
-
-disabled_rules:
   - xct_specific_matcher
   - xctfail_message
+
+disabled_rules:
   - yoda_condition
   - blanket_disable_command
   - explicit_enum_raw_value

@@ -27,7 +27,7 @@ internal final class AcyclicGraphTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isCyclic didn't produce a value")
         }
     }
 }

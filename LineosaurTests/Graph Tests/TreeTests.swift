@@ -28,7 +28,7 @@ internal final class TreeTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isTree didn't produce a value")
         }
     }
 
@@ -41,7 +41,7 @@ internal final class TreeTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isTree didn't produce a value")
         }
     }
 
@@ -56,7 +56,7 @@ internal final class TreeTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isTree didn't produce a value")
         }
     }
 
@@ -68,7 +68,7 @@ internal final class TreeTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isTree didn't produce a value")
         }
     }
 
@@ -81,7 +81,7 @@ internal final class TreeTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isTree didn't produce a value")
         }
     }
 }

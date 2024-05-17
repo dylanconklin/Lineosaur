@@ -28,7 +28,7 @@ internal class BipartiteGraphTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isBipartite didn't produce a value")
         }
     }
 
@@ -41,7 +41,7 @@ internal class BipartiteGraphTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isBipartite didn't produce a value")
         }
     }
 
@@ -54,7 +54,7 @@ internal class BipartiteGraphTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isBipartite didn't produce a value")
         }
     }
 
@@ -70,7 +70,7 @@ internal class BipartiteGraphTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isBipartite didn't produce a value")
         }
     }
 
@@ -82,7 +82,7 @@ internal class BipartiteGraphTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isBipartite didn't produce a value")
         }
     }
 }

@@ -28,7 +28,7 @@ internal final class GraphConnectivityTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isConnected didn't produce a value")
         }
     }
 
@@ -41,7 +41,7 @@ internal final class GraphConnectivityTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isConnected didn't produce a value")
         }
     }
 
@@ -54,7 +54,7 @@ internal final class GraphConnectivityTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isConnected didn't produce a value")
         }
     }
 }

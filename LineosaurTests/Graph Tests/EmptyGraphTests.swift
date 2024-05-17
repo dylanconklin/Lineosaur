@@ -27,7 +27,7 @@ internal final class EmptyGraphTests: XCTestCase {
             // then
             XCTAssertFalse(result)
         } else {
-            XCTFail()
+            XCTFail("isCyclic didn't produce a value")
         }
     }
 
@@ -39,7 +39,7 @@ internal final class EmptyGraphTests: XCTestCase {
             // then
             XCTAssertTrue(result)
         } else {
-            XCTFail()
+            XCTFail("isConnected didn't produce a value")
         }
     }
 }
