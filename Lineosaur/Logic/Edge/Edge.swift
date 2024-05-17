@@ -13,11 +13,11 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     internal var weight: Double
     internal var id: UUID = .init()
 
-    internal static func == (lhs: Edge, rhs: Edge) -> Bool {
+    internal static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.from == rhs.from && lhs.toward == rhs.toward && lhs.weight == rhs.weight
     }
 
-    internal static func < (lhs: Edge, rhs: Edge) -> Bool {
+    internal static func < (lhs: Self, rhs: Self) -> Bool {
         lhs.weight < rhs.weight
     }
 
@@ -25,8 +25,8 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
         "Edge(from: \"\(from)\", to: \"\(toward)\", weight: \(weight)\n"
     }
 
-    internal static func alphabetical() -> (Edge, Edge) -> Bool {
-        { (lhs: Edge, rhs: Edge) -> Bool in
+    internal static func alphabetical() -> (Self, Self) -> Bool {
+        { (lhs: Self, rhs: Self) -> Bool in
             var result: Bool = false
             if lhs.from != rhs.from {
                 result = lhs.from < rhs.from
@@ -44,7 +44,7 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
         [from, toward]
     }
 
-    internal var copy: Edge {
-        Edge(from: from, toward: toward, weight: weight)
+    internal var copy: Self {
+        Self(from: from, toward: toward, weight: weight)
     }
 }
