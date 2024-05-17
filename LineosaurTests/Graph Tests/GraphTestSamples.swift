@@ -1,3 +1,4 @@
+// swiftlint:disable no_magic_numbers
 //
 //  Graph Test Samples.swift
 //
