@@ -13,7 +13,7 @@ internal struct GraphSelector: View {
     private var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
     private var savedGraphs: [Graph]
-    @State private var showGraphNamer: Bool = false
+    @State private var showGraphNamer: Bool = .init(false)
     @State private var graphName: String = ""
     @Environment(\.dismiss)
     private var dismiss: DismissAction

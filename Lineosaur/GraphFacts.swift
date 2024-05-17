@@ -11,8 +11,8 @@ import SwiftUI
 internal struct GraphFact: View, Identifiable {
     internal var fact: String
     internal var symbol: String
-    internal var value: Bool = true
-    internal var id: UUID = UUID()
+    internal var value: Bool = .init(true)
+    internal var id: UUID = .init()
 
     internal let fontSize: CGFloat = 32.0
     internal let imageSize: CGFloat = 48.0

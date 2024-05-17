@@ -9,13 +9,13 @@ import SwiftData
 import SwiftUI
 
 internal enum Compiler: String {
-    case dot = "dot"
-    case fdp = "fdp"
-    case neato = "neato"
-    case circo = "circo"
-    case twopi = "twopi"
-    case osage = "osage"
-    case patchwork = "patchwork"
+    case dot
+    case fdp
+    case neato
+    case circo
+    case twopi
+    case osage
+    case patchwork
 }
 
 internal struct GraphVizViewer: View {
@@ -24,7 +24,7 @@ internal struct GraphVizViewer: View {
     @AppStorage("compiler")
     private var compiler: Compiler = .dot
     @AppStorage("displayEdgeWeights")
-    private var displayEdgeWeights: Bool = false
+    private var displayEdgeWeights: Bool = .init(false)
     
     private var directional: Bool {
         graphType == .given

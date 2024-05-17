@@ -10,7 +10,7 @@ import SwiftUI
 
 internal struct VertexList: View {
     @Bindable internal var graph: Graph
-    @State private var showVertexSection: Bool = true
+    @State private var showVertexSection: Bool = .init(true)
 
     internal var body: some View {
         Section("Vertices", isExpanded: $showVertexSection) {

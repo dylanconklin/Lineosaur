@@ -11,13 +11,13 @@ import TipKit
 
 internal struct GraphEditor: View {
     @Bindable internal var graph: Graph
-    @State private var showVertexBuilder: Bool = false
-    @State private var showEdgeCreator: Bool = false
+    @State private var showVertexBuilder: Bool = .init(false)
+    @State private var showEdgeCreator: Bool = .init(false)
     @State private var vertexName: String = ""
-    @State private var showTutorial: Bool = false
-    @State private var showVertexSection: Bool = true
-    @State private var showGraphSelector: Bool = false
-    
+    @State private var showTutorial: Bool = .init(false)
+    @State private var showVertexSection: Bool = .init(true)
+    @State private var showGraphSelector: Bool = .init(false)
+
     internal var body: some View {
         NavigationStack {
             VStack {

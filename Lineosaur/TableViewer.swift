@@ -12,7 +12,7 @@ import SwiftUI
 internal struct TableViewer: View {
     @Bindable internal var graph: Graph
     @State private var graphType: GraphType = .given
-    @State private var showFacts: Bool = false
+    @State private var showFacts: Bool = .init(false)
 
     internal var body: some View {
         NavigationStack {

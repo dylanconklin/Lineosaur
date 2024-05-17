@@ -27,7 +27,7 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
 
     internal static func alphabetical() -> (Self, Self) -> Bool {
         { (lhs: Self, rhs: Self) -> Bool in
-            var result: Bool = false
+            var result: Bool = .init(false)
             if lhs.from != rhs.from {
                 result = lhs.from < rhs.from
             } else if lhs.toward != rhs.toward {
