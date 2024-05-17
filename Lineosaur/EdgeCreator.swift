@@ -9,9 +9,9 @@ import SwiftData
 import SwiftUI
 
 internal struct VertexSelector: View {
-    @State internal var prompt: String
+    internal var prompt: String
     @Binding internal var value: String
-    @State internal var selection: [String]
+    internal var selection: [String]
 
     internal var body: some View {
         Text(prompt)

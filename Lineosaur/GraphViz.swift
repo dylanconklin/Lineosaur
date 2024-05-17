@@ -25,7 +25,7 @@ internal struct GraphViz: View {
             .onEnded { _ in
                 currOffSet.x += changingOffSet.x
                 currOffSet.y += changingOffSet.y
-                changingOffSet = CGPoint(x: 0.0, y: 0.0)
+                changingOffSet = .zero
             }
     }
 

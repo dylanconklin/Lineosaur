@@ -147,11 +147,8 @@ opt_in_rules:
   - orphaned_doc_comment
   - overridden_super_call
   - override_in_extension
-
-disabled_rules:
   - pattern_matching_keywords
   - period_spacing
-  - prefer_nimble
   - prefer_self_in_static_references
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
@@ -165,6 +162,8 @@ disabled_rules:
   - prohibited_interface_builder
   - prohibited_super_call
   - protocol_property_accessors_order
+
+disabled_rules:
   - quick_discouraged_call
   - quick_discouraged_focused_test
   - quick_discouraged_pending_test
@@ -245,6 +244,7 @@ disabled_rules:
   - yoda_condition
   - blanket_disable_command
   - indentation_width
+  - prefer_nimble
 
 # included: # case-sensitive paths to include during linting. `--path` is ignored if present
 #   - Sources
