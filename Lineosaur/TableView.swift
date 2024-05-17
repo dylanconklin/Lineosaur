@@ -56,8 +56,7 @@ internal struct TableView: View {
                                 toward: vertex1,
                                 directional: false
                             )
-                            .sorted()
-                            .first?.weight ?? 0.0
+                            .min()?.weight ?? 0.0
                         )
                         distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
                         return distance

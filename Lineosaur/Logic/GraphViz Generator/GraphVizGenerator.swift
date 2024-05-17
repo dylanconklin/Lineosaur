@@ -9,12 +9,12 @@
 import Foundation
 
 extension Graph {
-    fileprivate var compiler: Compiler {
+    private var compiler: Compiler {
         let compiler: String? = UserDefaults.standard.string(forKey: "compiler")
         return compiler.flatMap(Compiler.init) ?? .dot
     }
 
-    fileprivate var displayWeights: Bool {
+    private var displayWeights: Bool {
         UserDefaults.standard.bool(forKey: "displayEdgeWeights")
     }
 

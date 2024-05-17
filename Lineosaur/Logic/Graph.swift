@@ -11,8 +11,8 @@ import SwiftData
 internal typealias Vertex = String
 
 internal enum GraphType {
-    case mst
     case given
+    case mst
 }
 
 @Model
@@ -114,7 +114,7 @@ internal class Graph: Equatable {
             let groupA: Set<Vertex> = .init(edge.vertices).intersection(verticesLeft)
             let groupB: Set<Vertex> = .init(edge.vertices).intersection(MST.vertices)
             return !groupA.isEmpty && !groupB.isEmpty
-        }) ?? (MST.isEmpty ? graph.edges.sorted(by: { $0.weight < $1.weight }).first : nil) {
+        }) ?? (MST.isEmpty ? graph.edges.min(by: { $0.weight < $1.weight }) : nil) {
             MST.insert(edge)
             graph.remove(edge)
             verticesLeft.subtract(edge.vertices)
@@ -127,13 +127,13 @@ internal class Graph: Equatable {
     internal var edges: [Edge] {
         get {
             graphEdges.sorted(by: { lhs, rhs in
+                var result: Bool = lhs.weight < rhs.weight
                 if lhs.from != rhs.from {
-                    return lhs.from < rhs.from
+                    result = lhs.from < rhs.from
                 } else if lhs.toward != rhs.toward {
-                    return lhs.toward < rhs.toward
-                } else {
-                    return lhs.weight < rhs.weight
+                    result = lhs.toward < rhs.toward
                 }
+                return result
             })
         }
         set {

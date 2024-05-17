@@ -1,4 +1,3 @@
-// swiftlint:disable *
 //
 //  Bipartite Graph Tests.swift
 //  LineosaurTests

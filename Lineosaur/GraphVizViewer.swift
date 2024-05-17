@@ -9,13 +9,13 @@ import SwiftData
 import SwiftUI
 
 internal enum Compiler: String {
+    case circo
     case dot
     case fdp
     case neato
-    case circo
-    case twopi
     case osage
     case patchwork
+    case twopi
 }
 
 internal struct GraphVizViewer: View {
