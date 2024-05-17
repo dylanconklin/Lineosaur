@@ -19,7 +19,7 @@ internal final class GraphConnectivityTests: XCTestCase {
         sut = nil
     }
 
-    private func testConnectedGraphIsConnected() {
+    internal func testConnectedGraphIsConnected() {
         // given
         sut = connectedGraph
 
@@ -32,7 +32,7 @@ internal final class GraphConnectivityTests: XCTestCase {
         }
     }
 
-    private func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
+    internal func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
         // given
         sut = disconnectedGraphNoOutlierVertex
 
@@ -45,7 +45,7 @@ internal final class GraphConnectivityTests: XCTestCase {
         }
     }
 
-    private func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
+    internal func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
         // given
         sut = disconnectedGraphOutlierVertex
 

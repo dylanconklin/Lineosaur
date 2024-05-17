@@ -19,7 +19,7 @@ internal final class EmptyGraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testEmptyGraphIsNotCyclic() {
+    internal func testEmptyGraphIsNotCyclic() {
         // given
 
         // when
@@ -31,7 +31,7 @@ internal final class EmptyGraphTests: XCTestCase {
         }
     }
 
-    private func testEmptyGraphIsConnected() {
+    internal func testEmptyGraphIsConnected() {
         // given
 
         // when

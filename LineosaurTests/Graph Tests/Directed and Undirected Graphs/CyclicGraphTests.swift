@@ -19,7 +19,7 @@ internal final class CyclicGraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testCyclicGraphIsCyclic() {
+    internal func testCyclicGraphIsCyclic() {
         // given
 
         // when

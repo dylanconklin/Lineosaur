@@ -19,7 +19,7 @@ internal final class WeightedGraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testMST() {
+    internal func testMST() {
         // given
         let expectedResult: Graph = .init(graphEdges: [
             Edge(from: "a", toward: "b", weight: 1),

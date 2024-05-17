@@ -19,7 +19,7 @@ internal final class GraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testVerticesAreInsertedWithEdges() {
+    internal func testVerticesAreInsertedWithEdges() {
         // given
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
@@ -31,7 +31,7 @@ internal final class GraphTests: XCTestCase {
         XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
-    private func testVerticesAreInsertedWithEdgesBinding() {
+    internal func testVerticesAreInsertedWithEdgesBinding() {
         // given
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
@@ -45,7 +45,7 @@ internal final class GraphTests: XCTestCase {
         XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
-    private func testVerticesPersistAfterAllEdgeAreDeleted() {
+    internal func testVerticesPersistAfterAllEdgeAreDeleted() {
         // given
         let expectedResult: [Vertex] = ["a", "b", "c"]
 
@@ -60,7 +60,7 @@ internal final class GraphTests: XCTestCase {
         XCTAssertEqual(sut?.vertices, expectedResult)
     }
 
-    private func testRemoveAllEdgesConnectedToRemovedVertices() {
+    internal func testRemoveAllEdgesConnectedToRemovedVertices() {
         // given
         let expectedResult: [Edge] = [Edge(from: "b", toward: "c", weight: 1.0)]
 

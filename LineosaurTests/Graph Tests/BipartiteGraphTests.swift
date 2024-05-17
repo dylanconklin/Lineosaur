@@ -20,7 +20,7 @@ internal class BipartiteGraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testBipartiteGraphIsBipartite() {
+    internal func testBipartiteGraphIsBipartite() {
         // given
         sut = bipartiteGraph
 
@@ -33,7 +33,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    private func testNonBipartiteGraphIsNotBeBipartite() {
+    internal func testNonBipartiteGraphIsNotBeBipartite() {
         // given
         sut = nonBipartiteGraph
 
@@ -46,7 +46,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    private func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
+    internal func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
         // given
         sut = nonBipartiteGraphWithBipartiteCycle
 
@@ -59,7 +59,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    private func testGraphWithoutEdgesIsBipartite() {
+    internal func testGraphWithoutEdgesIsBipartite() {
         // given
 
         // when
@@ -75,7 +75,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    private func testEmptyGraphIsBipartite() {
+    internal func testEmptyGraphIsBipartite() {
         // given
 
         // when

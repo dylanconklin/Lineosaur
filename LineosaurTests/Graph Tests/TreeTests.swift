@@ -19,7 +19,7 @@ internal final class TreeTests: XCTestCase {
         sut = nil
     }
 
-    private func testTreeGraphIsTree() {
+    internal func testTreeGraphIsTree() {
         // given
         sut = treeGraph
 
@@ -32,7 +32,7 @@ internal final class TreeTests: XCTestCase {
         }
     }
 
-    private func testNonTreeGraphIsNotTree() {
+    internal func testNonTreeGraphIsNotTree() {
         // given
         sut = notTreeGraph
 
@@ -45,7 +45,7 @@ internal final class TreeTests: XCTestCase {
         }
     }
 
-    private func testGraphWithoutEdgesIsTree() {
+    internal func testGraphWithoutEdgesIsTree() {
         // given
         sut?.insert("a")
         sut?.insert("b")
@@ -60,7 +60,7 @@ internal final class TreeTests: XCTestCase {
         }
     }
 
-    private func testEmptyGraphIsTree() {
+    internal func testEmptyGraphIsTree() {
         // given
 
         // when
@@ -72,7 +72,7 @@ internal final class TreeTests: XCTestCase {
         }
     }
 
-    private func testDisconnectedGraphIsNotTree() {
+    internal func testDisconnectedGraphIsNotTree() {
         // given
         sut = disconnectedGraphNoOutlierVertex
 

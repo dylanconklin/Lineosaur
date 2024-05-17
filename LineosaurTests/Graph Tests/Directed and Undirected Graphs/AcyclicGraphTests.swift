@@ -19,7 +19,7 @@ internal final class AcyclicGraphTests: XCTestCase {
         sut = nil
     }
 
-    private func testAcyclicGraphIsNotCyclic() {
+    internal func testAcyclicGraphIsNotCyclic() {
         // given
 
         // when
