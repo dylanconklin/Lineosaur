@@ -41,16 +41,7 @@ internal struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
 
     /// Returns vertices of the edge
     internal var vertices: [Vertex] {
-        get {
-            [from, toward]
-        }
-        set {
-            guard newValue.count == 2 else {
-                return
-            }
-            from = newValue[0]
-            toward = newValue[1]
-        }
+        [from, toward]
     }
 
     internal var copy: Edge {
