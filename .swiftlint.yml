@@ -233,9 +233,9 @@ opt_in_rules:
   - vertical_whitespace_opening_braces
   - void_function_in_ternary
   - void_return
+  - weak_delegate
 
 disabled_rules:
-  - weak_delegate
   - xct_specific_matcher
   - xctfail_message
   - yoda_condition
