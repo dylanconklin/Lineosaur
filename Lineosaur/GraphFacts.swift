@@ -14,21 +14,25 @@ internal struct GraphFact: View, Identifiable {
     internal var value: Bool = true
     internal var id: UUID = UUID()
 
+    internal let fontSize: CGFloat = 32.0
+    internal let imageSize: CGFloat = 48.0
+    internal let minFrameSize: CGFloat = 48.0
+
     internal var body: some View {
         Grid {
             GridRow {
                 ZStack {
                     Image(systemName: symbol)
-                        .font(.system(size: 32))
+                        .font(.system(size: fontSize))
                         .accessibilityLabel("Icon correlating to stated property")
                     if !value {
                         Image(systemName: "xmark")
-                            .font(.system(size: 48))
+                            .font(.system(size: imageSize))
                             .foregroundStyle(Color.red)
                             .accessibilityLabel("Indicates negation of stated property")
                     }
                 }
-                .frame(minHeight: 48)
+                .frame(minHeight: minFrameSize)
                 .padding(.horizontal)
                 Text(fact)
                     .padding(.horizontal)
