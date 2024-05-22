@@ -245,11 +245,8 @@ disabled_rules:
   - prefer_nimble
   - required_deinit
 
-# included: # case-sensitive paths to include during linting. `--path` is ignored if present
-#   - Sources
-# excluded: # case-sensitive paths to ignore during linting. Takes precedence over `included`
-#   - Carthage
-#   - Pods
-#   - Sources/ExcludedFolder
-#   - Sources/ExcludedFile.swift
-#   - Sources/*/ExcludedFile.swift # exclude files with a wildcard
+excluded:
+  - Carthage
+  - Pods
+  - LineosaurTests
+  - Lineosaur/Data
