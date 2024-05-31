@@ -26,10 +26,6 @@ internal struct GraphVizViewer: View {
     @AppStorage("displayEdgeWeights")
     private var displayEdgeWeights: Bool = .init(false)
 
-    private var directional: Bool {
-        graphType == .given
-    }
-
     private var graphURL: URL? { graph.generateGraphVizURL(of: graphType) }
 
     internal var toolBarMenu: some View {
