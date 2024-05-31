@@ -37,8 +37,6 @@
 		ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D502AC8ECDA00B23F64 /* Settings.swift */; };
 		ABB518502ABD70E400CB4B98 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5184F2ABD70E400CB4B98 /* GraphTests.swift */; };
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
-		ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABB518552ABE502400CB4B98 /* Comfortaa.ttf */; };
-		ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */; };
 		ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC6D02A2BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC87FEB2AC4C97B00EEA68A /* GraphConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */; };
@@ -96,9 +94,7 @@
 		ABAF3D502AC8ECDA00B23F64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		ABB5184F2ABD70E400CB4B98 /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCreator.swift; sourceTree = "<group>"; };
-		ABB518552ABE502400CB4B98 /* Comfortaa.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa.ttf; sourceTree = "<group>"; };
 		ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lineosaur-Info.plist"; sourceTree = SOURCE_ROOT; };
-		ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comfortaa.swift; sourceTree = "<group>"; };
 		ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConnectivityTests.swift; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectedGraphTests.swift; sourceTree = "<group>"; };
@@ -186,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				ABEF8D012B8C635F009EA940 /* Tutorial */,
-				ABB518582ABE64D400CB4B98 /* Fonts */,
 				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
@@ -291,15 +286,6 @@
 				ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */,
 			);
 			name = GraphViz;
-			sourceTree = "<group>";
-		};
-		ABB518582ABE64D400CB4B98 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				ABB518552ABE502400CB4B98 /* Comfortaa.ttf */,
-				ABB518592ABE64EF00CB4B98 /* Comfortaa.swift */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		ABBFEA1E2ABE7AF60061FF0E /* GraphEditor */ = {
@@ -445,7 +431,6 @@
 			files = (
 				ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */,
 				AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */,
-				ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */,
 				ABFA48962BFEEFD700DB9881 /* .periphery.yml in Resources */,
 				AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */,
 			);
@@ -494,7 +479,6 @@
 				AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
-				ABB5185A2ABE64EF00CB4B98 /* Comfortaa.swift in Sources */,
 				ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */,
 				ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */,
 				AB510F342A8A91C800B76121 /* LineosaurApp.swift in Sources */,
