@@ -15,7 +15,6 @@ internal struct GraphEditor: View {
     @State private var showEdgeCreator: Bool = .init(false)
     @State private var vertexName: String = ""
     @State private var showTutorial: Bool = .init(false)
-    @State private var showVertexSection: Bool = .init(true)
     @State private var showGraphSelector: Bool = .init(false)
 
     internal var body: some View {
