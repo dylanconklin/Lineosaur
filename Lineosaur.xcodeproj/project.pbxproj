@@ -48,6 +48,7 @@
 		ABEEF25C2AB1905E004C9429 /* CyclicGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25B2AB1905E004C9429 /* CyclicGraphTests.swift */; };
 		ABEEF25E2AB19073004C9429 /* AcyclicGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25D2AB19073004C9429 /* AcyclicGraphTests.swift */; };
 		ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF8D022B8C63C1009EA940 /* Tutorial.swift */; };
+		ABFA48962BFEEFD700DB9881 /* .periphery.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABFA48952BFEEFD700DB9881 /* .periphery.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		ABEEF25B2AB1905E004C9429 /* CyclicGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicGraphTests.swift; sourceTree = "<group>"; };
 		ABEEF25D2AB19073004C9429 /* AcyclicGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcyclicGraphTests.swift; sourceTree = "<group>"; };
 		ABEF8D022B8C63C1009EA940 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		ABFA48952BFEEFD700DB9881 /* .periphery.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .periphery.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */,
+				ABFA48952BFEEFD700DB9881 /* .periphery.yml */,
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
 				AB510F322A8A91C800B76121 /* Lineosaur */,
 				AB510F462A8A91CA00B76121 /* LineosaurTests */,
@@ -361,9 +364,9 @@
 			buildConfigurationList = AB510F572A8A91CA00B76121 /* Build configuration list for PBXNativeTarget "Lineosaur" */;
 			buildPhases = (
 				AB510F2C2A8A91C800B76121 /* Sources */,
+				AB03A7062BB68CBA00D07433 /* Run SwiftLint */,
 				AB510F2D2A8A91C800B76121 /* Frameworks */,
 				AB510F2E2A8A91C800B76121 /* Resources */,
-				AB03A7062BB68CBA00D07433 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -443,6 +446,7 @@
 				ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */,
 				AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */,
 				ABB518562ABE502400CB4B98 /* Comfortaa.ttf in Resources */,
+				ABFA48962BFEEFD700DB9881 /* .periphery.yml in Resources */,
 				AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +462,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AB03A7062BB68CBA00D07433 /* ShellScript */ = {
+		AB03A7062BB68CBA00D07433 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -468,6 +472,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (

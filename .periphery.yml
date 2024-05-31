@@ -1,0 +1,5 @@
+project: Lineosaur.xcodeproj
+schemes:
+- Lineosaur
+targets:
+- Lineosaur
