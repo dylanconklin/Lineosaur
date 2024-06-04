@@ -21,13 +21,14 @@ extension Graph {
     }
 
     internal var isComplete: Bool {
+        var result: Bool = .init(true)
         for vertex in vertices {
             let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
             if connectedVertices.count != vertices.count {
-                return false
+                result = false
             }
         }
-        return true
+        return result
     }
 
     internal var isConnected: Bool {
@@ -58,14 +59,17 @@ extension Graph {
     }
 
     internal var isMulti: Bool {
-        if loops.isEmpty {
+        var result: Bool = .init(false)
+        if !loops.isEmpty {
+            result = true
+        } else {
             for vertex1 in vertices {
                 for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
-                    return true
+                    result = true
                 }
             }
         }
-        return false
+        return result
     }
 
     internal var isSimple: Bool {
