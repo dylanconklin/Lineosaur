@@ -36,7 +36,7 @@ internal class Graph: Equatable {
             if vertices.count < newVertices.count {
                 graphVertices.formUnion(difference)
             } else {
-                difference.forEach { remove($0) }
+                difference.forEach(remove)
             }
         }
     }
@@ -141,7 +141,7 @@ internal class Graph: Equatable {
     }
 
     internal func deleteDetachedVertices() {
-        vertices.filter { edges(connectedTo: $0).isEmpty }.forEach { remove($0) }
+        vertices.filter { edges(connectedTo: $0).isEmpty }.forEach(remove)
     }
 
     internal func edges(from: Vertex, toward: Vertex, directional: Bool = true) -> Set<Edge> {
@@ -173,16 +173,12 @@ internal class Graph: Equatable {
     }
 
     internal func remove(_ vertex: Vertex) {
-        for edge in graphEdges.filter({ $0.vertices.contains(vertex) }) {
-            remove(edge)
-        }
+        graphEdges.filter({ $0.vertices.contains(vertex) }).forEach(remove)
         graphVertices.remove(vertex)
     }
 
     internal func remove(_ vertices: any Collection<Vertex>) {
-        for vertex in vertices {
-            remove(vertex)
-        }
+        vertices.forEach(remove)
     }
 
     internal func remove(_ edge: Edge) {
@@ -190,8 +186,6 @@ internal class Graph: Equatable {
     }
 
     internal func remove(_ edges: any Collection<Edge>) {
-        for edge in edges {
-            remove(edge)
-        }
+        edges.forEach(remove)
     }
 }
