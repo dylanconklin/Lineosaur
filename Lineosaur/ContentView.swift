@@ -49,9 +49,7 @@ internal struct ContentView: View {
 
         let testGraphs: [Graph] = [connectedGraph, disconnectedGraphOutlierVertex, disconnectedGraphNoOutlierVertex]
 
-        for graph in testGraphs {
-            container.mainContext.insert(graph)
-        }
+        testGraphs.forEach(container.mainContext.insert)
 
         return ContentView()
             .modelContainer(container)
