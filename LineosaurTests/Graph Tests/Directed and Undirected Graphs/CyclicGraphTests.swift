@@ -6,28 +6,20 @@
 //
 
 @testable import Lineosaur
-import XCTest
+import Testing
 
-internal final class CyclicGraphTests: XCTestCase {
-    private var sut: Graph?
+struct CyclicGraphTests {
+    private var sut: Graph
 
-    override internal func setUp() {
+    init() {
         sut = cyclicGraph
     }
 
-    override internal func tearDown() {
-        sut = nil
-    }
-
-    internal func testCyclicGraphIsCyclic() {
+    @Test
+    func cyclicGraphIsCyclic() {
         // given
 
         // when
-        if let result: Bool = sut?.isCyclic {
-            // then
-            XCTAssertTrue(result)
-        } else {
-            XCTFail("isCyclic didn't produce a value")
-        }
+        #expect(sut.isCyclic)
     }
 }

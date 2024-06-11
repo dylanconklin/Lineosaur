@@ -6,20 +6,17 @@
 //
 
 @testable import Lineosaur
-import XCTest
+import Testing
 
-internal final class WeightedGraphTests: XCTestCase {
-    private var sut: Graph?
+struct WeightedGraphTests {
+    private var sut: Graph
 
-    override internal func setUp() {
+    init() {
         sut = weightedGraph
     }
 
-    override internal func tearDown() {
-        sut = nil
-    }
-
-    internal func testMST() {
+    @Test
+    func mst() {
         // given
         let expectedResult: Graph = .init(graphEdges: [
             Edge(from: "a", toward: "b", weight: 1),
@@ -31,13 +28,12 @@ internal final class WeightedGraphTests: XCTestCase {
             Edge(from: "f", toward: "k", weight: 28),
             Edge(from: "j", toward: "k", weight: 5),
             Edge(from: "i", toward: "j", weight: 13),
-            Edge(from: "h", toward: "i", weight: 8)
+            Edge(from: "h", toward: "i", weight: 8),
         ])
 
         // when
-        let actualResult: Graph? = sut?.mst
 
         // then
-        XCTAssertEqual(actualResult?.edges, expectedResult.edges)
+        #expect(sut.mst.edges == expectedResult.edges)
     }
 }

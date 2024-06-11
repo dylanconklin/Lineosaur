@@ -6,16 +6,12 @@
 //
 
 @testable import Lineosaur
-import XCTest
+import Testing
 
-internal final class UndirectedGraphTests: XCTestCase {
-    private var sut: Graph?
+struct UndirectedGraphTests {
+    private var sut: Graph
 
-    override internal func setUp() {
+    init() {
         sut = Graph()
-    }
-
-    override internal func tearDown() {
-        sut = nil
     }
 }

@@ -6,40 +6,32 @@
 //
 
 @testable import Lineosaur
-import XCTest
+import Testing
 
-internal final class EmptyGraphTests: XCTestCase {
-    private var sut: Graph?
+struct EmptyGraphTests {
+    private var sut: Graph
 
-    override internal func setUp() {
+    init() {
         sut = Graph()
     }
 
-    override internal func tearDown() {
-        sut = nil
-    }
-
-    internal func testEmptyGraphIsNotCyclic() {
+    @Test
+    func emptyGraphIsNotCyclic() {
         // given
 
         // when
-        if let result: Bool = sut?.isCyclic {
-            // then
-            XCTAssertFalse(result)
-        } else {
-            XCTFail("isCyclic didn't produce a value")
-        }
+
+        // then
+        #expect(!sut.isCyclic)
     }
 
-    internal func testEmptyGraphIsConnected() {
+    @Test
+    func emptyGraphIsConnected() {
         // given
 
         // when
-        if let result: Bool = sut?.isConnected {
-            // then
-            XCTAssertTrue(result)
-        } else {
-            XCTFail("isConnected didn't produce a value")
-        }
+
+        // then
+        #expect(sut.isConnected)
     }
 }

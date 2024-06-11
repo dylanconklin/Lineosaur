@@ -8,18 +8,18 @@
 @testable import Lineosaur
 import XCTest
 
-internal final class GraphConnectivityTests: XCTestCase {
+final class GraphConnectivityTests: XCTestCase {
     private var sut: Graph?
 
-    override internal func setUp() {
+    override func setUp() {
         sut = Graph()
     }
 
-    override internal func tearDown() {
+    override func tearDown() {
         sut = nil
     }
 
-    internal func testConnectedGraphIsConnected() {
+    func testConnectedGraphIsConnected() {
         // given
         sut = connectedGraph
 
@@ -32,7 +32,7 @@ internal final class GraphConnectivityTests: XCTestCase {
         }
     }
 
-    internal func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
+    func testDisconnectedGraphWithoutOutlierVertexIsNotConnected() {
         // given
         sut = disconnectedGraphNoOutlierVertex
 
@@ -45,7 +45,7 @@ internal final class GraphConnectivityTests: XCTestCase {
         }
     }
 
-    internal func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
+    func testDisconnectedGraphWithOutlierVertexIsNotConnected() {
         // given
         sut = disconnectedGraphOutlierVertex
 
