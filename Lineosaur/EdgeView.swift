@@ -8,10 +8,10 @@
 import SwiftUI
 
 /// Displays information about a single edge
-internal struct EdgeView: View {
-    @Binding internal var edge: Edge
+struct EdgeView: View {
+    @Binding var edge: Edge
 
-    internal var body: some View {
+    var body: some View {
         Grid(alignment: .topLeading) {
             GridRow {
                 Text("From")

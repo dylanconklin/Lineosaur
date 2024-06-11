@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-internal struct Settings: View {
+struct Settings: View {
     @AppStorage("deleteDetachedVertices")
     private var deleteDetachedVertices: Bool = .init(false)
 
-    internal var body: some View {
+    var body: some View {
         NavigationStack {
             VStack {
                 VStack {

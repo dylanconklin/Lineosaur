@@ -8,18 +8,18 @@
 import SwiftUI
 import TipKit
 
-internal struct TutorialTip: Tip {
-    internal var title: Text { Text("Need Help?") }
-    internal var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
-    internal var image: Image? { Image(systemName: "graduationcap.fill") }
-    internal var actions: [Tip.Action] {
+struct TutorialTip: Tip {
+    var title: Text { Text("Need Help?") }
+    var message: Text? { Text("Learn the basic features of Lineosaur, and how to use it") }
+    var image: Image? { Image(systemName: "graduationcap.fill") }
+    var actions: [Tip.Action] {
         [
             Tips.Action(title: "Open Tutorial") {}
         ]
     }
 }
 
-internal struct Tutorial: View {
+struct Tutorial: View {
     private struct Tutorial1: View {
         var body: some View {
             HStack {
@@ -27,8 +27,8 @@ internal struct Tutorial: View {
                     .accessibilityLabel("Tutorial label for adding edge")
                     .font(.system(size: Tutorial.symbolSize))
                 Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. "
-                     + "The vertices will be added for you automatically!")
-                .padding(.horizontal)
+                    + "The vertices will be added for you automatically!")
+                    .padding(.horizontal)
             }
         }
     }
@@ -93,9 +93,9 @@ internal struct Tutorial: View {
         }
     }
 
-    internal static var symbolSize: CGFloat = 32
+    static var symbolSize: CGFloat = 32
 
-    internal var body: some View {
+    var body: some View {
         VStack {
             CloseButtonView {
                 VStack {

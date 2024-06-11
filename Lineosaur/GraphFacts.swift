@@ -8,17 +8,17 @@
 import SwiftData
 import SwiftUI
 
-internal struct GraphFact: View, Identifiable {
-    internal var fact: String
-    internal var symbol: String
-    internal var value: Bool = .init(true)
-    internal var id: UUID = .init()
+struct GraphFact: View, Identifiable {
+    var fact: String
+    var symbol: String
+    var value: Bool = .init(true)
+    var id: UUID = .init()
 
-    internal let fontSize: CGFloat = 32.0
-    internal let imageSize: CGFloat = 48.0
-    internal let minFrameSize: CGFloat = 48.0
+    let fontSize: CGFloat = 32.0
+    let imageSize: CGFloat = 48.0
+    let minFrameSize: CGFloat = 48.0
 
-    internal var body: some View {
+    var body: some View {
         Grid {
             GridRow {
                 ZStack {
@@ -41,15 +41,15 @@ internal struct GraphFact: View, Identifiable {
     }
 }
 
-internal struct GraphFacts: View {
-    @Bindable internal var graph: Graph
+struct GraphFacts: View {
+    @Bindable var graph: Graph
 
     private var graphFacts: [GraphFact] {
         [
             GraphFact(
                 fact: "The graph has \(graph.edges.count) "
-                + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
-                + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
+                    + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
+                    + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
                 symbol: "point.topleft.down.curvedto.point.bottomright.up"
             ),
             GraphFact(
@@ -79,7 +79,7 @@ internal struct GraphFacts: View {
         ]
     }
 
-    internal var body: some View {
+    var body: some View {
         CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
             List {
                 ForEach(graphFacts) { fact in

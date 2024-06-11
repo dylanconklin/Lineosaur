@@ -9,7 +9,7 @@
 import Foundation
 
 extension Graph {
-    internal var isBipartite: Bool {
+    var isBipartite: Bool {
         var groupA: Set<Vertex> = .init()
         var groupB: Set<Vertex> = .init()
 
@@ -20,7 +20,7 @@ extension Graph {
         return groupA.isDisjoint(with: groupB)
     }
 
-    internal var isComplete: Bool {
+    var isComplete: Bool {
         var result: Bool = .init(true)
         for vertex in vertices {
             let connectedVertices: [Vertex] = edges(connectedTo: vertex).flatMap { $0.vertices }
@@ -31,7 +31,7 @@ extension Graph {
         return result
     }
 
-    internal var isConnected: Bool {
+    var isConnected: Bool {
         var connectedVertices: Set<Vertex> = .init()
         var connectedEdges: Set<Edge> = .init()
 
@@ -46,7 +46,7 @@ extension Graph {
         return Set(edges).subtracting(connectedEdges).isEmpty
     }
 
-    internal var isCyclic: Bool {
+    var isCyclic: Bool {
         let graph: Graph = copy
         while !graph.leaves.isEmpty {
             graph.remove(graph.leaves)
@@ -54,11 +54,11 @@ extension Graph {
         return !graph.isEmpty
     }
 
-    internal var isEmpty: Bool {
+    var isEmpty: Bool {
         edges.isEmpty && vertices.isEmpty
     }
 
-    internal var isMulti: Bool {
+    var isMulti: Bool {
         var result: Bool = .init(false)
         if !loops.isEmpty {
             result = true
@@ -72,7 +72,7 @@ extension Graph {
         return result
     }
 
-    internal var isSimple: Bool {
+    var isSimple: Bool {
         for vertex1 in vertices {
             for vertex2 in vertices where edges(from: vertex1, toward: vertex2, directional: false).count > 1 {
                 return false
@@ -81,15 +81,15 @@ extension Graph {
         return true
     }
 
-    internal var isTree: Bool {
+    var isTree: Bool {
         isConnected && !isCyclic
     }
 
-    internal var isTrivial: Bool {
+    var isTrivial: Bool {
         edges.isEmpty && vertices.count == 1
     }
 
-    internal func isBipartite(
+    func isBipartite(
         selectedVertex: Vertex,
         _ groupA: inout Set<Vertex>,
         _ groupB: inout Set<Vertex>,

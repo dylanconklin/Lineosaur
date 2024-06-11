@@ -8,18 +8,18 @@
 @testable import Lineosaur
 import XCTest
 
-internal class BipartiteGraphTests: XCTestCase {
+class BipartiteGraphTests: XCTestCase {
     private var sut: Graph?
 
-    override internal func setUp() {
+    override func setUp() {
         sut = Graph()
     }
 
-    override internal func tearDown() {
+    override func tearDown() {
         sut = nil
     }
 
-    internal func testBipartiteGraphIsBipartite() {
+    func testBipartiteGraphIsBipartite() {
         // given
         sut = bipartiteGraph
 
@@ -32,7 +32,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    internal func testNonBipartiteGraphIsNotBeBipartite() {
+    func testNonBipartiteGraphIsNotBeBipartite() {
         // given
         sut = nonBipartiteGraph
 
@@ -45,7 +45,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    internal func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
+    func testDisconnectedGraphWithBipartiteAndNonBipartiteElementsIsNotBipartite() {
         // given
         sut = nonBipartiteGraphWithBipartiteCycle
 
@@ -58,7 +58,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    internal func testGraphWithoutEdgesIsBipartite() {
+    func testGraphWithoutEdgesIsBipartite() {
         // given
 
         // when
@@ -74,7 +74,7 @@ internal class BipartiteGraphTests: XCTestCase {
         }
     }
 
-    internal func testEmptyGraphIsBipartite() {
+    func testEmptyGraphIsBipartite() {
         // given
 
         // when

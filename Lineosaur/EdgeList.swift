@@ -9,11 +9,11 @@ import SwiftData
 import SwiftUI
 
 /// List showing edges in the graph
-internal struct EdgeList: View {
-    @Bindable internal var graph: Graph
+struct EdgeList: View {
+    @Bindable var graph: Graph
     @State private var showEdgeSection: Bool = .init(true)
 
-    internal var body: some View {
+    var body: some View {
         Section("Edges", isExpanded: $showEdgeSection) {
             ForEach($graph.edges, id: \.id, editActions: .delete) { edge in
                 EdgeView(edge: edge)

@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-internal enum Compiler: String {
+enum Compiler: String {
     case circo
     case dot
     case fdp
@@ -18,8 +18,8 @@ internal enum Compiler: String {
     case twopi
 }
 
-internal struct GraphVizViewer: View {
-    @Bindable internal var graph: Graph
+struct GraphVizViewer: View {
+    @Bindable var graph: Graph
     @State private var graphType: GraphType = .given
     @AppStorage("compiler")
     private var compiler: Compiler = .dot
@@ -28,7 +28,7 @@ internal struct GraphVizViewer: View {
 
     private var graphURL: URL? { graph.generateGraphVizURL(of: graphType) }
 
-    internal var toolBarMenu: some View {
+    var toolBarMenu: some View {
         Menu("Menu", systemImage: "ellipsis.circle") {
             Menu("Graph Type", systemImage: "square.on.circle") {
                 Picker("Graph Type", selection: $graphType) {
@@ -56,7 +56,7 @@ internal struct GraphVizViewer: View {
         }
     }
 
-    internal var body: some View {
+    var body: some View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {

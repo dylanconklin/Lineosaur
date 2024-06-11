@@ -8,11 +8,11 @@
 import SwiftData
 import SwiftUI
 
-internal struct VertexList: View {
-    @Bindable internal var graph: Graph
+struct VertexList: View {
+    @Bindable var graph: Graph
     @State private var showVertexSection: Bool = .init(true)
 
-    internal var body: some View {
+    var body: some View {
         Section("Vertices", isExpanded: $showVertexSection) {
             ForEach($graph.vertices, id: \.self, editActions: .delete) { vertex in
                 Text(vertex.wrappedValue)

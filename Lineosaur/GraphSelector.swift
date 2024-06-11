@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-internal struct GraphSelector: View {
+struct GraphSelector: View {
     @Environment(\.modelContext)
     private var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
@@ -25,14 +25,14 @@ internal struct GraphSelector: View {
         return dateFormatter
     }
 
-    internal var body: some View {
+    var body: some View {
         NavigationStack {
             List {
                 ForEach(savedGraphs) { graph in
                     VStack(alignment: .leading) {
                         Text(graph.name ?? "Untitled Graph")
                         Text("^[\(graph.edges.count) edge](inflect: true), "
-                             + "^[\(graph.vertices.count) vertex](inflect: true)")
+                            + "^[\(graph.vertices.count) vertex](inflect: true)")
                         Text("Last Accessed: \(dateFormatter.string(from: graph.lastAccessed))")
                     }
                     .onTapGesture {

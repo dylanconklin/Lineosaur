@@ -9,15 +9,15 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-internal struct GraphEditor: View {
-    @Bindable internal var graph: Graph
+struct GraphEditor: View {
+    @Bindable var graph: Graph
     @State private var showVertexBuilder: Bool = .init(false)
     @State private var showEdgeCreator: Bool = .init(false)
     @State private var vertexName: String = ""
     @State private var showTutorial: Bool = .init(false)
     @State private var showGraphSelector: Bool = .init(false)
 
-    internal var body: some View {
+    var body: some View {
         NavigationStack {
             VStack {
                 if graph.isEmpty {

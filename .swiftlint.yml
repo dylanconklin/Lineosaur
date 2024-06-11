@@ -69,9 +69,7 @@ opt_in_rules:
   - empty_xctest_method
   - enum_case_associated_values_count
   - expiring_todo
-  - explicit_acl
   - explicit_init
-  - explicit_top_level_acl
   - explicit_type_interface
   - extension_access_modifier
   - fallthrough
@@ -240,7 +238,9 @@ opt_in_rules:
 
 disabled_rules:
   - blanket_disable_command
+  - explicit_acl
   - explicit_enum_raw_value
+  - explicit_top_level_acl
   - indentation_width
   - prefer_nimble
   - required_deinit

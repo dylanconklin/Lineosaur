@@ -7,21 +7,21 @@
 
 import Foundation
 
-internal struct EdgeStyle: Codable {
-    internal enum Arrow: String, CaseIterable, Codable {
-        case box = "box"
-        case crow = "crow"
-        case curve = "curve"
-        case diamond = "diamond"
-        case dot = "dot"
+struct EdgeStyle: Codable {
+    enum Arrow: String, CaseIterable, Codable {
+        case box
+        case crow
+        case curve
+        case diamond
+        case dot
         case inverse = "inv"
         case inverseCurve = "icurve"
         case plain = "none"
-        case normal = "normal"
-        case tee = "tee"
-        case vee = "vee"
+        case normal
+        case tee
+        case vee
 
-        internal var description: String {
+        var description: String {
             switch self {
             case .inverse:
                 return "Inverse"
@@ -33,6 +33,6 @@ internal struct EdgeStyle: Codable {
         }
     }
 
-    internal var arrowhead: Arrow = .normal
-    internal var arrowtail: Arrow = .plain
+    var arrowhead: Arrow = .normal
+    var arrowtail: Arrow = .plain
 }

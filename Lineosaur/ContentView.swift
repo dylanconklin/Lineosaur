@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 /// Entry point into application
-internal struct ContentView: View {
+struct ContentView: View {
     @Environment(\.modelContext)
     private var modelContext: ModelContext
     @Query(sort: \Graph.lastAccessed, order: .reverse)
@@ -28,7 +28,7 @@ internal struct ContentView: View {
         fatalError("Could not load graph")
     }
 
-    internal var body: some View {
+    var body: some View {
         TabView {
             GraphEditor(graph: graph)
                 .tabItem { Label("Edit", systemImage: "pencil") }
