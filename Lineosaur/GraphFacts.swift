@@ -48,8 +48,8 @@ struct GraphFacts: View {
         [
             GraphFact(
                 fact: "The graph has \(graph.edges.count) "
-                    + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
-                    + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
+                + "edge\(graph.edges.count == 1 ? "" : "s") and \(graph.vertices.count) "
+                + "\(graph.vertices.count == 1 ? "vertex" : "vertices")",
                 symbol: "point.topleft.down.curvedto.point.bottomright.up"
             ),
             GraphFact(
@@ -75,6 +75,26 @@ struct GraphFacts: View {
                 fact: "The graph is \(graph.isBipartite ? "" : "not ")bipartite",
                 symbol: "rectangle.split.2x1",
                 value: graph.isBipartite
+            ),
+            GraphFact(
+                fact: "The graph is \(graph.isTrivial ? "" : "not ")trivial",
+                symbol: "smallcircle.filled.circle",
+                value: graph.isTrivial
+            ),
+            GraphFact(
+                fact: "The graph is \(graph.isSimple ? "" : "not ")simple",
+                symbol: "brain",
+                value: graph.isSimple
+            ),
+            GraphFact(
+                fact: "The graph is \(graph.isMulti ? "" : "not ")multi",
+                symbol: "person.3",
+                value: graph.isMulti
+            ),
+            GraphFact(
+                fact: "The graph is \(graph.isComplete ? "" : "not ")complete",
+                symbol: "gauge.with.dots.needle.100percent",
+                value: graph.isComplete
             )
         ]
     }
