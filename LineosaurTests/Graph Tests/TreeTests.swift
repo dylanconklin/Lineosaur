@@ -6,17 +6,14 @@
 //
 
 @testable import Lineosaur
-import XCTest
+import Testing
 
-internal final class TreeTests: XCTestCase {
-    private var sut: Graph?
+@Suite
+final class TreeTests {
+    private var sut: Graph
 
-    override internal func setUp() {
+    init() {
         sut = Graph()
-    }
-
-    override internal func tearDown() {
-        sut = nil
     }
 
     internal func testTreeGraphIsTree() {
@@ -24,12 +21,7 @@ internal final class TreeTests: XCTestCase {
         sut = treeGraph
 
         // when
-        if let result: Bool = sut?.isTree {
-            // then
-            XCTAssertTrue(result)
-        } else {
-            XCTFail("isTree didn't produce a value")
-        }
+        #expect(sut.isTree == true)
     }
 
     internal func testNonTreeGraphIsNotTree() {
@@ -37,39 +29,24 @@ internal final class TreeTests: XCTestCase {
         sut = notTreeGraph
 
         // when
-        if let result: Bool = sut?.isTree {
-            // then
-            XCTAssertFalse(result)
-        } else {
-            XCTFail("isTree didn't produce a value")
-        }
+        #expect(sut.isTree == false)
     }
 
     internal func testGraphWithoutEdgesIsTree() {
         // given
-        sut?.insert("a")
-        sut?.insert("b")
-        sut?.insert("c")
+        sut.insert("a")
+        sut.insert("b")
+        sut.insert("c")
 
         // when
-        if let result: Bool = sut?.isTree {
-            // then
-            XCTAssertTrue(result)
-        } else {
-            XCTFail("isTree didn't produce a value")
-        }
+        #expect(sut.isTree == true)
     }
 
     internal func testEmptyGraphIsTree() {
         // given
 
         // when
-        if let result: Bool = sut?.isTree {
-            // then
-            XCTAssertTrue(result)
-        } else {
-            XCTFail("isTree didn't produce a value")
-        }
+        #expect(sut.isTree == true)
     }
 
     internal func testDisconnectedGraphIsNotTree() {
@@ -77,11 +54,6 @@ internal final class TreeTests: XCTestCase {
         sut = disconnectedGraphNoOutlierVertex
 
         // when
-        if let result: Bool = sut?.isTree {
-            // then
-            XCTAssertFalse(result)
-        } else {
-            XCTFail("isTree didn't produce a value")
-        }
+        #expect(sut.isTree == false)
     }
 }
