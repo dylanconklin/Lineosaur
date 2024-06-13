@@ -16,7 +16,7 @@ enum GraphType {
 }
 
 @Model
-class Graph: Equatable {
+final class Graph: Equatable {
     private var graphEdges: Set<Edge>
     private var graphVertices: Set<Vertex>
     var name: String?
@@ -137,7 +137,7 @@ class Graph: Equatable {
     }
 
     func deleteLeaves() {
-        remove(leaves)
+        leaves.forEach(remove)
     }
 
     func deleteDetachedVertices() {
@@ -177,15 +177,7 @@ class Graph: Equatable {
         graphVertices.remove(vertex)
     }
 
-    func remove(_ vertices: any Collection<Vertex>) {
-        vertices.forEach(remove)
-    }
-
     func remove(_ edge: Edge) {
         graphEdges.remove(edge)
-    }
-
-    func remove(_ edges: any Collection<Edge>) {
-        edges.forEach(remove)
     }
 }
