@@ -8,6 +8,7 @@
 @testable import Lineosaur
 import Testing
 
+@Suite
 struct WeightedGraphTests {
     private var sut: Graph
 

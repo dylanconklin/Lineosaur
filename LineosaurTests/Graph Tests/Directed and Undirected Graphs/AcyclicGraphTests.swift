@@ -8,6 +8,7 @@
 @testable import Lineosaur
 import Testing
 
+@Suite
 struct AcyclicGraphTests {
     private var sut: Graph
 

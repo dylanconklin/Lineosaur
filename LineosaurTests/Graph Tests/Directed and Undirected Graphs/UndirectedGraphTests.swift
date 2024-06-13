@@ -8,6 +8,7 @@
 @testable import Lineosaur
 import Testing
 
+@Suite
 struct UndirectedGraphTests {
     private var sut: Graph
 
