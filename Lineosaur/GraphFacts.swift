@@ -43,7 +43,7 @@ struct GraphFact: View, Identifiable {
 
 struct GraphFacts: View {
     @Bindable var graph: Graph
-
+    
     private var graphFacts: [GraphFact] {
         [
             GraphFact(
@@ -98,13 +98,11 @@ struct GraphFacts: View {
             )
         ]
     }
-
+    
     var body: some View {
         CloseButtonView(title: "Graph Facts", titleStyle: .inline) {
-            List {
-                ForEach(graphFacts) { fact in
-                    fact
-                }
+            List(graphFacts) { fact in
+                fact
             }
         }
     }
