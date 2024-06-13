@@ -32,15 +32,11 @@ struct GraphSelector: View {
                     VStack(alignment: .leading) {
                         Text(graph.name ?? "Untitled Graph")
                         Text("^[\(graph.edges.count) edge](inflect: true), "
-                            + "^[\(graph.vertices.count) vertex](inflect: true)")
+                             + "^[\(graph.vertices.count) vertex](inflect: true)")
                         Text("Last Accessed: \(dateFormatter.string(from: graph.lastAccessed))")
                     }
                     .onTapGesture {
-                        graph.lastAccessed = Date.now
-                        do {
-                            try? modelContext.save()
-                        }
-                        dismiss()
+                        save(graph: graph)
                     }
                     .accessibilityAddTraits(.isButton)
                 }
@@ -86,6 +82,14 @@ struct GraphSelector: View {
         do {
             try? modelContext.save()
         }
+    }
+
+    private func save(graph: Graph) {
+        graph.lastAccessed = Date.now
+        do {
+            try? modelContext.save()
+        }
+        dismiss()
     }
 }
 
