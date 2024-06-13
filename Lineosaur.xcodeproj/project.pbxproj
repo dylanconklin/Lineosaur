@@ -190,7 +190,6 @@
 			children = (
 				ABE3AAE12C18EF38001B548F /* Bundle */,
 				ABEF8D012B8C635F009EA940 /* Tutorial */,
-				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
 				AB76A95E2A998D4B007DE536 /* Views */,
 				AB510F332A8A91C800B76121 /* LineosaurApp.swift */,
@@ -213,6 +212,7 @@
 		AB510F462A8A91CA00B76121 /* LineosaurTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				ABEEF2622AB1915B004C9429 /* Graph Tests */,
 			);
 			path = LineosaurTests;
