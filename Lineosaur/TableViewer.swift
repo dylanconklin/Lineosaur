@@ -14,13 +14,13 @@ struct TableViewer: View {
     @State private var graphType: GraphType = .given
     @State private var showFacts: Bool = .init(false)
 
-    var graphFactsButton: some View {
+    private var graphFactsButton: some View {
         Button("Graph Facts", systemImage: "info.circle") {
             showFacts = true
         }
     }
 
-    var graphTypeMenu: some View {
+    private var graphTypeMenu: some View {
         Menu {
             Picker("Graph Type", selection: $graphType) {
                 Text("Given").tag(GraphType.given)

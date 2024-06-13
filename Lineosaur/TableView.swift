@@ -26,6 +26,14 @@ struct TableView: View {
         }
     }
 
+    private var table: some View {
+        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+            tableTopRow
+            tableBody
+        }
+        .padding()
+    }
+
     private var tableTopRow: some View {
         GridRow {
             Cell {
@@ -49,8 +57,8 @@ struct TableView: View {
                 }
                 ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                     var distance: String {
-                        var distance: String = ""
-                        distance = String(
+                        var result: String = ""
+                        result = String(
                             graph.edges(
                                 from: vertex2,
                                 toward: vertex1,
@@ -58,8 +66,8 @@ struct TableView: View {
                             )
                             .min()?.weight ?? 0.0
                         )
-                        distance = vertex1 != vertex2 && distance == "0.0" ? "-" : distance
-                        return distance
+                        result = ((vertex1 != vertex2) && (result == "0.0")) ? "-" : result
+                        return result
                     }
                     Cell {
                         Text(distance)
@@ -67,14 +75,6 @@ struct TableView: View {
                 }
             }
         }
-    }
-
-    private var table: some View {
-        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
-            tableTopRow
-            tableBody
-        }
-        .padding()
     }
 }
 
