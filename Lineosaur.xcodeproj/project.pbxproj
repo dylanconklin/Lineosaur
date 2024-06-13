@@ -42,6 +42,7 @@
 		ABC87FEB2AC4C97B00EEA68A /* GraphConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */; };
 		ABE3AAE32C18EF59001B548F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAE22C18EF51001B548F /* Bundle.swift */; };
 		ABE3AAE72C18FB33001B548F /* TutorialData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE3AAE62C18FB2D001B548F /* TutorialData.json */; };
+		ABE3AAE92C1AAE33001B548F /* VertexSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAE82C1AAE33001B548F /* VertexSelector.swift */; };
 		ABEEF2562AB1902B004C9429 /* UndirectedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */; };
 		ABEEF2582AB19043004C9429 /* WeightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */; };
 		ABEEF25A2AB19050004C9429 /* UnweightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */; };
@@ -101,6 +102,7 @@
 		ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConnectivityTests.swift; sourceTree = "<group>"; };
 		ABE3AAE22C18EF51001B548F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		ABE3AAE62C18FB2D001B548F /* TutorialData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TutorialData.json; sourceTree = "<group>"; };
+		ABE3AAE82C1AAE33001B548F /* VertexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexSelector.swift; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectedGraphTests.swift; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedGraphTests.swift; sourceTree = "<group>"; };
 		ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnweightedGraphTests.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				AB76A9692A99A645007DE536 /* EdgeList.swift */,
 				ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */,
+				ABE3AAE82C1AAE33001B548F /* VertexSelector.swift */,
 				AB76A9612A99A448007DE536 /* EdgeView.swift */,
 			);
 			name = Edge;
@@ -502,6 +505,7 @@
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
 				AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */,
 				ABE3AAE32C18EF59001B548F /* Bundle.swift in Sources */,
+				ABE3AAE92C1AAE33001B548F /* VertexSelector.swift in Sources */,
 				AB4BA6CC2ACA8BCF00783897 /* GraphVizGenerator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */,
