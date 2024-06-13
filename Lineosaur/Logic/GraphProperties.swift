@@ -49,7 +49,7 @@ extension Graph {
     var isCyclic: Bool {
         let graph: Graph = copy
         while !graph.leaves.isEmpty {
-            graph.leaves.forEach(remove)
+            graph.leaves.forEach(graph.remove)
         }
         return !graph.isEmpty
     }
