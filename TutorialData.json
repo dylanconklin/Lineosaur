@@ -1,0 +1,38 @@
+[
+    {
+        "accessibilityLabel":"Tutorial label for adding edge",
+        "systemImage":"app.connected.to.app.below.fill",
+        "bodyText":"Click the + button to add edges to the graph\n\nStart by adding a single edge. The vertices will be added for you automatically!",
+        "id":"2635A199-1781-46FF-976B-EE5586ED31D6"
+    },
+    {
+        "accessibilityLabel":"Tutorial label for naming vertices",
+        "bodyText":"The names of the endpoints can include spaces, special characters and emojis",
+        "id":"2637906C-D450-42E6-B4B9-AC596368A31A",
+        "systemImage":"character.bubble"
+    },
+    {
+        "bodyText":"You will see the edges appear in a list as you add them",
+        "systemImage":"list.bullet",
+        "accessibilityLabel":"Tutorial label for viewing edges",
+        "id":"FAF73139-128B-4A16-BEBF-A8B0A7487ACD"
+    },
+    {
+        "accessibilityLabel":"Tutorial label for view tabs",
+        "id":"AB28442E-2DA0-4284-9311-C189E9DC64F8",
+        "bodyText":"Tap the bottom of your screen to view the graph visually, or as a table",
+        "systemImage":"point.3.filled.connected.trianglepath.dotted"
+    },
+    {
+        "bodyText":"Tap and hold the edges to see advanced actions",
+        "systemImage":"hand.tap.fill",
+        "accessibilityLabel":"Tutorial label for gestures",
+        "id":"B5C1A4A2-40D6-48A3-84DD-01518B73516F"
+    },
+    {
+        "bodyText":"Create and load multiple graphs in Settings",
+        "systemImage":"square.and.arrow.down",
+        "id":"2FA0E927-2D02-4F72-BD3F-93474304AB29",
+        "accessibilityLabel":"Tutorial label for loading and saving graphs"
+    }
+]

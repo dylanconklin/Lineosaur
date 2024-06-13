@@ -19,81 +19,18 @@ struct TutorialTip: Tip {
     }
 }
 
+struct TutorialDatum: Codable, Identifiable {
+    private enum CodingKeys: String, CodingKey { case systemImage, accessibilityLabel, bodyText }
+
+    var systemImage: String
+    var accessibilityLabel: String
+    var bodyText: String
+    var id: UUID = .init()
+}
+
 struct Tutorial: View {
-    private struct Tutorial1: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "app.connected.to.app.below.fill")
-                    .accessibilityLabel("Tutorial label for adding edge")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("Click the + button to add edges to the graph\n\nStart by adding a single edge. "
-                    + "The vertices will be added for you automatically!")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
-    private struct Tutorial2: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "character.bubble")
-                    .accessibilityLabel("Tutorial label for naming vertices")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("The names of the endpoints can include spaces, special characters and emojis")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
-    private struct Tutorial3: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "list.bullet")
-                    .accessibilityLabel("Tutorial label for viewing edges")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("You will see the edges appear in a list as you add them")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
-    private struct Tutorial4: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "point.3.filled.connected.trianglepath.dotted")
-                    .accessibilityLabel("Tutorial label for view tabs")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("Tap the bottom of your screen to view the graph visually, or as a table")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
-    private struct Tutorial5: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "hand.tap.fill")
-                    .accessibilityLabel("Tutorial label for gestures")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("Tap and hold the edges to see advanced actions")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
-    private struct Tutorial6: View {
-        var body: some View {
-            HStack {
-                Image(systemName: "square.and.arrow.down")
-                    .accessibilityLabel("Tutorial label for loading and saving graphs")
-                    .font(.system(size: Tutorial.symbolSize))
-                Text("Create and load multiple graphs in Settings")
-                    .padding(.horizontal)
-            }
-        }
-    }
-
     static var symbolSize: CGFloat = 32
+    let tutorialData: [TutorialDatum] = Bundle.main.decode("TutorialData.json")
 
     var body: some View {
         VStack {
@@ -102,22 +39,21 @@ struct Tutorial: View {
                     Text("Thank you for downloading Lineosaur!")
                         .multilineTextAlignment(.center)
                         .font(.title)
-                    List {
-                        Tutorial1()
-                            .padding()
-                        Tutorial2()
-                            .padding()
-                        Tutorial3()
-                            .padding()
-                        Tutorial4()
-                            .padding()
-                        Tutorial5()
-                            .padding()
-                        Tutorial6()
-                            .padding()
+                    List(tutorialData) { item in
+                        tutorialCell(for: item)
                     }
                 }
             }
+        }
+    }
+
+    func tutorialCell(for item: TutorialDatum) -> some View {
+        HStack {
+            Image(systemName: item.systemImage)
+                .accessibilityLabel(item.accessibilityLabel)
+                .font(.system(size: Self.symbolSize))
+            Text(item.bodyText)
+                .padding(.horizontal)
         }
     }
 }

@@ -40,6 +40,8 @@
 		ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC6D02A2BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC87FEB2AC4C97B00EEA68A /* GraphConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */; };
+		ABE3AAE32C18EF59001B548F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAE22C18EF51001B548F /* Bundle.swift */; };
+		ABE3AAE72C18FB33001B548F /* TutorialData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE3AAE62C18FB2D001B548F /* TutorialData.json */; };
 		ABEEF2562AB1902B004C9429 /* UndirectedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */; };
 		ABEEF2582AB19043004C9429 /* WeightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */; };
 		ABEEF25A2AB19050004C9429 /* UnweightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */; };
@@ -97,6 +99,8 @@
 		ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lineosaur-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConnectivityTests.swift; sourceTree = "<group>"; };
+		ABE3AAE22C18EF51001B548F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		ABE3AAE62C18FB2D001B548F /* TutorialData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TutorialData.json; sourceTree = "<group>"; };
 		ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectedGraphTests.swift; sourceTree = "<group>"; };
 		ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedGraphTests.swift; sourceTree = "<group>"; };
 		ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnweightedGraphTests.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */,
 				ABFA48952BFEEFD700DB9881 /* .periphery.yml */,
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
+				ABE3AAE62C18FB2D001B548F /* TutorialData.json */,
 				AB510F322A8A91C800B76121 /* Lineosaur */,
 				AB510F462A8A91CA00B76121 /* LineosaurTests */,
 				AB510F312A8A91C800B76121 /* Products */,
@@ -181,6 +186,7 @@
 		AB510F322A8A91C800B76121 /* Lineosaur */ = {
 			isa = PBXGroup;
 			children = (
+				ABE3AAE12C18EF38001B548F /* Bundle */,
 				ABEF8D012B8C635F009EA940 /* Tutorial */,
 				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
@@ -297,6 +303,14 @@
 				AB8BFA512ABAE0AD00B1B2CC /* Edge */,
 			);
 			name = GraphEditor;
+			sourceTree = "<group>";
+		};
+		ABE3AAE12C18EF38001B548F /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				ABE3AAE22C18EF51001B548F /* Bundle.swift */,
+			);
+			path = Bundle;
 			sourceTree = "<group>";
 		};
 		ABEEF2602AB190AD004C9429 /* Weight Graph Tests */ = {
@@ -430,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */,
+				ABE3AAE72C18FB33001B548F /* TutorialData.json in Resources */,
 				AB510F3E2A8A91CA00B76121 /* Preview Assets.xcassets in Resources */,
 				ABFA48962BFEEFD700DB9881 /* .periphery.yml in Resources */,
 				AB510F3A2A8A91CA00B76121 /* Assets.xcassets in Resources */,
@@ -486,6 +501,7 @@
 				AB76A9682A99A620007DE536 /* VertexList.swift in Sources */,
 				ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */,
 				AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */,
+				ABE3AAE32C18EF59001B548F /* Bundle.swift in Sources */,
 				AB4BA6CC2ACA8BCF00783897 /* GraphVizGenerator.swift in Sources */,
 				AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */,
 				ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */,
