@@ -33,7 +33,7 @@ struct TableViewer: View {
 
     var body: some View {
         NavigationStack {
-            TableView(graph: graphType == .given ? graph : graph.mst)
+            TableView(graph: graphType == .given ? graph : graph.mst, graphType: $graphType)
             Spacer()
                 .navigationTitle("Adjacency Table")
                 .toolbar {
