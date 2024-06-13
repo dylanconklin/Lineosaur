@@ -13,23 +13,24 @@ struct EdgeView: View {
 
     var body: some View {
         Grid(alignment: .topLeading) {
-            GridRow {
-                Text("From")
-                Text(":")
-                Text("\(edge.from)")
-            }
-            GridRow {
-                Text("To")
-                Text(":")
-                Text("\(edge.toward)")
-            }
-            GridRow {
-                Text("Weight")
-                Text(":")
-                Text("\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))")
-            }
+            row(label: "From", value: "\(edge.from)")
+            row(label: "To", value: "\(edge.toward)")
+            row(
+                label: "Weight",
+                value: "\(edge.weight == edge.weight.rounded() ? String(Int(edge.weight)) : String(edge.weight))"
+            )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func row(label: String, value: String) -> some View {
+        // Do not combine Text strings into a single value
+        // They have to be separate so the Grid can space them out properly
+        GridRow {
+            Text(label)
+            Text(":")
+            Text(value)
+        }
     }
 }
 
