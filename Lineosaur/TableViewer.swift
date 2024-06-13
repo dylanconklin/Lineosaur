@@ -14,27 +14,39 @@ struct TableViewer: View {
     @State private var graphType: GraphType = .given
     @State private var showFacts: Bool = .init(false)
 
+    var graphFactsButton: some View {
+        Button("Graph Facts", systemImage: "info.circle") {
+            showFacts = true
+        }
+    }
+
+    var graphTypeMenu: some View {
+        Menu {
+            Picker("Graph Type", selection: $graphType) {
+                Text("Given").tag(GraphType.given)
+                Text("MST").tag(GraphType.mst)
+            }
+        } label: {
+            Label("Graph Type", systemImage: "square.on.circle")
+        }
+    }
+
     var body: some View {
         NavigationStack {
             TableView(graph: graphType == .given ? graph : graph.mst)
             Spacer()
                 .navigationTitle("Adjacency Table")
                 .toolbar {
-                    if !graph.edges.isEmpty {
-                        ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        if !graph.edges.isEmpty {
                             Menu {
-                                Button("Graph Facts", systemImage: "info.circle") { showFacts = true }
-                                Menu {
-                                    Picker("Graph Type", selection: $graphType) {
-                                        Text("Given").tag(GraphType.given)
-                                        Text("MST").tag(GraphType.mst)
-                                    }
-                                } label: {
-                                    Label("Graph Type", systemImage: "square.on.circle")
-                                }
+                                graphFactsButton
+                                graphTypeMenu
                             } label: {
                                 Label("Menu", systemImage: "ellipsis.circle")
                             }
+                        } else {
+                            graphFactsButton
                         }
                     }
                 }
