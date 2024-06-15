@@ -41,7 +41,7 @@ struct EdgeCreator: View {
     private var addButton: some View {
         Button("Add Edge", systemImage: "checkmark") { insertEdge() }
             .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .frame(maxWidth: .infinity, alignment: .bottom)
     }
 
     private var edgeStylePicker: some View {
