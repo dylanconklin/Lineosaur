@@ -47,7 +47,7 @@ struct ContentView: View {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
 
-        let testGraphs: [Graph] = [connectedGraph, disconnectedGraphOutlierVertex, disconnectedGraphNoOutlierVertex]
+        let testGraphs: [Graph] = [graph1, graph2, graph3]
 
         testGraphs.forEach(container.mainContext.insert)
 

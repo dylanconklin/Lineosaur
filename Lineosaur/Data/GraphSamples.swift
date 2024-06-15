@@ -7,44 +7,7 @@
 
 import Foundation
 
-var mixedIntAndDouble: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "A", toward: "B", weight: 1.0))
-    graph.insert(Edge(from: "B", toward: "C", weight: 1.5))
-
-    return graph
-}
-
-var acyclicGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "1", toward: "2", weight: 1))
-    graph.insert(Edge(from: "2", toward: "3", weight: 1))
-    graph.insert(Edge(from: "2", toward: "4", weight: 1))
-    graph.insert(Edge(from: "4", toward: "5", weight: 1))
-    graph.insert(Edge(from: "4", toward: "6", weight: 1))
-    graph.insert(Edge(from: "5", toward: "6", weight: 1))
-    graph.insert(Edge(from: "6", toward: "3", weight: 1))
-
-    return graph
-}
-
-var cyclicGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "1", toward: "2", weight: 1))
-    graph.insert(Edge(from: "2", toward: "3", weight: 1))
-    graph.insert(Edge(from: "2", toward: "4", weight: 1))
-    graph.insert(Edge(from: "4", toward: "5", weight: 1))
-    graph.insert(Edge(from: "5", toward: "6", weight: 1))
-    graph.insert(Edge(from: "6", toward: "3", weight: 1))
-    graph.insert(Edge(from: "6", toward: "4", weight: 1))
-
-    return graph
-}
-
-var weightedGraph: Graph {
+var graph1: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1))
@@ -67,7 +30,7 @@ var weightedGraph: Graph {
     return graph
 }
 
-var connectedGraph: Graph {
+var graph2: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -80,99 +43,13 @@ var connectedGraph: Graph {
     return graph
 }
 
-var disconnectedGraphNoOutlierVertex: Graph {
+var graph3: Graph {
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
     graph.insert(Edge(from: "b", toward: "c", weight: 1.0))
     graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
-
-    return graph
-}
-
-var disconnectedGraphOutlierVertex: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "c", toward: "a", weight: 1.0))
-    graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
-    graph.insert("z")
-
-    return graph
-}
-
-var bipartiteGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "c", toward: "d", weight: 1.0))
-    graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
-    graph.insert(Edge(from: "f", toward: "a", weight: 1.0))
-
-    return graph
-}
-
-var nonBipartiteGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "c", toward: "d", weight: 1.0))
-    graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "a", weight: 1.0))
-
-    return graph
-}
-
-var nonBipartiteGraphWithBipartiteCycle: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "c", toward: "d", weight: 1.0))
-    graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
-    graph.insert(Edge(from: "f", toward: "a", weight: 1.0))
-
-    graph.insert(Edge(from: "v", toward: "w", weight: 1.0))
-    graph.insert(Edge(from: "w", toward: "x", weight: 1.0))
-    graph.insert(Edge(from: "x", toward: "y", weight: 1.0))
-    graph.insert(Edge(from: "y", toward: "z", weight: 1.0))
-    graph.insert(Edge(from: "z", toward: "v", weight: 1.0))
-
-    return graph
-}
-
-var treeGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "a", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "d", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "c", toward: "f", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "g", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "h", weight: 1.0))
-
-    return graph
-}
-
-var notTreeGraph: Graph {
-    let graph: Graph = .init()
-
-    graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
-    graph.insert(Edge(from: "a", toward: "c", weight: 1.0))
-    graph.insert(Edge(from: "b", toward: "d", weight: 1.0))
-    graph.insert(Edge(from: "d", toward: "h", weight: 1.0))
-    graph.insert(Edge(from: "h", toward: "g", weight: 1.0))
-    graph.insert(Edge(from: "g", toward: "f", weight: 1.0))
-    graph.insert(Edge(from: "f", toward: "e", weight: 1.0))
-    graph.insert(Edge(from: "e", toward: "d", weight: 1.0))
 
     return graph
 }

@@ -101,7 +101,7 @@ struct TableView: View {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
         @State var graphType: GraphType = .given
-        return TableView(graph: connectedGraph, graphType: $graphType)
+        return TableView(graph: graph2, graphType: $graphType)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

@@ -113,7 +113,7 @@ struct EdgeCreator: View {
     do {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
-        return EdgeCreator(graph: connectedGraph)
+        return EdgeCreator(graph: graph2)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

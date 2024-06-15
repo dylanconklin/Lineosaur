@@ -123,7 +123,7 @@ struct GraphFacts: View {
     do {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
-        return GraphFacts(graph: connectedGraph)
+        return GraphFacts(graph: graph2)
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")

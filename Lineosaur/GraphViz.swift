@@ -63,7 +63,7 @@ struct GraphViz: View {
     do {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
-        return GraphViz(url: weightedGraph.generateGraphVizURL(of: .given))
+        return GraphViz(url: graph1.generateGraphVizURL(of: .given))
             .modelContainer(container)
     } catch {
         fatalError("Failed to create model container")
