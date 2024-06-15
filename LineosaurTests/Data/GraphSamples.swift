@@ -6,17 +6,56 @@
 //
 
 import Foundation
+@testable import Lineosaur
 
-var mixedIntAndDouble: Graph {
+var emptyGraph: TestableGraph {
+    // Create Graph
+    let graph: Graph = .init()
+
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isEmpty: true,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
+}
+
+var trivialGraph: TestableGraph {
+    // Create Graph
+    let graph: Graph = .init()
+
+    graph.insert("X")
+
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isEmpty: false,
+        isTrivial: true
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
+}
+
+var mixedIntAndDouble: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "A", toward: "B", weight: 1.0))
     graph.insert(Edge(from: "B", toward: "C", weight: 1.5))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isEmpty: false,
+        isTree: true,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var acyclicGraph: Graph {
+var acyclicGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "1", toward: "2", weight: 1))
@@ -27,10 +66,20 @@ var acyclicGraph: Graph {
     graph.insert(Edge(from: "5", toward: "6", weight: 1))
     graph.insert(Edge(from: "6", toward: "3", weight: 1))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isCyclic: false,
+        isEmpty: false,
+        isTree: true,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var cyclicGraph: Graph {
+var cyclicGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "1", toward: "2", weight: 1))
@@ -41,10 +90,20 @@ var cyclicGraph: Graph {
     graph.insert(Edge(from: "6", toward: "3", weight: 1))
     graph.insert(Edge(from: "6", toward: "4", weight: 1))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isCyclic: true,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var weightedGraph: Graph {
+var weightedGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1))
@@ -64,10 +123,19 @@ var weightedGraph: Graph {
     graph.insert(Edge(from: "i", toward: "j", weight: 13))
     graph.insert(Edge(from: "j", toward: "k", weight: 5))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isEmpty: false,
+        isTree: true,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var connectedGraph: Graph {
+var connectedGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -77,10 +145,19 @@ var connectedGraph: Graph {
     graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var disconnectedGraphNoOutlierVertex: Graph {
+var disconnectedGraphNoOutlierVertex: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -88,10 +165,19 @@ var disconnectedGraphNoOutlierVertex: Graph {
     graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: false,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var disconnectedGraphOutlierVertex: Graph {
+var disconnectedGraphOutlierVertex: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -101,10 +187,19 @@ var disconnectedGraphOutlierVertex: Graph {
     graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
     graph.insert("z")
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: false,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var bipartiteGraph: Graph {
+var bipartiteGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -114,10 +209,20 @@ var bipartiteGraph: Graph {
     graph.insert(Edge(from: "e", toward: "f", weight: 1.0))
     graph.insert(Edge(from: "f", toward: "a", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isBipartite: true,
+        isConnected: true,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var nonBipartiteGraph: Graph {
+var nonBipartiteGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -126,10 +231,20 @@ var nonBipartiteGraph: Graph {
     graph.insert(Edge(from: "d", toward: "e", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "a", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isBipartite: false,
+        isConnected: true,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var nonBipartiteGraphWithBipartiteCycle: Graph {
+var nonBipartiteGraphWithBipartiteCycle: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -145,10 +260,20 @@ var nonBipartiteGraphWithBipartiteCycle: Graph {
     graph.insert(Edge(from: "y", toward: "z", weight: 1.0))
     graph.insert(Edge(from: "z", toward: "v", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isBipartite: false,
+        isConnected: false,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var treeGraph: Graph {
+var treeGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -159,10 +284,20 @@ var treeGraph: Graph {
     graph.insert(Edge(from: "e", toward: "g", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "h", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isCyclic: false,
+        isEmpty: false,
+        isTree: true,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }
 
-var notTreeGraph: Graph {
+var notTreeGraph: TestableGraph {
+    // Create Graph
     let graph: Graph = .init()
 
     graph.insert(Edge(from: "a", toward: "b", weight: 1.0))
@@ -174,5 +309,14 @@ var notTreeGraph: Graph {
     graph.insert(Edge(from: "f", toward: "e", weight: 1.0))
     graph.insert(Edge(from: "e", toward: "d", weight: 1.0))
 
-    return graph
+    // Create Expected Graph Results
+    let expectedResults: TestingGraphResults = .init(
+        isConnected: true,
+        isCyclic: true,
+        isEmpty: false,
+        isTree: false,
+        isTrivial: false
+    )
+
+    return TestableGraph(graph: graph, expectedResults: expectedResults)
 }

@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E64B2BAFF37200856696 /* EdgeStyle.swift */; };
 		AB11E65F2BB2898D00856696 /* HelpTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E65E2BB2898D00856696 /* HelpTip.swift */; };
-		AB2763A92AC6840D007F3812 /* BipartiteGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763A82AC6840D007F3812 /* BipartiteGraphTests.swift */; };
-		AB2763AB2AC6C4F3007F3812 /* TreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2763AA2AC6C4F3007F3812 /* TreeTests.swift */; };
+		AB2DE15C2C1CE70B0057E80F /* GraphSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* GraphSamples.swift */; };
+		AB2DE15F2C1CE75C0057E80F /* GraphSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2DE15E2C1CE7570057E80F /* GraphSamples.swift */; };
+		AB2DE1612C1D00180057E80F /* TestTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2DE1602C1D00180057E80F /* TestTags.swift */; };
 		AB4BA6CC2ACA8BCF00783897 /* GraphVizGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4BA6CB2ACA8BCF00783897 /* GraphVizGenerator.swift */; };
 		AB510F342A8A91C800B76121 /* LineosaurApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F332A8A91C800B76121 /* LineosaurApp.swift */; };
 		AB510F362A8A91C800B76121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F352A8A91C800B76121 /* ContentView.swift */; };
@@ -21,33 +22,25 @@
 		AB510F6B2A8A92CD00B76121 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB510F6A2A8A92CD00B76121 /* TableView.swift */; };
 		AB55B1152A99B20900928D09 /* TableViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB55B1142A99B20900928D09 /* TableViewer.swift */; };
 		AB57AAD52ADC969F000E31D4 /* GraphProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57AAD42ADC969F000E31D4 /* GraphProperties.swift */; };
-		AB6BB0D72AB6859E0009D5F2 /* EmptyGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6BB0D62AB6859E0009D5F2 /* EmptyGraphTests.swift */; };
-		AB6D565E2ABBDC5E005415F7 /* GraphTestSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6D565D2ABBDC5E005415F7 /* GraphTestSamples.swift */; };
 		AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */; };
 		AB76A9622A99A448007DE536 /* EdgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9612A99A448007DE536 /* EdgeView.swift */; };
 		AB76A9682A99A620007DE536 /* VertexList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9672A99A620007DE536 /* VertexList.swift */; };
 		AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76A9692A99A645007DE536 /* EdgeList.swift */; };
 		AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4A2ABADFF100B1B2CC /* Edge.swift */; };
-		AB8BFA4D2ABAE04D00B1B2CC /* GraphSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* GraphSamples.swift */; };
 		AB9F12832BA92D020089CB90 /* CloseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F12822BA92D020089CB90 /* CloseButtonView.swift */; };
 		ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA988E62B71570400CEDC9C /* GraphSelector.swift */; };
 		ABAE8EB92A9C60540019F1D7 /* GraphEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE8EB82A9C60540019F1D7 /* GraphEditor.swift */; };
 		ABAF3D4C2AC757F600B23F64 /* GraphViz.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */; };
 		ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */; };
 		ABAF3D512AC8ECDA00B23F64 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAF3D502AC8ECDA00B23F64 /* Settings.swift */; };
-		ABB518502ABD70E400CB4B98 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5184F2ABD70E400CB4B98 /* GraphTests.swift */; };
+		ABB518502ABD70E400CB4B98 /* Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5184F2ABD70E400CB4B98 /* Traits.swift */; };
 		ABB518522ABD75DB00CB4B98 /* EdgeCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */; };
 		ABC6D0292BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
 		ABC6D02A2BE333EC00AA4F8F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */; };
-		ABC87FEB2AC4C97B00EEA68A /* GraphConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */; };
 		ABE3AAE32C18EF59001B548F /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAE22C18EF51001B548F /* Bundle.swift */; };
 		ABE3AAE72C18FB33001B548F /* TutorialData.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE3AAE62C18FB2D001B548F /* TutorialData.json */; };
 		ABE3AAE92C1AAE33001B548F /* VertexSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAE82C1AAE33001B548F /* VertexSelector.swift */; };
-		ABEEF2562AB1902B004C9429 /* UndirectedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */; };
-		ABEEF2582AB19043004C9429 /* WeightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */; };
-		ABEEF25A2AB19050004C9429 /* UnweightedGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */; };
-		ABEEF25C2AB1905E004C9429 /* CyclicGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25B2AB1905E004C9429 /* CyclicGraphTests.swift */; };
-		ABEEF25E2AB19073004C9429 /* AcyclicGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEEF25D2AB19073004C9429 /* AcyclicGraphTests.swift */; };
+		ABE3AAEE2C1AD056001B548F /* TestableGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE3AAEA2C1ACBBA001B548F /* TestableGraph.swift */; };
 		ABEF8D032B8C63C1009EA940 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF8D022B8C63C1009EA940 /* Tutorial.swift */; };
 		ABFA48962BFEEFD700DB9881 /* .periphery.yml in Resources */ = {isa = PBXBuildFile; fileRef = ABFA48952BFEEFD700DB9881 /* .periphery.yml */; };
 /* End PBXBuildFile section */
@@ -65,8 +58,8 @@
 /* Begin PBXFileReference section */
 		AB11E64B2BAFF37200856696 /* EdgeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeStyle.swift; sourceTree = "<group>"; };
 		AB11E65E2BB2898D00856696 /* HelpTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTip.swift; sourceTree = "<group>"; };
-		AB2763A82AC6840D007F3812 /* BipartiteGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BipartiteGraphTests.swift; sourceTree = "<group>"; };
-		AB2763AA2AC6C4F3007F3812 /* TreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTests.swift; sourceTree = "<group>"; };
+		AB2DE15E2C1CE7570057E80F /* GraphSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSamples.swift; sourceTree = "<group>"; };
+		AB2DE1602C1D00180057E80F /* TestTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTags.swift; sourceTree = "<group>"; };
 		AB4BA6CB2ACA8BCF00783897 /* GraphVizGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVizGenerator.swift; sourceTree = "<group>"; };
 		AB510F302A8A91C800B76121 /* Lineosaur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lineosaur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB510F332A8A91C800B76121 /* LineosaurApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineosaurApp.swift; sourceTree = "<group>"; };
@@ -80,8 +73,6 @@
 		AB510F6A2A8A92CD00B76121 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		AB55B1142A99B20900928D09 /* TableViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewer.swift; sourceTree = "<group>"; };
 		AB57AAD42ADC969F000E31D4 /* GraphProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphProperties.swift; sourceTree = "<group>"; };
-		AB6BB0D62AB6859E0009D5F2 /* EmptyGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGraphTests.swift; sourceTree = "<group>"; };
-		AB6D565D2ABBDC5E005415F7 /* GraphTestSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTestSamples.swift; sourceTree = "<group>"; };
 		AB6E1DAF2AB0030400DD2A7A /* GraphFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphFacts.swift; sourceTree = "<group>"; };
 		AB76A9612A99A448007DE536 /* EdgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeView.swift; sourceTree = "<group>"; };
 		AB76A9672A99A620007DE536 /* VertexList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexList.swift; sourceTree = "<group>"; };
@@ -95,19 +86,14 @@
 		ABAF3D4B2AC757F600B23F64 /* GraphViz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViz.swift; sourceTree = "<group>"; };
 		ABAF3D4D2AC767BF00B23F64 /* GraphVizViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVizViewer.swift; sourceTree = "<group>"; };
 		ABAF3D502AC8ECDA00B23F64 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		ABB5184F2ABD70E400CB4B98 /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
+		ABB5184F2ABD70E400CB4B98 /* Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traits.swift; sourceTree = "<group>"; };
 		ABB518512ABD75DB00CB4B98 /* EdgeCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCreator.swift; sourceTree = "<group>"; };
 		ABB518572ABE5F8D00CB4B98 /* Lineosaur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lineosaur-Info.plist"; sourceTree = SOURCE_ROOT; };
 		ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConnectivityTests.swift; sourceTree = "<group>"; };
 		ABE3AAE22C18EF51001B548F /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		ABE3AAE62C18FB2D001B548F /* TutorialData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TutorialData.json; sourceTree = "<group>"; };
 		ABE3AAE82C1AAE33001B548F /* VertexSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexSelector.swift; sourceTree = "<group>"; };
-		ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndirectedGraphTests.swift; sourceTree = "<group>"; };
-		ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedGraphTests.swift; sourceTree = "<group>"; };
-		ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnweightedGraphTests.swift; sourceTree = "<group>"; };
-		ABEEF25B2AB1905E004C9429 /* CyclicGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclicGraphTests.swift; sourceTree = "<group>"; };
-		ABEEF25D2AB19073004C9429 /* AcyclicGraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcyclicGraphTests.swift; sourceTree = "<group>"; };
+		ABE3AAEA2C1ACBBA001B548F /* TestableGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableGraph.swift; sourceTree = "<group>"; };
 		ABEF8D022B8C63C1009EA940 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		ABFA48952BFEEFD700DB9881 /* .periphery.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .periphery.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +140,14 @@
 			name = "Container Views";
 			sourceTree = "<group>";
 		};
+		AB2DE15D2C1CE73E0057E80F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AB2DE15E2C1CE7570057E80F /* GraphSamples.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		AB4BA6CE2ACA8BEC00783897 /* GraphViz Generator */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +182,7 @@
 		AB510F322A8A91C800B76121 /* Lineosaur */ = {
 			isa = PBXGroup;
 			children = (
+				AB2DE15D2C1CE73E0057E80F /* Data */,
 				ABE3AAE12C18EF38001B548F /* Bundle */,
 				ABEF8D012B8C635F009EA940 /* Tutorial */,
 				AB8BFA4E2ABAE06F00B1B2CC /* Logic */,
@@ -212,6 +207,7 @@
 		AB510F462A8A91CA00B76121 /* LineosaurTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB2DE1602C1D00180057E80F /* TestTags.swift */,
 				AB8BFA4F2ABAE07D00B1B2CC /* Data */,
 				ABEEF2622AB1915B004C9429 /* Graph Tests */,
 			);
@@ -246,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8BFA4C2ABAE04D00B1B2CC /* GraphSamples.swift */,
+				ABE3AAEA2C1ACBBA001B548F /* TestableGraph.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -316,36 +313,10 @@
 			path = Bundle;
 			sourceTree = "<group>";
 		};
-		ABEEF2602AB190AD004C9429 /* Weight Graph Tests */ = {
-			isa = PBXGroup;
-			children = (
-				ABEEF2592AB19050004C9429 /* UnweightedGraphTests.swift */,
-				ABEEF2572AB19043004C9429 /* WeightedGraphTests.swift */,
-			);
-			path = "Weight Graph Tests";
-			sourceTree = "<group>";
-		};
-		ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */ = {
-			isa = PBXGroup;
-			children = (
-				ABEEF25D2AB19073004C9429 /* AcyclicGraphTests.swift */,
-				ABEEF25B2AB1905E004C9429 /* CyclicGraphTests.swift */,
-				ABEEF2552AB1902B004C9429 /* UndirectedGraphTests.swift */,
-			);
-			path = "Directed and Undirected Graphs";
-			sourceTree = "<group>";
-		};
 		ABEEF2622AB1915B004C9429 /* Graph Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AB2763A82AC6840D007F3812 /* BipartiteGraphTests.swift */,
-				ABC87FEA2AC4C97B00EEA68A /* GraphConnectivityTests.swift */,
-				AB6D565D2ABBDC5E005415F7 /* GraphTestSamples.swift */,
-				ABB5184F2ABD70E400CB4B98 /* GraphTests.swift */,
-				AB6BB0D62AB6859E0009D5F2 /* EmptyGraphTests.swift */,
-				AB2763AA2AC6C4F3007F3812 /* TreeTests.swift */,
-				ABEEF2612AB190D4004C9429 /* Directed and Undirected Graphs */,
-				ABEEF2602AB190AD004C9429 /* Weight Graph Tests */,
+				ABB5184F2ABD70E400CB4B98 /* Traits.swift */,
 			);
 			path = "Graph Tests";
 			sourceTree = "<group>";
@@ -495,6 +466,7 @@
 				AB510F362A8A91C800B76121 /* ContentView.swift in Sources */,
 				ABAF3D4E2AC767BF00B23F64 /* GraphVizViewer.swift in Sources */,
 				AB6E1DB02AB0030400DD2A7A /* GraphFacts.swift in Sources */,
+				AB2DE15F2C1CE75C0057E80F /* GraphSamples.swift in Sources */,
 				AB76A96A2A99A645007DE536 /* EdgeList.swift in Sources */,
 				AB8BFA4B2ABADFF100B1B2CC /* Edge.swift in Sources */,
 				ABA988E72B71570400CEDC9C /* GraphSelector.swift in Sources */,
@@ -516,7 +488,6 @@
 				AB11E65F2BB2898D00856696 /* HelpTip.swift in Sources */,
 				AB9F12832BA92D020089CB90 /* CloseButtonView.swift in Sources */,
 				AB510F652A8A928800B76121 /* Graph.swift in Sources */,
-				AB8BFA4D2ABAE04D00B1B2CC /* GraphSamples.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,17 +495,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABEEF2562AB1902B004C9429 /* UndirectedGraphTests.swift in Sources */,
-				ABC87FEB2AC4C97B00EEA68A /* GraphConnectivityTests.swift in Sources */,
-				AB2763AB2AC6C4F3007F3812 /* TreeTests.swift in Sources */,
-				ABB518502ABD70E400CB4B98 /* GraphTests.swift in Sources */,
-				ABEEF25C2AB1905E004C9429 /* CyclicGraphTests.swift in Sources */,
-				ABEEF25A2AB19050004C9429 /* UnweightedGraphTests.swift in Sources */,
-				ABEEF25E2AB19073004C9429 /* AcyclicGraphTests.swift in Sources */,
-				AB6BB0D72AB6859E0009D5F2 /* EmptyGraphTests.swift in Sources */,
-				AB2763A92AC6840D007F3812 /* BipartiteGraphTests.swift in Sources */,
-				ABEEF2582AB19043004C9429 /* WeightedGraphTests.swift in Sources */,
-				AB6D565E2ABBDC5E005415F7 /* GraphTestSamples.swift in Sources */,
+				ABE3AAEE2C1AD056001B548F /* TestableGraph.swift in Sources */,
+				AB2DE15C2C1CE70B0057E80F /* GraphSamples.swift in Sources */,
+				ABB518502ABD70E400CB4B98 /* Traits.swift in Sources */,
+				AB2DE1612C1D00180057E80F /* TestTags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

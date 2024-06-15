@@ -1,11 +1,20 @@
 //
-//  Graph Test Samples.swift
+//  Graph Samples.swift
+//  Lineosaur
 //
 //  Created by Dylan Conklin on 9/20/23.
 //
 
-@testable import Lineosaur
-import XCTest
+import Foundation
+
+var mixedIntAndDouble: Graph {
+    let graph: Graph = .init()
+
+    graph.insert(Edge(from: "A", toward: "B", weight: 1.0))
+    graph.insert(Edge(from: "B", toward: "C", weight: 1.5))
+
+    return graph
+}
 
 var acyclicGraph: Graph {
     let graph: Graph = .init()
