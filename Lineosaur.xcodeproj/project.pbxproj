@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB05DD892D93CA1300918BF0 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB05DD882D93CA1300918BF0 /* Behavior.swift */; };
 		AB11E64C2BAFF37200856696 /* EdgeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E64B2BAFF37200856696 /* EdgeStyle.swift */; };
 		AB11E65F2BB2898D00856696 /* HelpTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11E65E2BB2898D00856696 /* HelpTip.swift */; };
 		AB2DE15C2C1CE70B0057E80F /* GraphSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8BFA4C2ABAE04D00B1B2CC /* GraphSamples.swift */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB05DD872D93C96F00918BF0 /* Lineosaur.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Lineosaur.xctestplan; sourceTree = "<group>"; };
+		AB05DD882D93CA1300918BF0 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
 		AB11E64B2BAFF37200856696 /* EdgeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeStyle.swift; sourceTree = "<group>"; };
 		AB11E65E2BB2898D00856696 /* HelpTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTip.swift; sourceTree = "<group>"; };
 		AB2DE15E2C1CE7570057E80F /* GraphSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSamples.swift; sourceTree = "<group>"; };
@@ -177,6 +180,7 @@
 		AB510F272A8A91C800B76121 = {
 			isa = PBXGroup;
 			children = (
+				AB05DD872D93C96F00918BF0 /* Lineosaur.xctestplan */,
 				ABC6D0282BE333EC00AA4F8F /* .swiftlint.yml */,
 				ABFA48952BFEEFD700DB9881 /* .periphery.yml */,
 				AB8B740C2A8CD2A500CC4CE9 /* README.md */,
@@ -334,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				ABB5184F2ABD70E400CB4B98 /* Traits.swift */,
+				AB05DD882D93CA1300918BF0 /* Behavior.swift */,
 			);
 			path = "Graph Tests";
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE3AAEE2C1AD056001B548F /* TestableGraph.swift in Sources */,
+				AB05DD892D93CA1300918BF0 /* Behavior.swift in Sources */,
 				AB2DE15C2C1CE70B0057E80F /* GraphSamples.swift in Sources */,
 				ABB518502ABD70E400CB4B98 /* Traits.swift in Sources */,
 				AB2DE1612C1D00180057E80F /* TestTags.swift in Sources */,
