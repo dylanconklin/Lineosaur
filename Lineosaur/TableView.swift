@@ -85,10 +85,10 @@ struct TableView: View {
 }
 
 #Preview("Empty Graph") {
+    @Previewable @State var graphType: GraphType = .given
     do {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
-        @State var graphType: GraphType = .given
         return TableView(graph: Graph(), graphType: $graphType)
             .modelContainer(container)
     } catch {
@@ -97,10 +97,10 @@ struct TableView: View {
 }
 
 #Preview("Non-Empty Graph") {
+    @Previewable @State var graphType: GraphType = .given
     do {
         let config: ModelConfiguration = .init(isStoredInMemoryOnly: true)
         let container: ModelContainer = try .init(for: Graph.self, configurations: config)
-        @State var graphType: GraphType = .given
         return TableView(graph: graph2, graphType: $graphType)
             .modelContainer(container)
     } catch {
