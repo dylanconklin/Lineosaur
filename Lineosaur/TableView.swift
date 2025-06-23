@@ -58,21 +58,16 @@ struct TableView: View {
                 }
                 ForEach(graph.vertices.sorted(), id: \.self) { vertex2 in
                     var distance: String {
-                        var result: String = ""
-                        let distance: Double = graph.edges(
-                            from: vertex1,
-                            toward: vertex2,
-                            directional: graphType == .given
-                        )
-                        .min()?.weight ?? .infinity
-                        if vertex1 == vertex2 && distance == .infinity {
-                            result = "-"
-                        } else if distance == .infinity {
-                            result = "-"
-                        } else {
-                            result = String(distance)
-                        }
-                        return result
+                        graph.edges(from: vertex1, toward: vertex2).isEmpty ?
+                            "-" :
+                            String(
+                                graph.edges(
+                                    from: vertex1,
+                                    toward: vertex2,
+                                    directional: graphType == .given
+                                )
+                                .min()?.weight ?? .infinity
+                            )
                     }
                     Cell {
                         Text(distance)
