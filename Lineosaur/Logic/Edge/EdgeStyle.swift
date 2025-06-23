@@ -25,8 +25,10 @@ struct EdgeStyle: Codable {
             switch self {
             case .inverse:
                 return "Inverse"
+
             case .inverseCurve:
                 return "Inverse curve"
+
             default:
                 return rawValue.capitalized
             }
