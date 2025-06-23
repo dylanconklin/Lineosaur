@@ -25,42 +25,51 @@ extension Graph {
         }
 
         // https:quickchart.io/graphviz?format=png&graph=graph{a--b}
-        let directional: Bool = type == .given ? true : false
-        var result: String = "https://quickchart.io/graphviz?"
-        result.append("format=png&")
-        result.append("layout=\(compiler)&")
-        result.append("graph=\(directional ? "di" : "")graph")
-        result.append("{")
-        result.append("esep=50;")
-        result.append("rankdir=TB;") // Can also be LR, RL, or BT
-        result.append("sep=50;")
-        for vertex in graph.vertices {
-            result.append("\"\(vertex)\";")
-        }
-        for edge in graph.edges {
-            let edgeStyle: EdgeStyle = type == .mst ?
-                EdgeStyle(arrowhead: .plain, arrowtail: .plain) : graph.edgeStyles[edge.id, default: EdgeStyle()]
+        let directional: Bool = type == .given
+        return URL(
+            string: [
+                "https://quickchart.io/graphviz?",
+                "format=png&",
+                "layout=\(compiler)&",
+                "graph=\(directional ? "di" : "")graph",
+                "{",
+                "esep=50;",
+                "rankdir=TB;", // Can also be LR, RL, or BT
+                "sep=50;",
+                graph.vertices.map { vertex in "\"\(vertex)\";" }.joined(),
+                graph.edges.map { edge in
+                    let edgeStyle: EdgeStyle = type == .mst ?
+                        EdgeStyle(arrowhead: .plain, arrowtail: .plain) :
+                        graph.edgeStyles[edge.id, default: EdgeStyle()]
 
-            // Set to and from
-            result.append("\"\(edge.from)\"")
-            result.append("\(directional ? "->" : "--")")
-            result.append("\"\(edge.toward)\"")
+                    return [
+                        // Set to and from
+                        [
+                            "\"\(edge.from)\"",
+                            "\(directional ? "->" : "--")",
+                            "\"\(edge.toward)\""
+                        ].joined(),
 
-            // Begin options
-            result.append("[")
+                        // Begin options
+                        "[",
 
-            // Display weight
-            result.append("\(displayWeights ? "label=\(String(edge.weight))," : "")")
+                        // Display weight
+                        "\(displayWeights ? "label=\(String(edge.weight))," : "")",
 
-            // Arrows
-            result.append("dir=both,")
-            result.append("arrowhead=\(edgeStyle.arrowhead),")
-            result.append("arrowtail=\(edgeStyle.arrowtail),")
+                        // Arrows
+                        [
+                            "dir=both,",
+                            "arrowhead=\(edgeStyle.arrowhead),",
+                            "arrowtail=\(edgeStyle.arrowtail),"
+                        ].joined(),
 
-            // End options
-            result.append("];")
-        }
-        result.append("}")
-        return URL(string: result)
+                        // End options
+                        "];"
+                    ].joined()
+                }
+                .joined(),
+                "}"
+            ].joined()
+        )
     }
 }
