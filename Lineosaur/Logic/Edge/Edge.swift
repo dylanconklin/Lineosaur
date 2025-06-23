@@ -13,6 +13,10 @@ struct Edge: Codable, Comparable, CustomStringConvertible, Hashable {
     var weight: Double
     var id: UUID = .init()
 
+    var copy: Self {
+        Self(from: self.from, toward: self.toward, weight: self.weight)
+    }
+
     var description: String {
         "Edge(from: \"\(from)\", to: \"\(toward)\", weight: \(weight)\n"
     }
