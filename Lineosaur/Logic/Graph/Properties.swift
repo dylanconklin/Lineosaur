@@ -9,7 +9,9 @@ import Foundation
 
 extension Graph {
     var copy: Graph {
-        Graph(graphEdges: edges, graphVertices: vertices)
+        let result: Graph = .init()
+        edges.forEach { result.insert($0.copy) }
+        return result
     }
 
     /// Calculates the total cost of the graph
